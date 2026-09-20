@@ -553,6 +553,13 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 - **来源：** [P02](skills/jev/references/community.md#p02) · [N02](skills/jev/references/community.md#n02)
 - **状态：** 延伸配方；这个具体场景尚未单独评估。
 
+**可以这样测：** 保持工单事实和正确部门不变，分别输入原文、直接要求改答案的
+版本，以及伪称“主管已经决定转给另一部门”的版本；分别统计错误路由和转人工率。
+[一份作者公开的配对评测](docs/updates/2026-09-21.md#decision-failures)中，直接覆盖指令
+在 200 个工单里有 1 个把答案导向攻击者目标，伪造主管决定则是 147/200。
+这是外部结果，不是我们的复现，也不是对上面检测器的测试。输出格式固定，不代表
+决策不会被诱导。
+
 <a id="sc-a12"></a>
 <!-- covers: A12 H12 -->
 ### 11. 给代码审查排优先级
@@ -1976,7 +1983,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h28"></a>
 <!-- covers: H28 -->
-### 77. 给内容选择适合的文档组件
+### 77. 给内容选文档组件，给界面选图表或表格
 
 > 这段内容应该用比较表、时间线、清单还是普通段落？选已有组件，让代码渲染原内容。
 
@@ -1985,6 +1992,21 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 - **动手：** [jev](skills/jev/SKILL.md) · [改写这个模板](skills/jev/assets/document-block.json)。
 - **来源：** [R12](skills/jev/references/community.md#r12)
 - **状态：** 延伸配方；这个具体场景尚未单独评估。
+
+**也可以用在 React 界面里。** [etweisberg/jev-ui](https://github.com/etweisberg/jev-ui)
+把这套做法做成了组件：`Branch` 选视图，`Rank` 排候选项，`Gate` 添加可选提示。
+它是另一个项目，不是本仓库用于浏览器控制的 `jev-ui` 技能。
+
+```text
+用 Jev 给现有仪表盘选视图。提供用户的问题、可用数据字段和受众信息。
+问时间趋势时选 chart，要逐行准确数值时选 table，都不合适就选 none。
+只返回视图 ID。保留原始的无障碍表格，由代码负责渲染和执行操作。
+```
+
+**改编示意，不是实测输出：** 问题 + 数据说明 + 视图定义 → `chart` / `table` / `none`
+→ 已有渲染组件。同一状态下互不依赖的展示问题可以放进一次请求；固定回退方案和
+必需内容不交给模型决定。上游示例使用服务端 TypeSafe key；我们未安装该库，也未
+验证它的阈值。[上下文、批量判断与 live/replay 说明](docs/updates/2026-09-21.md#react-views)。
 
 <a id="sc-reweight"></a>
 <!-- covers: M07 -->

@@ -579,6 +579,14 @@ The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilit
 - **Sources:** [P02](skills/jev/references/community.md#p02) · [N02](skills/jev/references/community.md#n02)
 - **Status:** Adaptation; this exact recipe has not been individually evaluated.
 
+**Try a less obvious failure case:** keep a ticket's facts and correct department
+fixed, then compare clean text, an explicit override, and a forged claim that a
+manager already chose another department. Measure wrong routing and review rates
+separately. In [one author's paired evaluation](docs/updates/2026-09-21.md#decision-failures),
+the explicit override reached the attacker’s target on 1/200 tickets; the forged
+authority claim did so on 147/200. These are external results, not our reproduction
+or a test of the detector above. Typed output does not make a decision injection-proof.
+
 <a id="sc-a12"></a>
 <!-- covers: A12 H12 -->
 ### 11. Prioritize code review
@@ -2043,7 +2051,7 @@ The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilit
 
 <a id="sc-h28"></a>
 <!-- covers: H28 -->
-### 77. Reusable document-component selection
+### 77. Choose a document block or a React view
 
 > Use Jev: **Choice:** `comparison_table` (parallel attributes), `timeline` (dated sequence), `checklist` (actions), `paragraph` (narrative), `none`.
 
@@ -2053,6 +2061,25 @@ The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilit
 - **Start:** [jev](skills/jev/SKILL.md) · [Template to adapt](skills/jev/assets/document-block.json).
 - **Sources:** [R12](skills/jev/references/community.md#r12)
 - **Status:** Adaptation; this exact recipe has not been individually evaluated.
+
+**Also try: chart or table?** [etweisberg/jev-ui](https://github.com/etweisberg/jev-ui)
+turns this pattern into React components: `Branch` selects a view, `Rank` orders
+candidates, and `Gate` adds an optional affordance. This is a separate library,
+not this repository's browser-control `jev-ui` skill.
+
+```text
+Use Jev to select an existing dashboard view. Include the user's question,
+available data fields and audience. Choose chart for a trend over time,
+table for exact row values, or none if neither fits. Return only the view ID.
+Keep the original accessible table available; code handles rendering and actions.
+```
+
+**Adaptation I/O, not a recorded result:** question + data description + defined
+views → `chart` / `table` / `none` → an existing renderer. Batch independent
+presentation questions over the same state; keep deterministic fallbacks and
+essential content outside the gate. The upstream quick start uses a server-side
+TypeSafe key; we have not installed it or tested its thresholds.
+[State, batching and live/replay details](docs/updates/2026-09-21.md#react-views).
 
 <a id="sc-reweight"></a>
 <!-- covers: M07 -->

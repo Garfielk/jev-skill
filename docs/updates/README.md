@@ -5,6 +5,7 @@ Newly collected does not necessarily mean newly published.
 
 | Collected | Added or expanded |
 |---|---|
+| [September 21, 2026](2026-09-21.md) | Existing scenarios expanded: React view selection and paired adversarial-routing tests. No new scenario count or release. |
 | [September 20, 2026](2026-09-20.md) | Semantic find, sponsor segments, story sensors, MIDI composition, local-model comparisons; parallel job filtering and a Tetris baseline. |
 
 ## What belongs here
