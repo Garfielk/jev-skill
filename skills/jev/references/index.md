@@ -38,8 +38,9 @@ The recipe files distinguish **official examples**, **community-reported use**,
 a reproduced benchmark; a GitHub README is not an execution receipt. Follow the
 source IDs to [community evidence](community.md), including failures and limitations.
 
-The README provides task-based starting points; detailed recipes live here rather
-than in the main skill prompt. Do not
+The README displays the full task-based collection, including these 56 recipes
+and additional implementation/community uses. These reference files retain the
+technical contracts and provenance without expanding the main skill prompt. Do not
 load every recipe for a single decision. A good recipe names the observation,
 the question, the output, the next consumer, and the failure condition.
 

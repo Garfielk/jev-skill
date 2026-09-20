@@ -8,7 +8,7 @@ None substitutes for the others.
 - Python unit tests exercise input validation, probability/abstention handling,
   secret-safe errors, transport failures, CLI exit codes, and the independent
   simulator. Run `python3 -m unittest discover -s tests -v`.
-- All **73 unit tests** passed, including eight isolated scenario-folder dry runs
+- All **75 unit tests** passed, including eight isolated scenario-folder dry runs
   with the network patched out and no sibling `jev` skill present.
 - All **nine skill entrypoints** passed the bundled skill validator;
   `npx skills add . --list` discovered all nine.
@@ -22,7 +22,10 @@ None substitutes for the others.
   copied location (**16 installed-example dry runs**). The source distribution
   was checked for all nine skills and eight scenario assets.
 - Checked local documentation links and matching EN/ZH navigation anchors; both
-  READMEs have 14 scenario blocks. Publication text was scanned for the active
+  READMEs have 85 scenario/integration blocks covering all 56 recipe IDs,
+  22 implementation patterns and seven X workflow leads. Tests verify that
+  all 14 displayed API outputs match the saved receipts exactly (apart from
+  omitted score-level descriptions). Publication text was scanned for the active
   environment key without displaying it; no occurrences were found.
 
 These establish packaging and skill discovery through the installer, **not native
