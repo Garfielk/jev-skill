@@ -7,6 +7,20 @@ Jev 负责选择、分类和评分，agent 负责提供上下文和执行。
 
 [English](README.md) · [安装](docs/installation.md) · [社区项目](skills/jev/references/ecosystem.md) · [方法与来源](skills/jev/references/index.md)
 
+## 安装：复制给你的 Agent
+
+把下面这段话发给 **Codex、Claude Code 或 OpenCode**：
+
+```text
+帮我给当前 Agent 安装 Jev Skills，包括通用技能和全部场景技能。请读取并按照这份安装指南操作，完成后验证安装是否成功：
+https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md
+```
+
+Agent 会检查环境，默认安装到当前项目，并完成离线验证。
+你不用自己运行命令；只需处理必要的授权，以及在本地配置 `OPENROUTER_API_KEY`，不要把密钥发进聊天。
+不需要 Vercel 账号；Node/npm 也不是默认安装方式的依赖。
+[Agent 安装指南](docs/install.md) · [手动安装与排错](docs/installation.md)
+
 ## 全部场景，都在这里
 
 这里展开 **85 个场景与接入用法**：覆盖此前 56 条 agent / 人工配方、22 种连接方法，
@@ -29,20 +43,6 @@ Jev 负责选择、分类和评分，agent 负责提供上下文和执行。
 - [数据、检索与开发工具](#data) — 12 个
 - [想法、游戏与创作](#creative) — 10 个
 - [制作与接入自己的工具](#building) — 3 个
-
-### 安装
-需要 Python 3.10+、[uv](https://docs.astral.sh/uv/) 和 Node/npm。
-
-```bash
-uv tool install git+https://github.com/wuyoscar/jev-skill.git@v0.1.0
-npx skills add wuyoscar/jev-skill --skill jev-triage
-export OPENROUTER_API_KEY="your-key"
-```
-
-安装器中选择 Codex、Claude Code 或 OpenCode。把 `jev-triage` 换成下文需要的技能，
-然后复制对应场景的提示词，让 agent 使用它。自己直接用也可以：下载并修改 JSON，
-运行 `jev-decide decide request.json --dry-run` 免费校验，去掉 `--dry-run` 就会真实调用（产生费用）。
-[其他安装方式](docs/installation.md)。
 
 ### 怎么读例子
 

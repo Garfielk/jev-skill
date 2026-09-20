@@ -21,6 +21,20 @@ SCENARIOS = (
 
 
 class SkillCatalogTests(unittest.TestCase):
+    def test_agent_first_installation_entrypoint(self):
+        guide_url = "https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md"
+        for filename in ("README.md", "README.zh.md"):
+            text = (ROOT / filename).read_text()
+            first_block = re.search(r"```(\w*)\n(.*?)\n```", text, re.S)
+            self.assertEqual(first_block.group(1), "text")
+            self.assertIn(guide_url, first_block.group(2))
+            self.assertLess(text.index(guide_url), text.index('id="agent"'))
+        guide = (ROOT / "docs/install.md").read_text()
+        for name in ("jev", *SCENARIOS):
+            self.assertIn(f"`{name}`", guide)
+        for requirement in ("OPENROUTER_API_KEY", "--dry-run", "v0.1.0"):
+            self.assertIn(requirement, guide)
+
     def test_scenario_entrypoints_and_examples(self):
         for name in SCENARIOS:
             with self.subTest(skill=name):

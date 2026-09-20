@@ -1,4 +1,8 @@
-# Installation and host compatibility
+# Manual installation and host compatibility
+
+**Prefer to let your agent install it?** Copy the prompt from the
+[agent installation guide](install.md). The direct-copy route needs no Node/npm.
+The commands below are optional manual alternatives, not steps every user must run.
 
 ## Pick the surface you need
 
@@ -11,7 +15,7 @@
   project from the [ecosystem guide](../skills/jev/references/ecosystem.md).
   Installing our skills does not install those projects or their tools.
 
-## Install from GitHub
+## Optional package-tool and skills-installer route
 
 ```bash
 uv tool install git+https://github.com/wuyoscar/jev-skill.git@v0.1.0

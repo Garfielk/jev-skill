@@ -8,7 +8,7 @@ None substitutes for the others.
 - Python unit tests exercise input validation, probability/abstention handling,
   secret-safe errors, transport failures, CLI exit codes, and the independent
   simulator. Run `python3 -m unittest discover -s tests -v`.
-- All **75 unit tests** passed, including eight isolated scenario-folder dry runs
+- All **76 unit tests** passed, including eight isolated scenario-folder dry runs
   with the network patched out and no sibling `jev` skill present.
 - All **nine skill entrypoints** passed the bundled skill validator;
   `npx skills add . --list` discovered all nine.
@@ -32,6 +32,24 @@ These establish packaging and skill discovery through the installer, **not nativ
 end-to-end execution inside all three clients**. An independent skill-following
 review also prepared a valid dry-run request for a reading-only browser task and
 a queued-job completion check. It did not execute a browser or use a model API.
+
+## Agent-first installation guide
+
+The README now starts with a copyable message linking to `docs/install.md`.
+The guide pins runtime/source to v0.1.0 and uses direct folder copying by default;
+`npx skills` remains an optional manual route. This entrypoint pattern was checked
+against the original [Agent Reach guide](https://github.com/Panniantong/Agent-Reach/blob/main/docs/install.md)
+and [oh-my-openagent guide](https://github.com/code-yeongyu/oh-my-openagent/blob/dev/docs/guide/installation.md),
+without installing either project.
+
+A fresh temporary-directory check cloned the pinned release, installed its CLI
+with isolated uv tool/bin directories, and copied all nine folders to simulated
+Codex, Claude Code and OpenCode project-local destinations. All **27 copied-skill
+dry runs passed** with `OPENROUTER_API_KEY` removed. Existing destinations were
+detected before a second copy. No Node/npm installer, paid API call, actual user
+skill directory or host configuration was involved. These checks validate the
+written installation procedure, not autonomous instruction-following by another
+agent or native invocation inside all three clients.
 
 ## Live Jev examples
 

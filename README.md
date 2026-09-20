@@ -8,6 +8,21 @@ work. Use it inside an agent, or as a tool for your own messages, documents and 
 
 [中文](README.zh.md) · [Install](docs/installation.md) · [Community projects](skills/jev/references/ecosystem.md) · [Methods and sources](skills/jev/references/index.md)
 
+## Install: give this to your agent
+
+Paste this into **Codex, Claude Code or OpenCode**:
+
+```text
+Install Jev Skills for my current agent, including the general skill and all scenario skills. Read and follow this installation guide, then verify the installation:
+https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md
+```
+
+Your agent checks the environment, installs into the current project by default,
+and verifies the installation offline. You do not need to run commands yourself;
+handle any required approvals and set `OPENROUTER_API_KEY` locally, never in chat.
+No Vercel account is needed; Node/npm is not required by the default install route.
+[Agent installation guide](docs/install.md) · [Manual installation and troubleshooting](docs/installation.md)
+
 ## The full collection
 
 **85 scenarios and integration uses**, covering the earlier 56 agent/human recipes,
@@ -33,20 +48,6 @@ not complete applications for every scenario; measured inputs are labeled separa
 - [Data, search and developer workflows](#data) — 12 uses
 - [Ideas, games and creative tools](#creative) — 10 uses
 - [Build and connect your own tools](#building) — 3 uses
-
-### Install
-Python 3.10+, [uv](https://docs.astral.sh/uv/) and Node/npm are needed for this route.
-
-```bash
-uv tool install git+https://github.com/wuyoscar/jev-skill.git@v0.1.0
-npx skills add wuyoscar/jev-skill --skill jev-triage
-export OPENROUTER_API_KEY="your-key"
-```
-
-Choose Codex, Claude Code or OpenCode in the installer. Replace `jev-triage` with
-the skill you want below, then copy a task prompt into your agent. For manual use,
-download/edit an example and run `jev-decide decide request.json --dry-run` to
-validate it for free; remove `--dry-run` to call Jev (paid). [Installation options](docs/installation.md).
 
 ### Reading the examples
 
