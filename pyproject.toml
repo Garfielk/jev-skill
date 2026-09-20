@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "jev-skill"
 version = "0.1.0"
-description = "Jev decision recipes, an agent skill, and a dependency-free OpenRouter CLI"
+description = "Practical Jev recipes, focused agent skills, and a dependency-free OpenRouter CLI"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"

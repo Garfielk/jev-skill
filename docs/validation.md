@@ -8,17 +8,22 @@ None substitutes for the others.
 - Python unit tests exercise input validation, probability/abstention handling,
   secret-safe errors, transport failures, CLI exit codes, and the independent
   simulator. Run `python3 -m unittest discover -s tests -v`.
-- Skill frontmatter passed the bundled skill validator; `npx skills add . --list`
-  discovered the `jev` skill.
+- All **73 unit tests** passed, including eight isolated scenario-folder dry runs
+  with the network patched out and no sibling `jev` skill present.
+- All **nine skill entrypoints** passed the bundled skill validator;
+  `npx skills add . --list` discovered all nine.
 - An isolated project-local installer test targeted Codex, Claude Code and
-  OpenCode. The installer copied the shared `.agents/skills/jev` and Claude's
-  `.claude/skills/jev`; OpenCode can discover the shared `.agents` location.
-- The copied script successfully validated a bundled example without a key or
-API call. No user's existing host configuration or global skill was overwritten.
+  OpenCode. The installer copied all nine folders to shared `.agents/skills/` and
+  Claude's `.claude/skills/`; OpenCode can discover the shared `.agents` location.
+- The copied general-skill script validated the new voice example in both locations
+  without a key or API call. No existing host configuration or global skill was overwritten.
 - Built wheel and source distribution; installed the wheel in a fresh temporary
-  Python environment and ran CLI help, `classify --dry-run`, and `decide --dry-run`.
-- Checked local documentation links and scanned publication files for the active
-  environment key; no broken file links or key occurrences were found.
+  Python environment. CLI help and all eight scenario examples passed in each
+  copied location (**16 installed-example dry runs**). The source distribution
+  was checked for all nine skills and eight scenario assets.
+- Checked local documentation links and matching EN/ZH navigation anchors; both
+  READMEs have 14 scenario blocks. Publication text was scanned for the active
+  environment key without displaying it; no occurrences were found.
 
 These establish packaging and skill discovery through the installer, **not native
 end-to-end execution inside all three clients**. An independent skill-following
@@ -42,6 +47,15 @@ endpoint, resolving to `typesafe/jev-1.13-20260917`.
 model identifiers, usage and latency. Reported combined cost was **$0.000105714**;
 per-request wall time was approximately **0.31–0.52 seconds** in these calls.
 These are small, hand-authored API smoke examples, not an accuracy or speed benchmark.
+
+## New scenario API examples
+
+The eight focused examples plus speaker/style selection were each called once
+through OpenRouter: **nine protocol-valid responses, 16 questions, no retries**.
+Provider-reported combined cost was **$0.000188034**, with observed per-call wall
+time **0.297–0.363 seconds**. These use synthetic input and execute no host actions.
+The [result table and reproduction commands](../evals/SCENARIO_EXAMPLES.md) link
+to full request/response receipts. They are not scenario accuracy measurements.
 
 ## Agent comparison
 

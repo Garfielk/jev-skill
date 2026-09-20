@@ -1,5 +1,8 @@
 # Community evidence ledger
 
+For a task-based comparison of MCP, browser/desktop, routing, context, code-review
+and playground projects, see the [pinned ecosystem guide](ecosystem.md).
+
 Research snapshot: **2026-09-20**. These are sources for recipes, not endorsements or a claim that this skill reproduces another project's results. Jev was newly released; most public evidence is small, developer-run, and rapidly changing. Reddit dates below come from indexed post dates; cached relative timestamps can disagree.
 
 ## Evidence vocabulary

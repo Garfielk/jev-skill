@@ -1,0 +1,51 @@
+---
+name: jev-documents
+description: Use for selecting original source spans, reranking supplied passages or checking claims against documents. Keeps citations and no-match outcomes; does not invent missing facts.
+---
+
+# Find and verify information in documents
+
+## Prerequisite and first example
+
+Use the shared `jev-decide` CLI (Python 3.10+), installed from the reviewed
+`jev-skill` package. If unavailable, explain the missing dependency rather than
+silently installing software. The agent process must inherit
+`OPENROUTER_API_KEY`; never place the key in a prompt or request file.
+No sibling skill or third-party integration is required for this judgment.
+Actual UI, file, mailbox or simulation actions require the host's own tools.
+
+Resolve `<skill-dir>` to this installed folder. Copy and edit
+[assets/example.json](assets/example.json) for the user's task; it is synthetic
+input, not a captured successful result. Validate it without a key or API call:
+
+```bash
+jev-decide decide <skill-dir>/assets/example.json --dry-run
+# After reviewing the input and authorization to send it to OpenRouter:
+jev-decide decide /path/to/edited-request.json
+```
+
+Normal calls send the supplied evidence to OpenRouter and its provider and incur
+usage. Read relevant answers, not only the exit code: `0` means selected/scored,
+`2` means review, `1` means error. A confidently false Noul is still false;
+selection is not permission. Unknown, missing or conflicting evidence needs a
+fallback. Test thresholds on the user's task rather than assuming 0.9 is safe.
+
+## Workflow
+
+1. Read the authorized source and retain document/page/line identifiers. Have parsers or regex produce exact candidate spans when possible.
+2. Define the requested role precisely: invoice destination is not any email address. Include none when no candidate fits.
+3. Use independent relevance questions when ranking all passages; winning a relative Choice does not establish an answer exists.
+4. Copy the original span selected by ID. Do not ask Jev to synthesize the extracted field or fabricate a quotation.
+5. Check each claim against its cited evidence separately. Report unsupported/contradicted statements and preserve source links for human checking.
+
+## Make it yours
+
+Replace the example's evidence, candidate IDs and criteria together. Preserve a
+no-match route when the real task can fall outside the labels. Agree on how the
+host or person consumes each answer before enabling any automatic effect.
+
+## Precedent
+
+[Related project or author example](https://github.com/jkudish/jev-mcp). Our workflow is an adaptation,
+not that project's code, an automatic installer, or a reproduced benchmark.
+[OpenRouter request contract](https://openrouter.ai/docs/api/api-reference/alphadecisions/submit-a-decisions-questions-and-answers-request).

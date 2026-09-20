@@ -15,6 +15,7 @@ an exact preset.
 | Situation | Reference | Useful judgment |
 |---|---|---|
 | New domain, custom criteria, rubric or personal policy | [Customization](customization.md) | Define the evidence, answer space and downstream consumer |
+| Choose between community projects, MCP tools and host integrations | [Ecosystem guide](ecosystem.md) | Match task, prerequisites and evidence status |
 | Need a concrete connection pattern | [Implementation patterns](implementation-patterns.md) | Select spans, recover structure, traverse graphs, build features, validate or annotate |
 | Creative loops, adaptive UI or X/Twitter examples | [X workflows](twitter-workflows.md) | Compose world design, bounded decisions and rendering; customize forms, rubrics and personal policies |
 | Website tools, context-pressure policies, strategy/action split, conversation or TTS | [29-post X intake](x-intake-2026-09-20.md) | Follow original posts, documentation checks and transferable connection methods |
@@ -37,7 +38,8 @@ The recipe files distinguish **official examples**, **community-reported use**,
 a reproduced benchmark; a GitHub README is not an execution receipt. Follow the
 source IDs to [community evidence](community.md), including failures and limitations.
 
-The full catalog belongs here, not in the main skill prompt or README. Do not
+The README provides task-based starting points; detailed recipes live here rather
+than in the main skill prompt. Do not
 load every recipe for a single decision. A good recipe names the observation,
 the question, the output, the next consumer, and the failure condition.
 
