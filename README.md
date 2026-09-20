@@ -23,6 +23,20 @@ handle any required approvals and set `OPENROUTER_API_KEY` locally, never in cha
 No Vercel account is needed; Node/npm is not required by the default install route.
 [Agent installation guide](docs/install.md) · [Manual installation and troubleshooting](docs/installation.md)
 
+## Two habits that make Jev useful
+
+- **Give it enough context.** Include the goal, rules, source evidence, relevant
+  history and candidate meanings. Jev does not inherit your agent's conversation.
+  Keep the question narrow, not the evidence artificially tiny.
+- **Parallelize independent judgments.** Ask several questions over one shared
+  state in one request; run independent requests with bounded host concurrency.
+  This is especially useful for replacing serial LLM classification, scoring and
+  routing in large jobs. Dependent steps still need fresh state; Jev does not
+  replace open-ended planning or text generation.
+
+All nine skills teach these rules. [Context and throughput guide](skills/jev/references/context-and-throughput.md)
+· [Two-record, six-question template](skills/jev/assets/batch-triage.json) (synthetic, not a measured result).
+
 ## The full collection
 
 **85 scenarios and integration uses**, covering the earlier 56 agent/human recipes,

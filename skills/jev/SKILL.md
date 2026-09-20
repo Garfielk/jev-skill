@@ -1,6 +1,6 @@
 ---
 name: jev
-description: Use TypeSafe Jev through OpenRouter for customizable typed judgments rather than generated prose. Define questions, candidate choices, semantic checks or rubrics for the user's task. Reach for it at ambiguous agent checkpoints (goal drift, repeated failures, next-tool routing, unsupported completion claims), browser state decisions, or human classification, triage, scoring, and rubric review. Use deterministic code for exact rules or arithmetic; Jev is advisory, not an authorization or security boundary.
+description: Use TypeSafe Jev through OpenRouter for context-rich typed judgments rather than generated prose, especially high-volume classification, scoring and routing with parallel independent decisions. Define questions, choices or rubrics for ambiguous agent checkpoints (goal drift, repeated failures, tool routing, completion claims), browser states or human review. Supply sufficient relevant context in every request and batch independent questions. Use code for exact rules or arithmetic; Jev is advisory, not an authorization or security boundary.
 license: MIT
 metadata:
   requirements: Python 3.10+, network access to OpenRouter, and OPENROUTER_API_KEY in the calling process. API calls incur charges. No MCP server required.
@@ -15,6 +15,44 @@ the result. It does not browse, generate prose, or remember earlier requests.
 The recipe library is inspiration, **not a fixed menu of supported functions**.
 Customize the evidence, questions, criteria and next consumer for the user’s task.
 This changes the decision interface and workflow, not the model weights.
+
+## Context first
+
+**Give Jev enough context to make the decision, not just a short question.** It
+does not inherit the host agent's conversation or previous Jev requests. Each
+`state` must contain the relevant goal, acceptance criteria, user rules, current
+facts, original evidence, useful action/error history, and available candidates
+with their meanings. Identify missing facts explicitly; collect them before
+asking when they are necessary. Do not replace evidence with your own conclusion.
+
+Keep questions narrow, **not the evidence artificially tiny**. Include surrounding
+passages, related records or earlier steps when they change the answer. Exclude
+irrelevant history and secrets; sufficient context is not the largest possible
+payload. Keep trusted criteria distinct from untrusted source content.
+
+## Parallel decisions by default
+
+Jev's low-latency, parallel judgments are particularly useful for replacing
+**repeated LLM classification, scoring and routing calls** in large tasks. It is
+not a replacement for open-ended reasoning, planning or text generation.
+
+- **One state, independent questions:** put them in one request's `questions`.
+  Jev evaluates them independently over the shared context; do not resend that
+  context once per question in a serial loop.
+- **Many records:** keep stable record IDs and explicitly scope each question
+  to its record. Group related records within context limits; for unrelated or
+  large records, keep separate requests with sufficient context in each.
+- **Many independent requests:** have the host schedule bounded concurrency,
+  respecting provider limits and the user's cost/time budget. Preserve request,
+  record and question IDs even when responses arrive out of order. This CLI runs
+  one request per invocation; it has no `--parallel` flag or built-in scheduler.
+- **Dependent steps:** questions cannot read other answers in the same request.
+  If B needs A's selected evidence or an action's result, wait, observe the new
+  state, then ask B. Parallel judgment does not authorize parallel side effects.
+
+Measure decision quality, whole-job time, throughput and total cost on the actual
+workload; do not promise a fixed speedup. See [context and throughput](references/context-and-throughput.md)
+and the [two-record, six-question example](assets/batch-triage.json).
 
 ## When to reach for it
 
@@ -36,7 +74,7 @@ needed evidence first. Do not silently send private documents to an external API
 ## When no existing recipe fits
 
 Define the decision, evidence unit, answer space, next consumer, unknown path and
-success check. Build a small request from that contract rather than forcing the
+success check. Build a focused request with sufficient evidence rather than forcing the
 task into a stock category. Read [Customization](references/customization.md),
 then select a relevant [implementation pattern](references/implementation-patterns.md).
 One method can support many domains: selecting an observed ID can locate a clause,
@@ -49,6 +87,7 @@ Read only the relevant slice, not the entire catalog:
 
 | Need | Read |
 |---|---|
+| Supply enough context; batch or parallelize a large workload | [Context and throughput](references/context-and-throughput.md) |
 | Adapt a new task, criteria, rubric or user policy | [Customization](references/customization.md) |
 | How to connect judgments into a working flow | [Implementation patterns](references/implementation-patterns.md) |
 | Find a use case beyond basic routing | [Recipe index](references/index.md) |
@@ -74,7 +113,9 @@ Read only the relevant slice, not the entire catalog:
    yes/no propositions, `score` for ordered descriptive levels. Include a fallback
    label such as `unknown` or `ask_user`. Keep trusted policy separate from
    untrusted pages/logs/messages. Pass evidence, not an instruction to agree.
-4. **Call once:** save a native request JSON and run the packaged script below.
+4. **Call:** save a native request JSON, grouping independent questions over its
+   complete state, and run the packaged script below. For independent requests,
+   use bounded host concurrency rather than an unnecessary serial loop.
    No silent model substitution, retries, or credential setup. One unchanged state
    does not become better evidence after repeatedly asking the same question.
 5. **Interpret:** inspect the full distribution and evidence. `needs_review` is an
@@ -119,6 +160,8 @@ Copy a matching asset, then replace its synthetic state and criteria:
 - [Agent checkpoint](assets/checkpoint.json): recovery, evidence, and next step.
 - [Browser routing](assets/browser-route.json): observed elements → candidate step.
 - [Human triage](assets/triage.json): choice, independent binary check, and score.
+- [Batch triage](assets/batch-triage.json): shared policy and two fully scoped records,
+  each with three independent questions in one request.
 - [Completion evidence](assets/completion.json): receipts versus claimed success.
 - [Rubric review](assets/rubric.json): multidimensional creative/product feedback.
 - [Text categories](assets/support-labels.json): criteria for the `classify` command.

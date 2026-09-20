@@ -8,7 +8,7 @@ None substitutes for the others.
 - Python unit tests exercise input validation, probability/abstention handling,
   secret-safe errors, transport failures, CLI exit codes, and the independent
   simulator. Run `python3 -m unittest discover -s tests -v`.
-- All **76 unit tests** passed, including eight isolated scenario-folder dry runs
+- All **79 unit tests** passed, including eight isolated scenario-folder dry runs
   with the network patched out and no sibling `jev` skill present.
 - All **nine skill entrypoints** passed the bundled skill validator;
   `npx skills add . --list` discovered all nine.
@@ -36,13 +36,13 @@ a queued-job completion check. It did not execute a browser or use a model API.
 ## Agent-first installation guide
 
 The README now starts with a copyable message linking to `docs/install.md`.
-The guide pins runtime/source to v0.1.0 and uses direct folder copying by default;
+The guide pins runtime/source to v0.1.1 and uses direct folder copying by default;
 `npx skills` remains an optional manual route. This entrypoint pattern was checked
 against the original [Agent Reach guide](https://github.com/Panniantong/Agent-Reach/blob/main/docs/install.md)
 and [oh-my-openagent guide](https://github.com/code-yeongyu/oh-my-openagent/blob/dev/docs/guide/installation.md),
 without installing either project.
 
-A fresh temporary-directory check cloned the pinned release, installed its CLI
+The initial v0.1.0 temporary-directory check cloned the pinned release, installed its CLI
 with isolated uv tool/bin directories, and copied all nine folders to simulated
 Codex, Claude Code and OpenCode project-local destinations. All **27 copied-skill
 dry runs passed** with `OPENROUTER_API_KEY` removed. Existing destinations were
@@ -50,6 +50,28 @@ detected before a second copy. No Node/npm installer, paid API call, actual user
 skill directory or host configuration was involved. These checks validate the
 written installation procedure, not autonomous instruction-following by another
 agent or native invocation inside all three clients.
+
+## Context and parallel guidance — v0.1.1
+
+All nine skills now explicitly require sufficient per-request context and explain
+native independent-question batching, bounded host concurrency, and dependent-step
+ordering. The guidance was checked against the official
+[State guide](https://docs.typesafe.ai/concepts/state) and
+[parallel-question cookbook](https://docs.typesafe.ai/cookbooks/parallel_questions).
+The CLI runtime is unchanged; concurrency is scheduled by the host, not a new flag.
+
+Three added regression tests cover guidance across all nine skills, explicit record
+scope in the new two-record/six-question template, and its copied-folder dry run
+with the network disabled. All 79 tests and nine skill validations passed. The
+v0.1.1 wheel installed into a fresh temporary Python environment; its source
+distribution contained all nine skills, the new template and reference. Copies
+in simulated Codex, Claude Code and OpenCode project paths passed **27 dry runs**,
+including the batch example in each general-skill copy. Local documentation links
+were checked. No real host configuration was changed.
+
+The batch template has **not** been live-evaluated. These are packaging and offline
+request checks, not a parallel-load benchmark, measured speedup or proof that an
+agent follows the new instructions. Existing live results below are unchanged.
 
 ## Live Jev examples
 

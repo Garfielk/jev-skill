@@ -38,6 +38,20 @@ fallback. Test thresholds on the user's task rather than assuming 0.9 is safe.
 4. Copy the original span selected by ID. Do not ask Jev to synthesize the extracted field or fabricate a quotation.
 5. Check each claim against its cited evidence separately. Report unsupported/contradicted statements and preserve source links for human checking.
 
+## Context and parallelism
+
+Jev does not inherit the agent's history. Give every request sufficient context:
+the user's information need, exact claim, source IDs, surrounding passages,
+definitions and relevant exceptions. Supply the text, not just a URL or your own
+summary verdict. Keep needed cross-references; omit unrelated material and secrets.
+
+Batch independent claim checks or per-passage relevance scores over shared state
+instead of serial LLM calls. For separate document groups, use bounded concurrency
+with stable document/question IDs, rate limits and a cost/time budget. The host
+schedules calls; the CLI has no parallel scheduler. Questions cannot read other
+answers in the same request: fetch a selected source before asking about unseen
+contents. Use Jev's low latency for repeated judgments, not document generation.
+
 ## Make it yours
 
 Replace the example's evidence, candidate IDs and criteria together. Preserve a

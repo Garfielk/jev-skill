@@ -38,6 +38,21 @@ fallback. Test thresholds on the user's task rather than assuming 0.9 is safe.
 4. Replan on completed subgoals, violated assumptions or stalled progress. Log state/action/outcome IDs; stop on turn budget or deadlock.
 5. Render text, UI or video from the resulting state as an optional separate consumer. Compare objectives across the same seeds; visual appeal is not decision quality.
 
+## Context and parallelism
+
+Jev does not inherit the agent's history. Give every request sufficient context:
+the goal and strategy, world rules, current turn/state, legal actions, resources
+and relevant prior outcomes. A move label alone is not enough. Keep uncertainty
+explicit; omit unrelated lore and secrets without removing decision-relevant facts.
+
+Batch independent judgments over one world snapshot instead of serial LLM calls.
+For independent simulation instances, use bounded concurrency with world/turn IDs,
+rate limits and a cost/time budget. The host schedules calls; the CLI has no parallel
+scheduler. Questions cannot read other answers in the same request: resolve shared
+resource/action conflicts in the simulator and obtain the next state before its
+dependent turn. Jev's low latency helps action selection, not world design or video
+generation; those remain separate planner/renderer tasks.
+
 ## Make it yours
 
 Replace the example's evidence, candidate IDs and criteria together. Preserve a

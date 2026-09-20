@@ -14,6 +14,7 @@ an exact preset.
 
 | Situation | Reference | Useful judgment |
 |---|---|---|
+| Rich context or a high-volume parallel workload | [Context and throughput](context-and-throughput.md) | Self-contained evidence, shared-state batching and bounded request concurrency |
 | New domain, custom criteria, rubric or personal policy | [Customization](customization.md) | Define the evidence, answer space and downstream consumer |
 | Choose between community projects, MCP tools and host integrations | [Ecosystem guide](ecosystem.md) | Match task, prerequisites and evidence status |
 | Need a concrete connection pattern | [Implementation patterns](implementation-patterns.md) | Select spans, recover structure, traverse graphs, build features, validate or annotate |

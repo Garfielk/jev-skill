@@ -24,7 +24,7 @@ runtime, a permission prompt or your OpenRouter key. Never paste the key into ch
 
 ### Outcome and defaults
 
-Install the released **v0.1.0** runtime and all nine skill folders for the current
+Install the released **v0.1.1** runtime and all nine skill folders for the current
 host, then run offline checks. Default to **project-local** installation in the
 current project. Say which host and destination you selected before writing.
 If the host/project cannot be determined, ask one short question rather than
@@ -57,13 +57,15 @@ Use a fresh temporary directory. For example, in a POSIX shell:
 
 ```bash
 work=$(mktemp -d)
-git clone --depth 1 --branch v0.1.0 https://github.com/wuyoscar/jev-skill.git "$work/source"
+git clone --depth 1 --branch v0.1.1 https://github.com/wuyoscar/jev-skill.git "$work/source"
 git -C "$work/source" rev-parse HEAD
+git -C "$work/source" describe --tags --exact-match HEAD
 ```
 
-Expected release commit: `886adf5410b8d676c63f28647b35ea579db49bdf`.
-Stop if it differs. With an archive instead of Git, use the
-[release source ZIP and checksums](https://github.com/wuyoscar/jev-skill/releases/tag/v0.1.0)
+The exact tag must be `v0.1.1`; stop if it differs and record the resolved commit
+in your installation report. Do not substitute `main` for the versioned source.
+With an archive instead of Git, use the
+[release source ZIP and checksums](https://github.com/wuyoscar/jev-skill/releases/tag/v0.1.1)
 and verify its checksum before installation. Inspect `pyproject.toml`, the skill
 entrypoints and `skills/jev/scripts/jev.py` before running downloaded code.
 On Windows, use equivalent temporary-directory and file operations in the host's shell.

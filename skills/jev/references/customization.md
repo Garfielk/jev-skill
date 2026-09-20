@@ -43,10 +43,13 @@ Then:
 
 1. Select an [implementation pattern](implementation-patterns.md). The same
    pattern often works in both agent and human-facing workflows.
-2. Write a native `{model, state, questions}` request. Name field paths in the
+2. Write a native `{model, state, questions}` request with sufficient relevant
+   context in every state; Jev does not inherit the host's history. Name field paths in the
    question; use structured criteria with short inclusions, exclusions or examples
    when adjacent labels are easy to confuse.
-3. Run `decide request.json --dry-run`, then make the authorized live call.
+3. Batch independent questions sharing evidence, then validate with
+   `decide request.json --dry-run` and make the authorized live call. For independent requests, prefer
+   bounded host concurrency; see [context and throughput](context-and-throughput.md).
 4. Interpret **each** returned value, not only the process exit code. A selected
    false Noul remains false; a low Score remains low. Apply the consumer's rules.
 5. Record misses and revise the smallest relevant question, evidence slice or

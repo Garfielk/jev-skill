@@ -32,7 +32,13 @@ For an agent checkpoint, provide:
 - Relevant constraints and policy, separated from untrusted source content.
 - Which evidence is missing and which checks have not run.
 
-Do not paste the full conversation by default. Irrelevant context can lower accuracy. Question IDs are routing keys, not hidden instructions: put the full judgment in `instructions`. [State](https://docs.typesafe.ai/concepts/state), [Choice](https://docs.typesafe.ai/primitives/choice)
+Every request must be self-contained: Jev does not inherit the host's conversation
+or earlier calls. Supply enough relevant context to resolve the question, not just
+the last message, an opaque ID or your summary conclusion. Narrow questions do not
+require tiny evidence. Do not paste the full conversation by default; irrelevant
+context can lower accuracy. Question IDs are routing keys, not hidden instructions:
+put the full judgment in `instructions`. [State](https://docs.typesafe.ai/concepts/state),
+[Choice](https://docs.typesafe.ai/primitives/choice)
 
 ## 3. Ask atomic, literal questions
 
@@ -70,6 +76,11 @@ For an unattended task, uncertainty should trigger a bounded evidence-gathering 
 ## 6. Fan out only independent judgments
 
 Batch questions over shared evidence to avoid repeatedly sending the same state. Speculative follow-up questions can be asked in advance, but code must ignore answers whose preconditions do not hold. A second request is needed when its state depends on a first request's answer. More questions still consume tokens; batching is not free. [Speculative fan-out](https://docs.typesafe.ai/patterns/fan-out)
+
+For many independent records, preserve per-record context and scope every question
+to an explicit record ID. The host can run separate requests with bounded concurrency;
+this is different from native parallel questions inside one request. See
+[context and throughput](context-and-throughput.md) for scheduling and measurement.
 
 For browser routing, enumerate actual current controls or fully formed actions. Jev can select among them; the browser tool performs the action and reads the resulting page. If typing requires new prose, use a generative model. The official Wikiracing demonstration selects existing links; it is not evidence of unrestricted browser competence. [Launch demonstrations](https://typesafe.ai/blog/introducing-system-one-models-and-jev), [Function calling](https://docs.typesafe.ai/cookbooks/function_calling)
 

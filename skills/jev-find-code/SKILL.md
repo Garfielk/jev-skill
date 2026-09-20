@@ -38,6 +38,21 @@ fallback. Test thresholds on the user's task rather than assuming 0.9 is safe.
 4. Open the selected source with the appropriate code tool and verify relevance. Update state or backtrack when the file is unrelated.
 5. Return inspected paths and concrete evidence separately from uninspected leads. Walker shares, relevance scores and probability of containing a bug are different quantities.
 
+## Context and parallelism
+
+Jev does not inherit the agent's history. Give every request sufficient context:
+the problem, observed behavior/errors, relevant prior reads, graph relationships
+and real candidate paths with observed summaries or excerpts. Bare filenames alone
+may not distinguish candidates; mark what has not been read and omit unrelated
+files and secrets, not evidence necessary to rank the candidates.
+
+Batch independent relevance questions over an observed candidate set instead of
+serial LLM calls. Use bounded concurrency for independent searches, with stable
+path/question IDs, rate limits and a cost/time budget. The host schedules calls;
+the CLI has no parallel scheduler. Questions cannot read other answers in the same
+request: inspect a chosen branch before asking about its unseen children. Jev's
+low latency helps wide ranking; code tools still retrieve and verify actual source.
+
 ## Make it yours
 
 Replace the example's evidence, candidate IDs and criteria together. Preserve a

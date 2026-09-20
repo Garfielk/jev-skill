@@ -32,8 +32,45 @@ class SkillCatalogTests(unittest.TestCase):
         guide = (ROOT / "docs/install.md").read_text()
         for name in ("jev", *SCENARIOS):
             self.assertIn(f"`{name}`", guide)
-        for requirement in ("OPENROUTER_API_KEY", "--dry-run", "v0.1.0"):
+        for requirement in ("OPENROUTER_API_KEY", "--dry-run", "v0.1.1"):
             self.assertIn(requirement, guide)
+
+    def test_all_skills_teach_context_and_parallelism(self):
+        for name in ("jev", *SCENARIOS):
+            with self.subTest(skill=name):
+                text = " ".join((ROOT / "skills" / name / "SKILL.md").read_text().lower().split())
+                for requirement in ("context", "does not inherit", "independent",
+                                    "bounded concurrency", "same request"):
+                    self.assertIn(requirement, text)
+
+    def test_batch_example_scopes_each_independent_question(self):
+        payload = json.loads((ROOT / "skills/jev/assets/batch-triage.json").read_text())
+        jev.validate_request(payload)
+        records = payload["state"]["records"]
+        self.assertEqual(len(records), 2)
+        self.assertEqual(len(payload["questions"]), 6)
+        for record_id, record in records.items():
+            self.assertGreater(len(record["thread"]), 1)
+            scoped = {key: value for key, value in payload["questions"].items()
+                      if key.startswith(record_id + "_")}
+            self.assertEqual({value["type"] for value in scoped.values()},
+                             {"choice", "noul", "score"})
+            for question in scoped.values():
+                self.assertIn(f"state.records.{record_id}", question["instructions"])
+                self.assertIn("state.policy", question["instructions"])
+
+    def test_copied_general_skill_batch_example_dry_run(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp) / "jev"
+            shutil.copytree(ROOT / "skills/jev", folder)
+            output = io.StringIO()
+            with patch.dict("os.environ", {}, clear=True), \
+                    patch("urllib.request.urlopen", side_effect=AssertionError("network")), \
+                    contextlib.redirect_stdout(output):
+                status = jev.main(["decide", str(folder / "assets/batch-triage.json"), "--dry-run"])
+            self.assertEqual(status, 0)
+            self.assertEqual(len(json.loads(output.getvalue())["questions"]), 6)
+            self.assertTrue((folder / "references/context-and-throughput.md").is_file())
 
     def test_scenario_entrypoints_and_examples(self):
         for name in SCENARIOS:

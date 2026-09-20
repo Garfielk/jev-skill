@@ -18,7 +18,7 @@ The commands below are optional manual alternatives, not steps every user must r
 ## Optional package-tool and skills-installer route
 
 ```bash
-uv tool install git+https://github.com/wuyoscar/jev-skill.git@v0.1.0
+uv tool install git+https://github.com/wuyoscar/jev-skill.git@v0.1.1
 npx skills add wuyoscar/jev-skill --skill jev-triage
 export OPENROUTER_API_KEY="your-key"
 ```
@@ -28,14 +28,14 @@ with any entry below. The CLI is pinned to the release; the short skills command
 tracks the repository's default branch. For a fully pinned skill installation,
 clone the tag and use the local installer commands below.
 
-[Release downloads](https://github.com/wuyoscar/jev-skill/releases/tag/v0.1.0)
+[Release downloads](https://github.com/wuyoscar/jev-skill/releases/tag/v0.1.1)
 include the CLI wheel, source distribution and complete source ZIP. No PyPI
 account or TypeSafe-specific key is needed.
 
 ## From a reviewed checkout
 
 ```bash
-git clone --branch v0.1.0 https://github.com/wuyoscar/jev-skill.git
+git clone --branch v0.1.1 https://github.com/wuyoscar/jev-skill.git
 cd jev-skill
 ```
 

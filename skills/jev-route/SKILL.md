@@ -38,6 +38,20 @@ fallback. Test thresholds on the user's task rather than assuming 0.9 is safe.
 4. Preserve fallback routes for unavailable, uncertain or failed candidates. A recommendation does not authorize sharing data with another provider.
 5. Evaluate routing regret and completed work along with total cost, cache loss and retries. This skill is not the upstream Codex Router service.
 
+## Context and parallelism
+
+Jev does not inherit the agent's history. Give every request sufficient context:
+the subtask and goal, relevant prior attempts, data constraints, budget, and real
+candidate capability/availability descriptions. Model names alone are not enough;
+omit unrelated conversation and secrets, not facts needed to choose a useful route.
+
+Batch independent routing and suitability questions over shared state instead of
+serial LLM calls. Route independent queued tasks with bounded concurrency, stable
+task/question IDs, rate limits and a cost/time budget. The host schedules calls;
+the CLI has no parallel scheduler. Questions cannot read other answers in the same
+request: wait for a delegated result before deciding its dependent next route.
+Use Jev's low latency for selection; retain a reasoning model for open-ended work.
+
 ## Make it yours
 
 Replace the example's evidence, candidate IDs and criteria together. Preserve a

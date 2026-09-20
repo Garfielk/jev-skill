@@ -1,6 +1,6 @@
 ---
 name: jev-triage
-description: Use for user-defined inbox, support-ticket, feedback or record classification and prioritization. Produces labels and review queues, not replies or automatic mailbox changes.
+description: Use for user-defined inbox, support-ticket, feedback or record classification and prioritization, especially bulk parallel judgments with sufficient per-record context. Produces labels and review queues, not replies or automatic mailbox changes.
 ---
 
 # Sort messages and records by custom criteria
@@ -37,6 +37,21 @@ fallback. Test thresholds on the user's task rather than assuming 0.9 is safe.
 3. Collect text only from files or accounts the user authorized. Classify before writing tags, moving messages or sending replies.
 4. Return a reviewable table: record ID, category, urgency, uncertainty and intended next consumer. Keep other/missing-evidence records visible.
 5. Test near-miss categories and user-labeled examples before applying a rule in bulk. Change labels and urgency anchors, not just the sample text.
+
+## Context and parallelism
+
+Jev does not inherit the agent's history. Give every request sufficient context:
+the user's categories and priority policy, each record's text and relevant thread,
+product/account facts, and known missing evidence. A last-message fragment is not
+enough when earlier messages change its meaning; omit unrelated history and secrets.
+
+For bulk triage, batch independent category, escalation and urgency questions over
+shared state instead of serial LLM calls. Name the record ID in every question.
+Use bounded concurrency for independent requests, with stable IDs, rate limits and
+a cost/time budget. The host schedules calls; the CLI has no parallel scheduler.
+Questions cannot read other answers in the same request: gather any newly needed
+account evidence before a dependent follow-up. Low latency is a reason to use Jev
+for the judgment stage, not to skip quality checks or automate mailbox changes.
 
 ## Make it yours
 
