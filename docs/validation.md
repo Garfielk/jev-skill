@@ -92,6 +92,21 @@ release; the agent installer still pins v0.1.1.
 - `git diff --check` passed. No community app was executed and no new model API
   results, calibration measurements or native-client integration claims were added.
 
+### Complete input/output pairs
+
+The follow-up adds the **complete saved request beside each of the 14 outputs**
+in both READMEs, plus a short three-example I/O overview. Input blocks retain the
+original model, state, question instructions and candidate definitions; outputs
+are explicitly labelled CLI-normalized, with links to raw API receipts. The four
+community preview images remain distinct from these synthetic API examples.
+
+All **83 tests** passed. The new regression test checks exact JSON equality with
+every saved request and one-to-one input/output ordering; the existing output
+test still checks all saved decisions. **902 local link occurrences** across the
+READMEs and update index resolved. The bilingual GitHub-Markdown previews were
+checked in the browser, including the overview and a full request/response pair.
+No new model call was needed, and the runtime/release remains v0.1.1.
+
 ## Live Jev examples
 
 Five bundled synthetic requests were sent through the real OpenRouter Decisions

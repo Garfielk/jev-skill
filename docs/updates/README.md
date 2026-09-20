@@ -19,7 +19,9 @@ Newly collected does not necessarily mean newly published.
 - Record publication dates where available, collection dates and inspected commits.
   If access fails or nothing useful changed, say so rather than invent an update.
 - Use real, attributed previews. Verify links, bilingual coverage, scenario counts
-  and saved outputs before publishing. Do not run paid APIs or install community
-  software just to populate this feed.
+  and saved inputs/outputs before publishing. Every recorded output belongs next
+  to its complete saved request, including state, questions and candidate meanings.
+  Label quick summaries separately; never invent outputs for untested scenarios.
+  Do not run paid APIs or install community software just to populate this feed.
 
 [English catalog](../../README.md#catalog) · [中文场景目录](../../README.zh.md#catalog)

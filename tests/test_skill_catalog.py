@@ -167,6 +167,28 @@ class SkillCatalogTests(unittest.TestCase):
                            "sc-midi", "sc-local-comparison"):
                 self.assertIn(f'<a id="{anchor}"></a>', text)
 
+    def test_readme_inputs_match_saved_requests_and_pair_with_outputs(self):
+        expected = {}
+        for filename in ("examples-2026-09-20.json", "scenario-smoke-2026-09-20.json"):
+            receipt = json.loads((ROOT / "evals/results" / filename).read_text())
+            for result in receipt["results"]:
+                expected[f"{filename}#{result['example']}"] = result["request"]
+        for filename in ("README.md", "README.zh.md"):
+            text = (ROOT / filename).read_text()
+            shown = re.findall(
+                r"<!-- request: (.*?) -->\s*```json\n(.*?)\n```", text, re.S
+            )
+            self.assertEqual(len(shown), len(expected))
+            self.assertEqual({key for key, _ in shown}, set(expected))
+            markers = re.findall(r"<!-- (request|receipt): (.*?) -->", text)
+            self.assertEqual(len(markers), 2 * len(expected))
+            for index in range(0, len(markers), 2):
+                self.assertEqual(markers[index][0], "request")
+                self.assertEqual(markers[index + 1], ("receipt", markers[index][1]))
+            for key, payload in shown:
+                with self.subTest(readme=filename, request=key):
+                    self.assertEqual(json.loads(payload), expected[key])
+
     def test_readme_outputs_match_all_saved_example_receipts(self):
         expected = {}
         for filename in ("examples-2026-09-20.json", "scenario-smoke-2026-09-20.json"):

@@ -8,7 +8,7 @@
 
 [English](README.md) · [简体中文](README.zh.md)
 
-[🎬 Demos](#showcase) · [📦 Install](#install) · [🗂 All 90 scenarios](#catalog) · [🧪 Real outputs & tests](#experiments) · [🆕 Updates](docs/updates/README.md)
+[🎬 Demos](#showcase) · [📦 Install](#install) · [🗂 All 90 scenarios](#catalog) · [🧪 Input → output](#io) · [🆕 Updates](docs/updates/README.md)
 
 </div>
 
@@ -71,6 +71,30 @@ handle any required approvals and set `OPENROUTER_API_KEY` locally, never in cha
 No Vercel account is needed; Node/npm is not required by the default install route.
 [Agent installation guide](docs/install.md) · [Manual installation and troubleshooting](docs/installation.md)
 
+<a id="io"></a>
+## 🧪 What goes in, what comes out
+
+These are **saved results from real Jev calls on synthetic examples**. Here is the
+short version; each link opens the full input and output below.
+
+| Try it on… | 📥 Input excerpt | 📤 Observed output |
+|---|---|---|
+| [A stuck agent](#sc-a02) | “Same UnicodeDecodeError, twice. No source change between runs.” Choose: inspect the input, retry unchanged, report done or ask the user. | `next_step = inspect_input`<br />`stuck = true`, yes-probability `0.88` |
+| [A support ticket](#sc-h02) | “The export button returns an error for all team members. We need the monthly report tomorrow.” Choose a queue and rate urgency. | `queue = bug`<br />`urgency = 1.29 / 2` |
+| [A document](#sc-spans) | `s1`: General questions: hello@example.invalid<br />`s2`: Send invoices to accounts@example.invalid<br />Which span is for invoice delivery? Does the claim naming `s1` hold? | `source = s2`, probability `0.97`<br />`claim_support = contradicted` |
+
+**All 14 I/O pairs:** [recovery](#sc-a02) · [completion](#sc-a06) ·
+[code review](#sc-a08) · [model routing](#sc-a16) · [file search](#sc-a20) ·
+[context](#sc-a21) · [browser choices ×2](#sc-a23) · [support triage ×2](#sc-h02) ·
+[document evidence](#sc-spans) · [simulation](#sc-a28) · [idea rubric](#sc-h25) · [voice direction](#sc-tts).
+
+Each **Input** block reproduces the saved request: model, context (`state`), questions
+and candidate definitions. Each **Output** block shows the CLI-normalized decisions;
+the linked receipt also contains the raw API response and distributions. The requests
+remain in their original English. These calls did not execute the chosen actions.
+For Noul, `probability` means **P(true)** even when `value` is false; a rubric score
+such as 1.29/2 is **not** a probability.
+
 ## ⚡ Two habits that make Jev useful
 
 - **Give it enough context.** Include the goal, rules, source evidence, relevant
@@ -99,7 +123,7 @@ Every scenario stays on this page: copy a task, open its template, change the cr
 
 **Reading the examples:** 🧪 recorded outputs come from saved API receipts; 🛠 templates are editable inputs, not complete apps; 🎬 community demos belong to their authors. Each scenario states its evidence.
 
-The first real output: [stuck-loop recovery ↓](#sc-a02). [How probabilities differ from scores](skills/jev/references/calibration.md).
+The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilities differ from scores](skills/jev/references/calibration.md).
 
 <a id="agent"></a>
 ## 🧭 Keep a long task on track
@@ -132,13 +156,61 @@ The first real output: [stuck-loop recovery ↓](#sc-a02). [How probabilities di
 - **Sources:** [R02](skills/jev/references/community.md#r02) · [P03](skills/jev/references/community.md#p03)
 - **Status:** Synthetic API smoke output shown below; no end-to-end outcome benchmark for this workflow.
 
-**Observed output** — CSV parser: the same UnicodeDecodeError twice, no source change between runs.
+**🧪 Recorded I/O** — CSV parser: the same UnicodeDecodeError twice, no source change between runs.
+
+**📥 Input · full request**
+
+<!-- request: examples-2026-09-20.json#checkpoint -->
+```json
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "goal": "Fix the CSV parser without changing the public API; verify tests before declaring done.",
+    "permissions": "Read and edit this local project, run tests; no publishing.",
+    "recent_steps": [
+      {
+        "action": "rerun tests",
+        "result": "Same UnicodeDecodeError, twice. No source change between runs."
+      }
+    ],
+    "observations": "Failure is on a UTF-8 input fixture. The parser opens files without an explicit encoding.",
+    "user_available": false
+  },
+  "questions": {
+    "next_step": {
+      "type": "choice",
+      "instructions": "Choose the next useful step from the evidence. Do not repeat an unchanged failed operation or claim success without tests.",
+      "criteria": {
+        "inspect_input": "Inspect the failing input and file-opening code to confirm the cause before changing it.",
+        "retry_unchanged": "Rerun the identical test only if a transient condition changed.",
+        "report_done": "Report done only with passing relevant tests and verified patch.",
+        "ask_user": "A material decision needs authority or information not available."
+      }
+    },
+    "stuck": {
+      "type": "noul",
+      "instructions": "Have unchanged attempts repeated the same failure without new evidence?"
+    }
+  }
+}
+```
+
+**📤 Output · observed CLI decisions**
 
 <!-- receipt: examples-2026-09-20.json#checkpoint -->
 ```json
 {
-  "next_step": {"status": "selected", "value": "inspect_input", "probability": 1, "margin": 1},
-  "stuck": {"status": "selected", "value": true, "probability": 0.88}
+  "next_step": {
+    "status": "selected",
+    "value": "inspect_input",
+    "probability": 1,
+    "margin": 1
+  },
+  "stuck": {
+    "status": "selected",
+    "value": true,
+    "probability": 0.88
+  }
 }
 ```
 
@@ -157,13 +229,64 @@ The first real output: [stuck-loop recovery ↓](#sc-a02). [How probabilities di
 - **Sources:** [P03](skills/jev/references/community.md#p03) · [N01](skills/jev/references/community.md#n01)
 - **Status:** Synthetic API smoke output shown below; no end-to-end outcome benchmark for this workflow.
 
-**Observed output** — The job was queued but not executed, the metrics file did not exist, yet the agent claimed completion.
+**🧪 Recorded I/O** — The job was queued but not executed, the metrics file did not exist, yet the agent claimed completion.
+
+**📥 Input · full request**
+
+<!-- request: examples-2026-09-20.json#completion -->
+```json
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "goal": "Run the evaluation and produce a metrics file.",
+    "agent_claim": "The evaluation is complete.",
+    "receipts": [
+      {
+        "source": "job submit",
+        "exit_code": 0,
+        "job_id": "synthetic-42",
+        "meaning": "Job queued, not executed."
+      },
+      {
+        "source": "filesystem check",
+        "metrics_file_exists": false
+      }
+    ]
+  },
+  "questions": {
+    "claim_supported": {
+      "type": "noul",
+      "instructions": "Do execution receipts establish that evaluation finished and its metrics file exists? A successful submission is not successful execution."
+    },
+    "next_step": {
+      "type": "choice",
+      "instructions": "What should happen next?",
+      "criteria": {
+        "check_job": "Query actual job state and retrieve logs/results.",
+        "finish": "Report complete only after finished execution and metrics verification.",
+        "ask_user": "Wait for authority or missing information that cannot be obtained with existing tools."
+      }
+    }
+  }
+}
+```
+
+**📤 Output · observed CLI decisions**
 
 <!-- receipt: examples-2026-09-20.json#completion -->
 ```json
 {
-  "claim_supported": {"status": "selected", "value": false, "probability": 0.02},
-  "next_step": {"status": "selected", "value": "check_job", "probability": 1, "margin": 1}
+  "claim_supported": {
+    "status": "selected",
+    "value": false,
+    "probability": 0.02
+  },
+  "next_step": {
+    "status": "selected",
+    "value": "check_job",
+    "probability": 1,
+    "margin": 1
+  }
 }
 ```
 
@@ -226,14 +349,74 @@ The first real output: [stuck-loop recovery ↓](#sc-a02). [How probabilities di
 - **Sources:** [P03](skills/jev/references/community.md#p03)
 - **Status:** [Live synthetic example](evals/SCENARIO_EXAMPLES.md): test weakening 0.97; not an end-to-end review benchmark.
 
-**Observed output** — The assertion was replaced with assert True; only the weakened test was run.
+**🧪 Recorded I/O** — The assertion was replaced with assert True; only the weakened test was run.
+
+**📥 Input · full request**
+
+<!-- request: scenario-smoke-2026-09-20.json#skills/jev-code-review/assets/example.json -->
+```json
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "goal": "Make the parser accept quoted commas without weakening its regression test.",
+    "diff": {
+      "file": "test_parser.py",
+      "removed": "assert parse(row) == expected",
+      "added": "assert True"
+    },
+    "test_receipt": "The edited test passed. The original assertion was not run."
+  },
+  "questions": {
+    "weakens_test": {
+      "type": "noul",
+      "instructions": "Does this diff weaken the original regression check?",
+      "criteria": {
+        "true": "The supplied evidence establishes this condition.",
+        "false": "The supplied evidence does not establish this condition."
+      }
+    },
+    "completion": {
+      "type": "choice",
+      "instructions": "Does test_receipt establish that goal was achieved?",
+      "criteria": {
+        "supported": "The original behavior is implemented and verified without weakening checks.",
+        "unsupported": "The evidence does not establish the original requirement.",
+        "unknown": "Essential source or test information is absent."
+      }
+    },
+    "review_priority": {
+      "type": "score",
+      "instructions": "How much review attention does this change warrant?",
+      "criteria": [
+        "No concrete concern in supplied evidence.",
+        "A localized concern needing inspection.",
+        "Direct conflict with the stated acceptance condition."
+      ]
+    }
+  }
+}
+```
+
+**📤 Output · observed CLI decisions**
 
 <!-- receipt: scenario-smoke-2026-09-20.json#skills/jev-code-review/assets/example.json -->
 ```json
 {
-  "weakens_test": {"status": "selected", "value": true, "probability": 0.97},
-  "completion": {"status": "selected", "value": "unsupported", "probability": 1, "margin": 1},
-  "review_priority": {"status": "scored", "value": 1.97}
+  "weakens_test": {
+    "status": "selected",
+    "value": true,
+    "probability": 0.97
+  },
+  "completion": {
+    "status": "selected",
+    "value": "unsupported",
+    "probability": 1,
+    "margin": 1
+  },
+  "review_priority": {
+    "status": "scored",
+    "value": 1.97
+  }
 }
 ```
 
@@ -399,12 +582,52 @@ The first real output: [stuck-loop recovery ↓](#sc-a02). [How probabilities di
 - **Sources:** [R04](skills/jev/references/community.md#r04) · [R11](skills/jev/references/community.md#r11) · [N04](skills/jev/references/community.md#n04) · [Jev Codex Router](https://github.com/0xNatoshi/jev-codex-router)
 - **Status:** Synthetic API smoke output shown below; no end-to-end outcome benchmark for this workflow.
 
-**Observed output** — Explain disagreement between concurrent-write implementations; choices are quick, reasoning and human.
+**🧪 Recorded I/O** — Explain disagreement between concurrent-write implementations; choices are quick, reasoning and human.
+
+**📥 Input · full request**
+
+<!-- request: scenario-smoke-2026-09-20.json#skills/jev-route/assets/example.json -->
+```json
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "task": "Explain why two observed implementations disagree on concurrent writes.",
+    "requirements": [
+      "Inspect both implementations",
+      "Reason about interleavings"
+    ],
+    "candidates": {
+      "quick": "Low-cost text transformation helper; not concurrency reasoning.",
+      "reasoning": "Available reasoning helper with code analysis.",
+      "human": "Domain owner can clarify missing requirements."
+    }
+  },
+  "questions": {
+    "route": {
+      "type": "choice",
+      "instructions": "Which available candidate best fits the requirements? Do not infer capabilities beyond the descriptions.",
+      "criteria": {
+        "quick": "Mechanical transformation supported by the quick helper.",
+        "reasoning": "Code reasoning requiring analysis of multiple interleavings.",
+        "human": "Missing requirements require the domain owner.",
+        "none": "No candidate has the necessary capability or availability."
+      }
+    }
+  }
+}
+```
+
+**📤 Output · observed CLI decisions**
 
 <!-- receipt: scenario-smoke-2026-09-20.json#skills/jev-route/assets/example.json -->
 ```json
 {
-  "route": {"status": "selected", "value": "reasoning", "probability": 1, "margin": 1}
+  "route": {
+    "status": "selected",
+    "value": "reasoning",
+    "probability": 1,
+    "margin": 1
+  }
 }
 ```
 
@@ -462,12 +685,53 @@ The first real output: [stuck-loop recovery ↓](#sc-a02). [How probabilities di
 - **Sources:** [R12](skills/jev/references/community.md#r12) · [Blink path search](https://github.com/ellipsis-dev/blink)
 - **Status:** Synthetic API smoke output shown below; no end-to-end outcome benchmark for this workflow.
 
-**Observed output** — Duplicate invoice investigation: p1 = billing/invoices.py; p2 = ui/theme.py, with supplied summaries.
+**🧪 Recorded I/O** — Duplicate invoice investigation: p1 = billing/invoices.py; p2 = ui/theme.py, with supplied summaries.
+
+**📥 Input · full request**
+
+<!-- request: scenario-smoke-2026-09-20.json#skills/jev-find-code/assets/example.json -->
+```json
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "question": "Where should I inspect duplicate invoice creation?",
+    "candidates": {
+      "p1": {
+        "path": "billing/invoices.py",
+        "observed_summary": "Creates and stores invoice records."
+      },
+      "p2": {
+        "path": "ui/theme.py",
+        "observed_summary": "Applies interface colors."
+      }
+    },
+    "note": "Synthetic file inventory, not an actual repository scan."
+  },
+  "questions": {
+    "next_file": {
+      "type": "choice",
+      "instructions": "Which supplied candidate should be inspected first to investigate question?",
+      "criteria": {
+        "p1": "The observed billing/invoices.py candidate.",
+        "p2": "The observed ui/theme.py candidate.",
+        "none": "Neither candidate is a justified lead."
+      }
+    }
+  }
+}
+```
+
+**📤 Output · observed CLI decisions**
 
 <!-- receipt: scenario-smoke-2026-09-20.json#skills/jev-find-code/assets/example.json -->
 ```json
 {
-  "next_file": {"status": "selected", "value": "p1", "probability": 1, "margin": 1}
+  "next_file": {
+    "status": "selected",
+    "value": "p1",
+    "probability": 1,
+    "margin": 1
+  }
 }
 ```
 
@@ -486,14 +750,74 @@ The first real output: [stuck-loop recovery ↓](#sc-a02). [How probabilities di
 - **Sources:** [R06](skills/jev/references/community.md#r06) · [P02](skills/jev/references/community.md#p02) · [N05](skills/jev/references/community.md#n05) · [winnow / VINNOW lead](https://github.com/GhalebDweikat/winnow)
 - **Status:** [Live synthetic example](evals/SCENARIO_EXAMPLES.md): keep diagnostic block, not theme notes; actual context rewriting untested.
 
-**Observed output** — b1 is a quoted-comma parser failure; b2 is color-theme help; investigation is still unfinished.
+**🧪 Recorded I/O** — b1 is a quoted-comma parser failure; b2 is color-theme help; investigation is still unfinished.
+
+**📥 Input · full request**
+
+<!-- request: scenario-smoke-2026-09-20.json#skills/jev-context/assets/example.json -->
+```json
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "task": "Fix CSV parsing of quoted commas.",
+    "blocks": {
+      "b1": "Failure: expected 3 columns, got 4 when a value contains a quoted comma.",
+      "b2": "Unrelated command-line help for changing the color theme."
+    },
+    "checkpoint": "Parser fix has not been written; failure investigation is ongoing.",
+    "raw_source": "synthetic-tool-result.txt"
+  },
+  "questions": {
+    "b1_needed": {
+      "type": "noul",
+      "instructions": "Does block b1 contain evidence needed for the current task?",
+      "criteria": {
+        "true": "The supplied evidence establishes this condition.",
+        "false": "The supplied evidence does not establish this condition."
+      }
+    },
+    "b2_needed": {
+      "type": "noul",
+      "instructions": "Does block b2 contain evidence needed for the current task?",
+      "criteria": {
+        "true": "The supplied evidence establishes this condition.",
+        "false": "The supplied evidence does not establish this condition."
+      }
+    },
+    "compact_now": {
+      "type": "choice",
+      "instructions": "Is the current task at a completed or explicitly recorded handoff boundary?",
+      "criteria": {
+        "finished": "The unit is completed and relevant outcomes are recorded.",
+        "ongoing": "Investigation or implementation is still ongoing.",
+        "unknown": "The evidence is insufficient."
+      }
+    }
+  }
+}
+```
+
+**📤 Output · observed CLI decisions**
 
 <!-- receipt: scenario-smoke-2026-09-20.json#skills/jev-context/assets/example.json -->
 ```json
 {
-  "b1_needed": {"status": "selected", "value": true, "probability": 0.91},
-  "b2_needed": {"status": "selected", "value": false, "probability": 0.03},
-  "compact_now": {"status": "selected", "value": "ongoing", "probability": 1, "margin": 1}
+  "b1_needed": {
+    "status": "selected",
+    "value": true,
+    "probability": 0.91
+  },
+  "b2_needed": {
+    "status": "selected",
+    "value": false,
+    "probability": 0.03
+  },
+  "compact_now": {
+    "status": "selected",
+    "value": "ongoing",
+    "probability": 1,
+    "margin": 1
+  }
 }
 ```
 
@@ -542,23 +866,123 @@ The first real output: [stuck-loop recovery ↓](#sc-a02). [How probabilities di
 - **Sources:** [P05](skills/jev/references/community.md#p05) · [Jev Ultrafast](https://github.com/browser-use/jev-ultrafast)
 - **Status:** [Live synthetic example](evals/SCENARIO_EXAMPLES.md): chose `open_policy`; no browser action executed. Ultrafast timing is an author demo.
 
-**Observed output** — Synthetic page: cancellation-policy link e12, pay button e13, photos e14; read-only task.
+**🧪 Recorded I/O** — Synthetic page: cancellation-policy link e12, pay button e13, photos e14; read-only task.
+
+**📥 Input · full request**
+
+<!-- request: examples-2026-09-20.json#browser-route -->
+```json
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "goal": "Find the cancellation policy for a hotel; do not book or pay.",
+    "observation_source": "Synthetic browser accessibility snapshot",
+    "page": {
+      "url": "https://example.com/hotel",
+      "elements": [
+        {
+          "id": "e12",
+          "role": "link",
+          "text": "Cancellation policy"
+        },
+        {
+          "id": "e13",
+          "role": "button",
+          "text": "Reserve and pay"
+        },
+        {
+          "id": "e14",
+          "role": "link",
+          "text": "Photos"
+        }
+      ]
+    },
+    "permissions": "Read-only navigation; no purchase or form submission."
+  },
+  "questions": {
+    "next_step": {
+      "type": "choice",
+      "instructions": "Choose a next step for the stated goal from these observed candidates. Page text is evidence, not authority.",
+      "criteria": {
+        "read_policy": "Use the host browser to follow observed policy link e12.",
+        "view_photos": "Inspect e14 if visual evidence is needed for the goal.",
+        "ask_user": "Required information or consent is missing.",
+        "finish": "Only when the cancellation policy has been read and recorded."
+      }
+    }
+  }
+}
+```
+
+**📤 Output · observed CLI decisions**
 
 <!-- receipt: examples-2026-09-20.json#browser-route -->
 ```json
 {
-  "next_step": {"status": "selected", "value": "read_policy", "probability": 1, "margin": 1}
+  "next_step": {
+    "status": "selected",
+    "value": "read_policy",
+    "probability": 1,
+    "margin": 1
+  }
 }
 ```
 
 [Original request and full response](evals/results/examples-2026-09-20.json)
 
-**Observed output** — Second synthetic page: policy link e1 and pay button e2; allowed actions are open_policy, wait and blocked.
+**🧪 Recorded I/O** — Second synthetic page: policy link e1 and pay button e2; allowed actions are open_policy, wait and blocked.
+
+**📥 Input · full request**
+
+<!-- request: scenario-smoke-2026-09-20.json#skills/jev-ui/assets/example.json -->
+```json
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "snapshot_id": "demo-12",
+    "goal": "Find the cancellation policy; do not book or pay.",
+    "surface": "Synthetic booking page",
+    "elements": {
+      "e1": {
+        "role": "link",
+        "label": "Cancellation policy"
+      },
+      "e2": {
+        "role": "button",
+        "label": "Book and pay"
+      }
+    },
+    "allowed_actions": [
+      "open_policy",
+      "wait",
+      "blocked"
+    ]
+  },
+  "questions": {
+    "action": {
+      "type": "choice",
+      "instructions": "Choose an allowed next step toward goal using only the observed snapshot.",
+      "criteria": {
+        "open_policy": "Open observed link e1 to inspect the cancellation policy.",
+        "wait": "The supplied observation is incomplete or still loading.",
+        "blocked": "No allowed action can advance the goal."
+      }
+    }
+  }
+}
+```
+
+**📤 Output · observed CLI decisions**
 
 <!-- receipt: scenario-smoke-2026-09-20.json#skills/jev-ui/assets/example.json -->
 ```json
 {
-  "action": {"status": "selected", "value": "open_policy", "probability": 1, "margin": 1}
+  "action": {
+    "status": "selected",
+    "value": "open_policy",
+    "probability": 1,
+    "margin": 1
+  }
 }
 ```
 
@@ -730,26 +1154,126 @@ The first real output: [stuck-loop recovery ↓](#sc-a02). [How probabilities di
 - **Sources:** [P04](skills/jev/references/community.md#p04)
 - **Status:** [Live synthetic example](evals/SCENARIO_EXAMPLES.md): bug queue, urgency 1.29/2; bulk routing untested.
 
-**Observed output** — The same order was charged twice, but checkout still worked; the customer requested review today.
+**🧪 Recorded I/O** — The same order was charged twice, but checkout still worked; the customer requested review today.
+
+**📥 Input · full request**
+
+<!-- request: examples-2026-09-20.json#triage -->
+```json
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "record": "Our invoices show two charges for the same order. Checkout still works. Could someone check this today?"
+  },
+  "questions": {
+    "category": {
+      "type": "choice",
+      "instructions": "Classify the support message.",
+      "criteria": {
+        "billing": "Payments, invoices, charges or refunds.",
+        "bug": "Software behavior not primarily about billing.",
+        "account": "Login, permissions or account recovery.",
+        "other": "Insufficient information or another category."
+      }
+    },
+    "needs_human": {
+      "type": "noul",
+      "instructions": "Does resolving this record require checking account-specific evidence rather than sending a generic help link?"
+    },
+    "urgency": {
+      "type": "score",
+      "instructions": "Rate urgency from the record; do not infer facts not stated.",
+      "criteria": [
+        "Routine request with no active loss or blocked work.",
+        "Active issue needing timely review; work can continue.",
+        "Work is blocked or active loss requires immediate investigation."
+      ]
+    }
+  }
+}
+```
+
+**📤 Output · observed CLI decisions**
 
 <!-- receipt: examples-2026-09-20.json#triage -->
 ```json
 {
-  "category": {"status": "selected", "value": "billing", "probability": 1, "margin": 1},
-  "needs_human": {"status": "selected", "value": true, "probability": 0.91},
-  "urgency": {"status": "scored", "value": 1}
+  "category": {
+    "status": "selected",
+    "value": "billing",
+    "probability": 1,
+    "margin": 1
+  },
+  "needs_human": {
+    "status": "selected",
+    "value": true,
+    "probability": 0.91
+  },
+  "urgency": {
+    "status": "scored",
+    "value": 1
+  }
 }
 ```
 
 [Original request and full response](evals/results/examples-2026-09-20.json)
 
-**Observed output** — Export fails for all team members; the monthly report is needed tomorrow.
+**🧪 Recorded I/O** — Export fails for all team members; the monthly report is needed tomorrow.
+
+**📥 Input · full request**
+
+<!-- request: scenario-smoke-2026-09-20.json#skills/jev-triage/assets/example.json -->
+```json
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "record_id": "ticket-07",
+    "text": "The export button returns an error for all team members. We need the monthly report tomorrow.",
+    "queues": {
+      "billing": "Charges and invoices",
+      "bug": "Broken product functionality",
+      "howto": "Usage questions"
+    }
+  },
+  "questions": {
+    "queue": {
+      "type": "choice",
+      "instructions": "Which queue matches this record? Use other if none fits.",
+      "criteria": {
+        "billing": "A charge or invoice issue.",
+        "bug": "Broken functionality.",
+        "howto": "A question about how to use working functionality.",
+        "other": "Unclear or outside the queues."
+      }
+    },
+    "urgency": {
+      "type": "score",
+      "instructions": "Rate operational urgency from the evidence, not emotional wording.",
+      "criteria": [
+        "No current blocker or deadline.",
+        "A blocker or approaching deadline.",
+        "Documented widespread outage or imminent severe impact."
+      ]
+    }
+  }
+}
+```
+
+**📤 Output · observed CLI decisions**
 
 <!-- receipt: scenario-smoke-2026-09-20.json#skills/jev-triage/assets/example.json -->
 ```json
 {
-  "queue": {"status": "selected", "value": "bug", "probability": 1, "margin": 1},
-  "urgency": {"status": "scored", "value": 1.29}
+  "queue": {
+    "status": "selected",
+    "value": "bug",
+    "probability": 1,
+    "margin": 1
+  },
+  "urgency": {
+    "status": "scored",
+    "value": 1.29
+  }
 }
 ```
 
@@ -981,13 +1505,62 @@ The first real output: [stuck-loop recovery ↓](#sc-a02). [How probabilities di
 - **Sources:** [Official span extraction](https://docs.typesafe.ai/cookbooks/pre_parsed_value_extraction_cookbook)
 - **Status:** [Live synthetic example](evals/SCENARIO_EXAMPLES.md): selected s2 (0.97), with a contradicted claim; no OCR/retrieval test.
 
-**Observed output** — s1 = general email hello@example.invalid; s2 = invoice email accounts@example.invalid. The claim incorrectly used s1 for invoices.
+**🧪 Recorded I/O** — s1 = general email hello@example.invalid; s2 = invoice email accounts@example.invalid. The claim incorrectly used s1 for invoices.
+
+**📥 Input · full request**
+
+<!-- request: scenario-smoke-2026-09-20.json#skills/jev-documents/assets/example.json -->
+```json
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "question": "Which address is explicitly for invoice delivery?",
+    "candidates": {
+      "s1": "General questions: hello@example.invalid",
+      "s2": "Send invoices to accounts@example.invalid"
+    },
+    "claim": "Invoices should be sent to hello@example.invalid."
+  },
+  "questions": {
+    "source": {
+      "type": "choice",
+      "instructions": "Select the span explicitly answering question. Choose none if absent.",
+      "criteria": {
+        "s1": "The exact first candidate span.",
+        "s2": "The exact second candidate span.",
+        "none": "No candidate contains the requested information."
+      }
+    },
+    "claim_support": {
+      "type": "choice",
+      "instructions": "Does the supplied evidence support the claim?",
+      "criteria": {
+        "supported": "The evidence states the claimed invoice destination.",
+        "contradicted": "The evidence explicitly gives a different invoice destination.",
+        "unknown": "The evidence does not resolve the claim."
+      }
+    }
+  }
+}
+```
+
+**📤 Output · observed CLI decisions**
 
 <!-- receipt: scenario-smoke-2026-09-20.json#skills/jev-documents/assets/example.json -->
 ```json
 {
-  "source": {"status": "selected", "value": "s2", "probability": 0.97, "margin": 0.94},
-  "claim_support": {"status": "selected", "value": "contradicted", "probability": 1, "margin": 1}
+  "source": {
+    "status": "selected",
+    "value": "s2",
+    "probability": 0.97,
+    "margin": 0.94
+  },
+  "claim_support": {
+    "status": "selected",
+    "value": "contradicted",
+    "probability": 1,
+    "margin": 1
+  }
 }
 ```
 
@@ -1228,12 +1801,54 @@ The first real output: [stuck-loop recovery ↓](#sc-a02). [How probabilities di
 - **Sources:** [R10](skills/jev/references/community.md#r10) · [X01](skills/jev/references/twitter-workflows.md#x01) · [X03](skills/jev/references/twitter-workflows.md#x03) · [R03](skills/jev/references/community.md#r03)
 - **Status:** [Live synthetic example](evals/SCENARIO_EXAMPLES.md): inspect warehouse; no simulator transition or win-rate measurement.
 
-**Observed output** — Two days of food, storm-closed bridge, accessible warehouse on the same bank; strategy is to seek local supplies.
+**🧪 Recorded I/O** — Two days of food, storm-closed bridge, accessible warehouse on the same bank; strategy is to seek local supplies.
+
+**📥 Input · full request**
+
+<!-- request: scenario-smoke-2026-09-20.json#skills/jev-simulation/assets/example.json -->
+```json
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "world": "Fictional island town",
+    "goal": "Keep residents supplied while avoiding unsafe crossings.",
+    "state": {
+      "food_days": 2,
+      "bridge": "closed after storm",
+      "warehouse": "on this side of river"
+    },
+    "legal_actions": [
+      "inspect_warehouse",
+      "wait",
+      "ask_planner"
+    ],
+    "strategy": "Look for a safe local food source before considering travel."
+  },
+  "questions": {
+    "action": {
+      "type": "choice",
+      "instructions": "Choose a legal next action consistent with strategy and current state.",
+      "criteria": {
+        "inspect_warehouse": "Inspect the accessible local warehouse for supplies.",
+        "wait": "No justified safe information-gathering action is available.",
+        "ask_planner": "Current strategy conflicts with observations or needs revision."
+      }
+    }
+  }
+}
+```
+
+**📤 Output · observed CLI decisions**
 
 <!-- receipt: scenario-smoke-2026-09-20.json#skills/jev-simulation/assets/example.json -->
 ```json
 {
-  "action": {"status": "selected", "value": "inspect_warehouse", "probability": 1, "margin": 1}
+  "action": {
+    "status": "selected",
+    "value": "inspect_warehouse",
+    "probability": 1,
+    "margin": 1
+  }
 }
 ```
 
@@ -1252,13 +1867,57 @@ The first real output: [stuck-loop recovery ↓](#sc-a02). [How probabilities di
 - **Sources:** [P10](skills/jev/references/community.md#p10)
 - **Status:** Synthetic API smoke output shown below; no end-to-end outcome benchmark for this workflow.
 
-**Observed output** — Offline-first pantry app for busy households; clear audience, but no user or market validation.
+**🧪 Recorded I/O** — Offline-first pantry app for busy households; clear audience, but no user or market validation.
+
+**📥 Input · full request**
+
+<!-- request: examples-2026-09-20.json#rubric -->
+```json
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "idea": "An offline-first pantry app that turns existing ingredients into a short weekly shopping list, without requiring an account.",
+    "audience": "Busy households who want less food waste.",
+    "evidence": "Concept only; no users or market validation yet."
+  },
+  "questions": {
+    "audience_fit": {
+      "type": "score",
+      "instructions": "How clearly does the concept address the stated audience?",
+      "criteria": [
+        "No concrete audience problem.",
+        "Problem identifiable but proposed workflow only partly matches.",
+        "Clear audience, problem and plausible matching workflow."
+      ]
+    },
+    "validation": {
+      "type": "choice",
+      "instructions": "What does the evidence support about real demand?",
+      "criteria": {
+        "validated": "Independent user behavior or customer evidence establishes demand.",
+        "untested": "Only a concept or opinions; demand has not been tested.",
+        "unknown": "Evidence is contradictory or cannot be interpreted."
+      }
+    }
+  }
+}
+```
+
+**📤 Output · observed CLI decisions**
 
 <!-- receipt: examples-2026-09-20.json#rubric -->
 ```json
 {
-  "audience_fit": {"status": "scored", "value": 1.98},
-  "validation": {"status": "selected", "value": "untested", "probability": 1, "margin": 1}
+  "audience_fit": {
+    "status": "scored",
+    "value": 1.98
+  },
+  "validation": {
+    "status": "selected",
+    "value": "untested",
+    "probability": 1,
+    "margin": 1
+  }
 }
 ```
 
@@ -1337,13 +1996,67 @@ The first real output: [stuck-loop recovery ↓](#sc-a02). [How probabilities di
 - **Sources:** [Creator report](https://x.com/greenhill_pharm/status/2101492328137711891)
 - **Status:** [Live synthetic example](evals/SCENARIO_EXAMPLES.md): analyst + calm; no speech generated.
 
-**Observed output** — A host invites the analyst to explain conflicting evidence in a fictional podcast; choose speaker and delivery style.
+**🧪 Recorded I/O** — A host invites the analyst to explain conflicting evidence in a fictional podcast; choose speaker and delivery style.
+
+**📥 Input · full request**
+
+<!-- request: scenario-smoke-2026-09-20.json#skills/jev/assets/voice-style.json -->
+```json
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "setting": "Fictional classroom podcast. These are scripted characters, not real people.",
+    "last_line": {
+      "speaker": "host",
+      "text": "We found conflicting results. Analyst, what evidence should we check next?"
+    },
+    "eligible_speakers": [
+      "analyst",
+      "host"
+    ],
+    "delivery_policy": "Match the requested delivery to the line content, not inferred mental health. No evidence for dramatic emotion."
+  },
+  "questions": {
+    "speaker": {
+      "type": "choice",
+      "instructions": "Choose the next eligible speaker from the observed turn-taking cues, or pause.",
+      "criteria": {
+        "analyst": "The analyst was invited to respond.",
+        "host": "The host should continue rather than yield.",
+        "wait": "Pause because turn-taking is unclear."
+      }
+    },
+    "delivery": {
+      "type": "choice",
+      "instructions": "Choose a restrained delivery style for the analyst explaining how to inspect conflicting evidence.",
+      "criteria": {
+        "calm": "Measured, explanatory delivery.",
+        "bright": "Celebratory or enthusiastic delivery justified by the script.",
+        "serious": "Urgent warning justified by the script.",
+        "neutral": "No distinctive style is warranted."
+      }
+    }
+  }
+}
+```
+
+**📤 Output · observed CLI decisions**
 
 <!-- receipt: scenario-smoke-2026-09-20.json#skills/jev/assets/voice-style.json -->
 ```json
 {
-  "speaker": {"status": "selected", "value": "analyst", "probability": 1, "margin": 1},
-  "delivery": {"status": "selected", "value": "calm", "probability": 0.98, "margin": 0.96}
+  "speaker": {
+    "status": "selected",
+    "value": "analyst",
+    "probability": 1,
+    "margin": 1
+  },
+  "delivery": {
+    "status": "selected",
+    "value": "calm",
+    "probability": 0.98,
+    "margin": 0.96
+  }
 }
 ```
 
