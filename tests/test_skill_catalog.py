@@ -131,6 +131,42 @@ class SkillCatalogTests(unittest.TestCase):
             re.findall(r"<!-- covers: (.*?) -->", readmes[1]),
         )
 
+    def test_readme_counts_and_numbering_match_the_catalog(self):
+        for filename in ("README.md", "README.zh.md"):
+            text = (ROOT / filename).read_text()
+            numbers = [int(n) for n in re.findall(r"^### (\d+)\.", text, re.M)]
+            self.assertEqual(numbers, list(range(1, len(numbers) + 1)))
+            badge = re.search(r"/badge/scenarios-(\d+)-", text)
+            self.assertEqual(int(badge.group(1)), len(numbers))
+            counts = re.findall(r"<br />(\d+) (?:recipes|个用法)", text)
+            self.assertEqual(len(counts), 9)
+            self.assertEqual(sum(map(int, counts)), len(numbers))
+
+    def test_showcase_has_attributed_previews_and_existing_local_media(self):
+        for filename in ("README.md", "README.zh.md"):
+            text = (ROOT / filename).read_text()
+            gallery = text.split('<a id="showcase"></a>', 1)[1].split(
+                '<a id="install"></a>', 1
+            )[0]
+            previews = re.findall(r'<a href="https://[^"]+"><img src="([^"]+)"', gallery)
+            self.assertEqual(len(previews), 4)
+            for source in previews:
+                if not source.startswith("https://"):
+                    self.assertTrue((ROOT / source).is_file(), source)
+            self.assertIn("docs/media/README.md", gallery)
+            self.assertIn("docs/updates/2026-09-20.md", gallery)
+        self.assertTrue((ROOT / "docs/media/README.md").is_file())
+        self.assertTrue((ROOT / "docs/updates/2026-09-20.md").is_file())
+
+    def test_daily_additions_are_visible_in_both_languages(self):
+        for filename in ("README.md", "README.zh.md"):
+            text = (ROOT / filename).read_text()
+            for number in range(1, 6):
+                self.assertIn(f"<!-- covers: D{number:02d} -->", text)
+            for anchor in ("sc-semantic-find", "sc-sponsor-skip", "sc-story-sensors",
+                           "sc-midi", "sc-local-comparison"):
+                self.assertIn(f'<a id="{anchor}"></a>', text)
+
     def test_readme_outputs_match_all_saved_example_receipts(self):
         expected = {}
         for filename in ("examples-2026-09-20.json", "scenario-smoke-2026-09-20.json"):

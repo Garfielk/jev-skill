@@ -21,8 +21,8 @@ None substitutes for the others.
   Python environment. CLI help and all eight scenario examples passed in each
   copied location (**16 installed-example dry runs**). The source distribution
   was checked for all nine skills and eight scenario assets.
-- Checked local documentation links and matching EN/ZH navigation anchors; both
-  READMEs have 85 scenario/integration blocks covering all 56 recipe IDs,
+- Checked local documentation links and matching EN/ZH navigation anchors; the
+  v0.1.1 READMEs had 85 scenario/integration blocks covering all 56 recipe IDs,
   22 implementation patterns and seven X workflow leads. Tests verify that
   all 14 displayed API outputs match the saved receipts exactly (apart from
   omitted score-level descriptions). Publication text was scanned for the active
@@ -72,6 +72,25 @@ were checked. No real host configuration was changed.
 The batch template has **not** been live-evaluated. These are packaging and offline
 request checks, not a parallel-load benchmark, measured speedup or proof that an
 agent follows the new instructions. Existing live results below are unchanged.
+
+## Awesome-style README refresh — September 20
+
+The current main-branch READMEs contain **90 scenarios** in matching English and
+Chinese order. Five community patterns were added after fresh X, Reddit and
+GitHub research; [the collection log](updates/2026-09-20.md) records original
+sources and inspection limits. This is a documentation update, not a new runtime
+release; the agent installer still pins v0.1.1.
+
+- All **82 unit tests** passed. Three new tests check catalog numbering/counts,
+  attributed preview assets and bilingual coverage of the five additions.
+- All **14 displayed API outputs** still match the saved receipts exactly.
+- **884 local link occurrences** across both READMEs, the media credits and the
+  update notes resolved, including local Markdown fragments.
+- Both READMEs were rendered through GitHub's Markdown API and visually inspected
+  in the browser. The four preview images loaded; the browser demo is animated.
+  Chinese bold-label spacing and the badge row were corrected during inspection.
+- `git diff --check` passed. No community app was executed and no new model API
+  results, calibration measurements or native-client integration claims were added.
 
 ## Live Jev examples
 
