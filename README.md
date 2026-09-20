@@ -34,21 +34,19 @@ not complete applications for every scenario; measured inputs are labeled separa
 - [Ideas, games and creative tools](#creative) — 10 uses
 - [Build and connect your own tools](#building) — 3 uses
 
-### Start from this checkout
-
-The public release is pending; these commands work from a downloaded checkout.
+### Install
 Python 3.10+, [uv](https://docs.astral.sh/uv/) and Node/npm are needed for this route.
 
 ```bash
-uv tool install .
-npx skills add . --skill jev-triage
+uv tool install git+https://github.com/wuyoscar/jev-skill.git@v0.1.0
+npx skills add wuyoscar/jev-skill --skill jev-triage
 export OPENROUTER_API_KEY="your-key"
-jev-decide decide skills/jev-triage/assets/example.json --dry-run
 ```
 
 Choose Codex, Claude Code or OpenCode in the installer. Replace `jev-triage` with
-the skill you want below. Then ask your agent to use it. For manual use, edit the
-JSON and remove `--dry-run` to call Jev (paid). [Installation options](docs/installation.md).
+the skill you want below, then copy a task prompt into your agent. For manual use,
+download/edit an example and run `jev-decide decide request.json --dry-run` to
+validate it for free; remove `--dry-run` to call Jev (paid). [Installation options](docs/installation.md).
 
 ### Reading the examples
 
@@ -1378,4 +1376,7 @@ Go deeper: [pinned project research](skills/jev/references/ecosystem.md) ·
 [56 agent/human recipes](skills/jev/references/index.md).
 
 Inspired also by the [official Jev skill](https://docs.typesafe.ai/agent-skill).
+
+Special thanks to [LINUX DO](https://linux.do/?tl=en).
+
 [MIT](LICENSE); linked projects retain their own licenses.

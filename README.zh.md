@@ -30,20 +30,18 @@ Jev 负责选择、分类和评分，agent 负责提供上下文和执行。
 - [想法、游戏与创作](#creative) — 10 个
 - [制作与接入自己的工具](#building) — 3 个
 
-### 从本地仓库开始
-
-公开发布尚未完成；以下命令在下载后的仓库目录中使用。
+### 安装
 需要 Python 3.10+、[uv](https://docs.astral.sh/uv/) 和 Node/npm。
 
 ```bash
-uv tool install .
-npx skills add . --skill jev-triage
+uv tool install git+https://github.com/wuyoscar/jev-skill.git@v0.1.0
+npx skills add wuyoscar/jev-skill --skill jev-triage
 export OPENROUTER_API_KEY="your-key"
-jev-decide decide skills/jev-triage/assets/example.json --dry-run
 ```
 
 安装器中选择 Codex、Claude Code 或 OpenCode。把 `jev-triage` 换成下文需要的技能，
-然后让 agent 使用它。自己直接用也可以：修改 JSON，去掉 `--dry-run` 就会调用 Jev（产生费用）。
+然后复制对应场景的提示词，让 agent 使用它。自己直接用也可以：下载并修改 JSON，
+运行 `jev-decide decide request.json --dry-run` 免费校验，去掉 `--dry-run` 就会真实调用（产生费用）。
 [其他安装方式](docs/installation.md)。
 
 ### 怎么读例子
@@ -1319,5 +1317,7 @@ Jev 本身不浏览、不执行工具，也不生成自由文本。判断输入�
 [56 个 agent / 人工场景](skills/jev/references/index.md)。
 
 也受到[官方 Jev skill](https://docs.typesafe.ai/agent-skill)的启发。
+
+特别感谢 [LINUX DO](https://linux.do/?tl=en)。
 
 [MIT](LICENSE)，外链项目保留各自许可证。

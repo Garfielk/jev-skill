@@ -11,10 +11,31 @@
   project from the [ecosystem guide](../skills/jev/references/ecosystem.md).
   Installing our skills does not install those projects or their tools.
 
+## Install from GitHub
+
+```bash
+uv tool install git+https://github.com/wuyoscar/jev-skill.git@v0.1.0
+npx skills add wuyoscar/jev-skill --skill jev-triage
+export OPENROUTER_API_KEY="your-key"
+```
+
+Select Codex, Claude Code or OpenCode in the installer; replace the skill name
+with any entry below. The CLI is pinned to the release; the short skills command
+tracks the repository's default branch. For a fully pinned skill installation,
+clone the tag and use the local installer commands below.
+
+[Release downloads](https://github.com/wuyoscar/jev-skill/releases/tag/v0.1.0)
+include the CLI wheel, source distribution and complete source ZIP. No PyPI
+account or TypeSafe-specific key is needed.
+
 ## From a reviewed checkout
 
-The public release is pending. No published tag or package-index release is
-required for these local commands. In the root of this checkout:
+```bash
+git clone --branch v0.1.0 https://github.com/wuyoscar/jev-skill.git
+cd jev-skill
+```
+
+In the root of that checkout:
 
 ```bash
 uv tool install .
