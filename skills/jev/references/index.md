@@ -17,6 +17,8 @@ between the two. Nothing here requires giving Jev execution privileges.
 | Papers, qualitative coding, datasets, review | [Human recipes](human-recipes.md) | Inclusion criteria, themes, ambiguity, rubric levels |
 | Product ideas, design, content, games, simulation | [Human recipes](human-recipes.md) | Score descriptive dimensions or choose a next branch |
 | Compliance, abuse, cheating, sensitive decisions | Both recipe files | Flag evidence for review, never issue an automatic verdict |
+| Act, delegate, or defer based on uncertainty | [Calibration](calibration.md) | Validate probability/risk and review-load tradeoffs before picking thresholds |
+| Stress-test decisions with labeled or tricky questions | [Decision datasets](decision-datasets.md) | Keep benchmark gold, generated answers, and qualitative annotation separate |
 
 ## Evidence legend
 

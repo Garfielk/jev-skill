@@ -54,3 +54,13 @@ it was stopped without repeated failed requests. Neither failure is an agent-eff
 comparison. The [completed DeepSeek pilot](../evals/RESULTS.md) contains 24 episodes:
 baseline 12/12 completed versus fixed Jev checkpoints 10/12. It is a small negative
 result for that integration policy, not a validation of all recipes.
+
+## Decision calibration pilot
+
+The [separate BBH pilot](../evals/CALIBRATION_RESULTS.md) completed 320 paid calls
+on 160 original labeled questions. Jev matched 136/160 labels; its API-confidence
+>=0.9 subset matched 92/100, but causal judgment within that band matched only
+14/20. Full distributions, reliability bins, Brier/NLL, routing diagnostics,
+provider usage and failed baseline label spellings are retained. This is not
+a deployment threshold certificate. Strict baseline and post-hoc bracket-only
+normalization are kept separate; no failed question was rerun.

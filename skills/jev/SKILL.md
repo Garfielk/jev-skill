@@ -17,7 +17,9 @@ the result. It does not browse, generate prose, or remember earlier requests.
 **Agent mode:** a repeated failure needs a different recovery path; several tools
 or specialists overlap; the plan has drifted from the user's goal; a queued job or
 weak test result is being mistaken for completion; a browser page needs routing;
-or a semantic policy check is genuinely ambiguous. Use checkpoints, not an extra
+or a semantic policy check is genuinely ambiguous. It can also supply an uncertainty
+signal for choosing between already-authorized work, stronger-model review, and
+a human handoff. Use checkpoints, not an extra
 model call before every trivial action.
 
 **Human mode:** the user wants records classified, several independent labels
@@ -39,7 +41,9 @@ Read only the relevant slice, not the entire catalog:
 | Inbox, research, data, content, product, rubric review | [Human recipes](references/human-recipes.md) |
 | Design labels and uncertainty handling | [Question design](references/question-design.md) |
 | API request/response shapes and CLI behavior | [API](references/api.md) |
-| What Reddit users actually tried; caveats and alternatives | [Community evidence](references/community.md) |
+| Calibrated decisions, confidence bands, review versus deferral | [Calibration](references/calibration.md) |
+| Labeled decision benchmarks; Chinese/English tricky questions | [Decision datasets](references/decision-datasets.md) |
+| What users and authors actually tried across platforms | [Community evidence](references/community.md) |
 
 ## Decision loop
 

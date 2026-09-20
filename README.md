@@ -63,6 +63,13 @@ Jev can be wrong or manipulated; it cannot grant consent, verify unseen outcomes
 or replace deterministic checks and human review. Text/JSON sent for judgment goes
 to OpenRouter and its provider. This is an open-source integration, **not Jev model weights**.
 
+## Uncertainty-aware decisions
+
+Route easy cases, review uncertain ones, and defer when evidence is insufficient.
+Jev’s `confidence` is not the probability of being correct: validate thresholds
+on your own labels. [Calibration guide](skills/jev/references/calibration.md) ·
+[Decision benchmark](evals/CALIBRATION.md)
+
 ## Evidence, not promises
 
 The [paired evaluation](evals/README.md) compares the same agent with and without
@@ -70,6 +77,10 @@ Jev checkpoint advice using deterministic simulated outcomes. In [12 paired pilo
 trials](evals/RESULTS.md), the baseline completed **12/12**, versus **10/12** with
 fixed Jev checkpoints, at higher cost. Five live Jev examples also passed.
 Use the toolbox selectively; this pilot does **not** show a general agent improvement.
+
+In a separate [160-item decision test](evals/CALIBRATION_RESULTS.md), Jev matched
+85% of benchmark labels. Its confidence ≥0.9 group still had 8/100 wrong answers;
+validate each domain before trusting a routing threshold.
 
 Inspired by the [official Jev skill](https://docs.typesafe.ai/agent-skill),
 [JevRouter](https://github.com/BillionsBobby/JevRouter), and community experiments.

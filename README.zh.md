@@ -59,12 +59,21 @@ Skill 是**行为指引，不是强制拦截 hook**。Jev 可能判断错误或�
 不能代替授权、确定性校验和人工复核。提交的文本／JSON 会发往 OpenRouter 及其服务商。
 本项目开源的是集成工具，**不是 Jev 模型权重**。
 
+## 按不确定性分流
+
+有把握的交给既定流程，中间段交给更强模型复核，低把握的留给人。
+但 `confidence` 不等于正确概率，0.9／0.7 必须经过具体任务验证。
+[校准与分流指南](skills/jev/references/calibration.md) · [决策测试](evals/CALIBRATION.md)
+
 ## 用实验说话
 
 [配对对照实验](evals/README.md) 使用相同 agent，比较有／无 Jev 检查点建议时的表现，
 以模拟环境的确定性最终状态验收。[12 组配对试验](evals/RESULTS.md) 中，基线完成
 **12/12**，加入固定 Jev 检查点后完成 **10/12**，费用更高。另有 5 个真实 Jev 示例通过。
 建议按需使用；这次小实验**没有证明 agent 整体表现提升**。
+
+另一个 [160 题决策测试](evals/CALIBRATION_RESULTS.md) 中，Jev 的标签正确率为 **85%**。
+`confidence ≥0.9` 的 100 题仍错了 8 题，阈值必须按具体领域验证。
 
 参考了 [官方 Jev skill](https://docs.typesafe.ai/agent-skill)、
 [JevRouter](https://github.com/BillionsBobby/JevRouter) 和社区实践。

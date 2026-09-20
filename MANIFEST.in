@@ -1,5 +1,5 @@
 recursive-include skills/jev *.md *.json *.py
-recursive-include evals *.py *.md *.json *.jsonl
+recursive-include evals *.py *.md *.json *.jsonl *.txt
 recursive-include docs *.md
 include README.zh.md
 include LICENSE

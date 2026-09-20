@@ -1,5 +1,8 @@
 # Paired checkpoint pilot
 
+For probability calibration and 0.9/0.7 escalation bands, see the separate
+[decision benchmark](CALIBRATION.md).
+
 Does bounded Jev advice help **the same base agent** finish verifiable tasks? This
 is a small synthetic experiment, not proof of better long-horizon agents.
 
