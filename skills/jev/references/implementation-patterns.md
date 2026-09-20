@@ -222,6 +222,91 @@ its reported throughput does not establish the exact scheduling or decision qual
 [OpenCode game handoff X03](twitter-workflows.md#x03) is a separate discovery lead;
 [Catan X06](twitter-workflows.md#x06) reports why a loop also needs a no-progress exit.
 
+## 18. Improve the action interface, or assist inside one primitive
+
+**Pipeline:** inspect real website/tool capabilities → offer explicit task-level
+actions → Jev selects → a generator or source-span selector supplies arguments
+if needed → host validates, executes and checks the receipt.
+
+**Change:** action granularity, argument source and placement. Rather than running
+an entire agent, the caller can use Jev inside one `act`, `observe` or extraction
+operation. An explicit website tool may replace several clicks, but only when
+the website actually exposes it. Keep arbitrary text generation separate.
+
+[WebMCP U08 and Stagehand U12/U23](x-intake-2026-09-20.md) motivate these designs.
+WindTunnel's reported 49/49 tasks means majority success over repeated attempts,
+not 147/147 successes; its two harnesses are not an isolated interface ablation.
+Compare completed tasks as well as each primitive's label quality.
+
+## 19. Adjust a policy to resource pressure without changing the judgment
+
+**Pipeline:** eligible task checkpoint → classify completion/work shape → host
+combines the answers → context usage or deadline determines the local gate →
+show advice or invoke an already-authorized host operation.
+
+**Change:** checkpoint definition, combination weight, pressure schedule,
+cooldown and advisory versus automatic consumption. A high cost of waiting can
+justify a different decision rule, not a fabricated higher probability.
+Revalidate pending advice after a state or policy change; hints being timely does
+not establish that compaction preserves information needed later.
+
+[compact-adviser U13](x-intake-2026-09-20.md) supplies a concrete configurable
+precedent. Deadline/stale-result handling from [U05/U15](x-intake-2026-09-20.md)
+also transfers to games or schedulers without adopting live trading behavior.
+Our CLI does not install compaction hooks or implement a scheduling policy.
+
+## 20. Separate occasional strategy from frequent local actions
+
+**Pipeline:** reasoning model/person selects a subgoal → Jev chooses among legal
+actions under that subgoal → simulator/tool returns fresh state → host decides
+whether to continue locally or request a new strategy.
+
+**Change:** objective, strategy refresh triggers, progress measure, action budget
+and which decisions require longer-horizon reasoning. Consider a game bot,
+navigation exercise, workflow simulation or an agent following a bounded plan.
+Replan on violated assumptions, no progress or a completed subgoal rather than
+repeating a local action indefinitely. Keep the original goal available to the
+planner; an obsolete subgoal should not quietly become the whole task.
+
+The [Pac-Man U10 and action-game U26 posts](x-intake-2026-09-20.md) are author
+demo descriptions, not independently measured evidence of strategic competence.
+This pattern complements world design/rendering in pattern 17.
+
+## 21. Select conversational roles and expressive presentation separately
+
+**Pipeline:** conversation state plus bot roles → next-speaker/response-mode
+choice → separate model writes the utterance → Jev classifies intended delivery
+style → code maps the label to a supported TTS preset.
+
+**Change:** participants, speaking permissions, turn-taking policy, style labels,
+voice preset mapping and neutral fallback. Either half can be used alone: a host
+can orchestrate multiple characters, or a person can apply a delivery rubric to
+an existing script. Add turn limits and smooth rapidly changing style selections.
+Utterance classification is not mind-reading; do not present a voice-style label
+as a diagnosis or a fact about the speaker's internal state.
+
+[U28](x-intake-2026-09-20.md) reports both uses; this compositional pipeline is
+our adaptation, not inspected upstream code. Jev neither writes the dialogue nor
+synthesizes audio, and this package does not install a TTS provider.
+
+## 22. Compile a user's task into an editable question set
+
+**Pipeline:** natural-language classification request → generative model drafts
+typed questions and criteria → schema check and rubric review → Jev answers for
+each scoped record → host consumes results according to the approved meanings.
+
+**Change:** original task, answer definitions, sample records, review step and
+consumer. Reuse the compiled questions while their semantics are unchanged;
+recompile/version when the user changes the task. Give every batched record a
+stable ID and explicitly name it in each question to avoid cross-row ambiguity.
+A syntactically valid generated rubric can still misrepresent user intent.
+
+[OpenRouter's prompt-to-questions example](https://openrouter.ai/labs/jev/compile)
+demonstrates the two-model split. [Jev Explained U29](x-intake-2026-09-20.md)
+offers a complementary teaching shape: editable state, questions, sample inputs
+and a separate consumer. These inspire agent-authored requests, not a new
+compiler command or mandatory second model in this CLI.
+
 ## Combining patterns without building a new framework
 
 Start with one call if that solves the task. For a larger workflow, compose only

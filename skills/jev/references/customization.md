@@ -87,6 +87,12 @@ for the chosen aggregation. The resulting utility number is **not** a probabilit
 Learned combinations are also possible; see the feature-discovery pattern rather
 than assuming hand-picked weights are universally better.
 
+Policy can also depend on host-observed conditions: the cost of waiting changes
+as a context window fills or a deadline approaches. Change the downstream gate,
+not the recorded model probability. The [compact-adviser example](x-intake-2026-09-20.md)
+shows configurable questions, weights and a context-usage schedule. Those
+upstream features are not built into this CLI; evaluate a new policy separately.
+
 ## Customize scope and timing as well as wording
 
 - A review rule can apply only to public API files, not generated code or fixtures.

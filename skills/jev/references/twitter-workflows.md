@@ -5,11 +5,16 @@ ideas, not integrations installed by this skill or reproduced performance result
 X is a first-class research source alongside Reddit, repositories and articles.
 Follow a post to its implementation when available; count reposts as one claim.
 
+The later [29-post user collection](x-intake-2026-09-20.md) is fully indexed
+separately, including WebMCP, context-pressure-aware compaction, strategic/tactical
+control, Stagehand primitives, conversation choreography and TTS style selection.
+It preserves the supplied excerpts' status and adds primary-document follow-up.
+
 ## Access and evidence
 
 Direct retrieval of the first four linked X posts returned HTTP 403. The whale-city
 post's text was readable on the author's [public profile mirror](https://twstalker.com/gokayfem).
-The other entries below were discovered as author-post excerpts in
+Entries X02–X07 below were discovered as author-post excerpts in
 [Jevable](https://jevable.com/); some excerpts are truncated. Original post URLs
 are retained for follow-up, but are **not a claim of direct X access**. We did not
 inspect these demos' source code, watch their full videos or run their systems.

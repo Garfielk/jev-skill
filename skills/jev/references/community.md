@@ -338,6 +338,11 @@ model routing. Each entry retains its original post URL and labels whether the
 text was read through a mirror or only a directory excerpt. These are not direct
 X retrievals, code inspections or local reproductions.
 
+The [29-post intake](x-intake-2026-09-20.md) additionally preserves every item
+supplied by the user, deduplicates experiment families, and follows selected
+claims to pinned primary documentation. See its WebMCP task-versus-attempt
+accounting, configurable compaction policies and mock-versus-live trading notes.
+
 ## What this means for comparisons
 
 1. Compare the **same task and permitted actions**, not a free-form planner against a candidate list containing privileged answers.
