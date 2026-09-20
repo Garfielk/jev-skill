@@ -43,6 +43,36 @@ class SkillCatalogTests(unittest.TestCase):
                                     "bounded concurrency", "same request"):
                     self.assertIn(requirement, text)
 
+    def test_readme_usage_explains_agent_prompts_and_manual_calls(self):
+        for filename in ("README.md", "README.zh.md"):
+            text = (ROOT / filename).read_text()
+            self.assertTrue('<a id="usage"></a>' in text, filename)
+            usage = text.split('<a id="usage"></a>', 1)[1].split('<a id="io"></a>', 1)[0]
+            self.assertEqual(len(re.findall(r"```text\n", usage)), 3)
+            for name in ("jev", *SCENARIOS):
+                self.assertIn(f"`{name}`", usage)
+            for command in ("jev-decide decide request.json --dry-run",
+                            "jev-decide decide request.json > result.json"):
+                self.assertIn(command, usage)
+            for field in ("OPENROUTER_API_KEY", "state", "questions", "criteria",
+                          "choice", "noul", "score"):
+                self.assertIn(field, usage)
+
+    def test_readme_input_can_be_saved_and_dry_run_as_documented(self):
+        for filename in ("README.md", "README.zh.md"):
+            text = (ROOT / filename).read_text()
+            match = re.search(r"<!-- request: .*? -->\s*```json\n(.*?)\n```", text, re.S)
+            with tempfile.TemporaryDirectory() as tmp:
+                request = Path(tmp) / "request.json"
+                request.write_text(match.group(1))
+                output = io.StringIO()
+                with patch.dict("os.environ", {}, clear=True), \
+                        patch("urllib.request.urlopen", side_effect=AssertionError("network")), \
+                        contextlib.redirect_stdout(output):
+                    status = jev.main(["decide", str(request), "--dry-run"])
+                self.assertEqual(status, 0)
+                self.assertEqual(json.loads(output.getvalue()), json.loads(match.group(1)))
+
     def test_batch_example_scopes_each_independent_question(self):
         payload = json.loads((ROOT / "skills/jev/assets/batch-triage.json").read_text())
         jev.validate_request(payload)

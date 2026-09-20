@@ -8,7 +8,7 @@
 
 [English](README.md) · [简体中文](README.zh.md)
 
-[🎬 Demos](#showcase) · [📦 Install](#install) · [🗂 All 90 scenarios](#catalog) · [🧪 Input → output](#io) · [🆕 Updates](docs/updates/README.md)
+[🎬 Demos](#showcase) · [📦 Install](#install) · [🚀 How to use](#usage) · [🗂 All 90 scenarios](#catalog) · [🧪 Input → output](#io) · [🆕 Updates](docs/updates/README.md)
 
 </div>
 
@@ -70,6 +70,102 @@ and verifies the installation offline. You do not need to run commands yourself;
 handle any required approvals and set `OPENROUTER_API_KEY` locally, never in chat.
 No Vercel account is needed; Node/npm is not required by the default install route.
 [Agent installation guide](docs/install.md) · [Manual installation and troubleshooting](docs/installation.md)
+
+<a id="usage"></a>
+## 🚀 Installed it? Here is how to use it
+
+**Send one of these prompts to your agent.** Name the skill and the decision you
+need; you do not have to write JSON. Live calls require `OPENROUTER_API_KEY` in
+the agent's environment and incur API usage. `--dry-run` only checks the input:
+no network or charge. Set the key locally, never in chat.
+
+### Try one example
+
+```text
+Use the jev-triage skill and read assets/example.json from its installed folder.
+Show me the context, questions and candidates, then validate with --dry-run.
+If it passes, make one live call using the locally configured OPENROUTER_API_KEY.
+Show the complete input and actual output, and explain the category and urgency.
+Do not access my mailbox or execute the selected actions. If the key is missing,
+ask me to configure it locally.
+```
+
+For a free offline check, replace “make one live call” with “only dry-run; no API call”.
+If the agent cannot find the skill, have it check the installation location and
+reload the session as required by your client.
+
+### Add checkpoints to an agent task
+
+Replace `[TASK]` with your goal, such as “fix CSV parsing and pass the original tests”:
+
+```text
+Use the jev skill to support decisions while working on [TASK].
+Call it when failures repeat, a route needs choosing, or you are about to claim completion.
+Supply the goal, acceptance checks, relevant history, fresh tool results,
+existing permissions and the meaning of each candidate action.
+Ask for the next step or whether completion is supported; gather missing evidence or ask me.
+Act only within my existing authorization and verify the result afterward.
+Do not add a Jev call to every trivial step.
+```
+
+### Sort your own records in parallel
+
+Replace `[FILE PATH]` with a prepared, redacted file. Agree on the categories with a small sample first:
+
+```text
+Use jev-triage to classify feedback in [FILE PATH] as billing, bug, how-to or other.
+Keep each record's ID, original text and relevant context. First take 3 records
+and let me approve the questions and the data to be sent outside my machine.
+After approval, put classification and urgency questions for each record in one request.
+Schedule independent records with at most 4 requests in flight. Process only these
+3 records first; do not automatically expand to the whole file.
+Return a table of record ID, category, urgency and review status; save requests and responses.
+Keep uncertain cases separate. Do not reply to, delete or move any messages.
+```
+
+The agent schedules concurrency; the CLI does not start parallel jobs itself.
+Check the sample judgments before choosing a larger batch and budget.
+
+### Pick the skill for your task
+
+| I want to… | Ask the agent to use |
+|---|---|
+| Define a custom decision or agent checkpoint | `jev` |
+| Classify and prioritize messages or feedback | `jev-triage` |
+| Select source spans and check evidence | `jev-documents` |
+| Choose among observed browser or desktop actions | `jev-ui` |
+| Recommend a tool, model or specialist | `jev-route` |
+| Assess context relevance and compaction timing | `jev-context` |
+| Prioritize code changes for review | `jev-code-review` |
+| Choose the next location in an observed file inventory | `jev-find-code` |
+| Choose legal actions in a simulated world | `jev-simulation` |
+
+To customize a use case, tell the agent **what to judge, the criteria, the options
+and how you will use the result**. Use `choice` for one option, `noul` for an
+independent yes/no question and `score` for graded levels. Update `state`,
+`questions` and `criteria` together, not just the example text. Browser actions,
+message sending, music and video rendering still need separate host tools.
+
+### Prefer the command line? (Optional)
+
+With `jev-decide` installed, save any complete **Input JSON** below as `request.json`.
+Edit the context, questions and candidates for your task, then run in that file's directory:
+
+```bash
+jev-decide decide request.json --dry-run
+```
+
+After validation and approval to send that data to OpenRouter, make the live call and save its result:
+
+```bash
+jev-decide decide request.json > result.json
+```
+
+Read `result.json`, not just the process exit code. Exit `0` means selected/scored,
+`2` means review, and `1` means error; selecting an action does not execute it.
+If you installed only the general `jev` skill without the CLI, replace `jev-decide`
+with `python3 <actual-skill-directory>/scripts/jev.py`.
+[More commands and troubleshooting](docs/installation.md#cli-behavior) · [See input/output pairs](#io)
 
 <a id="io"></a>
 ## 🧪 What goes in, what comes out

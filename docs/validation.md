@@ -107,6 +107,20 @@ READMEs and update index resolved. The bilingual GitHub-Markdown previews were
 checked in the browser, including the overview and a full request/response pair.
 No new model call was needed, and the runtime/release remains v0.1.1.
 
+### README usage guide
+
+Both READMEs now put a usage guide directly after installation: three copyable
+agent prompts (first example, task checkpoints and a bounded batch), a selector
+for all nine skills, and optional dry-run/live CLI commands. Live usage, local key
+setup, customization and result handling are distinguished from offline checks.
+
+All **85 tests** passed. The new checks cover the usage entrypoint and save an
+actual README Input block to `request.json`, then run the documented dry-run
+arguments through the CLI entrypoint with an empty environment and network calls
+forbidden. Both languages produced the expected validated request. The prompts
+were not executed by a separate agent or tested natively in the three clients;
+no live API call was made for this documentation change.
+
 ## Live Jev examples
 
 Five bundled synthetic requests were sent through the real OpenRouter Decisions
