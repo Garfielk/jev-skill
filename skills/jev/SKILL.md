@@ -3,7 +3,7 @@ name: jev
 description: Use TypeSafe Jev through OpenRouter for context-rich typed judgments rather than generated prose, especially high-volume classification, scoring and routing with parallel independent decisions. Define questions, choices or rubrics for ambiguous agent checkpoints (goal drift, repeated failures, tool routing, completion claims), browser states or human review. Supply sufficient relevant context in every request and batch independent questions. Use code for exact rules or arithmetic; Jev is advisory, not an authorization or security boundary.
 license: MIT
 metadata:
-  requirements: Python 3.10+, network access to OpenRouter, and OPENROUTER_API_KEY in the calling process. API calls incur charges. No MCP server required.
+  requirements: Jev API mode needs Python 3.10+, network access to OpenRouter, and OPENROUTER_API_KEY in the calling process. API calls incur charges. No MCP server required. User-approved host-agent simulation needs no Jev API key or CLI.
 ---
 
 # Jev
@@ -15,6 +15,44 @@ the result. It does not browse, generate prose, or remember earlier requests.
 The recipe library is inspiration, **not a fixed menu of supported functions**.
 Customize the evidence, questions, criteria and next consumer for the user’s task.
 This changes the decision interface and workflow, not the model weights.
+
+## Missing key: ask before choosing a mode
+
+Before making a decision, check **only the presence** of `OPENROUTER_API_KEY` in
+this agent's execution environment; never print its value. If the key is missing,
+warn the user and ask in their language:
+
+> No OpenRouter key was found, so I cannot call Jev. Which option do you prefer?
+> **A — Get a key:** create one at https://openrouter.ai/settings/keys and configure
+> `OPENROUTER_API_KEY` locally to use the real Jev API.
+> **B — Use your current agent:** I simulate the classification using the same
+> evidence and criteria, without calling Jev or requiring an OpenRouter key.
+
+**Wait for an explicit A or B choice. Never silently simulate.** For A, help with
+local setup without collecting the secret in chat; resume Jev calls only when
+configured and authorized. For B, remember consent for the current task, not as a
+permanent default. Do not ask again for every record in that approved task. A key
+appearing later does not authorize silently switching an approved B task to A.
+API errors are not consent to simulate; report them instead of switching modes.
+
+In **B / agent simulation**, the current host agent does the judgment itself:
+- Use the same goal, sufficient context, question IDs and candidate definitions.
+  For `choice`, select a supplied label; for `noul`, return a boolean; for
+  `score`, choose an anchored rubric level, not a claimed Jev probability-weighted
+  score. If evidence is insufficient or no option fits, use `value: null` and
+  `needs_review: true`; never invent a new candidate. Keep ambiguity visible.
+- Mark every output `mode: agent_simulation` and `jev_called: false`. For each
+  question return `value`, `needs_review` and a short evidence-based `reason`;
+  set `probability` and `confidence` to `null`. Never invent Jev distributions,
+  provider receipts or calibrated certainty, or apply probability-threshold
+  automation to these judgments. Keep them separate from real Jev benchmarks.
+- Skip the CLI, API/key requirements and API-specific steps below. Do not install
+  another model/provider to simulate. Existing permissions and outcome checks
+  still apply; the host agent's normal costs and privacy terms still apply too.
+  B is not a promise of free, local, offline or Jev-speed execution.
+
+Explicit dry-run validation is separate: it checks input, not classification.
+It needs neither a key nor simulated answers.
 
 ## Context first
 
@@ -113,12 +151,12 @@ Read only the relevant slice, not the entire catalog:
    yes/no propositions, `score` for ordered descriptive levels. Include a fallback
    label such as `unknown` or `ask_user`. Keep trusted policy separate from
    untrusted pages/logs/messages. Pass evidence, not an instruction to agree.
-4. **Call:** save a native request JSON, grouping independent questions over its
+4. **Call (Jev API mode):** save a native request JSON, grouping independent questions over its
    complete state, and run the packaged script below. For independent requests,
    use bounded host concurrency rather than an unnecessary serial loop.
    No silent model substitution, retries, or credential setup. One unchanged state
    does not become better evidence after repeatedly asking the same question.
-5. **Interpret:** inspect the full distribution and evidence. `needs_review` is an
+5. **Interpret (Jev API mode):** inspect the full distribution and evidence. `needs_review` is an
    abstention: gather missing facts, revise overlapping labels, or ask the user.
    `selected` means a label was selected, **not** that an action was approved.
    A `noul` result can confidently be false. A score is not a probability.
@@ -131,7 +169,7 @@ When the user is away, continue only reversible work already within the delegate
 scope. If blocked on consent, record the blocker and pause that action. Jev cannot
 invent consent, approve spending, or remove a host confirmation requirement.
 
-## Run
+## Run (Jev API mode)
 
 Resolve `<skill-dir>` to the directory containing this `SKILL.md`; do not assume
 the project working directory is the skill directory. The script is self-contained.

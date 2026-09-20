@@ -67,7 +67,7 @@ https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md
 
 Your agent checks the environment, installs into the current project by default,
 and verifies the installation offline. You do not need to run commands yourself;
-handle any required approvals and set `OPENROUTER_API_KEY` locally, never in chat.
+handle any required approvals. No key? Your agent first asks you to [get one or use agent simulation](#no-key); it never switches silently.
 No Vercel account is needed; Node/npm is not required by the default install route.
 [Agent installation guide](docs/install.md) · [Manual installation and troubleshooting](docs/installation.md)
 
@@ -75,22 +75,39 @@ No Vercel account is needed; Node/npm is not required by the default install rou
 ## 🚀 Installed it? Here is how to use it
 
 **Send one of these prompts to your agent.** Name the skill and the decision you
-need; you do not have to write JSON. Live calls require `OPENROUTER_API_KEY` in
-the agent's environment and incur API usage. `--dry-run` only checks the input:
-no network or charge. Set the key locally, never in chat.
+need; you do not have to write JSON. Use real Jev, or let your current agent
+simulate the judgments after you approve that mode.
+
+<a id="no-key"></a>
+### 🔑 No key? Choose A or B first
+
+When `OPENROUTER_API_KEY` is missing, the agent **must warn you, ask, and wait for your choice**:
+
+> No OpenRouter key was found, so I cannot call Jev. Which option do you prefer?
+>
+> **A: Get a key.** [Create one](https://openrouter.ai/settings/keys), configure it locally, and use real Jev.
+>
+> **B: Use your current agent.** Simulate classification with the same input, candidates and criteria, without calling Jev.
+
+Mode B labels results `mode: agent_simulation` and `jev_called: false`.
+**These are not Jev responses or calibrated Jev probabilities.** Your current
+agent's normal usage costs and privacy terms still apply.
+For A, configure the key locally, never in chat; real calls incur API usage.
+`--dry-run` is separate: it only validates input, with no network or classification.
 
 ### Try one example
 
 ```text
 Use the jev-triage skill and read assets/example.json from its installed folder.
-Show me the context, questions and candidates, then validate with --dry-run.
-If it passes, make one live call using the locally configured OPENROUTER_API_KEY.
-Show the complete input and actual output, and explain the category and urgency.
-Do not access my mailbox or execute the selected actions. If the key is missing,
-ask me to configure it locally.
+Show its context, questions and candidates. If OPENROUTER_API_KEY is missing, ask:
+A: get a key and configure it locally for Jev; B: let the current agent simulate.
+Wait for my choice. In API mode, validate with --dry-run, then make one Jev call.
+In B mode, judge directly and label the result "Agent simulation; Jev not called".
+Do not invent probabilities. Show the complete input, output and mode,
+and explain the category and urgency. Do not access my mailbox or execute actions.
 ```
 
-For a free offline check, replace “make one live call” with “only dry-run; no API call”.
+For an offline format check only, say “only dry-run; no API call or simulated classification”.
 If the agent cannot find the skill, have it check the installation location and
 reload the session as required by your client.
 
@@ -100,7 +117,8 @@ Replace `[TASK]` with your goal, such as “fix CSV parsing and pass the origina
 
 ```text
 Use the jev skill to support decisions while working on [TASK].
-Call it when failures repeat, a route needs choosing, or you are about to claim completion.
+If the key is missing, ask me to choose A (get a key) or B (current-agent simulation).
+Use my chosen mode when failures repeat, a route needs choosing, or you are about to claim completion.
 Supply the goal, acceptance checks, relevant history, fresh tool results,
 existing permissions and the meaning of each candidate action.
 Ask for the next step or whether completion is supported; gather missing evidence or ask me.
@@ -116,10 +134,12 @@ Replace `[FILE PATH]` with a prepared, redacted file. Agree on the categories wi
 Use jev-triage to classify feedback in [FILE PATH] as billing, bug, how-to or other.
 Keep each record's ID, original text and relevant context. First take 3 records
 and let me approve the questions and the data to be sent outside my machine.
-After approval, put classification and urgency questions for each record in one request.
-Schedule independent records with at most 4 requests in flight. Process only these
-3 records first; do not automatically expand to the whole file.
-Return a table of record ID, category, urgency and review status; save requests and responses.
+If the key is missing, ask me to choose A (get a key) or B (current-agent simulation) and wait.
+In API mode, after approval, put each record's classification and urgency in one request;
+schedule at most 4 requests in flight. In B mode, judge with the same criteria,
+label the results simulated, and do not invent API responses or probabilities.
+Process only these 3 records first; do not automatically expand to the whole file.
+Return record ID, category, urgency and review status; save inputs, outputs and the mode.
 Keep uncertain cases separate. Do not reply to, delete or move any messages.
 ```
 
@@ -147,6 +167,8 @@ independent yes/no question and `score` for graded levels. Update `state`,
 message sending, music and video rendering still need separate host tools.
 
 ### Prefer the command line? (Optional)
+
+These commands are for real Jev calls or input validation. **Mode B uses the agent directly, not the CLI.**
 
 With `jev-decide` installed, save any complete **Input JSON** below as `request.json`.
 Edit the context, questions and candidates for your task, then run in that file's directory:

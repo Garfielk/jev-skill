@@ -202,6 +202,17 @@ class CLITests(unittest.TestCase):
             self.assertEqual(json.loads(output), request())
             api.assert_not_called()
 
+    def test_missing_key_does_not_simulate_decisions(self):
+        for environment in ({}, {"OPENROUTER_API_KEY": ""}):
+            with self.subTest(environment=environment), \
+                    patch.dict(os.environ, environment, clear=True), \
+                    patch("jev.urllib.request.build_opener") as opener:
+                code, output, errors = self.call(["decide", "-"], request())
+                self.assertEqual(code, 1)
+                self.assertEqual(output, "")
+                self.assertIn("OPENROUTER_API_KEY", json.loads(errors)["error"])
+                opener.assert_not_called()
+
     def test_bad_threshold_no_spend(self):
         with patch("jev.request_decisions") as api:
             code, _, _ = self.call(["decide", "-", "--min-probability", "nan"], request())

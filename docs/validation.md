@@ -3,6 +3,32 @@
 This separates package checks, live model calls, and agent-outcome evidence.
 None substitutes for the others.
 
+## Missing-key choice — v0.1.2
+
+All nine standalone skills now ask for **A: get a key** or **B: current-agent
+simulation** before a missing-key judgment. B skips the API/CLI, labels results
+as simulated, and leaves probability/confidence null. The English/Chinese READMEs
+and installation guides follow the same choice; the installer now pins v0.1.2.
+The CLI implementation is unchanged and does not simulate decisions.
+
+- **86 unit tests** passed. The new CLI regression checks both an absent and an
+  empty key: exit 1, a structured error, no decisions and no network opener.
+- All **nine skill entrypoints** passed the skill validator.
+- The v0.1.2 wheel installed into a fresh temporary environment. All **27 copied
+  skill dry runs** passed across simulated Codex, Claude Code and OpenCode paths
+  with the key removed. A real invocation of that installed CLI without a key
+  returned an error and no decisions.
+- The source distribution contains all nine updated skills and the README's
+  local preview images. **911 local link occurrences** in the READMEs and both
+  installation guides resolved, including local Markdown fragments.
+- Existing tests still verify all **14 recorded input/output pairs** exactly;
+  they are real API examples, not relabeled simulation results.
+
+The A/B instructions were reviewed, not exercised by an independent agent or
+tested natively in all three clients. These offline checks do not establish
+simulation accuracy or Jev-equivalent calibration, speed or cost. No new model
+API call was made, and existing live evaluations below remain unchanged.
+
 ## Package and skill
 
 - Python unit tests exercise input validation, probability/abstention handling,
@@ -35,8 +61,8 @@ a queued-job completion check. It did not execute a browser or use a model API.
 
 ## Agent-first installation guide
 
-The README now starts with a copyable message linking to `docs/install.md`.
-The guide pins runtime/source to v0.1.1 and uses direct folder copying by default;
+The README starts with a copyable message linking to `docs/install.md`.
+The original guide pinned the release source and used direct folder copying by default;
 `npx skills` remains an optional manual route. This entrypoint pattern was checked
 against the original [Agent Reach guide](https://github.com/Panniantong/Agent-Reach/blob/main/docs/install.md)
 and [oh-my-openagent guide](https://github.com/code-yeongyu/oh-my-openagent/blob/dev/docs/guide/installation.md),
@@ -78,8 +104,8 @@ agent follows the new instructions. Existing live results below are unchanged.
 The current main-branch READMEs contain **90 scenarios** in matching English and
 Chinese order. Five community patterns were added after fresh X, Reddit and
 GitHub research; [the collection log](updates/2026-09-20.md) records original
-sources and inspection limits. This is a documentation update, not a new runtime
-release; the agent installer still pins v0.1.1.
+sources and inspection limits. That documentation update did not change the
+runtime; at the time, the agent installer still pinned v0.1.1.
 
 - All **82 unit tests** passed. Three new tests check catalog numbering/counts,
   attributed preview assets and bilingual coverage of the five additions.
@@ -105,7 +131,7 @@ every saved request and one-to-one input/output ordering; the existing output
 test still checks all saved decisions. **902 local link occurrences** across the
 READMEs and update index resolved. The bilingual GitHub-Markdown previews were
 checked in the browser, including the overview and a full request/response pair.
-No new model call was needed, and the runtime/release remains v0.1.1.
+No new model call was needed; that update kept the release at v0.1.1.
 
 ### README usage guide
 

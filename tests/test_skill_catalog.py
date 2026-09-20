@@ -32,7 +32,7 @@ class SkillCatalogTests(unittest.TestCase):
         guide = (ROOT / "docs/install.md").read_text()
         for name in ("jev", *SCENARIOS):
             self.assertIn(f"`{name}`", guide)
-        for requirement in ("OPENROUTER_API_KEY", "--dry-run", "v0.1.1"):
+        for requirement in ("OPENROUTER_API_KEY", "--dry-run", "v0.1.2"):
             self.assertIn(requirement, guide)
 
     def test_all_skills_teach_context_and_parallelism(self):

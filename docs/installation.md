@@ -4,6 +4,22 @@
 [agent installation guide](install.md). The direct-copy route needs no Node/npm.
 The commands below are optional manual alternatives, not steps every user must run.
 
+## No key: ask first, then choose a mode
+
+If `OPENROUTER_API_KEY` is missing, the agent must warn you and wait for a choice:
+
+- **A — Get a key:** [create one](https://openrouter.ai/settings/keys), configure
+  it locally, and use real Jev.
+- **B — Use your current agent:** simulate classification with the same evidence,
+  questions and criteria. Install the skill folders; no Jev CLI or key is needed.
+
+B outputs are marked `mode: agent_simulation`, `jev_called: false` and carry no
+Jev probabilities (`probability` and `confidence` are `null`). They are not API
+results or calibration evidence. The host agent's usual costs/privacy terms still
+apply. Never switch to B silently, including after API errors.
+
+The runtime and credentials instructions below apply to **API mode**, not B.
+
 ## Pick the surface you need
 
 - **One focused skill:** install the shared CLI, then a scenario skill. The eight
@@ -18,7 +34,7 @@ The commands below are optional manual alternatives, not steps every user must r
 ## Optional package-tool and skills-installer route
 
 ```bash
-uv tool install git+https://github.com/wuyoscar/jev-skill.git@v0.1.1
+uv tool install git+https://github.com/wuyoscar/jev-skill.git@v0.1.2
 npx skills add wuyoscar/jev-skill --skill jev-triage
 export OPENROUTER_API_KEY="your-key"
 ```
@@ -28,14 +44,14 @@ with any entry below. The CLI is pinned to the release; the short skills command
 tracks the repository's default branch. For a fully pinned skill installation,
 clone the tag and use the local installer commands below.
 
-[Release downloads](https://github.com/wuyoscar/jev-skill/releases/tag/v0.1.1)
+[Release downloads](https://github.com/wuyoscar/jev-skill/releases/tag/v0.1.2)
 include the CLI wheel, source distribution and complete source ZIP. No PyPI
 account or TypeSafe-specific key is needed.
 
 ## From a reviewed checkout
 
 ```bash
-git clone --branch v0.1.1 https://github.com/wuyoscar/jev-skill.git
+git clone --branch v0.1.2 https://github.com/wuyoscar/jev-skill.git
 cd jev-skill
 ```
 
@@ -51,7 +67,7 @@ Python 3.10+ is required. This route also needs uv and Node/npm for the installe
 `pipx install .` is an alternative to `uv tool install .`. Select Codex, Claude Code
 or OpenCode in the skills installer. Install only the entries you need:
 
-| Skill | Use it for | Runtime |
+| Skill | Use it for | Jev API runtime |
 |---|---|---|
 | `jev` | General custom decisions and the full reference library | Bundled Python script; CLI optional |
 | `jev-triage` | Message/record classification and prioritization | Shared `jev-decide` CLI |
@@ -89,6 +105,8 @@ The reference format follows the [Agent Skills specification](https://agentskill
 
 ## Credentials and first run
 
+For **A / Jev API mode** only; B skips these calls and uses the host agent directly.
+
 Export `OPENROUTER_API_KEY` in the environment that **launches the host**. Desktop
 apps may not inherit a terminal export. Use the host's documented environment
 setup; never put keys in `SKILL.md`, chat, request JSON or version control.
@@ -118,6 +136,10 @@ Default model: `typesafe/jev-1.13`. The API is alpha; test upgrades deliberately
 
 ## CLI behavior
 
+The **skill**, not the CLI, handles the A/B conversation. The CLI has no simulation
+flag: without a key, a live request returns an error instead of invented decisions.
+`--dry-run` still works without a key and validates input only.
+
 CLI installation adds the command, not a host skill. `decide FILE` accepts native
 request JSON; use `-` for stdin. `classify` accepts `--text` or `--text-file` and a
 JSON `--criteria` file mapping labels to descriptions. Use files/stdin instead
@@ -140,5 +162,5 @@ uv build
 
 The wheel installs the shared CLI. The source distribution includes all nine
 skill folders, docs and evaluation materials. A skill folder copied on its own
-still needs its documented runtime: bundled Python for `jev`, shared CLI for the
-focused skills. [Validation scope](validation.md).
+needs its documented runtime **for API calls**: bundled Python for `jev`, shared
+CLI for the focused skills. Agent simulation needs neither. [Validation scope](validation.md).

@@ -5,9 +5,47 @@ description: Use for user-defined inbox, support-ticket, feedback or record clas
 
 # Sort messages and records by custom criteria
 
-## Prerequisite and first example
+## Missing key: ask before choosing a mode
 
-Use the shared `jev-decide` CLI (Python 3.10+), installed from the reviewed
+Before making a decision, check **only the presence** of `OPENROUTER_API_KEY` in
+this agent's execution environment; never print its value. If the key is missing,
+warn the user and ask in their language:
+
+> No OpenRouter key was found, so I cannot call Jev. Which option do you prefer?
+> **A — Get a key:** create one at https://openrouter.ai/settings/keys and configure
+> `OPENROUTER_API_KEY` locally to use the real Jev API.
+> **B — Use your current agent:** I simulate the classification using the same
+> evidence and criteria, without calling Jev or requiring an OpenRouter key.
+
+**Wait for an explicit A or B choice. Never silently simulate.** For A, help with
+local setup without collecting the secret in chat; resume Jev calls only when
+configured and authorized. For B, remember consent for the current task, not as a
+permanent default. Do not ask again for every record in that approved task. A key
+appearing later does not authorize silently switching an approved B task to A.
+API errors are not consent to simulate; report them instead of switching modes.
+
+In **B / agent simulation**, the current host agent does the judgment itself:
+- Use the same goal, sufficient context, question IDs and candidate definitions.
+  For `choice`, select a supplied label; for `noul`, return a boolean; for
+  `score`, choose an anchored rubric level, not a claimed Jev probability-weighted
+  score. If evidence is insufficient or no option fits, use `value: null` and
+  `needs_review: true`; never invent a new candidate. Keep ambiguity visible.
+- Mark every output `mode: agent_simulation` and `jev_called: false`. For each
+  question return `value`, `needs_review` and a short evidence-based `reason`;
+  set `probability` and `confidence` to `null`. Never invent Jev distributions,
+  provider receipts or calibrated certainty, or apply probability-threshold
+  automation to these judgments. Keep them separate from real Jev benchmarks.
+- Skip the CLI, API/key requirements and API-specific steps below. Do not install
+  another model/provider to simulate. Existing permissions and outcome checks
+  still apply; the host agent's normal costs and privacy terms still apply too.
+  B is not a promise of free, local, offline or Jev-speed execution.
+
+Explicit dry-run validation is separate: it checks input, not classification.
+It needs neither a key nor simulated answers.
+
+## Jev API prerequisite and first example
+
+In Jev API mode, use the shared `jev-decide` CLI (Python 3.10+), installed from the reviewed
 `jev-skill` package. If unavailable, explain the missing dependency rather than
 silently installing software. The agent process must inherit
 `OPENROUTER_API_KEY`; never place the key in a prompt or request file.
