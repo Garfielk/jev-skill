@@ -205,6 +205,23 @@ fields and external-data policy before sending rows to a provider. Retain row ID
 and judgments so a person can audit the selection.
 [Semantic SQL prototype P20](community.md#p20)
 
+## 17. Separate world design, action selection and presentation
+
+**Pipeline:** a person/generative model authors a world → host supplies fresh
+state and legal actions → Jev selects → simulator applies the action → renderer
+presents the new state. Repeat with the updated state, not a fabricated outcome.
+
+**Change:** rules, goals, character preferences, action space, human overrides and
+rendering medium. This can be a game, branching story, teaching simulation or
+agent-run visualization. A video renderer is an optional consumer, not a new Jev
+capability. Keep state/round IDs; independent clips may render concurrently, but
+dependent decisions require their actual predecessor state.
+
+[Whale-city author report X01](twitter-workflows.md#x01) motivates this adaptation;
+its reported throughput does not establish the exact scheduling or decision quality.
+[OpenCode game handoff X03](twitter-workflows.md#x03) is a separate discovery lead;
+[Catan X06](twitter-workflows.md#x06) reports why a loop also needs a no-progress exit.
+
 ## Combining patterns without building a new framework
 
 Start with one call if that solves the task. For a larger workflow, compose only

@@ -329,6 +329,15 @@ The README and skill explain writing questions, structuring state, composing ans
 
 [Pinned README](https://github.com/dbreunig/building-with-jev-skill/blob/04fe3666c6b8b8abfec1271c0e581c823a181f6d/README.md) · [skills/jev/SKILL.md](https://github.com/dbreunig/building-with-jev-skill/blob/04fe3666c6b8b8abfec1271c0e581c823a181f6d/skills/jev/SKILL.md)
 
+## X/Twitter: compositional demos and customization leads
+
+See the [X workflow ledger](twitter-workflows.md) for X01–X07: the whale-city
+decision/video experiment, adaptive forms, OpenCode game control, semantic
+spreadsheets, personal feed policies, a multi-agent deadlock report and creative
+model routing. Each entry retains its original post URL and labels whether the
+text was read through a mirror or only a directory excerpt. These are not direct
+X retrievals, code inspections or local reproductions.
+
 ## What this means for comparisons
 
 1. Compare the **same task and permitted actions**, not a free-form planner against a candidate list containing privileged answers.

@@ -59,6 +59,7 @@ Read only the relevant slice, not the entire catalog:
 | Calibrated decisions, confidence bands, review versus deferral | [Calibration](references/calibration.md) |
 | Labeled decision benchmarks; Chinese/English tricky questions | [Decision datasets](references/decision-datasets.md) |
 | What users and authors actually tried across platforms | [Community evidence](references/community.md) |
+| X/Twitter demos: creative loops, adaptive UI, personal policies | [X workflows](references/twitter-workflows.md) |
 
 ## Decision loop
 
