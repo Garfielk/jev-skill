@@ -242,6 +242,93 @@ Every recipe is an **Adaptation** unless explicitly stated otherwise. Its source
 
 [Original issue, methodology and replay-code link](https://github.com/tamaratran/fast-jev-compaction/issues/26)
 
+## More implementation-level sources: customization
+
+Checked September 20, 2026. **All entries below are source-inspected projects,
+not locally executed integrations.** Pinned READMEs/configs establish how the
+authors expose customization; their demos and measurements remain author reports.
+The [method cards](implementation-patterns.md) extract reusable designs.
+
+<a id="p12"></a>
+
+### P12 — Configurable situations and composite policies
+
+Questions become Home Assistant entities or automation response variables. The inspected situation-layer example groups several questions over selected household state; the composite example keeps rubric dimensions, local weights and a dealbreaker separate. The transferable design is reusable semantic state and independently editable policy, not permission to control appliances. Its YAML, templates and SDK convenience fields are not the raw OpenRouter request schema.
+
+[Pinned README](https://github.com/AboveColin/HA-Jev/blob/1f63190483d8718fa57d9750f39118b577325330/README.md) · [examples/04_situation_layer.yaml](https://github.com/AboveColin/HA-Jev/blob/1f63190483d8718fa57d9750f39118b577325330/examples/04_situation_layer.yaml) · [examples/06_composite_score.yaml](https://github.com/AboveColin/HA-Jev/blob/1f63190483d8718fa57d9750f39118b577325330/examples/06_composite_score.yaml)
+
+<a id="p13"></a>
+
+### P13 — User-editable multi-label email rules
+
+The inspected YAML contains plain-language category descriptions, a default threshold, per-category overrides and lists of tag/move/flag/webhook actions. The README describes independent category questions and a dry-run preview. Adapt the separation between judgment and consumer; do not inherit its sample thresholds or automatically enable mailbox changes. A record may satisfy several rules, so action conflicts need a host policy.
+
+[Pinned README](https://github.com/parth-kp/jev-mail-classifier/blob/942bbba6ecfe97ee9d1ae96aedfddc1467b40990/README.md) · [config.example.yaml](https://github.com/parth-kp/jev-mail-classifier/blob/942bbba6ecfe97ee9d1ae96aedfddc1467b40990/config.example.yaml)
+
+<a id="p14"></a>
+
+### P14 — Graph-local decisions with host search
+
+The README and navigator code expose outgoing relationships as candidate choices and ask a goal-reached Noul alongside them. The host controls branching, traversal and display; a graph schema can change without inventing free-text edges. Demo fallback answers are labeled stand-ins when live calls fail. We did not connect to its graph or reproduce navigation. Log-probability path sums alone do not remove path-length bias.
+
+[Pinned README](https://github.com/jexp/neo4jev/blob/d157bbe496eb91813475156942bef1c6badfb342/README.md) · [src/neo4jev/navigator.py](https://github.com/jexp/neo4jev/blob/d157bbe496eb91813475156942bef1c6badfb342/src/neo4jev/navigator.py)
+
+<a id="p15"></a>
+
+### P15 — Contextual suggestions over existing commands
+
+The README describes ranking recent distinct history entries, literal-prefix and fuzzy replacement modes, a suitability signal and rejection of stale responses after buffer changes. The displayed demo uses fabricated history. Useful customization points are candidate scope, context and acceptance behavior. The project is an integration example, not authorization to upload private shell history or execute selected commands.
+
+[Pinned README](https://github.com/mrnugget/jev-shell-history/blob/4b2b75d26c0ccf5726263904514a22a8e11659ea/README.md)
+
+<a id="p16"></a>
+
+### P16 — Semantic rules attached to ordinary schemas
+
+The inspected README specifies structural validation first, then parallel Noul rules over value/context, with rule paths and separate rejected, uncertain and unavailable outcomes. Rules describe meaning, while Zod retains ordinary shape checks. This suggests configurable semantic validation, not replacement of exact validators. Test-count and live-test statements are the maintainer's reports; we did not run the package.
+
+[Pinned README](https://github.com/jomatsu/zod-jev/blob/700bd256fe94541a2d21044027cc2dbf5036b396/README.md)
+
+<a id="p17"></a>
+
+### P17 — File-scoped semantic conventions
+
+The README and example config show plugin instructions/messages plus global or per-plugin files/ignore patterns and thresholds. A custom plugin can ask whether executable code contains temporary debug logging while excluding intentional CLI output and examples. This is a useful pattern for explicit rule scope and exceptions. File-level flags are review leads, not guaranteed precise bug locations or proof that a patch is correct.
+
+[Pinned README](https://github.com/huntedman/JevLint/blob/96b9d693c6e7e9355b802d87f12354a2cbf405f9/README.md) · [jevlint.config.example.json](https://github.com/huntedman/JevLint/blob/96b9d693c6e7e9355b802d87f12354a2cbf405f9/jevlint.config.example.json)
+
+<a id="p18"></a>
+
+### P18 — Streaming intent plus bounded targets
+
+The README describes partial speech transcripts, fresh Playwright element IDs, pre-extracted text spans and a bundle of intent/target/completeness questions. Code chooses act/wait/ask/ignore and copies selected text. Customize commands, candidates and event handling; the model does not hear audio or invent typing arguments. The author reports tests and timing, not reproduced here. Its spoken-confirmation convenience is not a strong authorization boundary.
+
+[Pinned README](https://github.com/moritzkremb/jev-voice-browser/blob/054db0f3dbf537af63a8117632d3f941ccd520e1/README.md)
+
+<a id="p19"></a>
+
+### P19 — Editable transcript-scoring presets
+
+The README exposes JSON questions, context labels, inclusion in an aggregate gauge and flag thresholds. Each transcript unit is evaluated with surrounding conversation before rendering annotations. This transfers to presentation/interview review and navigation, not just the showcased political debate. The author explicitly separates the meter from factual verification and notes sentence-versus-turn problems. We did not reproduce its accuracy claims or render a video.
+
+[Pinned README](https://github.com/ChetasLua/jevmeter/blob/cbf8e117b5b8835e3294c3a8ee652c7dfa737a9a/README.md)
+
+<a id="p20"></a>
+
+### P20 — Semantic predicates in a data workflow
+
+The README shows configurable boolean/probability, Choice and Score expressions alongside ordinary SQL selection/grouping. It states that its CLI evaluates Jev expressions and sends ordinary SQL to vanilla Postgres; this is not the same implementation as a database extension. Reuse the predicate-plus-deterministic-query design, and inspect which row fields leave the database. No database was connected or query executed here.
+
+[Pinned README](https://github.com/kylemclaren/jevql/blob/274532af852e8edfb7715ec6dca1113e589cb191/README.md)
+
+<a id="p21"></a>
+
+### P21 — An existing customization-oriented skill
+
+The README and skill explain writing questions, structuring state, composing answers and diagnosing ambiguous judgments. This directly overlaps the idea of helping agents build customized Jev workflows; it is a useful reference and attribution, not evidence of a novel category invented here. We inspected its guidance, not its installation or runtime. Use the current OpenRouter contract rather than copying direct-provider SDK limits into this project.
+
+[Pinned README](https://github.com/dbreunig/building-with-jev-skill/blob/04fe3666c6b8b8abfec1271c0e581c823a181f6d/README.md) · [skills/jev/SKILL.md](https://github.com/dbreunig/building-with-jev-skill/blob/04fe3666c6b8b8abfec1271c0e581c823a181f6d/skills/jev/SKILL.md)
+
 ## What this means for comparisons
 
 1. Compare the **same task and permitted actions**, not a free-form planner against a candidate list containing privileged answers.

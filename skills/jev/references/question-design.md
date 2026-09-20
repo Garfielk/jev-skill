@@ -2,6 +2,11 @@
 
 Jev is a narrow judgment layer: **observed state → bounded questions → typed answers → application-controlled action**. It does not write plans, patches, explanations, arbitrary browser arguments, or replacement policies. Use a reasoning model for open-ended generation and code for exact computation. [System One](https://docs.typesafe.ai/concepts/system-one)
 
+For task-specific contracts, read [Customization](customization.md). For ways to
+connect questions into extraction, search, interaction or data workflows, read
+[Implementation patterns](implementation-patterns.md). This page covers the
+question itself, not a fixed catalog of supported uses.
+
 ## 1. Start from a decision, not an essay
 
 Name the decision the caller can actually take: continue, inspect a failed check, retrieve missing evidence, choose a listed skill, retry a known recovery, delegate, or pause. Include a `none`, `insufficient_evidence`, or `delegate` option when the supplied choices may not fit.

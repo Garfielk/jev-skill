@@ -18,6 +18,10 @@ evidence—not generate more prose.
 The [56-recipe catalog](skills/jev/references/index.md) separates observed community
 uses from proposed adaptations, with concrete inputs, questions, and caveats.
 
+Bring your own questions, labels and rubrics; the recipes are examples, not a
+fixed feature list. [Customize a workflow](skills/jev/references/customization.md) ·
+[16 implementation patterns](skills/jev/references/implementation-patterns.md)
+
 ## Install the skill
 
 ```bash

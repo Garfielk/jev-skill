@@ -4,6 +4,10 @@ Jev can be a tool you call directly: give it text or JSON plus a narrow question
 
 All recipes below are **Adaptations** for this skill. Links identify reported/prototype precedents, not verified performance for these exact tasks. See [the evidence ledger](community.md) for provenance. No recipe authorizes uploading private data, publishing results, changing accounts or executing external actions.
 
+Adapt these to your own labels and rubric with [Customization](customization.md).
+For extraction, annotation, scoring, semantic rules and data workflows, see
+[Implementation patterns](implementation-patterns.md).
+
 ## How to use a recipe
 
 1. Define the task and labels before seeing results. Include `other`, `insufficient_evidence` or a review path where appropriate.

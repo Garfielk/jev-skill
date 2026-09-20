@@ -4,6 +4,10 @@ Use these when an agent needs a **bounded semantic judgment**, not a new planner
 
 A recipe does not install a hook, operate a browser or make a background monitor. The host supplies observations, invokes Jev, applies policy, executes permitted actions and checks outcomes. Long-running unattended use needs those host integrations explicitly implemented and tested.
 
+To adapt rather than copy a recipe, use [Customization](customization.md).
+[Implementation patterns](implementation-patterns.md) explain how to build the
+request and connect its outputs to the host workflow.
+
 ## Shared contract
 
 Before a call, supply the original goal, relevant acceptance criterion, fresh observations, allowed candidate IDs and only the history needed for this question. Include timestamps or snapshot hashes when state can change. Keep retrieved content and tool output clearly separated from instructions. Redact secrets locally; do not upload a whole private transcript by default.

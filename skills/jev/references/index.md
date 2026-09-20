@@ -4,10 +4,18 @@ Two ways to use the same primitive: **a checkpoint inside an agent loop**, or
 **a tool a person invokes on records and alternatives**. Most recipes can cross
 between the two. Nothing here requires giving Jev execution privileges.
 
+**Not a closed feature list.** For a new task, start with
+[Customization](customization.md) and choose from the
+[implementation patterns](implementation-patterns.md). The same mechanism can
+serve many of the domains below; adapt the questions instead of searching for
+an exact preset.
+
 ## Pick a slice
 
 | Situation | Reference | Useful judgment |
 |---|---|---|
+| New domain, custom criteria, rubric or personal policy | [Customization](customization.md) | Define the evidence, answer space and downstream consumer |
+| Need a concrete connection pattern | [Implementation patterns](implementation-patterns.md) | Select spans, recover structure, traverse graphs, build features, validate or annotate |
 | Agent lost the goal or repeats a failed step | [Agent recipes](agent-recipes.md) | Continue, gather evidence, replan, recover, or pause |
 | Too many tools, models, skills, or specialists | [Agent recipes](agent-recipes.md) | Select from real capabilities, with an escape hatch |
 | Browser or interactive application | [Agent recipes](agent-recipes.md) | Classify observed page state or choose a permitted element |

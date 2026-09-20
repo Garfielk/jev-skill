@@ -17,6 +17,9 @@
 [56 个 Reference 场景](skills/jev/references/index.md) 提供具体输入、问题和注意事项，
 并区分社区实际报告的用法与我们提出的应用延伸。
 
+问题、候选项、rubric 和后续流程都可以定制；场景库是灵感，不是功能上限。
+[如何定制](skills/jev/references/customization.md) · [16 种实现方法](skills/jev/references/implementation-patterns.md)
+
 ## 安装 skill
 
 ```bash
