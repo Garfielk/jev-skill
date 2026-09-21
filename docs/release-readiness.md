@@ -23,7 +23,7 @@ replace those public assets.
 - **mypy passed** for the changed runtime and current pilot with
   `--follow-imports=silent --ignore-missing-imports --check-untyped-defs`.
   This checks untyped bodies; it is not a fully annotated strict-type proof.
-- All six skill metadata validators passed; **1,487 local link occurrences**
+- All six skill metadata validators passed; **1,488 local link occurrences**
   checked without missing targets/anchors in the active collection and new docs.
 - Three copied host layouts validated resources, ten dry-run examples each and
   the relocated transcript builder. Existing 108-scenario/45-project/14-IO
