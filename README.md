@@ -439,11 +439,20 @@ model capabilities. [@twid's practitioner report](https://x.com/twid/status/2101
 describes false alarms on a bot persona and harmless wording. These are external
 reports, not our reproductions.
 
+**Saved judgments can expire.** The dbt-assay author reports false findings from
+missing claim-specific evidence and from old answers surviving a guard change.
+[Adapt the checks](skills/jev/references/pitfalls.md#evidence-freshness): missing
+evidence means unknown; recheck evidence, question and policy versions when reading
+saved results; keep old receipts without treating them as current verdicts.
+This is an author report and our untested workflow adaptation, not a reproduction.
+
 Copy to your agent:
 
 ```text
 Check that Jev receives the goal, relevant sources, decisive history, actual tool
 receipts and candidate definitions. Ask outcome and evidence sufficiency separately.
+Missing evidence means unknown. Check evidence, question and policy versions before
+reusing saved judgments; keep stale receipts but do not accept them as current decisions.
 Do not add unrelated text just to enlarge context. If repeated judging would help,
 propose a fixed small budget, repeat count and aggregation rule, then wait for approval.
 Keep every answer. Check accuracy against independent labels or actual outcomes;
