@@ -8,7 +8,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "skills/jev-redteam/scripts/prepare.py"
+SCRIPT = ROOT / "skills/jev-eval/scripts/prepare.py"
 spec = importlib.util.spec_from_file_location("redteam_prepare", SCRIPT)
 prepare = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(prepare)
@@ -18,7 +18,7 @@ import jev
 
 class RedTeamTests(unittest.TestCase):
     def fixtures(self):
-        return [json.loads(line) for line in (ROOT / "skills/jev-redteam/assets/transcripts.jsonl").read_text().splitlines()]
+        return [json.loads(line) for line in (ROOT / "skills/jev-eval/assets/transcripts.jsonl").read_text().splitlines()]
 
     def test_requests_are_valid_preserve_order_and_exclude_labels(self):
         records = self.fixtures()
@@ -46,7 +46,7 @@ class RedTeamTests(unittest.TestCase):
 
     def test_cli_offline_and_no_overwrite(self):
         with tempfile.TemporaryDirectory() as tmp:
-            command = [sys.executable, str(SCRIPT), str(ROOT / "skills/jev-redteam/assets/transcripts.jsonl"), "--out-dir", tmp]
+            command = [sys.executable, str(SCRIPT), str(ROOT / "skills/jev-eval/assets/transcripts.jsonl"), "--out-dir", tmp]
             first = subprocess.run(command, capture_output=True, text=True, check=True)
             result = json.loads(first.stdout)
             self.assertFalse(result["jev_called"])

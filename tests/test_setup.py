@@ -15,7 +15,7 @@ import jev
 class SetupTests(unittest.TestCase):
     def test_native_key_examples_are_visible_and_pitfalls_are_linked(self):
         root = Path(__file__).resolve().parents[1]
-        for name in ("docs/installation.md", "skills/jev-setup/SKILL.md"):
+        for name in ("docs/installation.md", "skills/jev/references/setup.md"):
             text = (root / name).read_text()
             self.assertIn('export TYPESAFE_API_KEY=', text, name)
             self.assertIn('--provider typesafe --dry-run', text, name)
@@ -35,14 +35,14 @@ class SetupTests(unittest.TestCase):
             setup = text.split('<a id="no-key"></a>', 1)[1].split("### ", 2)[1]
             self.assertIn("```text", setup)
             self.assertNotIn("```bash", setup)
-            for term in ("jev-setup", "coding Agent" if name.endswith("zh.md") else "coding agent",
+            for term in ("jev", "coding Agent" if name.endswith("zh.md") else "coding agent",
                          "A:", "B:"):
                 # Chinese prompts use full-width punctuation.
                 self.assertIn(term, setup.replace("：", ":"))
             for term in ("TYPESAFE_API_KEY", "--provider typesafe", "OPENROUTER_API_KEY",
                          "jev_called: false", "null", "docs/installation.md"):
                 self.assertIn(term, setup)
-        skill = (root / "skills/jev-setup/SKILL.md").read_text()
+        skill = (root / "skills/jev/references/setup.md").read_text()
         self.assertIn("user's own coding agent", skill)
         self.assertIn("Wait for an explicit choice", skill)
         self.assertIn("do not\nmake the user run a terminal checklist", skill)

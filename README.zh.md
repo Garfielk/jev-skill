@@ -4,7 +4,7 @@
 
 **Jev 演示、工作流与 coding Agent 技能合集。**
 
-[![Skills](https://img.shields.io/badge/skills-11-7c3aed?style=flat-square)](#install) [![Scenarios](https://img.shields.io/badge/scenarios-108-0d9488?style=flat-square)](#catalog) [![Tests](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml/badge.svg)](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml) [![MIT](https://img.shields.io/badge/license-MIT-ea580c?style=flat-square)](LICENSE)
+[![Skills](https://img.shields.io/badge/skills-6-7c3aed?style=flat-square)](#install) [![Scenarios](https://img.shields.io/badge/scenarios-108-0d9488?style=flat-square)](#catalog) [![Tests](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml/badge.svg)](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml) [![MIT](https://img.shields.io/badge/license-MIT-ea580c?style=flat-square)](LICENSE)
 
 [English](README.md) · **简体中文**
 
@@ -19,7 +19,7 @@ Jev 负责选择、分类和评分，你自己的 coding Agent 负责提供上�
 这个合集帮你找到用法，再让 Agent 帮你用起来：
 
 - **找灵感：** 45 个项目与资料入口、108 个场景，从浏览器操作到音乐创作。
-- **直接用：** 11 个技能，交给自己的 Codex、Claude Code 或 OpenCode 安装。
+- **直接用：** 6 个技能，交给自己的 Codex、Claude Code 或 OpenCode 安装。
 - **改成你的：** 14 组真实输入输出、可修改的模板，以及评测记录。
 
 **第一次来？** [把安装提示词发给 Agent](#install)，跟它确认 setup，再挑一个例子试试。
@@ -107,12 +107,14 @@ Jev 负责选择、分类和评分，你自己的 coding Agent 负责提供上�
 <a id="install"></a>
 ## 📦 安装：复制给你的 Agent
 
+> **六入口版本目前是源码预览，尚未发布新版。** 已发布的 v0.2.0 仍有 11 个入口；不要把旧版本当成六入口版安装。[安装与升级说明](docs/install.md) · [旧名称去了哪里](docs/skill-migration.md)
+
 把下面这段话发给 **Codex、Claude Code 或 OpenCode**：
 
 ```text
 帮我给当前 coding Agent 安装 Jev Skills，包括全部场景技能：
 https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md
-你来检查环境并完成安装，用 jev-setup 跟我确认：
+你来检查环境并完成安装，用 jev 的 setup 流程跟我确认：
 A：用我的 OpenRouter 或官方 TypeSafe 账号调用真实 Jev；B：由你模拟。
 等我选择；需要 key 时指导我在本地安全配置，不要让我发到聊天里。
 先完成离线验证，发送数据或付费调用前再征得我同意。
@@ -136,7 +138,7 @@ Agent 会检查环境，默认安装到当前项目，并完成离线验证。
 已经装好了？把下面这段话发到同一个 Codex、Claude Code 或 OpenCode 会话：
 
 ```text
-用 jev-setup 给当前 coding Agent 配置 Jev。检查 key 是否存在，不要显示密钥。
+用 jev 的 setup 流程给当前 coding Agent 配置 Jev。检查 key 是否存在，不要显示密钥。
 先跟我确认用哪种方式，等我选完再继续：
 A：真实 Jev——用我的 OpenRouter 账号，或者官方 TypeSafe 服务。
 B：由你模拟；只有我明确选择时，才使用 DeepSeek 等其他可用模型。
@@ -159,13 +161,13 @@ Agent 不会擅自换服务商，也不会悄悄转为模拟。
 `jev_called: false`，概率和置信度为 null；使用的是你已有的 Agent／模型入口，
 不是免费提供 Jev 或 DeepSeek 额度。
 
-[给 Agent 的 Setup 指引](skills/jev-setup/SKILL.md) · [手动 key 配置与排错](docs/installation.md#official-native-key-no-openrouter-account-required)
+[给 Agent 的 Setup 指引](skills/jev/references/setup.md) · [手动 key 配置与排错](docs/installation.md#official-native-key-no-openrouter-account-required)
 
 ### 先跑一个例子
 
 ```text
 使用 jev-triage 技能，读取它安装目录里的 assets/example.json。
-展示例子的上下文、问题和候选项。先用 jev-setup 让我选择：
+展示例子的上下文、问题和候选项。先用 jev 的 setup 流程让我选择：
 A：通过 OpenRouter 或官方 TypeSafe 调用真实 Jev；B：明确同意的 Agent 或模型模拟。等我选择再继续。
 真实调用模式先带选定的 --provider 做 --dry-run，通过后做一次 Jev 调用。
 B 模式注明实际使用的 Agent 或模型，并标注“模拟，未调用 Jev”，不要编造概率。
@@ -182,7 +184,7 @@ B 模式注明实际使用的 Agent 或模型，并标注“模拟，未调用 J
 
 ```text
 在【任务】中使用 jev 技能辅助决策。
-缺少选定服务的 key 时，用 jev-setup 让我选择真实服务或明确的模拟方式，按选定模式继续。
+缺少选定服务的 key 时，用 jev 的 setup 流程让我选择真实服务或明确的模拟方式，按选定模式继续。
 遇到重复失败、需要选择下一条路线、或准备宣布完成时，再做判断。
 把目标、验收标准、相关历史、最新工具结果、已有权限和候选动作含义给足。
 让它选下一步或判断证据是否支持完成；证据不足就补查或交给我。
@@ -208,24 +210,21 @@ B 模式：由你按同样标准判断，明确标注模拟，不编造 API 响�
 
 ### 换一个用途，点名对应技能
 
-| 我想做什么 | 告诉 Agent 使用 |
+| 我想做什么 | 让 Agent 使用 |
 |---|---|
-| 自定义判断、长程任务检查点 | `jev` |
-| 消息分类、反馈分流、排优先级 | `jev-triage` |
-| 找原文片段、核对主张与证据 | `jev-documents` |
-| 从已观察到的浏览器或桌面动作中选择 | `jev-ui` |
-| 选择工具、模型或专家 | `jev-route` |
-| 判断哪些上下文需要保留、何时适合压缩 | `jev-context` |
-| 给代码改动排审查优先级 | `jev-code-review` |
-| 从已有文件清单里选下一处检查位置 | `jev-find-code` |
-| 在模拟世界里选择合法动作 | `jev-simulation` |
+| Setup、自定义判断、模型/工具路由、上下文检查 | `jev` |
+| 批量分类、打标签、分流、排优先级 | `jev-triage` |
+| 检索文档或代码、提取原文、核对证据 | `jev-documents` |
+| 评估回答、代码改动或授权安全测试的结果 | `jev-eval` |
+| 从真实浏览器或桌面的已观察动作中选择 | `jev-ui` |
+| 在游戏、NPC 或仿真世界里选择合法动作 | `jev-simulation` |
 
 想定制时，直接告诉 Agent：**输入是什么、按什么标准、有哪些选项、结果给谁用**。
 几选一用 `choice`，独立的是/否判断用 `noul`，按等级评分用 `score`。
 Agent 应一起修改 `state`、`questions` 和 `criteria`，而不只是替换示例文字。
 浏览器操作、发消息、生成音乐或视频，仍由另接的宿主工具完成。
 
-**Setup 与安全评测：** [`jev-setup`](skills/jev-setup/SKILL.md) 选择接入方式；[`jev-redteam`](skills/jev-redteam/SKILL.md) 提供[批量、多轮、多人协作示例](skills/jev-redteam/references/workflows.md)。
+**Setup 与安全评测：** [`jev`](skills/jev/references/setup.md) 选择接入方式；[`jev-eval`](skills/jev-eval/SKILL.md) 提供[批量、多轮、多人协作示例](skills/jev-eval/references/workflows.md)。
 
 ### 命令行使用（可选）
 
@@ -378,7 +377,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 <a id="catalog"></a>
 ## 🗂 从你想做的事开始
 
-**108 个场景 · 11 个可安装技能 · 14 次真实 API 示例。**
+**108 个场景 · 6 个可安装技能 · 14 次真实 API 示例。**
 所有场景都在本页：复制任务，打开模板，再按自己的需求改标准。
 
 | | | |
@@ -386,7 +385,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 | 🧭 **[长程任务与恢复](#agent)**<br />5 个用法 | 🔎 **[监督、审查与评测](#quality)**<br />9 个用法 | 🔀 **[路由与上下文](#routing)**<br />12 个用法 |
 | 🌐 **[浏览器与交互](#interaction)**<br />13 个用法 | 📬 **[消息与日常工作](#business)**<br />11 个用法 | 📚 **[文档与证据](#documents)**<br />12 个用法 |
 | 🛠️ **[数据与开发工具](#data)**<br />12 个用法 | 🎨 **[游戏与创作](#creative)**<br />12 个用法 | 🧩 **[制作自己的工具](#building)**<br />4 个用法 |
-| 🧰 **[新玩法与安全评测](#more-uses)**<br />18 个用法 | [📦 Setup 引导](skills/jev-setup/SKILL.md) | [🧪 评测技能](skills/jev-redteam/SKILL.md) |
+| 🧰 **[新玩法与安全评测](#more-uses)**<br />18 个用法 | [📦 Setup 引导](skills/jev/references/setup.md) | [🧪 评测技能](skills/jev-eval/SKILL.md) |
 
 **怎么读：** 🧪 实际输出有保存的 API 记录；🛠 模板是可改输入，不是完整应用；🎬 社区演示归原作者。每节都注明验证状态。
 
@@ -608,7 +607,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 原始需求、测试意图、前后 diff → 是否削弱必要检查。
 - **可以改：** 受保护断言、合法测试改动的例外；标记线索，不判断主观作弊意图。
-- **动手：** [jev-code-review](skills/jev-code-review/SKILL.md) · [改写这个模板](skills/jev-code-review/assets/example.json)。
+- **动手：** [jev-eval](skills/jev-eval/references/code-review.md) · [改写这个模板](skills/jev-eval/assets/code-review.json)。
 - **来源：** [P03](skills/jev/references/community.md#p03)
 - **状态：** [真实合成示例](evals/SCENARIO_EXAMPLES.md)：削弱测试命题为 0.97；不是端到端审查基准。
 
@@ -693,7 +692,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 明确规则、例外、相关代码 → 可能违反／不违反／证据不足。
 - **可以改：** 规则文本、适用文件、例外范围；语法类约束仍交给 linter。
-- **动手：** [jev-code-review](skills/jev-code-review/SKILL.md) · [改写这个模板](skills/jev-code-review/assets/example.json)。
+- **动手：** [jev-eval](skills/jev-eval/references/code-review.md) · [改写这个模板](skills/jev-eval/assets/code-review.json)。
 - **来源：** [P02](skills/jev/references/community.md#p02)
 - **状态：** 延伸配方；这个具体场景尚未单独评估。
 
@@ -736,7 +735,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** diff 块、文件职责、相关测试 → 分块风险分数和审查顺序。
 - **可以改：** 风险维度、分数锚点、必审范围；低分不免除必须的安全审查。
-- **动手：** [jev-code-review](skills/jev-code-review/SKILL.md) · [改写这个模板](skills/jev-code-review/assets/example.json)。
+- **动手：** [jev-eval](skills/jev-eval/references/code-review.md) · [改写这个模板](skills/jev-eval/assets/code-review.json)。
 - **来源：** [P07](skills/jev/references/community.md#p07) · [Jev Review](https://github.com/devagrawal09/jev-review) · [Blink review](https://blink.review/)
 - **状态：** 延伸配方；这个具体场景尚未单独评估。
 
@@ -804,7 +803,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 问题、已尝试方法、缺失事实、审阅选项 → 查证／强模型／人工。
 - **可以改：** 错误代价、缺失信息类型、校准后的升级门槛。
-- **动手：** [jev-route](skills/jev-route/SKILL.md) · [改写这个模板](skills/jev-route/assets/example.json)。
+- **动手：** [jev](skills/jev/references/routing.md) · [改写这个模板](skills/jev/assets/routing.json)。
 - **来源：** [R01](skills/jev/references/community.md#r01) · [P01](skills/jev/references/community.md#p01)
 - **状态：** 延伸配方；这个具体场景尚未单独评估。
 
@@ -816,7 +815,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 子任务目标、汇报、证据 ID、主任务状态 → 即刻处理／延后／重复／核验。
 - **可以改：** 打断代价、紧急性标准、去重规则；原始汇报仍可检索。
-- **动手：** [jev-route](skills/jev-route/SKILL.md) · [改写这个模板](skills/jev-route/assets/example.json)。
+- **动手：** [jev](skills/jev/references/routing.md) · [改写这个模板](skills/jev/assets/routing.json)。
 - **来源：** [P02](skills/jev/references/community.md#p02)
 - **状态：** 延伸配方；这个具体场景尚未单独评估。
 
@@ -828,7 +827,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 子目标、观察、实际工具说明和可用性 → 工具 ID 或无匹配。
 - **可以改：** 工具描述、预算、可用权限；参数由宿主另行构造和校验。
-- **动手：** [jev-route](skills/jev-route/SKILL.md) · [改写这个模板](skills/jev-route/assets/example.json)。
+- **动手：** [jev](skills/jev/references/routing.md) · [改写这个模板](skills/jev/assets/routing.json)。
 - **来源：** [P01](skills/jev/references/community.md#p01)
 - **状态：** 延伸配方；这个具体场景尚未单独评估。
 
@@ -840,7 +839,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 任务、模态要求、时延成本、能力卡 → 模型档位或无法路由。
 - **可以改：** 质量底线、延迟、缓存切换成本；最终要测任务结果。
-- **动手：** [jev-route](skills/jev-route/SKILL.md) · [改写这个模板](skills/jev-route/assets/example.json)。
+- **动手：** [jev](skills/jev/references/routing.md) · [改写这个模板](skills/jev/assets/routing.json)。
 - **来源：** [R04](skills/jev/references/community.md#r04) · [R11](skills/jev/references/community.md#r11) · [N04](skills/jev/references/community.md#n04) · [Jev Codex Router](https://github.com/0xNatoshi/jev-codex-router)
 - **状态：** 下方展示合成输入的真实 API 返回；尚未评估这条工作流的端到端效果。
 
@@ -903,7 +902,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 有界子任务、专家职责和排除项 → 专家 ID 或留在本地。
 - **可以改：** 交接粒度、角色契约、并发限制；是否允许委派由宿主决定。
-- **动手：** [jev-route](skills/jev-route/SKILL.md) · [改写这个模板](skills/jev-route/assets/example.json)。
+- **动手：** [jev](skills/jev/references/routing.md) · [改写这个模板](skills/jev/assets/routing.json)。
 - **来源：** [R01](skills/jev/references/community.md#r01) · [P01](skills/jev/references/community.md#p01)
 - **状态：** 延伸配方；这个具体场景尚未单独评估。
 
@@ -915,7 +914,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 任务、技能简介、必触发规则 → 可选技能相关性或无合适技能。
 - **可以改：** 技能描述、适用范围、必需项、兜底；没有合适项时不要硬选第一名。
-- **动手：** [jev-route](skills/jev-route/SKILL.md) · [改写这个模板](skills/jev-route/assets/example.json)。
+- **动手：** [jev](skills/jev/references/routing.md) · [改写这个模板](skills/jev/assets/routing.json)。
 - **来源：** [R06](skills/jev/references/community.md#r06) · [R08](skills/jev/references/community.md#r08)
 - **状态：** 延伸配方；这个具体场景尚未单独评估。
 
@@ -942,7 +941,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 问题、真实目录/符号/摘要 → 下一处值得读取的路径。
 - **可以改：** 目录提示、遍历深度、停止证据；路径相关不代表找到了 bug。
-- **动手：** [jev-find-code](skills/jev-find-code/SKILL.md) · [改写这个模板](skills/jev-find-code/assets/example.json)。
+- **动手：** [jev-documents](skills/jev-documents/references/find-code.md) · [改写这个模板](skills/jev-documents/assets/find-code.json)。
 - **来源：** [R12](skills/jev/references/community.md#r12) · [Blink path search](https://github.com/ellipsis-dev/blink)
 - **状态：** 下方展示合成输入的真实 API 返回；尚未评估这条工作流的端到端效果。
 
@@ -1006,7 +1005,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 当前子目标、带 ID 的输出块 → 保留建议和相关性分数。
 - **可以改：** 误删代价、必须保留的错误、原文检索方式；完整输出单独保存。
-- **动手：** [jev-context](skills/jev-context/SKILL.md) · [改写这个模板](skills/jev-context/assets/example.json)。
+- **动手：** [jev](skills/jev/references/context.md) · [改写这个模板](skills/jev/assets/context.json)。
 - **来源：** [R06](skills/jev/references/community.md#r06) · [P02](skills/jev/references/community.md#p02) · [N05](skills/jev/references/community.md#n05) · [winnow / VINNOW lead](https://github.com/GhalebDweikat/winnow)
 - **状态：** [真实合成示例](evals/SCENARIO_EXAMPLES.md)：需要故障块、不需要主题备注；未执行上下文改写。
 
@@ -1091,7 +1090,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 拟读操作、上次结果、参数、状态版本 → 是否可能冗余。
 - **可以改：** 缓存有效期、变化范围；代码证明状态相同，模型只判断语义增益。
-- **动手：** [jev-context](skills/jev-context/SKILL.md) · [改写这个模板](skills/jev-context/assets/example.json)。
+- **动手：** [jev](skills/jev/references/context.md) · [改写这个模板](skills/jev/assets/context.json)。
 - **来源：** [R07](skills/jev/references/community.md#r07)
 - **状态：** 延伸配方；这个具体场景尚未单独评估。
 
@@ -1103,7 +1102,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 完成度、工作形态判断 + 宿主统计的上下文用量 → 提示或已授权的压缩。
 - **可以改：** 压力曲线、冷却时间、误触发代价、提示/自动模式；压缩后是否还保留所需信息要单独测。
-- **动手：** [jev-context](skills/jev-context/SKILL.md) · [改写这个模板](skills/jev-context/assets/example.json)。
+- **动手：** [jev](skills/jev/references/context.md) · [改写这个模板](skills/jev/assets/context.json)。
 - **来源：** [compact-adviser](https://github.com/kunchenguid/compact-adviser)
 - **状态：** 上游描述了小规模/私有标签调试；本仓库上下文例子返回 ongoing，没有实际压缩。
 
@@ -1278,7 +1277,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 消息、当前任务、后续工具所需数据 → 工作流分支或澄清。
 - **可以改：** 工作流清单、必需信息、交接格式；外部写入另行授权。
-- **动手：** [jev-route](skills/jev-route/SKILL.md) · [改写这个模板](skills/jev-route/assets/example.json)。
+- **动手：** [jev](skills/jev/references/routing.md) · [改写这个模板](skills/jev/assets/routing.json)。
 - **来源：** [R01](skills/jev/references/community.md#r01)
 - **状态：** 延伸配方；这个具体场景尚未单独评估。
 
@@ -1290,7 +1289,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 用户请求、可见设备、允许动作 → 意图、目标和是否完整。
 - **可以改：** 设备名、同义表达、分支问题；只消费选中意图的答案，锁和危险设备另行控制。
-- **动手：** [jev-route](skills/jev-route/SKILL.md) · [改写这个模板](skills/jev-route/assets/example.json)。
+- **动手：** [jev](skills/jev/references/routing.md) · [改写这个模板](skills/jev/assets/routing.json)。
 - **来源：** [R09](skills/jev/references/community.md#r09)
 - **状态：** 延伸配方；这个具体场景尚未单独评估。
 
@@ -1350,7 +1349,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 部分表单、允许的问题 → 下一问 ID → 表单渲染器。
 - **可以改：** 题库、分支规则、完成标准、跳过规则；不能跳过必须的信息收集。
-- **动手：** [jev-route](skills/jev-route/SKILL.md) · [改写这个模板](skills/jev-route/assets/example.json)。
+- **动手：** [jev](skills/jev/references/routing.md) · [改写这个模板](skills/jev/assets/routing.json)。
 - **来源：** [JevForm report](skills/jev/references/twitter-workflows.md#x02)
 - **状态：** 作者帖子摘录；未检查完整应用代码或复现表单。
 
@@ -1944,7 +1943,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 当前节点、邻居描述 → 局部选择 → 有限搜索前沿。
 - **可以改：** 节点描述、搜索宽度、已访问集合、深度预算；路径分不是校准的正确率。
-- **动手：** [jev-find-code](skills/jev-find-code/SKILL.md) · [改写这个模板](skills/jev-find-code/assets/example.json)。
+- **动手：** [jev-documents](skills/jev-documents/references/find-code.md) · [改写这个模板](skills/jev-documents/assets/find-code.json)。
 - **来源：** [Hierarchy method](https://docs.typesafe.ai/cookbooks/hierarchical_classification) · [Graph prototype](skills/jev/references/community.md#p14)
 - **状态：** 来源描述了这种方法；这里的改编尚未运行。
 - **也可以做图提取。** 先由宿主从原文提出实体和候选关系，Jev 再为每对实体选择关系标签或 `none`；保留原文片段 ID，由代码组装图。这是根据[社区线索](https://x.com/yoheinakajima/status/2100674306405814568)改编的未测试流程，不是让 Jev 自由生成图。
@@ -1982,7 +1981,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 已有命令候选、当前上下文 → 命令建议。
 - **可以改：** 历史窗口、上下文字段、过期结果丢弃；上传前去掉密钥，选中不等于获准执行。
-- **动手：** [jev-route](skills/jev-route/SKILL.md) · [改写这个模板](skills/jev-route/assets/example.json)。
+- **动手：** [jev](skills/jev/references/routing.md) · [改写这个模板](skills/jev/assets/routing.json)。
 - **来源：** [Shell-history prototype](skills/jev/references/community.md#p15)
 - **状态：** 来源描述了这种方法；这里的改编尚未运行。
 
@@ -2342,7 +2341,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 - **输入 → 输出：** 创作需求、当前能力卡 → 生成器 ID 或无匹配。
 - **可以改：** 媒介、编辑能力、延迟、预算、成品评价标准；不能只测路由置信度。
-- **动手：** [jev-route](skills/jev-route/SKILL.md) · [改写这个模板](skills/jev-route/assets/example.json)。
+- **动手：** [jev](skills/jev/references/routing.md) · [改写这个模板](skills/jev/assets/routing.json)。
 - **来源：** [Creative-model routing demo](skills/jev/references/twitter-workflows.md#x07)
 - **状态：** 作者帖子摘录；没有复现生成或成品质量对照。
 
@@ -2612,12 +2611,12 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 > 获授权的已采集对话 + 待测边界 → 结果标签 + 证据状态 → 独立复核。
 
 - **怎么用、可以改:** 保留稳定 ID、有界并发、正常对照和留出标签；不能仅凭拒答关键词判成功。
-- **动手:** [jev-redteam](skills/jev-redteam/SKILL.md) · [改写模板](skills/jev-redteam/assets/example.json).
-- **来源 / 方法:** [原始入口](skills/jev-redteam/references/workflows.md) · [逐项收录表](skills/jev/references/intake-2026-09-21.md).
+- **动手:** [jev-eval](skills/jev-eval/SKILL.md) · [改写模板](skills/jev-eval/assets/example.json).
+- **来源 / 方法:** [原始入口](skills/jev-eval/references/workflows.md) · [逐项收录表](skills/jev/references/intake-2026-09-21.md).
 - **状态:** 原创流程和离线样例；没有运行攻击任务或真实判分。
 
 ```text
-用 jev-redteam 准备获授权对话的批量评测。
+用 jev-eval 准备获授权对话的批量评测。
 先跑附带的无害离线样例，不访问目标。
 展示完整上下文、候选标签和独立结果检查；
 调用前让我选择真实 Jev 或明确的模拟模式。
@@ -2638,12 +2637,12 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 > 授权会话 + 完整轮次历史 + 预算 + 允许的下一步 → 继续 / 停止 / 复核 → 获授权的执行器。
 
 - **怎么用、可以改:** 分开设计者、执行器、Jev 初筛和独立审阅者；并行会话而不是有依赖的轮次，硬停止规则放在模型外。
-- **动手:** [jev-redteam](skills/jev-redteam/SKILL.md) · [改写模板](skills/jev-redteam/assets/example.json).
-- **来源 / 方法:** [原始入口](skills/jev-redteam/references/workflows.md) · [逐项收录表](skills/jev/references/intake-2026-09-21.md).
+- **动手:** [jev-eval](skills/jev-eval/SKILL.md) · [改写模板](skills/jev-eval/assets/example.json).
+- **来源 / 方法:** [原始入口](skills/jev-eval/references/workflows.md) · [逐项收录表](skills/jev/references/intake-2026-09-21.md).
 - **状态:** 原创流程和离线样例；没有运行攻击任务或真实判分。
 
 ```text
-用 jev-redteam 设计有预算上限的多轮测试：协调者、设计者、目标执行器、Jev 初筛和独立审核分工。
+用 jev-eval 设计有预算上限的多轮测试：协调者、设计者、目标执行器、Jev 初筛和独立审核分工。
 保留会话历史和共享预算。
 先展示方案，暂不启动 Agent 或访问目标。
 ```

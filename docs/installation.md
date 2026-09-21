@@ -6,7 +6,7 @@ The commands below are optional manual alternatives, not steps every user must r
 
 ## No key: ask first, then choose a mode
 
-Use [jev-setup](../skills/jev-setup/SKILL.md) to check key presence without printing
+Use [jev setup](../skills/jev/references/setup.md) to check key presence without printing
 values. Prefer an existing OpenRouter account; otherwise offer official TypeSafe.
 If no route is configured, explain the choices and **wait**:
 
@@ -15,7 +15,7 @@ If no route is configured, explain the choices and **wait**:
 - **B — Simulation:** the current agent or an explicitly approved available model
   such as DeepSeek uses the same evidence, questions and criteria. Install the
   skill folders; no Jev CLI or Jev key is needed. See the
-  [copyable simulation prompt](../skills/jev-setup/references/simulation.md).
+  [copyable simulation prompt](../skills/jev/references/simulation.md).
 
 B outputs are marked `mode: agent_simulation` (host) or `mode: model_simulation` (another approved model), `jev_called: false` and carry no
 Jev probabilities (`probability` and `confidence` are `null`). They are not API
@@ -26,7 +26,7 @@ The runtime and credentials instructions below apply to **API mode**, not B.
 
 ## Pick the surface you need
 
-- **One focused skill:** install the shared CLI, then a scenario skill. The nine scenario
+- **One focused skill:** install the shared CLI, then a scenario skill. The five focused
   skills need no sibling skill and do not duplicate the runtime.
 - **General toolbox:** install `jev`. It includes its own stdlib script and the
   full reference library; a separate CLI installation is optional.
@@ -35,18 +35,25 @@ The runtime and credentials instructions below apply to **API mode**, not B.
   project from the [ecosystem guide](../skills/jev/references/ecosystem.md).
   Installing our skills does not install those projects or their tools.
 
+## Published release versus reviewed source
+
+The six-entry collection is an unreleased source preview. Published **v0.2.0**
+still contains eleven skills; [its pinned guide](install-v0.2.0.md) remains available.
+Use the six-entry names below only from an explicitly reviewed six-entry checkout.
+For an existing installation, follow [the migration guide](skill-migration.md).
+
 ## Optional package-tool and skills-installer route
 
 ```bash
 uv tool install git+https://github.com/wuyoscar/jev-skill.git@v0.2.0
-npx skills add wuyoscar/jev-skill --skill jev-triage
+npx skills add /absolute/path/to/reviewed/source --skill jev-triage
 export OPENROUTER_API_KEY="your-key"
 ```
 
 Select Codex, Claude Code or OpenCode in the installer; replace the skill name
-with any entry below. The CLI is pinned to the release; the short skills command
-tracks the repository's default branch. For a fully pinned skill installation,
-clone the tag and use the local installer commands below.
+with any entry below. The CLI command above installs the published runtime. The skill command uses an
+explicitly reviewed local source. Do not substitute the default branch silently.
+For the stable eleven-skill installation, follow the pinned release guide instead.
 
 [Release downloads](https://github.com/wuyoscar/jev-skill/releases/tag/v0.2.0)
 include the CLI wheel, source distribution and complete source ZIP. No PyPI
@@ -54,10 +61,9 @@ account is needed. Use the key for your selected provider.
 
 ## From a reviewed checkout
 
-```bash
-git clone --branch v0.2.0 https://github.com/wuyoscar/jev-skill.git
-cd jev-skill
-```
+Select the source commit with the user, inspect it, and record `git rev-parse HEAD`.
+Confirm it contains exactly the six entry points below. This is not permission to
+replace a published version pin with an arbitrary branch.
 
 In the root of that checkout:
 
@@ -73,17 +79,12 @@ or OpenCode in the skills installer. Install only the entries you need:
 
 | Skill | Use it for | Jev API runtime |
 |---|---|---|
-| `jev` | General custom decisions and the full reference library | Bundled Python script; CLI optional |
-| `jev-triage` | Message/record classification and prioritization | Shared `jev-decide` CLI |
-| `jev-documents` | Source-span selection and evidence checks | Shared CLI |
-| `jev-ui` | Browser/desktop action selection | Shared CLI + host UI tools for actions |
-| `jev-route` | Tool, specialist or model recommendations | Shared CLI |
-| `jev-context` | Relevance and compaction advice | Shared CLI |
-| `jev-code-review` | Diff risks and review priorities | Shared CLI |
-| `jev-find-code` | Choose locations to inspect | Shared CLI + host code-reading tools |
-| `jev-simulation` | Legal actions in a simulated world | Shared CLI + your simulator for transitions |
-| `jev-redteam` | Authorized batch, multi-turn and team safety evaluations | Shared CLI for judgments; offline Python request builder |
-| `jev-setup` | Choose a real provider or explicit simulation | No runtime required to guide setup |
+| `jev` | Setup, custom decisions, routing and context checkpoints | Bundled Python script; CLI optional |
+| `jev-triage` | Bulk classification and prioritization | Shared `jev-decide` CLI |
+| `jev-documents` | Document evidence and code-location selection | Shared CLI + host reading tools |
+| `jev-eval` | Output/code review and authorized safety evaluation | Shared CLI; offline transcript request builder |
+| `jev-ui` | Real browser/desktop action selection | Shared CLI + host UI tools |
+| `jev-simulation` | Legal actions in an authored world | Shared CLI + your simulator |
 
 To install from a different project directory, replace `.` in the installer
 command with the absolute path to this checkout. Review downloaded instructions
@@ -144,7 +145,7 @@ The CLI still defaults to OpenRouter, even when only the native key is present;
 select `--provider typesafe` explicitly. Neither key works at the other endpoint.
 There is no automatic `.env` loading. Configure the actual host process and
 restart it when needed; `setup` checks presence, not authentication or credits.
-[Setup skill](../skills/jev-setup/SKILL.md#local-key-setup) ·
+[Setup mode](../skills/jev/references/setup.md#local-key-setup) ·
 [Common pitfalls](../skills/jev/references/pitfalls.md#native-key).
 
 The general `jev` skill also works without installing the CLI:
@@ -193,7 +194,7 @@ python3 -m unittest discover -s tests -v
 uv build
 ```
 
-The wheel installs the shared CLI. The source distribution includes all eleven
+The wheel installs the shared CLI. The source distribution includes all six
 skill folders, docs and evaluation materials. A skill folder copied on its own
 needs its documented runtime **for API calls**: bundled Python for `jev`, shared
 CLI for the focused skills. Agent simulation needs neither. [Validation scope](validation.md).

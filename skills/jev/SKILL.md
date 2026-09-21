@@ -1,6 +1,6 @@
 ---
 name: jev
-description: Use TypeSafe Jev through OpenRouter or its official API for context-rich typed judgments rather than generated prose, especially high-volume classification, scoring and routing with parallel independent decisions. Define questions, choices or rubrics for ambiguous agent checkpoints (goal drift, repeated failures, tool routing, completion claims), browser states or human review. Supply sufficient relevant context in every request and batch independent questions. Use code for exact rules or arithmetic; Jev is advisory, not an authorization or security boundary.
+description: Set up Jev via OpenRouter, native TypeSafe or explicitly chosen simulation; build custom decision integrations and handle agent checkpoints, tool/model routing and context-retention decisions. Supply relevant context and batch independent questions. Focused collection skills cover bulk labels, evidence retrieval, evaluation, UI and simulations.
 license: MIT
 metadata:
   requirements: Jev API mode needs Python 3.10+, network access and either OPENROUTER_API_KEY or TYPESAFE_API_KEY for the selected provider. API calls incur charges. No MCP server required. User-approved host-agent simulation needs no Jev API key or CLI.
@@ -15,6 +15,27 @@ the result. It does not browse, generate prose, or remember earlier requests.
 The recipe library is inspiration, **not a fixed menu of supported functions**.
 Customize the evidence, questions, criteria and next consumer for the user’s task.
 This changes the decision interface and workflow, not the model weights.
+
+## Choose the workflow
+
+Use natural language to describe the task; these are modes, not extra installed skills.
+
+| Task | Read or use |
+|---|---|
+| Install, configure a provider, or choose simulation | [Setup](references/setup.md); handled by the user's own coding agent |
+| Choose a model, tool or specialist | [Routing](references/routing.md) and [template](assets/routing.json) |
+| Review context retention or compaction timing | [Context](references/context.md) and [template](assets/context.json) |
+| Another custom decision or agent checkpoint | The decision loop below |
+| Label or prioritize many records | `jev-triage` if installed |
+| Locate, extract or verify evidence in documents/code | `jev-documents` if installed |
+| Judge outputs, code changes or authorized safety tests | `jev-eval` if installed |
+| Choose an action in a real browser/desktop | `jev-ui` if installed |
+| Choose an action inside an authored world | `jev-simulation` if installed |
+
+If a focused skill is not installed, use the relevant recipe from this skill's
+reference library or explain the missing specialized workflow; do not assume
+another skill is available or install it silently. When asked to build an
+integration, the host writes task-specific code and tests using these methods.
 
 ## Setup: choose the service or simulation
 
@@ -53,7 +74,7 @@ In A, select the CLI destination explicitly: `--provider openrouter` or
 OpenRouter model ID to `jev-1.13.0`. `--dry-run` only validates; it neither
 classifies nor makes a network call. `jev-decide setup` reports presence only,
 not key validity, credits or permission. For guided setup and a copyable
-DeepSeek prompt, use `jev-setup` or the [setup guide](https://github.com/wuyoscar/jev-skill/blob/main/skills/jev-setup/SKILL.md).
+DeepSeek prompt, read the [setup guide](references/setup.md).
 
 ## Context first
 
