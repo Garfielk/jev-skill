@@ -93,6 +93,10 @@ Measure decision quality, whole-job time, throughput and total cost on the actua
 workload; do not promise a fixed speedup. See [context and throughput](references/context-and-throughput.md)
 and the [two-record, six-question example](assets/batch-triage.json).
 
+For bulk record labeling, first run the existing `jev-triage` workflow with
+`smoke_test=true`: compare a small approved sample before scaling. Agreement with
+a reference model is not ground truth or permission to start the full job.
+
 ## Before repeating a judgment
 
 Supply enough relevant context, not an indiscriminate transcript. When uncertain,

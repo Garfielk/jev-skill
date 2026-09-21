@@ -1,9 +1,30 @@
 ---
 name: jev-triage
-description: Use for user-defined inbox, support-ticket, feedback or record classification and prioritization, especially bulk parallel judgments with sufficient per-record context. Produces labels and review queues, not replies or automatic mailbox changes.
+description: Use for user-defined inbox, support-ticket, feedback or record classification and prioritization, especially bulk parallel judgments with sufficient per-record context. Accepts smoke_test and sample_size parameters to compare a small sample with DeepSeek before scaling. Produces labels and review queues, not replies or automatic mailbox changes.
 ---
 
 # Sort messages and records by custom criteria
+
+## 🚦 Parameters: smoke_test before bulk labeling
+
+Accept named invocation values from the user: `smoke_test=true`, `sample_size=50`,
+`input=job.json`, plus `seed`, `provider`, `reference_model`, `min_accuracy` and
+`max_accuracy_gap` and `timeout`. These are skill/workflow parameters, not Jev request fields.
+Default bulk labeling to `smoke_test=true`; do not start full-dataset calls first.
+In simulation mode, report the paired API test as unavailable; ask whether to
+configure real access or explicitly waive it. Never fabricate a comparison.
+Claude Code receives invocation arguments automatically; in other hosts read the
+same values from the user's message. Never shell-evaluate raw argument text.
+
+For a bulk labeling task, read [the parameter contract and runner](references/smoke-test.md).
+Prepare a representative sample with full relevant context. After approving the
+sample and both providers, run `scripts/smoke_test.py` with those parameters to
+compare Jev and the selected reference model. Show complete input/output pairs,
+coverage, disagreements, gold-label accuracy when available, and cost. Agreement
+alone is not accuracy. Stop for review on errors, missing evidence or failed checks.
+Even a passing sample does not authorize full-scale execution: obtain scope/budget
+approval, then use the existing bulk workflow. `smoke_test=false` requires an
+explicit user waiver; record it as skipped, never as a successful test.
 
 ## Setup: choose the service or simulation
 
@@ -78,7 +99,7 @@ fallback. Test thresholds on the user's task rather than assuming 0.9 is safe.
 2. Preserve original record IDs. For multiple records, name the exact record ID in every question or send one request per record; one Choice over an entire inbox is not per-message classification.
 3. Collect text only from files or accounts the user authorized. Classify before writing tags, moving messages or sending replies.
 4. Return a reviewable table: record ID, category, urgency, uncertainty and intended next consumer. Keep other/missing-evidence records visible.
-5. Test near-miss categories and user-labeled examples before applying a rule in bulk. Change labels and urgency anchors, not just the sample text.
+5. Before bulk labeling, apply the `smoke_test` parameter contract above. Include near-miss categories and user-labeled examples; retest when label definitions or input organization change.
 
 ## Context and parallelism
 

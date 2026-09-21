@@ -195,6 +195,8 @@ Do not add a Jev call to every trivial step.
 
 ### Sort your own records in parallel
 
+> 🚦 **Test a sample before bulk labeling.** `jev-triage` accepts `smoke_test=true sample_size=50`: compare Jev with DeepSeek V4 Flash, inspect disagreements, then approve the full job. [Parameters and runnable test](skills/jev-triage/references/smoke-test.md). Preview: available in this change, not the pinned v0.2.0 skill bundle.
+
 Replace `[FILE PATH]` with a prepared, redacted file. Agree on the categories with a small sample first:
 
 ```text
@@ -206,12 +208,15 @@ In API mode, after approval, put each record's classification and urgency in one
 schedule at most 4 requests in flight. In B mode, judge with the same criteria,
 label the results simulated, and do not invent API responses or probabilities.
 Process only these 3 records first; do not automatically expand to the whole file.
+Before scaling API-mode labeling, run smoke_test=true with sample_size=50 on an approved job input;
+show the paired report and wait for my decision. Missing reference access is not a passing test.
 Return record ID, category, urgency and review status; save inputs, outputs and the mode.
 Keep uncertain cases separate. Do not reply to, delete or move any messages.
 ```
 
 The agent schedules concurrency; the CLI does not start parallel jobs itself.
-Check the sample judgments before choosing a larger batch and budget.
+The paired smoke test uses one record per request. Separately validate any larger
+per-request batch shape before increasing batch size and budget.
 
 ### Pick the skill for your task
 
@@ -2743,6 +2748,7 @@ Data sent for judgment goes to your selected service; use synthetic data first.
 <a id="experiments"></a>
 ## 🧪 Experiments you can inspect
 
+- [Batch smoke-test pilot](evals/TRIAGE_SMOKE_TEST.md): 20 pairs planned; first pair agreed, next Jev request failed after 30 seconds. Stopped for review; no bulk run.
 - [Agent before/after](evals/RESULTS.md): 12 pairs, baseline 12/12 vs fixed-checkpoint 10/12. Small negative result for that integration policy.
 - [Decision/calibration pilot](evals/CALIBRATION_RESULTS.md): 136/160 benchmark labels matched; the confidence ≥0.9 group still had 8/100 errors.
 - [Nine scenario API examples](evals/SCENARIO_EXAMPLES.md): observed answers for all eight focused skills plus voice direction; no host actions.
