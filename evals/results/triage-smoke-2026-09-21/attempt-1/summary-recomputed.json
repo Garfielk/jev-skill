@@ -1,0 +1,62 @@
+{
+  "metrics": {
+    "attempted_records": 2,
+    "sample_size": 20,
+    "valid_pairs": 1,
+    "agreement": 1.0,
+    "gold_records": 2,
+    "jev_scored_gold_records": 1,
+    "jev_accuracy": 1.0,
+    "jev_per_class": {
+      "billing": {
+        "n": 0,
+        "correct": 0
+      },
+      "bug": {
+        "n": 1,
+        "correct": 1
+      },
+      "howto": {
+        "n": 0,
+        "correct": 0
+      },
+      "account": {
+        "n": 0,
+        "correct": 0
+      },
+      "unknown": {
+        "n": 0,
+        "correct": 0
+      }
+    },
+    "reference_scored_gold_records": 1,
+    "reference_accuracy": 1.0,
+    "reference_per_class": {
+      "billing": {
+        "n": 0,
+        "correct": 0
+      },
+      "bug": {
+        "n": 1,
+        "correct": 1
+      },
+      "howto": {
+        "n": 0,
+        "correct": 0
+      },
+      "account": {
+        "n": 0,
+        "correct": 0
+      },
+      "unknown": {
+        "n": 0,
+        "correct": 0
+      }
+    }
+  },
+  "gate": "needs_review",
+  "bulk_authorized": false,
+  "disagreement_ids": [],
+  "note": "Agreement is not accuracy. No gold, missing calls, uncertainty or failed checks require review. Never auto-run the population.",
+  "note_on_recomputation": "Offline recomputation from preserved original rows: accuracy denominator is valid labeled answers, not attempted records. No new API calls. Original report retained."
+}
