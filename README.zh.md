@@ -8,12 +8,47 @@
 
 [English](README.md) · **简体中文**
 
-[🧭 项目导航](#projects) · [🧯 避坑指南](#pitfalls) · [🎬 看演示](#showcase) · [📦 安装](#install) · [🚀 怎么用](#usage) · [🗂 全部 108 个场景](#catalog) · [🧪 输入 → 输出](#io) · [🆕 更新记录](docs/updates/README.md)
+[概览](#overview) · [目录](#contents) · [安装](#install)
 
 </div>
 
-Jev 负责选择、分类和评分，agent 负责提供上下文和执行。
-既可以接进长程任务，也可以拿来处理消息、读文档、做游戏和创作工具。
+<a id="overview"></a>
+## 概览
+
+Jev 负责选择、分类和评分，你自己的 coding Agent 负责提供上下文和执行。
+这个合集帮你找到用法，再让 Agent 帮你用起来：
+
+- **找灵感：** 45 个项目与资料入口、108 个场景，从浏览器操作到音乐创作。
+- **直接用：** 11 个技能，交给自己的 Codex、Claude Code 或 OpenCode 安装。
+- **改成你的：** 14 组真实输入输出、可修改的模板，以及评测记录。
+
+**第一次来？** [把安装提示词发给 Agent](#install)，跟它确认 setup，再挑一个例子试试。
+不用自己写命令或 JSON。
+
+<a id="contents"></a>
+## 目录
+
+| 开始使用 | 找项目与用法 | 深入了解 |
+|---|---|---|
+| [📦 安装](#install) | [🎬 演示](#showcase) | [🧯 避坑指南](#pitfalls) |
+| [🔑 Agent 设置](#no-key) | [🧭 项目导航](#projects) | [⚡ 上下文与批量](#context-tips) |
+| [🚀 怎么用](#usage) | [🗂 全部场景](#catalog) | [🎯 概率校准](#calibration) |
+| [🧪 输入 → 输出](#io) | [📊 实验记录](#experiments) | [🔗 来源与致谢](#credits) |
+
+<details>
+<summary>按主题浏览场景</summary>
+
+| | |
+|---|---|
+| [长程 Agent](#agent) | [监督、审查与评测](#quality) |
+| [路由与上下文](#routing) | [浏览器与桌面](#interaction) |
+| [邮件与客服](#business) | [文档与研究](#documents) |
+| [数据与开发工具](#data) | [游戏与创作](#creative) |
+| [自己搭工具](#building) | [更多实验与安全评测](#more-uses) |
+
+</details>
+
+[🆕 更新记录](docs/updates/README.md)
 
 <a id="showcase"></a>
 ## 🎬 演示
@@ -237,6 +272,7 @@ jev-decide decide request.json > result.json
 上表中文是便于阅读的概述；下方请求保留调用时的英文。这些调用没有实际执行所选动作。
 Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2 这样的评分**不是概率**。
 
+<a id="context-tips"></a>
 ## ⚡ 用好 Jev，先记住两件事
 
 - **上下文给够。** 把目标、规则、原始证据、相关历史和候选项含义一起传进去。
@@ -2612,6 +2648,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 先展示方案，暂不启动 Agent 或访问目标。
 ```
 
+<a id="calibration"></a>
 ## 🎯 让概率真正有用
 
 “自动处理 / 强模型复核 / 交给人”是**可以定制的策略**，不是通用的 0.9/0.7 规则。
@@ -2630,6 +2667,7 @@ Jev 本身不浏览、不执行工具，也不生成自由文本。判断输入�
 - [此前的 5 个真实 API 示例](evals/results/examples-2026-09-20.json)：保留请求/响应，是冒烟回执，不是场景准确率测试。
 - [验证与复现说明](docs/validation.md)：分别记录打包检查、离线运行，以及尚未验证的宿主边界。
 
+<a id="credits"></a>
 ## 🔗 更多资料 · 致谢
 
 本合集参考了这些 awesome 项目的线索整理：

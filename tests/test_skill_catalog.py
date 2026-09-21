@@ -41,6 +41,24 @@ class SkillCatalogTests(unittest.TestCase):
             self.assertEqual(len(re.findall(r"^\| ", section, re.M)) - 1, 45)
             self.assertEqual(len(re.findall(r"^### \d+\.", text, re.M)), 108)
 
+    def test_overview_and_contents_precede_demos_and_install(self):
+        targets = ("install", "showcase", "pitfalls", "no-key", "projects",
+                   "context-tips", "usage", "catalog", "calibration", "io",
+                   "experiments", "credits", "agent", "quality", "routing",
+                   "interaction", "business", "documents", "data", "creative",
+                   "building", "more-uses")
+        for filename in ("README.md", "README.zh.md"):
+            text = (ROOT / filename).read_text()
+            positions = [text.index(f'<a id="{anchor}"></a>')
+                         for anchor in ("overview", "contents", "showcase", "install")]
+            self.assertEqual(positions, sorted(positions))
+            contents = text[positions[1]:positions[2]]
+            for anchor in targets:
+                self.assertIn(f"](#{anchor})", contents)
+                self.assertEqual(text.count(f'<a id="{anchor}"></a>'), 1)
+            self.assertIn("<details>", contents)
+            self.assertIn("docs/updates/README.md", contents)
+
     def test_agent_first_installation_entrypoint(self):
         guide_url = "https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md"
         for filename in ("README.md", "README.zh.md"):

@@ -8,12 +8,47 @@
 
 [English](README.md) · [简体中文](README.zh.md)
 
-[🧭 Projects](#projects) · [🧯 Pitfalls](#pitfalls) · [🎬 Demos](#showcase) · [📦 Install](#install) · [🚀 How to use](#usage) · [🗂 All 108 scenarios](#catalog) · [🧪 Input → output](#io) · [🆕 Updates](docs/updates/README.md)
+[Overview](#overview) · [Contents](#contents) · [Install](#install)
 
 </div>
 
-Jev chooses, classifies and scores. Your agent supplies the context and does the work.
-Use it in an agent loop, or on your own inbox, documents and creative projects.
+<a id="overview"></a>
+## Overview
+
+Jev chooses, classifies and scores. Your coding agent supplies context and executes
+the next step. This collection helps you find a use case and try it:
+
+- **Explore:** 45 project and resource entries and 108 scenarios, from browser control to music.
+- **Install:** 11 skills for your own Codex, Claude Code or OpenCode agent.
+- **Adapt:** 14 recorded input/output examples, editable templates and evaluation notes.
+
+**New here?** [Give the install prompt to your agent](#install), confirm setup,
+then pick one example. You do not need to write commands or JSON yourself.
+
+<a id="contents"></a>
+## Table of contents
+
+| Get started | Explore | Go deeper |
+|---|---|---|
+| [📦 Install](#install) | [🎬 Demos](#showcase) | [🧯 Pitfalls](#pitfalls) |
+| [🔑 Agent setup](#no-key) | [🧭 Projects](#projects) | [⚡ Context & batching](#context-tips) |
+| [🚀 How to use](#usage) | [🗂 All scenarios](#catalog) | [🎯 Calibration](#calibration) |
+| [🧪 Input → output](#io) | [📊 Experiments](#experiments) | [🔗 Sources & credits](#credits) |
+
+<details>
+<summary>Browse scenarios by topic</summary>
+
+| | |
+|---|---|
+| [Long-running agents](#agent) | [Review & evaluation](#quality) |
+| [Routing & context](#routing) | [Browser & desktop](#interaction) |
+| [Inbox & support](#business) | [Documents & research](#documents) |
+| [Data & developer tools](#data) | [Games & creative tools](#creative) |
+| [Build your own](#building) | [More experiments & safety testing](#more-uses) |
+
+</details>
+
+[🆕 Update log](docs/updates/README.md)
 
 <a id="showcase"></a>
 ## 🎬 Demos
@@ -250,6 +285,7 @@ remain in their original English. These calls did not execute the chosen actions
 For Noul, `probability` means **P(true)** even when `value` is false; a rubric score
 such as 1.29/2 is **not** a probability.
 
+<a id="context-tips"></a>
 ## ⚡ Two habits that make Jev useful
 
 - **Give it enough context.** Include the goal, rules, source evidence, relevant
@@ -2692,6 +2728,7 @@ histories and a shared budget. Show the plan first; do not spawn agents or run t
 yet.
 ```
 
+<a id="calibration"></a>
 ## 🎯 Make probabilities useful
 
 “Auto-handle / stronger model / person” is a **customizable policy**, not a universal
@@ -2712,6 +2749,7 @@ Data sent for judgment goes to your selected service; use synthetic data first.
 - [Five earlier live API examples](evals/results/examples-2026-09-20.json): request/response smoke receipts, not scenario-level accuracy tests.
 - [Validation and reproduction](docs/validation.md): package checks, dry runs and untested host boundaries are recorded separately.
 
+<a id="credits"></a>
 ## 🔗 More to explore · Credits
 
 This collection builds on discovery work from
