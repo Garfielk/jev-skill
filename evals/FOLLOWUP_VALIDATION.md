@@ -113,3 +113,13 @@ Exit 2 for this live fixture is expected: its unknown cases require review. Insp
 the report instead of treating any nonzero exit as a transport failure. Future
 agents should adapt the code to their own app, not reuse these sampling/acceptance
 rules blindly. [Release and review plan](../docs/next-steps.md).
+
+## Review follow-up: overflow numeric fields
+
+The Spec review reproduced a P2 defect: JSON `1e999` became Python infinity,
+which made strict receipt serialization fail and lose the report. The runtime
+now rejects overflow floats at the JSON parse boundary, before either provider
+response can enter the ledger. A fake HTTP response regression covers both arms,
+retains both in-flight error receipts with unknown costs, and writes a review
+report. Literal NaN/Infinity and duplicate object fields are also rejected.
+The bad provider body is not logged; the safe error receipt is preserved.

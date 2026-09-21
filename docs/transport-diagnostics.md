@@ -39,3 +39,13 @@ need their own overall job limits. There are no automatic retries or redirects.
 are separate from the original receipts. A repeatable service failure would need
 fresh captured diagnostics and potentially provider-side tracing, not just a
 larger timeout or repeated calls until one succeeds.
+
+## Review follow-up: overflow numeric fields
+
+The Spec review reproduced a P2 defect: JSON `1e999` became Python infinity,
+which made strict receipt serialization fail and lose the report. The runtime
+now rejects overflow floats at the JSON parse boundary, before either provider
+response can enter the ledger. A fake HTTP response regression covers both arms,
+retains both in-flight error receipts with unknown costs, and writes a review
+report. Literal NaN/Infinity and duplicate object fields are also rejected.
+The bad provider body is not logged; the safe error receipt is preserved.

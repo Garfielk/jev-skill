@@ -45,8 +45,16 @@ def unique_object(pairs):
     return result
 
 
+def finite_float(value):
+    result = float(value)
+    if not math.isfinite(result):
+        raise JevError("JSON number exceeds finite range")
+    return result
+
+
 def load_json(text):
-    return json.loads(text, parse_constant=reject_constant, object_pairs_hook=unique_object)
+    return json.loads(text, parse_constant=reject_constant, parse_float=finite_float,
+                      object_pairs_hook=unique_object)
 
 
 def read_json(path):

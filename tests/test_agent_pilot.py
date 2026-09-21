@@ -1,3 +1,4 @@
+import io
 import json
 import os
 from pathlib import Path
@@ -166,3 +167,28 @@ class AgentPilotTests(unittest.TestCase):
                 with self.subTest(kwargs=kwargs),self.assertRaises(ValueError):
                     pilot.run(JOB,Path(tmp)/'invalid',**kwargs)
             http.assert_not_called()
+
+    def test_overflow_provider_cost_preserves_both_inflight_error_receipts(self):
+        class Response(io.BytesIO):
+            status = 200
+
+        class FakeProvider:
+            def open(self, request, timeout):
+                payload=json.loads(request.data)
+                response=reply(request.full_url,payload,timeout)
+                response['usage']={'cost':'OVERFLOW_NUMBER'}
+                body=json.dumps(response).replace('"OVERFLOW_NUMBER"','1e999').encode()
+                return Response(body)
+
+        with tempfile.TemporaryDirectory() as tmp,patch.dict(os.environ,{'OPENROUTER_API_KEY':'dummy'}), \
+                patch('jev.urllib.request.build_opener',return_value=FakeProvider()):
+            out=Path(tmp)/'run'
+            report=pilot.run(JOB,out,sample_size=2,concurrency=2,live=True)
+            self.assertEqual(report['gate'],'needs_review')
+            self.assertEqual(report['metrics']['valid_pairs'],0)
+            receipts=[json.loads(l) for l in (out/'receipts.jsonl').read_text().splitlines()]
+            self.assertEqual(len(receipts),2)
+            self.assertTrue(all('error' in r for r in receipts))
+            self.assertTrue((out/'report.json').is_file())
+            self.assertEqual(report['usage']['jev']['cost_unknown_calls'],1)
+            self.assertEqual(report['usage']['reference']['cost_unknown_calls'],1)
