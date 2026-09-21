@@ -1,0 +1,8 @@
+[
+  {"id":"labels","prompt":"Route the ticket to billing, access or other; flag refunds.","expected":{"team":"choice","refund":"noul","execution":"same-request"}},
+  {"id":"rubric","prompt":"Grade work impact: none, workaround available, or all work blocked.","expected":{"impact":"score","levels":"three-described-situations"}},
+  {"id":"rules","prompt":"Review if a refund is requested and amount > 100 and age > 30 days.","expected":{"refund":"noul","amount_and_age":"code"}},
+  {"id":"generation","prompt":"Classify the ticket then write a helpful reply.","expected":{"team":"choice","reply":"keep-llm"}},
+  {"id":"missing","prompt":"Classify a missing ticket and apply the refund rule when amount is unknown.","expected":{"ticket":"collect-or-review","amount":"review-not-zero"}},
+  {"id":"dependent","prompt":"Select a relevant document, read it, then check whether it supports the claim.","expected":{"select_document":"choice","read_selected_document":"next-step","claim_check":"after-new-evidence"}}
+]

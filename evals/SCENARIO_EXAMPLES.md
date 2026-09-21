@@ -15,12 +15,12 @@ model router, context window, simulator or TTS engine was changed by these calls
 |---|---|---|
 | [Triage](../skills/jev-triage/assets/example.json) | Bug queue; urgency 1.29 on a 0–2 rubric | Per-message bulk accuracy or queue writes |
 | [Documents](../skills/jev-documents/assets/example.json) | Select `s2`; supplied claim contradicted | OCR, retrieval coverage or arbitrary field extraction |
-| [UI](../skills/jev-ui/assets/example.json) | `open_policy` | Clicking a real browser/desktop control or observing its result |
+| [UI](../skills/jev-act/assets/example.json) | `open_policy` | Clicking a real browser/desktop control or observing its result |
 | [Routing](../skills/jev-route/assets/example.json) | `reasoning` | Selected model's task quality, cost or a host switch |
 | [Context](../skills/jev-context/assets/example.json) | Need `b1`: 0.91; need `b2`: 0.03; work ongoing | Actual pruning/compaction and subsequent task success |
 | [Code review](../skills/jev-code-review/assets/example.json) | Test weakened: 0.97; completion unsupported; priority 1.97/2 | Real test execution or vulnerability confirmation |
 | [Find code](../skills/jev-find-code/assets/example.json) | Inspect path `p1` | Reading actual source or finding a symbol |
-| [Simulation](../skills/jev-simulation/assets/example.json) | `inspect_warehouse` | State transition, long-horizon reward or video rendering |
+| [Simulation](../skills/jev-act/assets/world.json) | `inspect_warehouse` | State transition, long-horizon reward or video rendering |
 | [Conversation](../skills/jev/assets/voice-style.json) | Analyst speaks next; calm delivery | Dialogue generation or TTS output |
 
 Numbers after binary propositions are yes-probabilities, not correctness

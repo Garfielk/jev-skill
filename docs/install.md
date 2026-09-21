@@ -10,7 +10,7 @@ Copy this into your own Codex, Claude Code or OpenCode agent:
 ```text
 Install Jev Skills for this coding agent:
 https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md
-Check the current release versus the six-entry source preview. Confirm which source
+Check the current release versus the five-entry source preview. Confirm which source
 I want before installing; record its exact commit. Handle installation yourself.
 Use jev for setup: A: real Jev via my OpenRouter or official TypeSafe account;
 B: simulation with this agent. Wait for my choice and keep keys out of chat.
@@ -22,7 +22,7 @@ Verify offline first. Ask before replacing existing skills or making paid calls.
 ```text
 帮我给当前 coding Agent 安装 Jev Skills：
 https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md
-先说明当前发布版和六入口源码预览的区别，跟我确认安装来源并记录准确 commit。
+先说明当前发布版和五入口源码预览的区别，跟我确认安装来源并记录准确 commit。
 你来完成安装，用 jev 跟我确认：A：OpenRouter 或官方 TypeSafe 真实调用；B：由你模拟。
 等我选择，key 只在本地安全配置，不要让我发到聊天里。
 先离线验证；替换已有技能或付费调用前先确认。
@@ -36,17 +36,17 @@ Identify the current host and project from this session; ask if they cannot be
 established. Default to project-local installation, not every detected client.
 Use the user's own coding agent; do not hand over a terminal checklist by default.
 
-**The six-entry collection is not yet released.** The actual published tag
-**v0.2.0 contains eleven skills**, not six. Offer the source choice explicitly:
+**The five-entry collection is not yet released.** The actual published tag
+**v0.2.0 contains eleven skills**, not five. Offer the source choice explicitly:
 
 - **Published release:** follow [the pinned v0.2.0 guide](install-v0.2.0.md).
-  This keeps its eleven entry points. Do not apply the six-skill copy list below.
-- **Six-entry preview:** only use a source checkout/commit that the user has
+  This keeps its eleven entry points. Do not apply the five-skill copy list below.
+- **Five-entry preview:** only use a source checkout/commit that the user has
   explicitly selected and reviewed. Record its exact commit, check that it contains
-  the six names below, and inspect its instructions and runtime before execution.
+  the five names below, and inspect its instructions and runtime before execution.
   Do not silently substitute `main`, a PR branch or a made-up release tag.
 
-The remaining steps apply to that **reviewed six-entry checkout**. Call it
+The remaining steps apply to that **reviewed five-entry checkout**. Call it
 `<source>`. No Vercel account, gateway, MCP server or Node/npm is required for the
 whole-folder copy route.
 
@@ -66,7 +66,7 @@ to the host's main model, hooks, permissions or unrelated plugins.
 
 ### 2. Preflight the entire installation
 
-Inspect all six destination folders, retired names, symlinks and any existing
+Inspect all five destination folders, retired names, symlinks and any existing
 `jev-decide`. Leave identical installations alone. Follow the
 [upgrade procedure](skill-migration.md) for an older collection. Explain conflicts
 and get approval before moving or replacing locally edited files or symlinks.
@@ -96,7 +96,7 @@ For an explicitly requested **general `jev` only** installation, its bundled
 stdlib script is sufficient for API calls; a shared CLI install is optional.
 Focused skills use the shared CLI, not an undeclared sibling skill runtime.
 
-### 4. Copy the six complete folders
+### 4. Copy the five complete folders
 
 | Current host | Project-local destination |
 |---|---|
@@ -112,8 +112,7 @@ Copy complete folders from the reviewed source, not just entry-point Markdown:
 | `jev-triage` | Record classification and prioritization |
 | `jev-documents` | Document evidence and code-location selection |
 | `jev-eval` | Output/code review and authorized safety-evaluation protocols |
-| `jev-ui` | Real browser/desktop action selection |
-| `jev-simulation` | Authored-world, game and NPC action selection |
+| `jev-act` | Browser/desktop steps and legal actions in games or simulations; shared CLI + host tools |
 
 Use filesystem operations that refuse overwrite, such as `shutil.copytree` without
 merge options, after preflight. Keep downloads and backups outside all discoverable
@@ -123,7 +122,7 @@ resolve the current host's supported directory instead of guessing from this tab
 
 ### 5. Verify installed copies, not only the source
 
-In both modes, enumerate installed `SKILL.md` files and confirm exactly the six
+In both modes, enumerate installed `SKILL.md` files and confirm exactly the five
 names above for a complete installation (or the explicitly requested subset).
 Check each entry point's local reference and asset links. Retired names may remain
 only when migration was explicitly deferred; report that as incomplete migration.
@@ -156,11 +155,11 @@ Report source commit, host, destination, installed names, chosen mode, credentia
 presence (never values), CLI version/location and checks passed/skipped. Distinguish
 installed, offline-verified and successfully authenticated. Follow the migration
 procedure to retire approved obsolete folders, then enumerate discovery again.
-Never report six entries while old aliases still show up.
+Never report five entries while old aliases still show up.
 
 No API spending is needed for installation. For subsequent work, let the user say:
 
 > Use jev-triage to classify these messages. Show the inputs, labels and uncertain
 > cases before changing anything.
 
-[Manual options and troubleshooting](installation.md) · [Six-entry migration](skill-migration.md)
+[Manual options and troubleshooting](installation.md) · [Five-entry migration](skill-migration.md)

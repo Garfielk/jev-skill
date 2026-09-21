@@ -40,9 +40,9 @@ The runtime and credentials instructions below apply to **API mode**, not B.
 
 ## Published release versus reviewed source
 
-The six-entry collection is an unreleased source preview. Published **v0.2.0**
+The five-entry collection is an unreleased source preview. Published **v0.2.0**
 still contains eleven skills; [its pinned guide](install-v0.2.0.md) remains available.
-Use the six-entry names below only from an explicitly reviewed six-entry checkout.
+Use the five-entry names below only from an explicitly reviewed five-entry checkout.
 For an existing installation, follow [the migration guide](skill-migration.md).
 
 ## Optional package-tool and skills-installer route
@@ -65,7 +65,7 @@ account is needed. Use the key for your selected provider.
 ## From a reviewed checkout
 
 Select the source commit with the user, inspect it, and record `git rev-parse HEAD`.
-Confirm it contains exactly the six entry points below. This is not permission to
+Confirm it contains exactly the five entry points below. This is not permission to
 replace a published version pin with an arbitrary branch.
 
 In the root of that checkout:
@@ -86,8 +86,7 @@ or OpenCode in the skills installer. Install only the entries you need:
 | `jev-triage` | Bulk classification and prioritization | Shared `jev-decide` CLI |
 | `jev-documents` | Document evidence and code-location selection | Shared CLI + host reading tools |
 | `jev-eval` | Output/code review and authorized safety evaluation | Shared CLI; offline transcript request builder |
-| `jev-ui` | Real browser/desktop action selection | Shared CLI + host UI tools |
-| `jev-simulation` | Legal actions in an authored world | Shared CLI + your simulator |
+| `jev-act` | Browser/desktop steps and legal actions in games or simulations; shared CLI + host tools |
 
 To install from a different project directory, replace `.` in the installer
 command with the absolute path to this checkout. Review downloaded instructions
@@ -197,7 +196,7 @@ python3 -m unittest discover -s tests -v
 uv build
 ```
 
-The wheel installs the shared CLI. The source distribution includes all six
+The wheel installs the shared CLI. The source distribution includes all five
 skill folders, docs and evaluation materials. A skill folder copied on its own
 needs its documented runtime **for API calls**: bundled Python for `jev`, shared
 CLI for the focused skills. Agent simulation needs neither. [Validation scope](validation.md).

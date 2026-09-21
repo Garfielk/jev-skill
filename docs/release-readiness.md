@@ -1,5 +1,7 @@
 # Review and release readiness
 
+This is the historical six-entry check. See [five-skill validation](validation-five-skills.md) for the current source update.
+
 This source is not a published release. Oscar delegated PR merging after review
 and passing checks; the agent handles integration and tracker cleanup. No tags
 or releases are created by that merge operation.

@@ -86,8 +86,8 @@ OpenRouter reference model: check both selected routes before spending.
 | Retrieval / code-location ranking | `jev-documents` | The same candidate evidence and relevance rubric |
 | Code or authorized safety evals | `jev-eval` | The same frozen outputs/transcripts; not attack generation |
 | Agent routing and context | `jev` | Decisions on frozen checkpoints, not a claimed end-to-end agent win |
-| Browser/desktop actions | `jev-ui` | Offline action choices; execution still needs host authorization |
-| Games/simulation | `jev-simulation` | Frozen states first; rollout outcomes require a separate experiment |
+| Browser/desktop actions | `jev-act` | Offline action choices; execution still needs host authorization |
+| Games/simulation | `jev-act` | Frozen states first; rollout outcomes require a separate experiment |
 
 This is not another entry point. Keep the task in its existing skill; adapt this
 pilot pattern when scaling repeated judgments. Jev only chooses/scores: the host

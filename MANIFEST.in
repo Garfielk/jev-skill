@@ -1,5 +1,7 @@
 recursive-include skills *.md *.json *.jsonl *.py *.yaml
 recursive-include evals *.py *.md *.json *.jsonl *.txt
-recursive-include docs *.md *.png
+recursive-include docs *.md *.png *.gif
+prune docs/agents
+prune docs/adr
 include README.zh.md
 include LICENSE

@@ -13,6 +13,6 @@ class SmokeGuidanceTests(unittest.TestCase):
         self.assertIn('host agent to write task-specific code', entry)
         self.assertIn('not flags accepted by `jev-decide`', guide)
         self.assertFalse((ROOT/'skills/jev-triage/scripts/smoke_test.py').exists())
-        for name in ('jev', 'jev-triage', 'jev-documents', 'jev-eval', 'jev-ui', 'jev-simulation'):
+        for name in ('jev', 'jev-triage', 'jev-documents', 'jev-eval', 'jev-act'):
             self.assertIn(f'`{name}`', guide)
             self.assertTrue((ROOT/'skills'/name/'SKILL.md').is_file())

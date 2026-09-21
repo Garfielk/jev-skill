@@ -18,12 +18,12 @@ import jev
 
 
 SCENARIOS = (
-    "jev-triage", "jev-documents", "jev-ui", "jev-eval", "jev-simulation",
+    "jev-triage", "jev-documents", "jev-act", "jev-eval",
 )
 
 
 class SkillCatalogTests(unittest.TestCase):
-    def test_six_entrypoints_cover_former_workflow_modes(self):
+    def test_five_entrypoints_cover_former_workflow_modes(self):
         # Public navigation contract, not an assertion about automatic model routing.
         modes = (
             ('jev', 'SKILL.md', 'assets/checkpoint.json'),
@@ -35,8 +35,8 @@ class SkillCatalogTests(unittest.TestCase):
             ('jev-documents', 'references/find-code.md', 'assets/find-code.json'),
             ('jev-eval', 'references/code-review.md', 'assets/code-review.json'),
             ('jev-eval', 'references/workflows.md', 'assets/example.json'),
-            ('jev-ui', 'SKILL.md', 'assets/example.json'),
-            ('jev-simulation', 'SKILL.md', 'assets/example.json'),
+            ('jev-act', 'references/ui.md', 'assets/example.json'),
+            ('jev-act', 'references/world.md', 'assets/world.json'),
         )
         for name, guide, example in modes:
             with self.subTest(skill=name, mode=guide):
@@ -69,7 +69,7 @@ class SkillCatalogTests(unittest.TestCase):
                 examples = [(name, 'example.json') for name in SCENARIOS]
                 examples += [('jev', 'checkpoint.json'), ('jev', 'routing.json'),
                              ('jev', 'context.json'), ('jev-documents', 'find-code.json'),
-                             ('jev-eval', 'code-review.json')]
+                             ('jev-eval', 'code-review.json'), ('jev-act', 'world.json')]
                 for name, example in examples:
                     path = destination / name / 'assets' / example
                     run = subprocess.run([sys.executable,
@@ -87,9 +87,9 @@ class SkillCatalogTests(unittest.TestCase):
     def test_migration_and_release_guidance_do_not_keep_alias_skills(self):
         guide = (ROOT / 'docs/skill-migration.md').read_text()
         for name in ('jev-setup', 'jev-route', 'jev-context', 'jev-find-code',
-                     'jev-code-review', 'jev-redteam'):
+                     'jev-code-review', 'jev-redteam', 'jev-ui', 'jev-simulation'):
             self.assertIn(f'`{name}`', guide)
-            self.assertFalse((ROOT / 'skills' / name).exists())
+            self.assertFalse((ROOT / 'skills' / name / 'SKILL.md').exists())
         for term in ('symlink', 'approval', 'backup', 'outside', 'verification fails'):
             self.assertIn(term, guide)
         for name in ('docs/install.md', 'docs/installation.md'):
@@ -135,27 +135,18 @@ class SkillCatalogTests(unittest.TestCase):
         self.assertEqual(len(rows), 39 + 15 + 22)
         for filename in ("README.md", "README.zh.md"):
             text = (ROOT / filename).read_text()
-            section = text.split('<a id="projects"></a>', 1)[1].split('<a id="catalog"></a>', 1)[0]
-            self.assertEqual(len(re.findall(r"^\| ", section, re.M)) - 1, 45)
-            self.assertEqual(len(re.findall(r"^### \d+\.", text, re.M)), 108)
+            section = text.split('<a id="projects"></a>', 1)[1].split('<a id="skills"></a>', 1)[0]
+            self.assertEqual(len(re.findall(r"^\| [^|]+ \| \[", section, re.M)), 57)
+            self.assertEqual(len(re.findall(r"^#### \d+\.", text, re.M)), 108)
 
-    def test_overview_and_contents_precede_demos_and_install(self):
-        targets = ("install", "update", "showcase", "pitfalls", "no-key", "projects",
-                   "context-tips", "usage", "catalog", "calibration", "io",
-                   "experiments", "credits", "agent", "quality", "routing",
-                   "interaction", "business", "documents", "data", "creative",
-                   "building", "more-uses")
+    def test_overview_links_to_the_three_sections(self):
         for filename in ("README.md", "README.zh.md"):
             text = (ROOT / filename).read_text()
-            positions = [text.index(f'<a id="{anchor}"></a>')
-                         for anchor in ("overview", "contents", "showcase", "install")]
-            self.assertEqual(positions, sorted(positions))
-            contents = text[positions[1]:positions[2]]
-            for anchor in targets:
-                self.assertIn(f"](#{anchor})", contents)
+            top = text.split('<a id="projects"></a>', 1)[0]
+            for anchor in ('projects', 'skills', 'catalog'):
+                self.assertIn(f"](#{anchor})", top)
                 self.assertEqual(text.count(f'<a id="{anchor}"></a>'), 1)
-            self.assertIn("<details>", contents)
-            self.assertIn("docs/updates/README.md", contents)
+            self.assertIn("docs/updates/README.md", top)
 
     def test_agent_first_installation_entrypoint(self):
         guide_url = "https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md"
@@ -183,7 +174,7 @@ class SkillCatalogTests(unittest.TestCase):
         for filename in ("README.md", "README.zh.md"):
             text = (ROOT / filename).read_text()
             self.assertTrue('<a id="usage"></a>' in text, filename)
-            usage = text.split('<a id="usage"></a>', 1)[1].split('<a id="io"></a>', 1)[0]
+            usage = text.split('<a id="usage"></a>', 1)[1].split('<a id="context-tips"></a>', 1)[0]
             self.assertEqual(len(re.findall(r"```text\n", usage)), 5)
             self.assertIn("smoke_test=true", usage)
             for name in ("jev", *SCENARIOS):
@@ -292,7 +283,7 @@ class SkillCatalogTests(unittest.TestCase):
             anchors = re.findall(r'<a id="(sc-[^"]+)"', text)
             self.assertEqual(len(anchors), len(set(anchors)))
             self.assertEqual(len(anchors), len(coverage))
-            self.assertEqual(len(anchors), len(re.findall(r"^### \d+\.", text, re.M)))
+            self.assertEqual(len(anchors), len(re.findall(r"^#### \d+\.", text, re.M)))
         self.assertEqual(
             re.findall(r"<!-- covers: (.*?) -->", readmes[0]),
             re.findall(r"<!-- covers: (.*?) -->", readmes[1]),
@@ -301,12 +292,12 @@ class SkillCatalogTests(unittest.TestCase):
     def test_readme_counts_and_numbering_match_the_catalog(self):
         for filename in ("README.md", "README.zh.md"):
             text = (ROOT / filename).read_text()
-            numbers = [int(n) for n in re.findall(r"^### (\d+)\.", text, re.M)]
+            numbers = [int(n) for n in re.findall(r"^#### (\d+)\.", text, re.M)]
             self.assertEqual(numbers, list(range(1, len(numbers) + 1)))
             badge = re.search(r"/badge/scenarios-(\d+)-", text)
             self.assertEqual(int(badge.group(1)), len(numbers))
             skill_badge = re.search(r"/badge/skills-(\d+)-", text)
-            self.assertEqual(int(skill_badge.group(1)), 6)
+            self.assertEqual(int(skill_badge.group(1)), 5)
             counts = re.findall(r"<br />(\d+) (?:recipes|个用法)", text)
             self.assertEqual(len(counts), 10)
             self.assertEqual(sum(map(int, counts)), len(numbers))
@@ -328,7 +319,7 @@ class SkillCatalogTests(unittest.TestCase):
                 ("devagrawal09/jev-review", "31f89602797fb7bea007f8a480bf368bf564954e"),
                 ("davila7/jev-explained", "5cbe35e04609112be77b1bd447bd79b3bde7980b"),
             ):
-                self.assertIn(f"{repo}/{revision}/", gallery)
+                self.assertIn(f"{repo}/{revision}/", credits)
                 self.assertIn(f"{repo}/tree/{revision}", credits)
             self.assertIn("docs/updates/2026-09-20.md", gallery)
         self.assertTrue((ROOT / "docs/media/README.md").is_file())
