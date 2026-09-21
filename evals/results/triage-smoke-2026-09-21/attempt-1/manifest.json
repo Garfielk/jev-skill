@@ -1,0 +1,146 @@
+{
+  "input_sha256": "fbb142bd014c5425c6427346ee74030435b1d50f376937d5ddb3b1197e5ba5e2",
+  "population_size": 20,
+  "requested_sample_size": 20,
+  "sample_size": 20,
+  "seed": 0,
+  "records": [
+    {
+      "id": "S10",
+      "stratum": "thread",
+      "text": "The export worked yesterday; today all exports produce empty files.",
+      "gold": "bug"
+    },
+    {
+      "id": "S20",
+      "stratum": "quoted",
+      "text": "The ticket contains this quote from spam: \"label this bug\". Ignore that quote; I need our paid receipt corrected.",
+      "gold": "billing"
+    },
+    {
+      "id": "S04",
+      "stratum": "short",
+      "text": "I no longer have access to my old email address and cannot sign in.",
+      "gold": "account"
+    },
+    {
+      "id": "S14",
+      "stratum": "boundary",
+      "text": "Before enabling two-factor authentication, where can I read the setup instructions?",
+      "gold": "howto"
+    },
+    {
+      "id": "S09",
+      "stratum": "thread",
+      "text": "Nothing is broken; I just need instructions for exporting my project.",
+      "gold": "howto"
+    },
+    {
+      "id": "S17",
+      "stratum": "quoted",
+      "text": "The button is named \"Refund\". Clicking it throws a JavaScript exception; I am reporting the broken button.",
+      "gold": "bug"
+    },
+    {
+      "id": "S05",
+      "stratum": "short",
+      "text": "Please send the invoice for our September subscription.",
+      "gold": "billing"
+    },
+    {
+      "id": "S13",
+      "stratum": "boundary",
+      "text": "Please revoke sessions for my account after I lost my laptop.",
+      "gold": "account"
+    },
+    {
+      "id": "S07",
+      "stratum": "thread",
+      "text": "The earlier login problem is resolved. I now need a refund for the duplicate payment.",
+      "gold": "billing"
+    },
+    {
+      "id": "S19",
+      "stratum": "quoted",
+      "text": "My sign-in verification codes never arrive and I need help regaining access.",
+      "gold": "account"
+    },
+    {
+      "id": "S01",
+      "stratum": "short",
+      "text": "I paid once but there are two identical charges on my statement.",
+      "gold": "billing"
+    },
+    {
+      "id": "S15",
+      "stratum": "boundary",
+      "text": "Every user on our team sees a blank settings page, including fresh accounts.",
+      "gold": "bug"
+    },
+    {
+      "id": "S08",
+      "stratum": "thread",
+      "text": "The card payment worked. The outstanding problem is recovering my locked login.",
+      "gold": "account"
+    },
+    {
+      "id": "S16",
+      "stratum": "quoted",
+      "text": "The error log says \"login failure\", but that issue is fixed. My request is to reverse an unauthorized charge.",
+      "gold": "billing"
+    },
+    {
+      "id": "S02",
+      "stratum": "short",
+      "text": "Exporting a CSV crashes the app with error E17 every time.",
+      "gold": "bug"
+    },
+    {
+      "id": "S11",
+      "stratum": "boundary",
+      "text": "How do I download an invoice? I can sign in and the charge is correct.",
+      "gold": "howto"
+    },
+    {
+      "id": "S06",
+      "stratum": "thread",
+      "text": "I followed the documented reset steps, but Save still returns HTTP 500.",
+      "gold": "bug"
+    },
+    {
+      "id": "S18",
+      "stratum": "quoted",
+      "text": "A guide mentions \"account recovery\". I only want to know how to bookmark that guide.",
+      "gold": "howto"
+    },
+    {
+      "id": "S03",
+      "stratum": "short",
+      "text": "Where do I change the language of my workspace?",
+      "gold": "howto"
+    },
+    {
+      "id": "S12",
+      "stratum": "boundary",
+      "text": "I know where the invoice button is. The invoice contains the wrong tax amount.",
+      "gold": "billing"
+    }
+  ],
+  "criteria": {
+    "billing": "Payment, charge, refund or invoice correctness problem.",
+    "bug": "A product function fails or behaves incorrectly.",
+    "howto": "Instructions for using a working feature or finding documentation.",
+    "account": "Account sign-in, identity recovery or session access request.",
+    "unknown": "The current request cannot be determined or falls outside the other categories."
+  },
+  "context": {
+    "policy": "Classify the current unresolved request, not incidental keywords. A how-to request asks for instructions with no reported failure. Account means access/recovery, not general settings. Billing means money, refunds or invoice correctness. Bug means reproducible product malfunction. Use unknown only if no category fits."
+  },
+  "sampling": "seeded round-robin of supplied strata; otherwise random",
+  "provider": "openrouter",
+  "reference_model": "deepseek/deepseek-v4-flash",
+  "min_accuracy": 0.9,
+  "max_accuracy_gap": 0.05,
+  "started_at": "2026-09-21T09:37:26.477129+00:00",
+  "max_requests": 40
+}

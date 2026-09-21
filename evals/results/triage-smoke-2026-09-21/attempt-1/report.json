@@ -1,0 +1,90 @@
+{
+  "metrics": {
+    "attempted_records": 2,
+    "sample_size": 20,
+    "valid_pairs": 1,
+    "agreement": 1.0,
+    "gold_records": 2,
+    "jev_accuracy": 0.5,
+    "jev_per_class": {
+      "billing": {
+        "n": 1,
+        "correct": 0
+      },
+      "bug": {
+        "n": 1,
+        "correct": 1
+      },
+      "howto": {
+        "n": 0,
+        "correct": 0
+      },
+      "account": {
+        "n": 0,
+        "correct": 0
+      },
+      "unknown": {
+        "n": 0,
+        "correct": 0
+      }
+    },
+    "reference_accuracy": 0.5,
+    "reference_per_class": {
+      "billing": {
+        "n": 1,
+        "correct": 0
+      },
+      "bug": {
+        "n": 1,
+        "correct": 1
+      },
+      "howto": {
+        "n": 0,
+        "correct": 0
+      },
+      "account": {
+        "n": 0,
+        "correct": 0
+      },
+      "unknown": {
+        "n": 0,
+        "correct": 0
+      }
+    }
+  },
+  "gate": "needs_review",
+  "bulk_authorized": false,
+  "disagreement_ids": [],
+  "note": "Agreement is not accuracy. No gold, missing calls, uncertainty or failed checks require review. Never auto-run the population.",
+  "rows": [
+    {
+      "id": "S10",
+      "gold": "bug",
+      "jev_label": "bug",
+      "jev_review": false,
+      "reference_label": "bug"
+    },
+    {
+      "id": "S20",
+      "gold": "billing",
+      "error": "jev failed; stopped without retries"
+    }
+  ],
+  "input_sha256": "fbb142bd014c5425c6427346ee74030435b1d50f376937d5ddb3b1197e5ba5e2",
+  "mode": "live_paired_smoke_test",
+  "elapsed_seconds": 31.816929,
+  "usage": {
+    "jev": {
+      "calls": 2,
+      "reported_cost_usd": null,
+      "known_cost_subtotal_usd": 2.2386e-05,
+      "cost_unknown_calls": 1
+    },
+    "reference": {
+      "calls": 1,
+      "reported_cost_usd": 4.928e-06,
+      "known_cost_subtotal_usd": 4.928e-06,
+      "cost_unknown_calls": 0
+    }
+  }
+}

@@ -2,9 +2,12 @@
 """Typed Jev decisions through OpenRouter or TypeSafe. Python standard library only."""
 
 import argparse
+import http.client
 import json
 import math
 import os
+import socket
+import ssl
 from pathlib import Path
 import sys
 import time
@@ -22,17 +25,36 @@ REVIEW_LABELS = {"other", "unknown", "abstain", "review", "ask_user", "wait",
 class JevError(ValueError):
     """Invalid input, unavailable service, or invalid model output."""
 
-    def __init__(self, message, *, http_status=None):
+    def __init__(self, message, *, http_status=None, error_kind=None, phase=None):
         super().__init__(message)
         self.http_status = http_status
+        self.error_kind = error_kind
+        self.phase = phase
 
 
 def reject_constant(value):
     raise JevError(f"Non-finite JSON number: {value}")
 
 
+def unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise JevError("Duplicate JSON object field")
+        result[key] = value
+    return result
+
+
+def finite_float(value):
+    result = float(value)
+    if not math.isfinite(result):
+        raise JevError("JSON number exceeds finite range")
+    return result
+
+
 def load_json(text):
-    return json.loads(text, parse_constant=reject_constant)
+    return json.loads(text, parse_constant=reject_constant, parse_float=finite_float,
+                      object_pairs_hook=unique_object)
 
 
 def read_json(path):
@@ -41,7 +63,7 @@ def read_json(path):
 
 def number(value, low, high, name):
     if (isinstance(value, bool) or not isinstance(value, (int, float))
-            or not math.isfinite(value) or not low <= value <= high):
+            or not low <= value <= high or not math.isfinite(value)):
         raise JevError(f"{name} must be a finite number in [{low}, {high}]")
     return value
 
@@ -116,16 +138,29 @@ def http_json(url, payload, timeout=30):
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json",
                  "X-OpenRouter-Title": "Jev Skill"}, method="POST",
     )
+    phase, status = "connect_or_headers", None
     try:
         with urllib.request.build_opener(NoRedirect).open(request, timeout=timeout) as response:
+            phase, status = "response_body", response.status
             result = load_json(response.read().decode())
     except urllib.error.HTTPError as error:
         status = error.code
         error.close()
         raise JevError(f"{provider_name} HTTP {status}; no automatic retry was made",
-                       http_status=status) from None
-    except (urllib.error.URLError, TimeoutError, OSError):
-        raise JevError(f"{provider_name} connection failed or timed out; no automatic retry was made") from None
+                       http_status=status, error_kind="http", phase=phase) from None
+    except (urllib.error.URLError, TimeoutError, OSError, http.client.HTTPException) as error:
+        cause = error.reason if isinstance(error, urllib.error.URLError) else error
+        if isinstance(cause, TimeoutError):
+            kind = "timeout"
+        elif isinstance(cause, socket.gaierror):
+            kind = "dns"
+        elif isinstance(cause, ssl.SSLError):
+            kind = "tls"
+        else:
+            kind = "connection"
+        # Retain diagnostic categories, never raw exception text or credentials.
+        raise JevError(f"{provider_name} {kind} failure during {phase}; no automatic retry was made",
+                       http_status=status, error_kind=kind, phase=phase) from None
     except (json.JSONDecodeError, UnicodeError):
         raise JevError(f"{provider_name} returned invalid JSON") from None
     if not isinstance(result, dict) or "error" in result:
@@ -292,7 +327,10 @@ def main(argv=None):
         print(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False))
         return 2 if any(d["status"] == "needs_review" for d in report["decisions"].values()) else 0
     except (JevError, OSError, json.JSONDecodeError, UnicodeError) as error:
-        print(json.dumps({"error": str(error)}), file=sys.stderr)
+        detail = {"error": str(error)}
+        if isinstance(error, JevError) and error.error_kind is not None:
+            detail.update(error_kind=error.error_kind, phase=error.phase, http_status=error.http_status)
+        print(json.dumps(detail), file=sys.stderr)
         return 1
 
 

@@ -1,0 +1,9 @@
+{
+  "requests": 61,
+  "reported_cost_usd": 0.002933484688,
+  "cost_unknown_calls": 0,
+  "retries": 0,
+  "private_dataset_sent": false,
+  "user_installations_changed": false,
+  "scope": "2 targeted replays + 1 code generation + 10 skill API examples + 48 paired pilot calls"
+}

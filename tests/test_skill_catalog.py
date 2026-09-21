@@ -164,7 +164,8 @@ class SkillCatalogTests(unittest.TestCase):
             text = (ROOT / filename).read_text()
             self.assertTrue('<a id="usage"></a>' in text, filename)
             usage = text.split('<a id="usage"></a>', 1)[1].split('<a id="io"></a>', 1)[0]
-            self.assertEqual(len(re.findall(r"```text\n", usage)), 4)
+            self.assertEqual(len(re.findall(r"```text\n", usage)), 5)
+            self.assertIn("smoke_test=true", usage)
             for name in ("jev", *SCENARIOS):
                 self.assertIn(f"`{name}`", usage)
             for command in ("jev-decide decide request.json --dry-run",

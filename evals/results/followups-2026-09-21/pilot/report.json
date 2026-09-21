@@ -1,0 +1,248 @@
+{
+  "metrics": {
+    "sample_size": 24,
+    "attempted_records": 24,
+    "valid_pairs": 24,
+    "agreement": 0.9583333333333334,
+    "jev_scored_gold_records": 24,
+    "jev_accuracy": 1.0,
+    "jev_per_class": {
+      "billing": {
+        "n": 6,
+        "correct": 6
+      },
+      "bug": {
+        "n": 5,
+        "correct": 5
+      },
+      "howto": {
+        "n": 5,
+        "correct": 5
+      },
+      "account": {
+        "n": 4,
+        "correct": 4
+      },
+      "unknown": {
+        "n": 4,
+        "correct": 4
+      }
+    },
+    "reference_scored_gold_records": 24,
+    "reference_accuracy": 0.9583333333333334,
+    "reference_per_class": {
+      "billing": {
+        "n": 6,
+        "correct": 6
+      },
+      "bug": {
+        "n": 5,
+        "correct": 5
+      },
+      "howto": {
+        "n": 5,
+        "correct": 4
+      },
+      "account": {
+        "n": 4,
+        "correct": 4
+      },
+      "unknown": {
+        "n": 4,
+        "correct": 4
+      }
+    }
+  },
+  "usage": {
+    "jev": {
+      "calls": 24,
+      "known_cost_subtotal_usd": 0.000536214,
+      "cost_unknown_calls": 0,
+      "reported_cost_usd": 0.000536214
+    },
+    "reference": {
+      "calls": 24,
+      "known_cost_subtotal_usd": 0.000585049788,
+      "cost_unknown_calls": 0,
+      "reported_cost_usd": 0.000585049788
+    }
+  },
+  "rows": [
+    {
+      "id": "S13",
+      "gold": "account",
+      "jev_label": "account",
+      "jev_review": false,
+      "reference_label": "account"
+    },
+    {
+      "id": "S14",
+      "gold": "howto",
+      "jev_label": "howto",
+      "jev_review": false,
+      "reference_label": "howto"
+    },
+    {
+      "id": "S02",
+      "gold": "bug",
+      "jev_label": "bug",
+      "jev_review": false,
+      "reference_label": "bug"
+    },
+    {
+      "id": "S09",
+      "gold": "howto",
+      "jev_label": "howto",
+      "jev_review": false,
+      "reference_label": "howto"
+    },
+    {
+      "id": "S17",
+      "gold": "bug",
+      "jev_label": "bug",
+      "jev_review": false,
+      "reference_label": "bug"
+    },
+    {
+      "id": "S16",
+      "gold": "billing",
+      "jev_label": "billing",
+      "jev_review": false,
+      "reference_label": "billing"
+    },
+    {
+      "id": "S24",
+      "gold": "unknown",
+      "jev_label": "unknown",
+      "jev_review": true,
+      "reference_label": "unknown"
+    },
+    {
+      "id": "S10",
+      "gold": "bug",
+      "jev_label": "bug",
+      "jev_review": false,
+      "reference_label": "bug"
+    },
+    {
+      "id": "S19",
+      "gold": "account",
+      "jev_label": "account",
+      "jev_review": false,
+      "reference_label": "account"
+    },
+    {
+      "id": "S06",
+      "gold": "bug",
+      "jev_label": "bug",
+      "jev_review": false,
+      "reference_label": "bug"
+    },
+    {
+      "id": "S20",
+      "gold": "billing",
+      "jev_label": "billing",
+      "jev_review": false,
+      "reference_label": "billing"
+    },
+    {
+      "id": "S04",
+      "gold": "account",
+      "jev_label": "account",
+      "jev_review": false,
+      "reference_label": "account"
+    },
+    {
+      "id": "S21",
+      "gold": "unknown",
+      "jev_label": "unknown",
+      "jev_review": true,
+      "reference_label": "unknown"
+    },
+    {
+      "id": "S03",
+      "gold": "howto",
+      "jev_label": "howto",
+      "jev_review": false,
+      "reference_label": "howto"
+    },
+    {
+      "id": "S05",
+      "gold": "billing",
+      "jev_label": "billing",
+      "jev_review": false,
+      "reference_label": "billing"
+    },
+    {
+      "id": "S11",
+      "gold": "howto",
+      "jev_label": "howto",
+      "jev_review": false,
+      "reference_label": "billing"
+    },
+    {
+      "id": "S22",
+      "gold": "unknown",
+      "jev_label": "unknown",
+      "jev_review": true,
+      "reference_label": "unknown"
+    },
+    {
+      "id": "S23",
+      "gold": "unknown",
+      "jev_label": "unknown",
+      "jev_review": true,
+      "reference_label": "unknown"
+    },
+    {
+      "id": "S12",
+      "gold": "billing",
+      "jev_label": "billing",
+      "jev_review": false,
+      "reference_label": "billing"
+    },
+    {
+      "id": "S07",
+      "gold": "billing",
+      "jev_label": "billing",
+      "jev_review": false,
+      "reference_label": "billing"
+    },
+    {
+      "id": "S08",
+      "gold": "account",
+      "jev_label": "account",
+      "jev_review": false,
+      "reference_label": "account"
+    },
+    {
+      "id": "S18",
+      "gold": "howto",
+      "jev_label": "howto",
+      "jev_review": false,
+      "reference_label": "howto"
+    },
+    {
+      "id": "S01",
+      "gold": "billing",
+      "jev_label": "billing",
+      "jev_review": false,
+      "reference_label": "billing"
+    },
+    {
+      "id": "S15",
+      "gold": "bug",
+      "jev_label": "bug",
+      "jev_review": false,
+      "reference_label": "bug"
+    }
+  ],
+  "gate": "needs_review",
+  "bulk_authorized": false,
+  "disagreement_ids": [
+    "S11"
+  ],
+  "mode": "live_paired_smoke_test",
+  "input_sha256": "fed09a5ba47a3c32604ae0c0bb1ce22e4bca3654cdadfdc119182b3288fff52e",
+  "elapsed_seconds": 27.549442790972535
+}

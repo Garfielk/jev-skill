@@ -1,9 +1,28 @@
 ---
 name: jev-triage
-description: Use for user-defined inbox, support-ticket, feedback or record classification and prioritization, especially bulk parallel judgments with sufficient per-record context. Produces labels and review queues, not replies or automatic mailbox changes.
+description: Use for user-defined inbox, support-ticket, feedback or record classification and prioritization, especially bulk parallel judgments with sufficient per-record context. Accepts smoke_test to have the host agent write and validate a task-specific paired pilot before bulk work. Produces labels and review queues, not replies or automatic mailbox changes.
 ---
 
 # Sort messages and records by custom criteria
+
+## 🚦 Before bulk work: `smoke_test`
+
+Default `smoke_test=true` for large labeling jobs. This is an instruction to the
+**host agent to write task-specific code**, not a Jev API field or a required
+bundled runner. Accept it in a natural-language request or the host's supported
+skill invocation arguments; never shell-evaluate raw argument text.
+
+Read [the pilot workflow](references/smoke-test.md). Agree sample scope and model
+IDs, write the sampling and bounded concurrent paired-call code for this user's
+app, test it locally, then run the approved pilot. Both arms receive the same full
+relevant context and criteria; keep independent gold labels out of both inputs.
+Show actual IO, disagreements, coverage, failures and costs. Without gold, call
+it agreement, not accuracy. Stop for review before scaling; a successful pilot
+is not permission to label the full population or modify accounts.
+
+`smoke_test=false` is an explicit user waiver, recorded as skipped, never passed.
+In simulation mode do not invent a paired API result. Offer real setup or a waiver
+and wait. See the reference for copyable prompts and optional task parameters.
 
 ## Setup: choose the service or simulation
 
@@ -78,7 +97,7 @@ fallback. Test thresholds on the user's task rather than assuming 0.9 is safe.
 2. Preserve original record IDs. For multiple records, name the exact record ID in every question or send one request per record; one Choice over an entire inbox is not per-message classification.
 3. Collect text only from files or accounts the user authorized. Classify before writing tags, moving messages or sending replies.
 4. Return a reviewable table: record ID, category, urgency, uncertainty and intended next consumer. Keep other/missing-evidence records visible.
-5. Test near-miss categories and user-labeled examples before applying a rule in bulk. Change labels and urgency anchors, not just the sample text.
+5. Before bulk work, apply `smoke_test` above. Include near-miss categories and user-labeled examples; retest when criteria, models or context organization change.
 
 ## Context and parallelism
 

@@ -1,9 +1,14 @@
 import contextlib
+import http.client
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import io
 import json
 import os
+import socket
+import ssl
 from pathlib import Path
 import sys
+import threading
 import unittest
 from unittest.mock import patch
 import urllib.error
@@ -139,6 +144,77 @@ class ReportTests(unittest.TestCase):
 
 
 class TransportTests(unittest.TestCase):
+    def test_local_socket_timeouts_distinguish_headers_and_body(self):
+        release = threading.Event()
+
+        class StalledResponse(BaseHTTPRequestHandler):
+            def do_POST(self):
+                self.rfile.read(int(self.headers['Content-Length']))
+                if self.path == '/body':
+                    self.send_response(200)
+                    self.send_header('Content-Length', '2')
+                    self.end_headers()
+                    self.wfile.flush()
+                release.wait(2)
+
+            def log_message(self, *_args):
+                pass
+
+        server = ThreadingHTTPServer(('127.0.0.1', 0), StalledResponse)
+        worker = threading.Thread(target=server.serve_forever, daemon=True)
+        worker.start()
+        try:
+            for suffix, phase, status in [('headers', 'connect_or_headers', None),
+                                          ('body', 'response_body', 200)]:
+                url = f'http://127.0.0.1:{server.server_port}/{suffix}'
+                with self.subTest(phase=phase), patch.object(jev, 'DECISIONS_URL', url), \
+                        patch.dict(os.environ, {'OPENROUTER_API_KEY':'local-only-dummy'}):
+                    with self.assertRaises(jev.JevError) as raised:
+                        jev.request_decisions(request(), timeout=0.1)
+                    self.assertEqual(raised.exception.error_kind, 'timeout')
+                    self.assertEqual(raised.exception.phase, phase)
+                    self.assertEqual(raised.exception.http_status, status)
+        finally:
+            release.set()
+            server.shutdown()
+            server.server_close()
+            worker.join()
+
+    def test_transport_failure_keeps_safe_kind_and_phase(self):
+        failures = [
+            (TimeoutError("private-detail"), "timeout"),
+            (urllib.error.URLError(TimeoutError("private-detail")), "timeout"),
+            (urllib.error.URLError(socket.gaierror(-2, "private-detail")), "dns"),
+            (urllib.error.URLError(ssl.SSLError("private-detail")), "tls"),
+            (ConnectionRefusedError("private-detail"), "connection"),
+        ]
+        for failure, kind in failures:
+            with self.subTest(kind=kind), patch.dict(os.environ, {"OPENROUTER_API_KEY": "secret-test"}), \
+                    patch("jev.urllib.request.build_opener") as opener:
+                opener.return_value.open.side_effect = failure
+                with self.assertRaises(jev.JevError) as raised:
+                    jev.request_decisions(request())
+                self.assertEqual(raised.exception.error_kind, kind)
+                self.assertEqual(raised.exception.phase, "connect_or_headers")
+                self.assertIsNone(raised.exception.http_status)
+                self.assertNotIn("private-detail", str(raised.exception))
+                self.assertNotIn("secret-test", str(raised.exception))
+                opener.return_value.open.assert_called_once()
+
+    def test_body_timeout_keeps_received_http_status(self):
+        with patch.dict(os.environ, {"OPENROUTER_API_KEY": "secret-test"}), \
+                patch("jev.urllib.request.build_opener") as opener:
+            response = opener.return_value.open.return_value.__enter__.return_value
+            response.status = 200
+            response.read.side_effect = TimeoutError("private-detail")
+            with self.assertRaises(jev.JevError) as raised:
+                jev.request_decisions(request())
+            self.assertEqual(raised.exception.error_kind, "timeout")
+            self.assertEqual(raised.exception.phase, "response_body")
+            self.assertEqual(raised.exception.http_status, 200)
+            self.assertNotIn("private-detail", str(raised.exception))
+            opener.return_value.open.assert_called_once()
+
     def test_malformed_key_is_rejected_without_leaking_it(self):
         for key in ["secret-first\nsecret-second", "secret\rheader", "secret key", "secret-密钥"]:
             with patch.dict(os.environ, {"OPENROUTER_API_KEY": key}), patch("jev.urllib.request.build_opener") as opener:
@@ -182,6 +258,50 @@ class TransportTests(unittest.TestCase):
 
 
 class CLITests(unittest.TestCase):
+    def test_huge_integer_field_is_a_validation_error(self):
+        with self.assertRaises(jev.JevError):
+            jev.number(10**400, 0, 1, 'probability')
+
+    def test_overflow_json_number_is_rejected(self):
+        with self.assertRaises(jev.JevError):
+            jev.load_json('{"usage":{"cost":1e999}}')
+
+    def test_duplicate_json_fields_are_rejected(self):
+        with self.assertRaises(jev.JevError):
+            jev.load_json('{"model":"first","model":"second"}')
+
+
+    def test_incomplete_http_body_is_safe_json_error(self):
+        with patch.dict(os.environ, {"OPENROUTER_API_KEY": "secret-test"}), \
+                patch("jev.urllib.request.build_opener") as opener:
+            response = opener.return_value.open.return_value.__enter__.return_value
+            response.status = 200
+            response.read.side_effect = http.client.IncompleteRead(b"private body", 5)
+            code, output, errors = self.call(["decide", "-"], request())
+            self.assertEqual(code, 1)
+            self.assertEqual(output, "")
+            detail = json.loads(errors)
+            self.assertEqual(detail['error_kind'], 'connection')
+            self.assertEqual(detail['phase'], 'response_body')
+            self.assertEqual(detail['http_status'], 200)
+            self.assertNotIn('private body', errors)
+
+
+    def test_timeout_diagnostic_reaches_cli_json(self):
+        with patch.dict(os.environ, {"OPENROUTER_API_KEY": "secret-test"}), \
+                patch("jev.urllib.request.build_opener") as opener:
+            opener.return_value.open.side_effect = TimeoutError("private-detail")
+            code, output, errors = self.call(["decide", "-"], request())
+            self.assertEqual(code, 1)
+            self.assertEqual(output, "")
+            detail = json.loads(errors)
+            self.assertEqual(detail['error_kind'], 'timeout')
+            self.assertEqual(detail['phase'], 'connect_or_headers')
+            self.assertIsNone(detail['http_status'])
+            self.assertNotIn('private-detail', errors)
+            self.assertNotIn('secret-test', errors)
+            opener.return_value.open.assert_called_once()
+
     def test_usage_error_is_not_review_exit(self):
         errors = io.StringIO()
         with contextlib.redirect_stderr(errors), self.assertRaises(SystemExit) as stopped:
