@@ -1,14 +1,25 @@
 ---
-name: jev-redteam
-description: Use Jev to organize and judge authorized jailbreak or prompt-injection evaluations, including batch transcripts, multi-turn sessions and multi-agent review. Provides harmless fixtures and an offline request builder, not an attack runner or target authorization.
+name: jev-eval
+description: Judge supplied outputs against explicit criteria, including code-change reviews and authorized safety evaluations. Use for evidence-backed review leads, rubric judgments, or batch, multi-turn and team transcript evaluation; not permission to merge or run targets.
 ---
 
-# Jev in authorized red-team evaluations
+# Evaluate outputs against evidence and criteria
 
-Jev classifies supplied evidence, compares candidate next steps and prioritizes
-review. A host model or researcher authors test cases; an authorized harness
-invokes the target; deterministic checks and an independent reviewer validate
-outcomes. Jev neither generates attack text nor establishes success by itself.
+Use this skill for judgments about existing outputs or observed behavior, not for
+finding source locations (`jev-documents`) or assigning routine business labels (`jev-triage`).
+
+## Pick the evaluation mode
+
+- **Code review:** read [diff and test-evidence review](references/code-review.md)
+  and adapt [the code-review template](assets/code-review.json). Return review
+  leads with source IDs and verification steps, not merge approval.
+- **Other output review:** define the user's rubric, supply the actual output and
+  supporting evidence, and ask independent outcome/evidence questions. Let the
+  host write task-specific integration and tests when requested.
+- **Authorized safety evaluation:** continue to the safety workflow below; read
+  only the relevant [batch, multi-turn or team protocol](references/workflows.md).
+  A researcher supplies cases, an authorized harness invokes targets, and an
+  independent checker validates outcomes. Jev does not generate attacks or grant scope.
 
 ## Setup: choose the service or simulation
 
@@ -47,9 +58,25 @@ In A, select the CLI destination explicitly: `--provider openrouter` or
 OpenRouter model ID to `jev-1.13.0`. `--dry-run` only validates; it neither
 classifies nor makes a network call. `jev-decide setup` reports presence only,
 not key validity, credits or permission. For guided setup and a copyable
-DeepSeek prompt, use `jev-setup` or the [setup guide](https://github.com/wuyoscar/jev-skill/blob/main/skills/jev-setup/SKILL.md).
+DeepSeek prompt, read the [setup guide](https://github.com/wuyoscar/jev-skill/blob/main/skills/jev/references/setup.md).
 
-## Choose the workflow
+## Run a prepared judgment
+
+For real Jev mode, use the installed shared `jev-decide` CLI (Python 3.10+).
+Resolve `<skill-dir>` to this installed folder. For code review, start with:
+
+```bash
+jev-decide decide <skill-dir>/assets/code-review.json --dry-run
+```
+
+Replace the synthetic evidence and criteria together. After approval for that
+input and provider, use `jev-decide decide /path/to/edited-request.json`.
+Add `--provider typesafe` for native TypeSafe to both validation and live calls.
+Inspect the result, not just the exit code: 0 is a valid judgment, 2 requests
+review, and 1 is an error; none authorizes merging or target execution. Simulation
+uses the explicitly selected existing model interface, not this CLI.
+
+## Safety evaluation workflow
 
 - **Batch:** [batch protocol](references/workflows.md#batch) for approved datasets
   and already captured completions. Preserve case/target/run IDs and errors.
@@ -72,8 +99,8 @@ fixtures**, not target outputs or a jailbreak benchmark. No API is called here.
 it contains no expected label.
 
 ```bash
-python3 <skill-dir>/scripts/prepare.py <skill-dir>/assets/transcripts.jsonl --out-dir /tmp/jev-redteam-requests
-jev-decide decide /tmp/jev-redteam-requests/case-001.json --dry-run
+python3 <skill-dir>/scripts/prepare.py <skill-dir>/assets/transcripts.jsonl --out-dir /tmp/jev-eval-requests
+jev-decide decide /tmp/jev-eval-requests/case-001.json --dry-run
 ```
 
 The builder emits one request per conversation, with separate independent

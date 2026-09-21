@@ -42,7 +42,7 @@ In A, select the CLI destination explicitly: `--provider openrouter` or
 OpenRouter model ID to `jev-1.13.0`. `--dry-run` only validates; it neither
 classifies nor makes a network call. `jev-decide setup` reports presence only,
 not key validity, credits or permission. For guided setup and a copyable
-DeepSeek prompt, use `jev-setup` or the [setup guide](https://github.com/wuyoscar/jev-skill/blob/main/skills/jev-setup/SKILL.md).
+DeepSeek prompt, read the [setup guide](https://github.com/wuyoscar/jev-skill/blob/main/skills/jev/references/setup.md).
 
 ## Jev API prerequisite and first example
 

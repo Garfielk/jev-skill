@@ -25,7 +25,7 @@ shared. Keys are bound to fixed provider endpoints; no arbitrary base URL,
 automatic service switching, retry or simulation is provided.
 
 `jev-decide setup` checks presence only and explains A/B choices. See the
-[setup skill](https://github.com/wuyoscar/jev-skill/blob/main/skills/jev-setup/SKILL.md)
+[setup skill](https://github.com/wuyoscar/jev-skill/blob/main/skills/jev/references/setup.md)
 and [official API](https://docs.typesafe.ai/api), [model IDs](https://docs.typesafe.ai/models).
 
 ## Native request

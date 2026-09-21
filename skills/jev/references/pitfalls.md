@@ -99,7 +99,7 @@ whole-job cost and throughput. An API-valid request can still be a poor batch.
 
 Do not transplant a 0.9 threshold from another domain or primitive. Evaluate
 reliability and error/review tradeoffs on held-out data for the actual question.
-Our [saved calibration experiment](../../../evals/CALIBRATION_RESULTS.md) already
+Our [saved calibration experiment](https://github.com/wuyoscar/jev-skill/blob/main/evals/CALIBRATION_RESULTS.md) already
 contains high-confidence mistakes. Review the [field definitions](api.md) and
 [calibration protocol](calibration.md) before wiring a score to a consumer.
 
@@ -140,7 +140,7 @@ auto-load `.env`. Restart/reload the host as needed; a shell export may not reac
 already running desktop app. `jev-decide setup` only checks presence; `--dry-run`
 validates the request, not authentication or credits. Never paste keys in chat,
 commit them, log request headers or upload private state merely to test setup.
-[Setup commands](../../jev-setup/SKILL.md#local-key-setup)
+[Setup commands](setup.md#local-key-setup)
 
 ## 9. Bound failures and preserve evidence
 

@@ -4,7 +4,7 @@
 
 **Jev demos, workflows and skills for coding agents.**
 
-[![Skills](https://img.shields.io/badge/skills-11-7c3aed?style=flat-square)](#install) [![Scenarios](https://img.shields.io/badge/scenarios-108-0d9488?style=flat-square)](#catalog) [![Tests](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml/badge.svg)](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml) [![MIT](https://img.shields.io/badge/license-MIT-ea580c?style=flat-square)](LICENSE)
+[![Skills](https://img.shields.io/badge/skills-6-7c3aed?style=flat-square)](#install) [![Scenarios](https://img.shields.io/badge/scenarios-108-0d9488?style=flat-square)](#catalog) [![Tests](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml/badge.svg)](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml) [![MIT](https://img.shields.io/badge/license-MIT-ea580c?style=flat-square)](LICENSE)
 
 [English](README.md) · [简体中文](README.zh.md)
 
@@ -19,7 +19,7 @@ Jev chooses, classifies and scores. Your coding agent supplies context and execu
 the next step. This collection helps you find a use case and try it:
 
 - **Explore:** 45 project and resource entries and 108 scenarios, from browser control to music.
-- **Install:** 11 skills for your own Codex, Claude Code or OpenCode agent.
+- **Install:** 6 skills for your own Codex, Claude Code or OpenCode agent.
 - **Adapt:** 14 recorded input/output examples, editable templates and evaluation notes.
 
 **New here?** [Give the install prompt to your agent](#install), confirm setup,
@@ -107,12 +107,14 @@ Community demos and an illustrated guide. Click a preview for the original; thes
 <a id="install"></a>
 ## 📦 Install: give this to your agent
 
+> **The six-entry collection is a source preview, not a new release.** Published v0.2.0 still has 11 entry points. [Installation and upgrade](docs/install.md) · [Old-to-new names](docs/skill-migration.md)
+
 Paste this into **Codex, Claude Code or OpenCode**:
 
 ```text
 Install Jev Skills for this coding agent, including all scenario skills:
 https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md
-Check my environment and handle the installation. Use jev-setup to confirm with me:
+Check my environment and handle the installation. Use jev for setup to confirm with me:
 A: real Jev via my OpenRouter or official TypeSafe account; B: simulation with this agent.
 Wait for my choice. Guide any key entry through local secret settings, never this chat.
 Verify offline first; ask before sending data or making a paid call.
@@ -137,7 +139,7 @@ need; you do not have to write JSON. Use real Jev through either supported provi
 Already installed? Copy this into the same Codex, Claude Code or OpenCode session:
 
 ```text
-Use jev-setup to configure Jev for this coding agent. Check which keys are present,
+Use jev for setup to configure Jev for this coding agent. Check which keys are present,
 without displaying them. Confirm my choice before continuing:
 A: real Jev — use my OpenRouter account, or the official TypeSafe service.
 B: simulate with you; use another available model such as DeepSeek only if I choose it.
@@ -160,13 +162,13 @@ Simulation is labeled `agent_simulation` (or `model_simulation` for a model you
 select), with `jev_called: false` and null probability/confidence. It uses your
 existing agent/model access, not free Jev or DeepSeek credits.
 
-[Agent setup instructions](skills/jev-setup/SKILL.md) · [Manual key setup and troubleshooting](docs/installation.md#official-native-key-no-openrouter-account-required)
+[Agent setup instructions](skills/jev/references/setup.md) · [Manual key setup and troubleshooting](docs/installation.md#official-native-key-no-openrouter-account-required)
 
 ### Try one example
 
 ```text
 Use the jev-triage skill and read assets/example.json from its installed folder.
-Show its context, questions and candidates. First use jev-setup to choose:
+Show its context, questions and candidates. First use jev for setup to choose:
 A: real Jev through OpenRouter or TypeSafe; B: an explicitly approved simulation.
 Wait for my choice. In API mode, validate with --dry-run and the selected --provider, then make one Jev call.
 In B mode, identify the chosen agent/model and label the result "Simulation; Jev not called".
@@ -184,7 +186,7 @@ Replace `[TASK]` with your goal, such as “fix CSV parsing and pass the origina
 
 ```text
 Use the jev skill to support decisions while working on [TASK].
-If the selected key is missing, use jev-setup and ask me to choose real Jev or explicit simulation.
+If the selected key is missing, use jev for setup and ask me to choose real Jev or explicit simulation.
 Use my chosen mode when failures repeat, a route needs choosing, or you are about to claim completion.
 Supply the goal, acceptance checks, relevant history, fresh tool results,
 existing permissions and the meaning of each candidate action.
@@ -217,15 +219,12 @@ Check the sample judgments before choosing a larger batch and budget.
 
 | I want to… | Ask the agent to use |
 |---|---|
-| Define a custom decision or agent checkpoint | `jev` |
-| Classify and prioritize messages or feedback | `jev-triage` |
-| Select source spans and check evidence | `jev-documents` |
-| Choose among observed browser or desktop actions | `jev-ui` |
-| Recommend a tool, model or specialist | `jev-route` |
-| Assess context relevance and compaction timing | `jev-context` |
-| Prioritize code changes for review | `jev-code-review` |
-| Choose the next location in an observed file inventory | `jev-find-code` |
-| Choose legal actions in a simulated world | `jev-simulation` |
+| Set up Jev, make custom decisions, route tools/models or review context | `jev` |
+| Classify, label and prioritize records in bulk | `jev-triage` |
+| Find evidence in documents/code, extract spans or check claims | `jev-documents` |
+| Evaluate outputs, code changes or authorized safety-test results | `jev-eval` |
+| Choose an observed action in a real browser or desktop | `jev-ui` |
+| Choose legal actions for a game, NPC or simulated world | `jev-simulation` |
 
 To customize a use case, tell the agent **what to judge, the criteria, the options
 and how you will use the result**. Use `choice` for one option, `noul` for an
@@ -259,7 +258,7 @@ If you installed only the general `jev` skill without the CLI, replace `jev-deci
 with `python3 <actual-skill-directory>/scripts/jev.py`.
 [More commands and troubleshooting](docs/installation.md#cli-behavior) · [See input/output pairs](#io)
 
-**Setup and safety evaluation:** [`jev-setup`](skills/jev-setup/SKILL.md) chooses a route; [`jev-redteam`](skills/jev-redteam/SKILL.md) supplies [batch / multi-turn / team examples](skills/jev-redteam/references/workflows.md).
+**Setup and safety evaluation:** [`jev`](skills/jev/references/setup.md) chooses a route; [`jev-eval`](skills/jev-eval/SKILL.md) supplies [batch / multi-turn / team examples](skills/jev-eval/references/workflows.md).
 
 <a id="io"></a>
 ## 🧪 What goes in, what comes out
@@ -400,7 +399,7 @@ Pick something to try, not just another link to star. These are optional upstrea
 <a id="catalog"></a>
 ## 🗂 Pick a job
 
-**108 scenarios · 11 installable skills · 14 recorded API examples.**
+**108 scenarios · 6 installable skills · 14 recorded API examples.**
 Every scenario stays on this page: copy a task, open its template, change the criteria.
 
 | | | |
@@ -408,7 +407,7 @@ Every scenario stays on this page: copy a task, open its template, change the cr
 | 🧭 **[Long-running agents](#agent)**<br />5 recipes | 🔎 **[Review & evaluation](#quality)**<br />9 recipes | 🔀 **[Routing & context](#routing)**<br />12 recipes |
 | 🌐 **[Browsers & interaction](#interaction)**<br />13 recipes | 📬 **[Inbox & everyday work](#business)**<br />11 recipes | 📚 **[Documents & evidence](#documents)**<br />12 recipes |
 | 🛠️ **[Data & developer tools](#data)**<br />12 recipes | 🎨 **[Games & creative tools](#creative)**<br />12 recipes | 🧩 **[Build your own](#building)**<br />4 recipes |
-| 🧰 **[More experiments & red-team workflows](#more-uses)**<br />18 recipes | [📦 Setup](skills/jev-setup/SKILL.md) | [🧪 Evaluation workflows](skills/jev-redteam/SKILL.md) |
+| 🧰 **[More experiments & red-team workflows](#more-uses)**<br />18 recipes | [📦 Setup](skills/jev/references/setup.md) | [🧪 Evaluation workflows](skills/jev-eval/SKILL.md) |
 
 **Reading the examples:** 🧪 recorded outputs come from saved API receipts; 🛠 templates are editable inputs, not complete apps; 🎬 community demos belong to their authors. Each scenario states its evidence.
 
@@ -637,7 +636,7 @@ The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilit
 - **Input → output:** Changed assertions, original task, protected test intent.
 - **Use the result:** Route to review; deterministic checks separately catch removed/skipped tests. A test change can be legitimate; do not call it deliberate cheating from a score.
 - **Customize:** Protected assertions and legitimate test-change exceptions.
-- **Start:** [jev-code-review](skills/jev-code-review/SKILL.md) · [Template to adapt](skills/jev-code-review/assets/example.json).
+- **Start:** [jev-eval](skills/jev-eval/references/code-review.md) · [Template to adapt](skills/jev-eval/assets/code-review.json).
 - **Sources:** [P03](skills/jev/references/community.md#p03)
 - **Status:** [Live synthetic example](evals/SCENARIO_EXAMPLES.md): test weakening 0.97; not an end-to-end review benchmark.
 
@@ -723,7 +722,7 @@ The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilit
 - **Input → output:** One applicable rule, relevant diff and necessary surrounding code.
 - **Use the result:** Attach a focused review note; run linters for syntactic rules. One question per rule; broad “is this good code?” questions produce unclear feedback.
 - **Customize:** Rule text, applicable files and exclusions.
-- **Start:** [jev-code-review](skills/jev-code-review/SKILL.md) · [Template to adapt](skills/jev-code-review/assets/example.json).
+- **Start:** [jev-eval](skills/jev-eval/references/code-review.md) · [Template to adapt](skills/jev-eval/assets/code-review.json).
 - **Sources:** [P02](skills/jev/references/community.md#p02)
 - **Status:** Adaptation; this exact recipe has not been individually evaluated.
 
@@ -770,7 +769,7 @@ or a test of the detector above. Typed output does not make a decision injection
 - **Input → output:** Diff hunks, file roles and related tests, not an entire repository dump.
 - **Use the result:** Prioritize expert inspection and tests. A high score is a lead, not proof; a low score must not bypass mandatory security review.
 - **Customize:** Risk dimensions, rubric anchors and mandatory review scope.
-- **Start:** [jev-code-review](skills/jev-code-review/SKILL.md) · [Template to adapt](skills/jev-code-review/assets/example.json).
+- **Start:** [jev-eval](skills/jev-eval/references/code-review.md) · [Template to adapt](skills/jev-eval/assets/code-review.json).
 - **Sources:** [P07](skills/jev/references/community.md#p07) · [Jev Review](https://github.com/devagrawal09/jev-review) · [Blink review](https://blink.review/)
 - **Status:** Adaptation; this exact recipe has not been individually evaluated.
 
@@ -842,7 +841,7 @@ or a test of the detector above. Typed output does not make a decision injection
 - **Input → output:** Bounded issue description, attempts, missing facts, available safe diagnostic actions.
 - **Use the result:** Use a stronger reasoner for analysis, not to bypass permissions. If the user is away, record the exact missing decision and avoid dependent actions.
 - **Customize:** Error costs, missing-information types and validated escalation policy.
-- **Start:** [jev-route](skills/jev-route/SKILL.md) · [Template to adapt](skills/jev-route/assets/example.json).
+- **Start:** [jev](skills/jev/references/routing.md) · [Template to adapt](skills/jev/assets/routing.json).
 - **Sources:** [R01](skills/jev/references/community.md#r01) · [P01](skills/jev/references/community.md#p01)
 - **Status:** Adaptation; this exact recipe has not been individually evaluated.
 
@@ -855,7 +854,7 @@ or a test of the detector above. Typed output does not make a decision injection
 - **Input → output:** Child objective, compact result, evidence IDs, parent's current decision.
 - **Use the result:** Wake the parent only for relevant urgent material; retain all reports for retrieval. Claims of urgency in the child text are not enough.
 - **Customize:** Interruption cost, urgency criteria and duplicate rules.
-- **Start:** [jev-route](skills/jev-route/SKILL.md) · [Template to adapt](skills/jev-route/assets/example.json).
+- **Start:** [jev](skills/jev/references/routing.md) · [Template to adapt](skills/jev/assets/routing.json).
 - **Sources:** [P02](skills/jev/references/community.md#p02)
 - **Status:** Adaptation; this exact recipe has not been individually evaluated.
 
@@ -868,7 +867,7 @@ or a test of the detector above. Typed output does not make a decision injection
 - **Input → output:** Current subgoal, observation, real tool descriptions and availability.
 - **Use the result:** Call the selected tool using host-validated arguments. Jev neither invents tools nor writes safe shell commands. Re-observe after execution.
 - **Customize:** Tool descriptions, budget and available capabilities.
-- **Start:** [jev-route](skills/jev-route/SKILL.md) · [Template to adapt](skills/jev-route/assets/example.json).
+- **Start:** [jev](skills/jev/references/routing.md) · [Template to adapt](skills/jev/assets/routing.json).
 - **Sources:** [P01](skills/jev/references/community.md#p01)
 - **Status:** Adaptation; this exact recipe has not been individually evaluated.
 
@@ -881,7 +880,7 @@ or a test of the detector above. Typed output does not make a decision injection
 - **Input → output:** Current request, required modality, latency/cost constraints and model capability cards.
 - **Use the result:** Host invokes an available model; retain a fallback on quality failure. Evaluate routing regret and total task cost, including reload/caching overhead.
 - **Customize:** Quality floor, latency and model-switch/cache costs.
-- **Start:** [jev-route](skills/jev-route/SKILL.md) · [Template to adapt](skills/jev-route/assets/example.json).
+- **Start:** [jev](skills/jev/references/routing.md) · [Template to adapt](skills/jev/assets/routing.json).
 - **Sources:** [R04](skills/jev/references/community.md#r04) · [R11](skills/jev/references/community.md#r11) · [N04](skills/jev/references/community.md#n04) · [Jev Codex Router](https://github.com/0xNatoshi/jev-codex-router)
 - **Status:** Synthetic API smoke output shown below; no end-to-end outcome benchmark for this workflow.
 
@@ -945,7 +944,7 @@ or a test of the detector above. Typed output does not make a decision injection
 - **Input → output:** Bounded subtask and candidate specialist contracts.
 - **Use the result:** Delegate with a concrete handoff, or keep local work. Independent subtasks and available slots are host facts, not model predictions.
 - **Customize:** Handoff size, specialist contracts and host concurrency rules.
-- **Start:** [jev-route](skills/jev-route/SKILL.md) · [Template to adapt](skills/jev-route/assets/example.json).
+- **Start:** [jev](skills/jev/references/routing.md) · [Template to adapt](skills/jev/assets/routing.json).
 - **Sources:** [R01](skills/jev/references/community.md#r01) · [P01](skills/jev/references/community.md#p01)
 - **Status:** Adaptation; this exact recipe has not been individually evaluated.
 
@@ -958,7 +957,7 @@ or a test of the detector above. Typed output does not make a decision injection
 - **Input → output:** User task, short installed-skill descriptions and mandatory-trigger rules.
 - **Use the result:** Load relevant optional instructions; always retain mandatory instructions and manual access. This recipe does not rewrite installed skills or global configuration.
 - **Customize:** Skill descriptions, mandatory entries and suitability fallback.
-- **Start:** [jev-route](skills/jev-route/SKILL.md) · [Template to adapt](skills/jev-route/assets/example.json).
+- **Start:** [jev](skills/jev/references/routing.md) · [Template to adapt](skills/jev/assets/routing.json).
 - **Sources:** [R06](skills/jev/references/community.md#r06) · [R08](skills/jev/references/community.md#r08)
 - **Status:** Adaptation; this exact recipe has not been individually evaluated.
 
@@ -987,7 +986,7 @@ or a test of the detector above. Typed output does not make a decision injection
 - **Input → output:** Concrete bug question, directory/file candidates, observed summaries or symbols.
 - **Use the result:** Inspect the selected file, then update the state. Respect any required graph/index search workflow; this is not evidence that a file contains the bug.
 - **Customize:** Directory hints, traversal depth and stopping evidence.
-- **Start:** [jev-find-code](skills/jev-find-code/SKILL.md) · [Template to adapt](skills/jev-find-code/assets/example.json).
+- **Start:** [jev-documents](skills/jev-documents/references/find-code.md) · [Template to adapt](skills/jev-documents/assets/find-code.json).
 - **Sources:** [R12](skills/jev/references/community.md#r12) · [Blink path search](https://github.com/ellipsis-dev/blink)
 - **Status:** Synthetic API smoke output shown below; no end-to-end outcome benchmark for this workflow.
 
@@ -1052,7 +1051,7 @@ or a test of the detector above. Typed output does not make a decision injection
 - **Input → output:** Current subgoal plus numbered blocks of one bulky tool result.
 - **Use the result:** Preserve raw output on disk; retain IDs, errors and dependencies. Start with shadow comparison. Do not silently remove history, user constraints or native reasoning state.
 - **Customize:** False-drop cost, protected errors and raw-output retrieval.
-- **Start:** [jev-context](skills/jev-context/SKILL.md) · [Template to adapt](skills/jev-context/assets/example.json).
+- **Start:** [jev](skills/jev/references/context.md) · [Template to adapt](skills/jev/assets/context.json).
 - **Sources:** [R06](skills/jev/references/community.md#r06) · [P02](skills/jev/references/community.md#p02) · [N05](skills/jev/references/community.md#n05) · [winnow / VINNOW lead](https://github.com/GhalebDweikat/winnow)
 - **Status:** [Live synthetic example](evals/SCENARIO_EXAMPLES.md): keep diagnostic block, not theme notes; actual context rewriting untested.
 
@@ -1138,7 +1137,7 @@ or a test of the detector above. Typed output does not make a decision injection
 - **Input → output:** Proposed read, last equivalent read, prior result, explicit mutation epoch.
 - **Use the result:** Skip only if code also proves equivalent arguments and unchanged relevant state. Network pages or time-sensitive facts may change without a local mutation.
 - **Customize:** Cache lifetime, mutation scope and information-gain criteria.
-- **Start:** [jev-context](skills/jev-context/SKILL.md) · [Template to adapt](skills/jev-context/assets/example.json).
+- **Start:** [jev](skills/jev/references/context.md) · [Template to adapt](skills/jev/assets/context.json).
 - **Sources:** [R07](skills/jev/references/community.md#r07)
 - **Status:** Adaptation; this exact recipe has not been individually evaluated.
 
@@ -1150,7 +1149,7 @@ or a test of the detector above. Typed output does not make a decision injection
 
 - **Input → output:** Completion/work-shape judgments + host-measured context usage → hint or opted-in compaction.
 - **Customize:** Pressure schedule, cooldown, false-trigger cost and hint/automatic mode.
-- **Start:** [jev-context](skills/jev-context/SKILL.md) · [Template to adapt](skills/jev-context/assets/example.json).
+- **Start:** [jev](skills/jev/references/context.md) · [Template to adapt](skills/jev/assets/context.json).
 - **Sources:** [compact-adviser](https://github.com/kunchenguid/compact-adviser)
 - **Status:** Upstream describes small/private-label tuning. Our context example returned ongoing; no actual compaction ran.
 
@@ -1329,7 +1328,7 @@ or a test of the detector above. Typed output does not make a decision injection
 - **Input → output:** Inbound text, current task and specialist data requirements.
 - **Use the result:** Build a draft handoff; verify extracted dates/amounts in code and ask before consequential external writes. Routing does not mean extracted facts are correct.
 - **Customize:** Workflow inventory, required fields and handoff format.
-- **Start:** [jev-route](skills/jev-route/SKILL.md) · [Template to adapt](skills/jev-route/assets/example.json).
+- **Start:** [jev](skills/jev/references/routing.md) · [Template to adapt](skills/jev/assets/routing.json).
 - **Sources:** [R01](skills/jev/references/community.md#r01)
 - **Status:** Adaptation; this exact recipe has not been individually evaluated.
 
@@ -1342,7 +1341,7 @@ or a test of the detector above. Typed output does not make a decision injection
 - **Input → output:** User request, observed devices and currently allowed harmless actions.
 - **Use the result:** Display or execute only pre-authorized low-risk actions through the home controller. Locks, alarms and hazardous appliances need separate strict controls.
 - **Customize:** Device names, intent branches and low-risk action allowlists.
-- **Start:** [jev-route](skills/jev-route/SKILL.md) · [Template to adapt](skills/jev-route/assets/example.json).
+- **Start:** [jev](skills/jev/references/routing.md) · [Template to adapt](skills/jev/assets/routing.json).
 - **Sources:** [R09](skills/jev/references/community.md#r09)
 - **Status:** Adaptation; this exact recipe has not been individually evaluated.
 
@@ -1402,7 +1401,7 @@ or a test of the detector above. Typed output does not make a decision injection
 
 - **Input → output:** Partial form + allowed questions → next question ID → form renderer.
 - **Customize:** Question bank, branching rules, completion criteria and skip policy.
-- **Start:** [jev-route](skills/jev-route/SKILL.md) · [Template to adapt](skills/jev-route/assets/example.json).
+- **Start:** [jev](skills/jev/references/routing.md) · [Template to adapt](skills/jev/assets/routing.json).
 - **Sources:** [JevForm report](skills/jev/references/twitter-workflows.md#x02)
 - **Status:** Author-post excerpt, not a source-inspected or reproduced form application.
 
@@ -2016,7 +2015,7 @@ or a test of the detector above. Typed output does not make a decision injection
 
 - **Input → output:** Current node + neighbors → local choice → bounded search frontier.
 - **Customize:** Node descriptions, beam width, visited set and search budget.
-- **Start:** [jev-find-code](skills/jev-find-code/SKILL.md) · [Template to adapt](skills/jev-find-code/assets/example.json).
+- **Start:** [jev-documents](skills/jev-documents/references/find-code.md) · [Template to adapt](skills/jev-documents/assets/find-code.json).
 - **Sources:** [Hierarchy method](https://docs.typesafe.ai/cookbooks/hierarchical_classification) · [Graph prototype](skills/jev/references/community.md#p14)
 - **Status:** Source-described pattern; this adaptation has not been run here.
 - **Also: graph extraction.** A host proposes entities and candidate relations from source passages; Jev selects a relation label or `none` for each pair. Keep source-span IDs and let code assemble the graph. This is an untested adaptation of the [community lead](https://x.com/yoheinakajima/status/2100674306405814568), not evidence that Jev freely generates graphs.
@@ -2054,7 +2053,7 @@ or a test of the detector above. Typed output does not make a decision injection
 
 - **Input → output:** Existing command candidates + current context → ranked suggestion.
 - **Customize:** History window, context fields, stale-result rejection and no-match rule.
-- **Start:** [jev-route](skills/jev-route/SKILL.md) · [Template to adapt](skills/jev-route/assets/example.json).
+- **Start:** [jev](skills/jev/references/routing.md) · [Template to adapt](skills/jev/assets/routing.json).
 - **Sources:** [Shell-history prototype](skills/jev/references/community.md#p15)
 - **Status:** Source-described pattern; this adaptation has not been run here.
 
@@ -2421,7 +2420,7 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 - **Input → output:** Creative brief + current capability cards → generator ID or no match.
 - **Customize:** Medium, edit support, latency, budget and output evaluation rubric.
-- **Start:** [jev-route](skills/jev-route/SKILL.md) · [Template to adapt](skills/jev-route/assets/example.json).
+- **Start:** [jev](skills/jev/references/routing.md) · [Template to adapt](skills/jev/assets/routing.json).
 - **Sources:** [Creative-model routing demo](skills/jev/references/twitter-workflows.md#x07)
 - **Status:** Author-post excerpt; no generation or quality comparison reproduced.
 
@@ -2691,12 +2690,12 @@ TypeSafe key; we have not installed it or tested its thresholds.
 > Approved captured transcripts + tested boundary → outcome + evidence status → independent audit.
 
 - **Customize / consume:** Use stable IDs, bounded concurrency, benign controls and held-out labels; never equate a refusal keyword with ground truth.
-- **Start:** [jev-redteam](skills/jev-redteam/SKILL.md) · [Template to adapt](skills/jev-redteam/assets/example.json).
-- **Source / method:** [Original link](skills/jev-redteam/references/workflows.md) · [Intake ledger](skills/jev/references/intake-2026-09-21.md).
+- **Start:** [jev-eval](skills/jev-eval/SKILL.md) · [Template to adapt](skills/jev-eval/assets/example.json).
+- **Source / method:** [Original link](skills/jev-eval/references/workflows.md) · [Intake ledger](skills/jev/references/intake-2026-09-21.md).
 - **Status:** Authored protocol and offline fixtures; no attack campaign or live judge evaluation.
 
 ```text
-Use jev-redteam to prepare a batch review of my authorized transcripts. Start with the
+Use jev-eval to prepare a batch review of my authorized transcripts. Start with the
 bundled harmless fixtures; do not call targets. Show full context, candidate labels and
 the independent outcome check. Ask me to select real Jev or an approved simulation
 before any model call.
@@ -2717,12 +2716,12 @@ before any model call.
 > Scoped sessions + full turn history + budget + permitted next steps → continue / stop / review → authorized runner.
 
 - **Customize / consume:** Separate designers, runner, Jev triage and independent auditor. Parallelize sessions, not dependent turns; enforce hard stop rules outside models.
-- **Start:** [jev-redteam](skills/jev-redteam/SKILL.md) · [Template to adapt](skills/jev-redteam/assets/example.json).
-- **Source / method:** [Original link](skills/jev-redteam/references/workflows.md) · [Intake ledger](skills/jev/references/intake-2026-09-21.md).
+- **Start:** [jev-eval](skills/jev-eval/SKILL.md) · [Template to adapt](skills/jev-eval/assets/example.json).
+- **Source / method:** [Original link](skills/jev-eval/references/workflows.md) · [Intake ledger](skills/jev/references/intake-2026-09-21.md).
 - **Status:** Authored protocol and offline fixtures; no attack campaign or live judge evaluation.
 
 ```text
-Use jev-redteam to design a bounded multi-turn test with separate coordinator,
+Use jev-eval to design a bounded multi-turn test with separate coordinator,
 designers, target runner, Jev triage and independent auditor roles. Preserve session
 histories and a shared budget. Show the plan first; do not spawn agents or run targets
 yet.

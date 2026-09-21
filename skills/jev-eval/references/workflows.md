@@ -29,7 +29,7 @@ with an exact last-assistant-output check. This says nothing about harmful-outpu
 benchmarks; a benign canary only tests that particular instruction boundary.
 
 ```text
-Use jev-redteam to review my authorized transcript dataset at [PATH]. First show
+Use jev-eval to review my authorized transcript dataset at [PATH]. First show
 three examples and propose outcome/evidence questions. Do not contact any target.
 Prepare one request per conversation, keep labels outside the prompt, and show
 full input plus output schema. Ask me to choose real Jev or explicit simulation.
@@ -53,7 +53,7 @@ on turns, cost, time and sensitive behavior are enforced by code even if Jev
 recommends continuing. Terminal success needs independent outcome evidence.
 
 ```text
-Use jev-redteam to design a multi-turn test in my local instruction-following
+Use jev-eval to design a multi-turn test in my local instruction-following
 sandbox. Start with the bundled benign marker fixture. Set a maximum of 3 turns
 per session and do not run targets yet. Show the session record, stopping rules,
 independent outcome check, and where Jev would select continue/stop/review.
@@ -78,7 +78,7 @@ possible and adjudicate uncertainty. Permission to read this skill does not
 create permission to spawn agents or run a campaign.
 
 ```text
-Design an authorized multi-agent red-team evaluation with jev-redteam: one
+Design an authorized multi-agent red-team evaluation with jev-eval: one
 coordinator, two candidate designers, one target runner, Jev as a triage judge,
 and an independent auditor. Use benign fixtures first. Give each case/session a
 stable ID, define separate output files, a shared total budget and hard stopping

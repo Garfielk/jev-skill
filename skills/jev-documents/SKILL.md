@@ -1,9 +1,9 @@
 ---
 name: jev-documents
-description: Use for selecting original source spans, reranking supplied passages or checking claims against documents. Keeps citations and no-match outcomes; does not invent missing facts.
+description: Locate, select, extract and verify evidence in documents or observed code inventories. Use for source-span extraction, passage reranking, claim checks or choosing code locations to inspect. Preserve citations and no-match outcomes; use required graph tools for exact code lookup.
 ---
 
-# Find and verify information in documents
+# Find and verify source evidence
 
 ## Setup: choose the service or simulation
 
@@ -42,7 +42,7 @@ In A, select the CLI destination explicitly: `--provider openrouter` or
 OpenRouter model ID to `jev-1.13.0`. `--dry-run` only validates; it neither
 classifies nor makes a network call. `jev-decide setup` reports presence only,
 not key validity, credits or permission. For guided setup and a copyable
-DeepSeek prompt, use `jev-setup` or the [setup guide](https://github.com/wuyoscar/jev-skill/blob/main/skills/jev-setup/SKILL.md).
+DeepSeek prompt, read the [setup guide](https://github.com/wuyoscar/jev-skill/blob/main/skills/jev/references/setup.md).
 
 ## Jev API prerequisite and first example
 
@@ -71,6 +71,16 @@ usage. Read relevant answers, not only the exit code: `0` means selected/scored,
 `2` means review, `1` means error. A confidently false Noul is still false;
 selection is not permission. Unknown, missing or conflicting evidence needs a
 fallback. Test thresholds on the user's task rather than assuming 0.9 is safe.
+
+## Choose the evidence workflow
+
+- **Documents:** follow the workflow below for original spans, passage relevance
+  and claim checks; adapt [the document template](assets/example.json).
+- **Code locations:** read [code-location selection](references/find-code.md)
+  and adapt [the code-location template](assets/find-code.json). Use the project's
+  required graph/index tools first. Inspect selected code before making claims.
+- **Judging whether a change is correct:** use `jev-eval` if installed, rather
+  than treating a relevance score as a code-review result.
 
 ## Workflow
 

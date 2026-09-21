@@ -1,8 +1,3 @@
----
-name: jev-setup
-description: Set up Jev for an agent, choose OpenRouter or the official TypeSafe API, or guide an explicitly approved current-agent/DeepSeek simulation when no Jev key is available. Checks presence without exposing keys or making paid calls.
----
-
 # Set up Jev
 
 This skill is run by the user's own coding agent, not a separate setup app.
@@ -51,7 +46,7 @@ In A, select the CLI destination explicitly: `--provider openrouter` or
 OpenRouter model ID to `jev-1.13.0`. `--dry-run` only validates; it neither
 classifies nor makes a network call. `jev-decide setup` reports presence only,
 not key validity, credits or permission. Continue below for the selected route, or use the
-[copyable simulation prompt](references/simulation.md).
+[copyable simulation prompt](simulation.md).
 
 ## Complete the selected route
 
@@ -59,7 +54,7 @@ not key validity, credits or permission. Continue below for the selected route, 
 |---|---|---|---|
 | OpenRouter | `OPENROUTER_API_KEY` | `--provider openrouter` | `https://openrouter.ai/api/alpha/decisions` / `typesafe/jev-1.13` |
 | Official TypeSafe | `TYPESAFE_API_KEY` | `--provider typesafe` | `https://api.typesafe.ai/v1/systemone` / `jev-1.13.0` |
-| Current agent / approved DeepSeek | Existing host or selected model access | No Jev CLI call | [Simulation prompt](references/simulation.md); never invent an API receipt |
+| Current agent / approved DeepSeek | Existing host or selected model access | No Jev CLI call | [Simulation prompt](simulation.md); never invent an API receipt |
 
 If the user uses OpenRouter but has no key, point them to its key page. If they
 do not use OpenRouter, offer the official console rather than requiring another

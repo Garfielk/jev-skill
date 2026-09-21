@@ -1,13 +1,16 @@
 import contextlib
 import io
 import json
+import os
 import re
 from pathlib import Path
 import shutil
 import sys
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
+from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "skills/jev/scripts"))
@@ -15,21 +18,96 @@ import jev
 
 
 SCENARIOS = (
-    "jev-triage", "jev-documents", "jev-ui", "jev-route",
-    "jev-context", "jev-code-review", "jev-find-code", "jev-simulation", "jev-redteam",
+    "jev-triage", "jev-documents", "jev-ui", "jev-eval", "jev-simulation",
 )
 
 
 class SkillCatalogTests(unittest.TestCase):
+    def test_six_entrypoints_cover_former_workflow_modes(self):
+        # Public navigation contract, not an assertion about automatic model routing.
+        modes = (
+            ('jev', 'SKILL.md', 'assets/checkpoint.json'),
+            ('jev', 'references/setup.md', None),
+            ('jev', 'references/routing.md', 'assets/routing.json'),
+            ('jev', 'references/context.md', 'assets/context.json'),
+            ('jev-triage', 'SKILL.md', 'assets/example.json'),
+            ('jev-documents', 'SKILL.md', 'assets/example.json'),
+            ('jev-documents', 'references/find-code.md', 'assets/find-code.json'),
+            ('jev-eval', 'references/code-review.md', 'assets/code-review.json'),
+            ('jev-eval', 'references/workflows.md', 'assets/example.json'),
+            ('jev-ui', 'SKILL.md', 'assets/example.json'),
+            ('jev-simulation', 'SKILL.md', 'assets/example.json'),
+        )
+        for name, guide, example in modes:
+            with self.subTest(skill=name, mode=guide):
+                folder = ROOT / 'skills' / name
+                entry = (folder / 'SKILL.md').read_text()
+                self.assertTrue((folder / guide).is_file())
+                if guide != 'SKILL.md':
+                    self.assertIn(f']({guide})', entry)
+                if example:
+                    self.assertTrue((folder / example).is_file())
+                    jev.validate_request(json.loads((folder / example).read_text()))
+
+    def test_copied_collection_links_and_examples_in_three_host_layouts(self):
+        environment = {k: v for k, v in os.environ.items()
+                       if k not in {'OPENROUTER_API_KEY', 'TYPESAFE_API_KEY', 'JEV_MODEL'}}
+        for host in ('.agents', '.claude', '.opencode'):
+            with self.subTest(host=host), tempfile.TemporaryDirectory() as tmp:
+                destination = Path(tmp) / host / 'skills'
+                shutil.copytree(ROOT / 'skills', destination,
+                                ignore=shutil.ignore_patterns('__pycache__'))
+                self.assertEqual({p.parent.name for p in destination.rglob('SKILL.md')},
+                                 {'jev', *SCENARIOS})
+                for doc in destination.rglob('*.md'):
+                    text = re.sub(r'```.*?```', '', doc.read_text(), flags=re.S)
+                    for link in re.findall(r'\]\(([^)\s]+)\)', text):
+                        url = urlsplit(link)
+                        if not url.scheme and url.path:
+                            self.assertTrue((doc.parent / unquote(url.path)).is_file(),
+                                            f'{doc}: {link}')
+                examples = [(name, 'example.json') for name in SCENARIOS]
+                examples += [('jev', 'checkpoint.json'), ('jev', 'routing.json'),
+                             ('jev', 'context.json'), ('jev-documents', 'find-code.json'),
+                             ('jev-eval', 'code-review.json')]
+                for name, example in examples:
+                    path = destination / name / 'assets' / example
+                    run = subprocess.run([sys.executable,
+                        str(destination / 'jev/scripts/jev.py'), 'decide', str(path), '--dry-run'],
+                        cwd=tmp, env=environment, capture_output=True, text=True, check=True)
+                    self.assertEqual(json.loads(run.stdout), json.loads(path.read_text()))
+                builder = subprocess.run([sys.executable,
+                    str(destination / 'jev-eval/scripts/prepare.py'),
+                    str(destination / 'jev-eval/assets/transcripts.jsonl'),
+                    '--out-dir', str(Path(tmp) / 'prepared')], cwd=tmp,
+                    env=environment, capture_output=True, text=True, check=True)
+                self.assertFalse(json.loads(builder.stdout)['jev_called'])
+                self.assertFalse(json.loads(builder.stdout)['target_called'])
+
+    def test_migration_and_release_guidance_do_not_keep_alias_skills(self):
+        guide = (ROOT / 'docs/skill-migration.md').read_text()
+        for name in ('jev-setup', 'jev-route', 'jev-context', 'jev-find-code',
+                     'jev-code-review', 'jev-redteam'):
+            self.assertIn(f'`{name}`', guide)
+            self.assertFalse((ROOT / 'skills' / name).exists())
+        for term in ('symlink', 'approval', 'backup', 'outside', 'verification fails'):
+            self.assertIn(term, guide)
+        for name in ('docs/install.md', 'docs/installation.md'):
+            text = (ROOT / name).read_text()
+            self.assertIn('v0.2.0', text)
+            self.assertIn('eleven', text)
+            self.assertIn('reviewed', text)
+            self.assertIn('skill-migration.md', text)
+
     def test_setup_and_all_skills_keep_explicit_modes(self):
         folders = list((ROOT / "skills").glob("*/SKILL.md"))
-        self.assertEqual(len(folders), 11)
+        self.assertEqual({p.parent.name for p in folders}, {"jev", *SCENARIOS})
         for path in folders:
             text = path.read_text()
             for term in ("OPENROUTER_API_KEY", "TYPESAFE_API_KEY", "agent_simulation",
                          "model_simulation", "jev_called", "DeepSeek"):
                 self.assertIn(term, text, str(path))
-        self.assertTrue((ROOT / "skills/jev-setup/references/simulation.md").is_file())
+        self.assertTrue((ROOT / "skills/jev/references/simulation.md").is_file())
 
     def test_new_collection_covers_all_supplied_roundups(self):
         ledger = (ROOT / "skills/jev/references/intake-2026-09-21.md").read_text()
@@ -206,6 +284,8 @@ class SkillCatalogTests(unittest.TestCase):
             self.assertEqual(numbers, list(range(1, len(numbers) + 1)))
             badge = re.search(r"/badge/scenarios-(\d+)-", text)
             self.assertEqual(int(badge.group(1)), len(numbers))
+            skill_badge = re.search(r"/badge/skills-(\d+)-", text)
+            self.assertEqual(int(skill_badge.group(1)), 6)
             counts = re.findall(r"<br />(\d+) (?:recipes|个用法)", text)
             self.assertEqual(len(counts), 10)
             self.assertEqual(sum(map(int, counts)), len(numbers))

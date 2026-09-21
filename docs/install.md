@@ -2,231 +2,162 @@
 
 ## For people
 
-Copy this into Codex, Claude Code or OpenCode:
+Copy this into your own Codex, Claude Code or OpenCode agent:
 
 ```text
-Install Jev Skills for this coding agent, including all scenario skills:
+Install Jev Skills for this coding agent:
 https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md
-Check my environment and handle the installation. Use jev-setup to confirm with me:
-A: real Jev via my OpenRouter or official TypeSafe account; B: simulation with this agent.
-Wait for my choice. Guide any key entry through local secret settings, never this chat.
-Verify offline first; ask before sending data or making a paid call.
+Check the current release versus the six-entry source preview. Confirm which source
+I want before installing; record its exact commit. Handle installation yourself.
+Use jev for setup: A: real Jev via my OpenRouter or official TypeSafe account;
+B: simulation with this agent. Wait for my choice and keep keys out of chat.
+Verify offline first. Ask before replacing existing skills or making paid calls.
 ```
 
 中文：
 
 ```text
-帮我给当前 coding Agent 安装 Jev Skills，包括全部场景技能：
+帮我给当前 coding Agent 安装 Jev Skills：
 https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md
-你来检查环境并完成安装，用 jev-setup 跟我确认：
-A：用我的 OpenRouter 或官方 TypeSafe 账号调用真实 Jev；B：由你模拟。
-等我选择；需要 key 时指导我在本地安全配置，不要让我发到聊天里。
-先完成离线验证，发送数据或付费调用前再征得我同意。
+先说明当前发布版和六入口源码预览的区别，跟我确认安装来源并记录准确 commit。
+你来完成安装，用 jev 跟我确认：A：OpenRouter 或官方 TypeSafe 真实调用；B：由你模拟。
+等我选择，key 只在本地安全配置，不要让我发到聊天里。
+先离线验证；替换已有技能或付费调用前先确认。
 ```
-
-Use your own coding agent for this conversation; this repository does not supply
-a hosted agent or chat service. You do not need to run terminal commands yourself.
-The agent needs file access
-and permission to run installation commands. It may need your help with a missing
-runtime or a permission prompt. If there is no key, it must first ask you to
-choose **A: get a key** or **B: simulate with your current agent or another explicitly approved available model**.
-Never paste a key into chat.
 
 ## For the installing agent
 
-### Outcome and defaults
+### 1. Confirm host, source and mode
 
-Install all eleven skill folders from **v0.2.0** for the current host. Install the
-runtime for Jev API mode; it is not needed for agent simulation. Verify the copied
-files and run applicable offline checks. Default to **project-local** installation in the
-current project. Say which host and destination you selected before writing.
-If the host/project cannot be determined, ask one short question rather than
-installing into every detected client or a random working directory. Honor an
-explicitly requested subset or installation scope.
+Identify the current host and project from this session; ask if they cannot be
+established. Default to project-local installation, not every detected client.
+Use the user's own coding agent; do not hand over a terminal checklist by default.
 
-This is an installation task, not permission to change the agent's main model,
-MCP servers, hooks, security settings or unrelated skills. Do not install any
-linked community project. No Vercel account, gateway or Node/npm is needed for
-the direct-copy route below. Existing host approval requirements still apply.
+**The six-entry collection is not yet released.** The actual published tag
+**v0.2.0 contains eleven skills**, not six. Offer the source choice explicitly:
 
-### 1. Check the environment and confirm with the user
+- **Published release:** follow [the pinned v0.2.0 guide](install-v0.2.0.md).
+  This keeps its eleven entry points. Do not apply the six-skill copy list below.
+- **Six-entry preview:** only use a source checkout/commit that the user has
+  explicitly selected and reviewed. Record its exact commit, check that it contains
+  the six names below, and inspect its instructions and runtime before execution.
+  Do not silently substitute `main`, a PR branch or a made-up release tag.
 
-You are the installer. Inspect the current host, carry out the technical steps,
-and explain the next choice in plain language. Do not hand the user a terminal
-checklist as the default workflow. Ask them only for information you cannot
-inspect, route/scope choices, private credential entry and required approvals.
-Key entry belongs in the host's local secret settings, not this conversation.
+The remaining steps apply to that **reviewed six-entry checkout**. Call it
+`<source>`. No Vercel account, gateway, MCP server or Node/npm is required for the
+whole-folder copy route.
 
-- Identify the current host from the session, not merely from installed binaries.
-- Locate the actual project root and read any applicable local instructions.
-- Follow the included `jev-setup` route selection. Check only presence of
-  `OPENROUTER_API_KEY` and `TYPESAFE_API_KEY`, never values. Prefer the user's
-  existing OpenRouter account; otherwise offer official TypeSafe. Explain and
-  obtain a choice before changing providers or sending data.
-- If neither route is configured, warn and ask, then **wait**:
-  **A:** configure a real Jev key (OpenRouter if the user uses it, otherwise
-  TypeSafe); **B:** simulate with the current agent or a specifically approved
-  available model such as DeepSeek. B outputs say `jev_called: false`, identify
-  `agent_simulation` or `model_simulation`, and keep probability/confidence null.
-  Never silently simulate or install another model. Keys stay outside chat.
-  A can finish offline installation before key setup; installation is not
-  permission to make paid calls. B needs no Jev key or Jev Python CLI.
-- Check for Git; if unavailable, download the release source archive with an
-  available tool instead. **For API mode**, also check for Python **3.10+** and
-  an existing `uv` or `pipx`. Explain missing prerequisites and obtain any required
-  approval to install them. Do not use `sudo`, modify system Python or silently
-  switch products. **B needs none of these Python/CLI dependencies**; do not
-  require or install them just for agent simulation.
-- Inspect existing `jev-decide` and destination skill folders. Leave identical
-  installations alone. For different versions, local edits or symlinks, explain
-  the conflict and get confirmation before replacing them; never merge blindly.
+Use the general skill's [setup mode](../skills/jev/references/setup.md). Check only
+presence of `OPENROUTER_API_KEY` and `TYPESAFE_API_KEY`, never print their values.
+Preserve an already selected route. Otherwise ask and wait:
 
-### 2. Download and inspect the pinned source
+- **A:** real Jev through the user's existing OpenRouter account, or native TypeSafe.
+- **B:** explicitly selected host-agent or available-model simulation. No Jev key
+  or Python CLI is required. Mark `agent_simulation` or `model_simulation`,
+  `jev_called: false`, and null probability/confidence. Do not silently substitute
+  a model or invent provider receipts.
 
-Use a fresh temporary directory. For example, in a POSIX shell:
+Let the user enter credentials in local secret settings, not chat or tracked files.
+Setup does not authorize account creation, provider changes, paid calls or changes
+to the host's main model, hooks, permissions or unrelated plugins.
 
-```bash
-work=$(mktemp -d)
-git clone --depth 1 --branch v0.2.0 https://github.com/wuyoscar/jev-skill.git "$work/source"
-git -C "$work/source" rev-parse HEAD
-git -C "$work/source" describe --tags --exact-match HEAD
-```
+### 2. Preflight the entire installation
 
-The exact tag must be `v0.2.0`; stop if it differs and record the resolved commit
-in your installation report. Do not substitute `main` for the versioned source.
-With an archive instead of Git, use the
-[release source ZIP and checksums](https://github.com/wuyoscar/jev-skill/releases/tag/v0.2.0)
-and verify its checksum before installation. Inspect `pyproject.toml`, the skill
-entrypoints and `skills/jev/scripts/jev.py` before running downloaded code.
-On Windows, use equivalent temporary-directory and file operations in the host's shell.
+Inspect all six destination folders, retired names, symlinks and any existing
+`jev-decide`. Leave identical installations alone. Follow the
+[upgrade procedure](skill-migration.md) for an older collection. Explain conflicts
+and get approval before moving or replacing locally edited files or symlinks.
+Do not begin a partial replacement before every destination has been checked.
 
-### 3. Install the shared CLI
+For API mode, check Python 3.10+ and an existing `uv` or `pipx`; explain missing
+prerequisites rather than installing them silently. Simulation mode needs neither.
+Do not use sudo or modify system Python or shell profiles.
 
-**Skip this step for B.** Use the selected existing agent/model interface.
-For API mode:
+### 3. Install the API runtime, if needed
 
-Use **one existing** package tool, not both:
+Skip this step for simulation. For the collection's API workflows, use one existing
+package tool to install from the same reviewed checkout:
 
 ```bash
-uv tool install "$work/source"
-# Alternative when pipx is the available tool:
-# pipx install "$work/source"
+uv tool install /absolute/path/to/reviewed/source
+# Or, if pipx is the selected existing tool:
+# pipx install /absolute/path/to/reviewed/source
 ```
 
-Do not use `--force` to replace an existing command without resolving the conflict.
-Check that `jev-decide --help` works in the environment the host uses. If the
-installation directory is not on PATH, locate it using the package tool and verify
-the executable by its absolute path. Report the PATH/restart step still needed;
-do not silently edit shell startup files. A new terminal or restarted host may be
-needed to inherit PATH changes.
+Do not force an overwrite without resolving the conflict. Verify `jev-decide --help`
+from the host environment; report PATH or restart requirements instead of editing
+startup files. A preview build is not a newly published version, even if its package
+metadata still reports v0.2.0. Always include the source commit in the report.
 
-For a user who explicitly wants **only `jev`**, skip CLI installation: that skill
-bundles `scripts/jev.py` and runs with Python alone. Do not silently substitute
-this smaller installation for the full collection requested above.
+For an explicitly requested **general `jev` only** installation, its bundled
+stdlib script is sufficient for API calls; a shared CLI install is optional.
+Focused skills use the shared CLI, not an undeclared sibling skill runtime.
 
-### 4. Copy the complete skill folders
+### 4. Copy the six complete folders
 
-Choose only the current host's project-local destination:
-
-| Current host | Destination under the project root |
+| Current host | Project-local destination |
 |---|---|
 | Codex | `.agents/skills/` |
 | Claude Code | `.claude/skills/` |
 | OpenCode | `.opencode/skills/` |
 
-Copy each whole folder from `<source>/skills/`, including its assets and any
-scripts/references, preserving the folder name:
+Copy complete folders from the reviewed source, not just entry-point Markdown:
 
-- `jev`
-- `jev-triage`
-- `jev-documents`
-- `jev-ui`
-- `jev-route`
-- `jev-context`
-- `jev-code-review`
-- `jev-find-code`
-- `jev-simulation`
-- `jev-setup`
-- `jev-redteam`
+| Skill | Includes |
+|---|---|
+| `jev` | Custom decisions, setup, routing, context checks and the reference library |
+| `jev-triage` | Record classification and prioritization |
+| `jev-documents` | Document evidence and code-location selection |
+| `jev-eval` | Output/code review and authorized safety-evaluation protocols |
+| `jev-ui` | Real browser/desktop action selection |
+| `jev-simulation` | Authored-world, game and NPC action selection |
 
-Preflight **all** destinations for conflicts before writing any folder. Use the
-host's filesystem tools or `shutil.copytree` without overwrite/merge options.
-Keep the download outside the target skills directory, and do not copy `.git`,
-the entire repository or just the eleven `SKILL.md` files. In API mode the focused
-skills need the shared CLI; the general skill includes its own script.
+Use filesystem operations that refuse overwrite, such as `shutil.copytree` without
+merge options, after preflight. Keep downloads and backups outside all discoverable
+skill directories. Do not copy the entire repository or create retired-name aliases.
+For a requested subset, copy each whole selected folder. For user-wide installation,
+resolve the current host's supported directory instead of guessing from this table.
 
-For explicitly requested user-wide installation, resolve the current host's
-supported user skill directory from its documentation first. Do not infer a
-user-level path by prepending `~` to the project-local table.
+### 5. Verify installed copies, not only the source
 
-### 5. Verify from the installed copies, without a key or API call
+In both modes, enumerate installed `SKILL.md` files and confirm exactly the six
+names above for a complete installation (or the explicitly requested subset).
+Check each entry point's local reference and asset links. Retired names may remain
+only when migration was explicitly deferred; report that as incomplete migration.
 
-In **both modes**, confirm every copied `SKILL.md` and its linked local
-assets/references exist. Check that each installed skill includes the A/B consent
-instructions and explicit simulation labels.
-
-In **API mode**, run the following checks. In B, they are optional if the runtimes
-already exist; otherwise report them as skipped, not passed. Do not install
-dependencies solely to run CLI checks for B.
-
-Resolve `<installed-jev>` to the copied general-skill directory:
+In API mode, run offline checks from the copied locations with no keys or network:
 
 ```bash
 python3 <installed-jev>/scripts/jev.py decide <installed-jev>/assets/checkpoint.json --dry-run
-```
-
-Then run the installed shared CLI on **each of the nine** copied scenario assets:
-
-```bash
+jev-decide setup
 jev-decide decide <installed-scenario>/assets/example.json --dry-run
 ```
 
-The ninth scenario is `jev-redteam`. `jev-setup` has no classification asset: verify its
-entrypoint and `references/simulation.md`, then run `jev-decide setup` if the CLI
-is installed. Its report must not expose a key or make a network request.
+Run the final command for each of the five focused skills. Also validate the merged
+mode examples: general `routing.json` and `context.json`, documents `find-code.json`,
+and evaluation `code-review.json`. Run the copied evaluation request builder on its
+synthetic transcripts into a new temporary output directory, then dry-run the
+resulting requests. Its output must say no Jev or target was called.
 
-These commands must exit 0 and print the validated request. Use absolute paths
-if needed; a source-checkout test is not a copied-installation test. Ask the host to
-refresh skill discovery if it supports that; otherwise explain whether a restart
-or new session is needed. Do not claim native invocation was tested merely because
-files were copied.
+For native TypeSafe validation, add `--provider typesafe --dry-run` to a prepared
+example; this checks input mapping, not credentials or credits. Simulation-only
+users need not install Python to run optional CLI checks; report them as skipped.
 
-### 6. Explain what is ready
+A dry run exits 0 and prints a validated request. Refresh host skill discovery or
+explain the required restart. Copied files and layout tests do **not** prove native
+slash-command invocation. If actual host invocation is tested, record it separately.
 
-Report host/destination, installed skills, selected mode, key present/missing,
-checks passed/skipped and CLI version/location if installed. Separate **installed**,
-**verified offline**, **agent simulation selected** and **ready for API calls**.
-A key-presence check does not prove that the key works; that requires a successful
-API response. Copied skill files alone do not prove native agent behavior.
+### 6. Report readiness and finish approved migration
 
-For A with a key still missing, explain local environment setup for the host.
-Do not collect it in chat, store it in the repository or copy other apps' secrets.
-For B, use the selected existing agent/model interface and mark all outputs as simulated, with
-`probability` and `confidence` set to `null`. Do not send requests to Jev, require
-a key, fabricate receipts or use probability thresholds to authorize actions.
-Do not silently switch modes if a key later appears or an API call fails.
+Report source commit, host, destination, installed names, chosen mode, credential
+presence (never values), CLI version/location and checks passed/skipped. Distinguish
+installed, offline-verified and successfully authenticated. Follow the migration
+procedure to retire approved obsolete folders, then enumerate discovery again.
+Never report six entries while old aliases still show up.
 
-Do not spend API credits just to install. Once the user requests a real example,
-use a small synthetic input and the selected skill; preserve the receipt.
+No API spending is needed for installation. For subsequent work, let the user say:
 
-A first-use prompt to offer:
+> Use jev-triage to classify these messages. Show the inputs, labels and uncertain
+> cases before changing anything.
 
-> Use jev-triage to classify these messages into billing, bugs, how-to and other.
-> Show the labels and uncertain cases before changing anything.
-
-## Manual installation and troubleshooting
-
-[CLI options, provider setup, manual paths and compatibility](installation.md).
-The optional `npx skills` route there is just another way to copy skills; it is
-not a Vercel runtime dependency.
-
-## Verify the selected provider without spending
-
-Run `jev-decide setup` for a read-only presence report, then dry-run a prepared
-example with `--provider openrouter` or `--provider typesafe`. TypeSafe uses
-`https://api.typesafe.ai/v1/systemone` and `TYPESAFE_API_KEY`; OpenRouter uses its
-Decisions endpoint and `OPENROUTER_API_KEY`. Neither route auto-falls back.
-The known bundled OpenRouter model ID maps to `jev-1.13.0` for an explicit
-TypeSafe selection. A dry run does not authenticate the key or verify credits.
-For simulation, use `jev-setup/references/simulation.md` with the selected existing
-model, not the Jev CLI. See `jev-redteam` for offline batch/session examples.
+[Manual options and troubleshooting](installation.md) · [Six-entry migration](skill-migration.md)
