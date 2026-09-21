@@ -118,15 +118,22 @@ def summarize(plan, receipts):
         metrics[arm + '_per_class'] = {label:{'n':sum(r['gold']==label for r in gold),
             'correct':sum(r['gold']==label and r[arm+'_label']==label for r in gold)} for label in plan['question']['criteria']}
         calls = [r for r in receipts if r['arm']==arm]
-        known = []
+        known_calls, known_total = 0, 0.0
         for r in calls:
             details = r.get('response', {}).get('usage') if isinstance(r.get('response'), dict) else None
             cost = details.get('cost') if isinstance(details, dict) else None
-            if isinstance(cost, (int, float)) and not isinstance(cost, bool) and math.isfinite(cost) and cost >= 0:
-                known.append(cost)
-        usage[arm] = {'calls':len(calls), 'known_cost_subtotal_usd':sum(known),
-                      'cost_unknown_calls':len(calls)-len(known),
-                      'reported_cost_usd':sum(known) if calls and len(known)==len(calls) else None}
+            if not isinstance(cost, (int, float)) or isinstance(cost, bool):
+                continue
+            try:
+                cost = float(cost)
+            except OverflowError:
+                continue
+            if cost >= 0 and math.isfinite(cost) and math.isfinite(known_total + cost):
+                known_total += cost
+                known_calls += 1
+        usage[arm] = {'calls':len(calls), 'known_cost_subtotal_usd':known_total,
+                      'cost_unknown_calls':len(calls)-known_calls,
+                      'reported_cost_usd':known_total if calls and known_calls==len(calls) else None}
     complete = len(pairs)==plan['sample_size'] and all('gold' in r for r in values)
     # Acceptance is ONLY this synthetic pilot's preregistered rubric.
     passed = (complete and not any(r.get('jev_review',True) for r in values)

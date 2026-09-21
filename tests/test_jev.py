@@ -258,6 +258,10 @@ class TransportTests(unittest.TestCase):
 
 
 class CLITests(unittest.TestCase):
+    def test_huge_integer_field_is_a_validation_error(self):
+        with self.assertRaises(jev.JevError):
+            jev.number(10**400, 0, 1, 'probability')
+
     def test_overflow_json_number_is_rejected(self):
         with self.assertRaises(jev.JevError):
             jev.load_json('{"usage":{"cost":1e999}}')

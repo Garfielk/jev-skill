@@ -73,10 +73,11 @@ report instead of guessing fields or extracting only a label.
 - [Uncorrected generated source, do not use as a runner](results/followups-2026-09-21/generation/generated.py)
 - [Behavioral tests](../tests/test_agent_pilot.py)
 
-The live source and current source differ only by a type-narrowing cost predicate:
-`isinstance` plus explicit bool exclusion instead of exact `type` membership.
-Both reject boolean/nonfinite/negative costs. The tests and mypy were rerun after
-that change. This is not evidence that a skill alone guarantees correct generated
+The current source additionally hardens cost accounting after review: booleans,
+nonfinite/negative values, oversized integers and additions that overflow the
+subtotal are treated as unknown costs. Raw representable JSON remains in receipts.
+The exact original live source is retained; the tests and mypy were rerun after
+these changes. This is not evidence that a skill alone guarantees correct generated
 code; the failed draft is the reason code review and offline tests are required.
 
 ## Validation boundaries
@@ -123,3 +124,8 @@ response can enter the ledger. A fake HTTP response regression covers both arms,
 retains both in-flight error receipts with unknown costs, and writes a review
 report. Literal NaN/Infinity and duplicate object fields are also rejected.
 The bad provider body is not logged; the safe error receipt is preserved.
+
+A second Spec-review pass caught huge integer costs bypassing float parsing.
+The current pilot treats unrepresentable integer costs and overflowing subtotals
+as unknown instead of crashing. Runtime bounded-number validation checks bounds
+before conversion so oversized decision values also produce a normal error.

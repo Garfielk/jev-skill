@@ -63,7 +63,7 @@ def read_json(path):
 
 def number(value, low, high, name):
     if (isinstance(value, bool) or not isinstance(value, (int, float))
-            or not math.isfinite(value) or not low <= value <= high):
+            or not low <= value <= high or not math.isfinite(value)):
         raise JevError(f"{name} must be a finite number in [{low}, {high}]")
     return value
 

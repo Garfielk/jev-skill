@@ -192,3 +192,18 @@ class AgentPilotTests(unittest.TestCase):
             self.assertTrue((out/'report.json').is_file())
             self.assertEqual(report['usage']['jev']['cost_unknown_calls'],1)
             self.assertEqual(report['usage']['reference']['cost_unknown_calls'],1)
+
+    def test_unrepresentable_costs_are_unknown_not_report_crashes(self):
+        for cost in (10**400,1e308):
+            def huge(url,payload,timeout=30):
+                response=reply(url,payload,timeout)
+                response['usage']={'cost':cost}
+                return response
+            with self.subTest(cost_type=type(cost).__name__),tempfile.TemporaryDirectory() as tmp, \
+                    patch.dict(os.environ,{'OPENROUTER_API_KEY':'dummy'}),patch('jev.http_json',side_effect=huge):
+                out=Path(tmp)/'run'
+                report=pilot.run(JOB,out,sample_size=2,concurrency=2,live=True)
+                self.assertTrue((out/'report.json').is_file())
+                for arm in ('jev','reference'):
+                    self.assertIsNone(report['usage'][arm]['reported_cost_usd'])
+                    self.assertGreater(report['usage'][arm]['cost_unknown_calls'],0)
