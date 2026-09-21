@@ -90,3 +90,10 @@ The official cookbook's speed comparison sums sequential single-question call
 times; it is not a comparison against concurrent calls or a universal speedup.
 More context/questions still consume input tokens, and provider load/rate limits
 affect throughput. Our existing API smoke timings are not a parallel-load benchmark.
+
+## When repetition or batch size changes the verdict
+
+See the [pitfalls guide](pitfalls.md#repeat) before adding repeated calls. It
+distinguishes fixed-input stability tests, question variants and new evidence,
+and records the pg-jev author's batch-size failure report. More calls or more
+records in one state are not automatic improvements in accuracy.

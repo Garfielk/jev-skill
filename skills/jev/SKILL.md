@@ -93,6 +93,16 @@ Measure decision quality, whole-job time, throughput and total cost on the actua
 workload; do not promise a fixed speedup. See [context and throughput](references/context-and-throughput.md)
 and the [two-record, six-question example](assets/batch-triage.json).
 
+## Before repeating a judgment
+
+Supply enough relevant context, not an indiscriminate transcript. When uncertain,
+first check missing evidence and candidate definitions. Repeated judge calls can
+measure stability, but agreement is not accuracy and votes are not independent
+verification. Propose a fixed repeat budget and rule before spending; retain every
+answer, never retry until approval. Independent outcome/evidence questions may
+share one request; a dependent follow-up needs fresh state. Read the
+[pitfalls guide](references/pitfalls.md) for the diagnostic and source limitations.
+
 ## When to reach for it
 
 **Agent mode:** a repeated failure needs a different recovery path; several tools
@@ -126,6 +136,7 @@ Read only the relevant slice, not the entire catalog:
 
 | Need | Read |
 |---|---|
+| Unexpected judgments, repeated judging, noisy context or setup failures | [Pitfalls and diagnostic protocol](references/pitfalls.md) |
 | Supply enough context; batch or parallelize a large workload | [Context and throughput](references/context-and-throughput.md) |
 | Adapt a new task, criteria, rubric or user policy | [Customization](references/customization.md) |
 | How to connect judgments into a working flow | [Implementation patterns](references/implementation-patterns.md) |

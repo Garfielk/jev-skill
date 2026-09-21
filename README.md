@@ -8,7 +8,7 @@
 
 [English](README.md) · [简体中文](README.zh.md)
 
-[🧭 Projects](#projects) · [🎬 Demos](#showcase) · [📦 Install](#install) · [🚀 How to use](#usage) · [🗂 All 108 scenarios](#catalog) · [🧪 Input → output](#io) · [🆕 Updates](docs/updates/README.md)
+[🧭 Projects](#projects) · [🧯 Pitfalls](#pitfalls) · [🎬 Demos](#showcase) · [📦 Install](#install) · [🚀 How to use](#usage) · [🗂 All 108 scenarios](#catalog) · [🧪 Input → output](#io) · [🆕 Updates](docs/updates/README.md)
 
 </div>
 
@@ -103,6 +103,30 @@ use an existing approved interface. [Copyable simulation prompt](skills/jev-setu
 `--dry-run` validates input only. Real calls incur usage. Do not paste keys in chat.
 Use `--provider openrouter` or `--provider typesafe`; there is no automatic fallback.
 [Full setup skill](skills/jev-setup/SKILL.md).
+
+<details>
+<summary><strong>Already have an official TypeSafe key? Use it directly</strong></summary>
+
+Get it from the [TypeSafe console](https://console.typesafe.ai) and configure the
+local environment that launches your agent. These are placeholders; do not put
+real keys in chat, tracked files or shell history.
+
+```bash
+export TYPESAFE_API_KEY="<your-TypeSafe-key>"
+jev-decide setup
+jev-decide decide request.json --provider typesafe --dry-run
+# After approving the input and paid call:
+jev-decide decide request.json --provider typesafe > result.json
+```
+
+Save and adapt a recorded Input below as `request.json`. No OpenRouter key is
+needed. **Setting the key does not select the provider:** keep `--provider typesafe`
+on each native call. The keys are not interchangeable. The CLI does not auto-load
+`.env`; a running desktop agent may need a restart to inherit its environment.
+`setup` checks presence and `--dry-run` checks shape, not credential validity.
+[Full setup and troubleshooting](skills/jev-setup/SKILL.md#local-key-setup).
+
+</details>
 
 ### Try one example
 
@@ -242,6 +266,46 @@ The general skill and all scenario skills teach these rules. [Context and throug
 · [Two-record, six-question template](skills/jev/assets/batch-triage.json) (synthetic, not a measured result).
 
 **September 21:** project directory, 18 additional scenarios, setup and safety-evaluation skills. [Intake and validation →](docs/updates/2026-09-21-collection-setup.md)
+
+<a id="pitfalls"></a>
+## 🧯 Pitfalls: repeat judgments, not mistakes
+
+**Supply enough context, not the largest context. Repeated judging measures
+stability; it does not guarantee accuracy.**
+[Full guide, diagnostic protocol and original sources](skills/jev/references/pitfalls.md).
+
+| Common trap | Better approach |
+|---|---|
+| Rerun until the answer looks right | Set a budget/rule first; keep every answer, not just the highest probability |
+| Treat three agreeing calls as independent evidence | Measure repeatability separately from accuracy against independent labels |
+| One vague “safe and done?” question | Separate outcome, evidence sufficiency and specific rules; sequence dependent checks |
+| Send only the last sentence or the agent's conclusion | Include goal, source receipts, decisive history, candidate meanings and gaps |
+| Paste the entire conversation/repository | Preserve decisive evidence; filter irrelevant and duplicated material |
+| Maximize records per request | Distinguish shared-state questions from mixed-record batches; compare labeled batch sizes |
+| Supply only `easy` / `hard` labels | Describe conditions, boundaries and an unknown option before trying more calls |
+| Execute whenever a number exceeds 0.9 | Distinguish probability, confidence and score; calibrate locally and retain host permissions |
+| Test attacks but not false alarms | Include benign mentions, quotations, missing evidence and contradictions |
+| A key or successful dry-run means connected | Native keys need `--provider typesafe`; offline checks do not authenticate |
+
+**Useful community lessons:** [pg-jev](skills/jev/references/pitfalls.md#batch)
+reports a large-batch quality drop, not a universal 20-row limit.
+[A router ablation](skills/jev/references/pitfalls.md#questions) improves with
+option descriptions, but its labels are designed difficulty tiers, not measured
+model capabilities. [@twid's practitioner report](https://x.com/twid/status/2101642632837366105)
+describes false alarms on a bot persona and harmless wording. These are external
+reports, not our reproductions.
+
+Copy to your agent:
+
+```text
+Check that Jev receives the goal, relevant sources, decisive history, actual tool
+receipts and candidate definitions. Ask outcome and evidence sufficiency separately.
+Do not add unrelated text just to enlarge context. If repeated judging would help,
+propose a fixed small budget, repeat count and aggregation rule, then wait for approval.
+Keep every answer. Check accuracy against independent labels or actual outcomes;
+agreement alone is not correctness. Escalate uncertainty rather than retrying for approval.
+Keep my selected provider and key; do not silently switch services or simulate.
+```
 
 <a id="projects"></a>
 ## 🧭 Projects, apps, reports & alternatives

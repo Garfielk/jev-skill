@@ -8,7 +8,7 @@
 
 [English](README.md) · **简体中文**
 
-[🧭 项目导航](#projects) · [🎬 看演示](#showcase) · [📦 安装](#install) · [🚀 怎么用](#usage) · [🗂 全部 108 个场景](#catalog) · [🧪 输入 → 输出](#io) · [🆕 更新记录](docs/updates/README.md)
+[🧭 项目导航](#projects) · [🧯 避坑指南](#pitfalls) · [🎬 看演示](#showcase) · [📦 安装](#install) · [🚀 怎么用](#usage) · [🗂 全部 108 个场景](#catalog) · [🧪 输入 → 输出](#io) · [🆕 更新记录](docs/updates/README.md)
 
 </div>
 
@@ -102,6 +102,28 @@ Agent 会检查环境，默认安装到当前项目，并完成离线验证。
 `--dry-run` 只校验格式；真实调用有用量。不要把 key 发进聊天。
 真实接口分别用 `--provider openrouter` 或 `--provider typesafe`，不会自动兜底换服务。
 [完整 Setup 技能](skills/jev-setup/SKILL.md)。
+
+<details>
+<summary><strong>已有官方原生 key？直接这样设置</strong></summary>
+
+到 [TypeSafe 控制台](https://console.typesafe.ai) 获取 key，在启动 Agent 的本地环境中配置。
+下面是占位示例；真实 key 不要发到聊天、写入仓库或留在 shell 历史里。
+
+```bash
+export TYPESAFE_API_KEY="<你的-TypeSafe-key>"
+jev-decide setup
+jev-decide decide request.json --provider typesafe --dry-run
+# 确认输入和付费调用后：
+jev-decide decide request.json --provider typesafe > result.json
+```
+
+`request.json` 可从下方实测 Input 保存并改写。官方入口不需要 OpenRouter key。
+**只设置 key 不会自动切换服务商**，每次都带 `--provider typesafe`；两种 key 不能混用。
+CLI 不自动读取 `.env`；已运行的桌面 Agent 可能需要重启才能继承环境变量。
+`setup` 只检查是否存在，`--dry-run` 只校验格式，都不证明 key 有效。
+[完整配置与排错](skills/jev-setup/SKILL.md#local-key-setup)。
+
+</details>
 
 ### 先跑一个例子
 
@@ -226,6 +248,40 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 · [两条记录、六个问题的模板](skills/jev/assets/batch-triage.json)（合成输入，不是实测输出）。
 
 **9 月 21 日更新：** 项目导航、18 个补充场景、Setup 与安全评测技能。[收录与验证记录 →](docs/updates/2026-09-21-collection-setup.md)
+
+<a id="pitfalls"></a>
+## 🧯 避坑：多判断几次可以，但别把重复当证据
+
+**上下文要给足，不是越大越好；重复 judge 可以测稳定性，不保证提准。**
+[完整指南、诊断步骤与原始来源](skills/jev/references/pitfalls.md)。
+
+| 容易踩的坑 | 更实用的做法 |
+|---|---|
+| 同一输入重跑到出现满意答案 | 先约定次数和处理规则，保留每次返回；不同意就补证据或复核，不挑最高分 |
+| 三次一致就当作三份独立证据 | 分开测稳定性和对独立标签的准确率；同一个模型可能稳定地错 |
+| 只问“安全吗／完成了吗” | 同时问结果是否支持、证据是否齐全、是否满足具体规则；有依赖的问题下一轮再问 |
+| 为了快，只传最后一句或 agent 自己的结论 | 给目标、原始回执、关键历史、候选含义和缺失项 |
+| 把整个会话、仓库都塞进 state | 保留决定答案的上下文，过滤重复和无关材料；信息缺失不是靠堆字数补齐 |
+| 批量越大越划算 | 区分同一状态多问题与多条记录混在一起；用相同标注检查不同批量规模 |
+| 标签只有 `easy`、`hard` | 写清每个选项的适用条件、边界和 `unknown`，先改问法再考虑重跑 |
+| 0.9 就直接执行 | 区分选项概率、confidence 和 score；在自己的留出数据上校准，权限仍在宿主 |
+| 只测攻击，没测误报 | 加无害提及、引用、缺证据和矛盾样本；别让筛查悄悄挡掉正常流程 |
+| 有 key／dry-run 成功就是连通了 | 官方 key 配 `--provider typesafe`；只读检查不联网，真实鉴权需另行获准调用 |
+
+**社区教训值得看：** [pg-jev](skills/jev/references/pitfalls.md#batch) 作者发现大批量降低准确率，
+但“20 条”不是通用上限；[路由消融](skills/jev/references/pitfalls.md#questions)补充候选描述后改善，
+但标签是合成难度分档，不是实际模型能力测试；[@twid 的实战记录](https://x.com/twid/status/2101642632837366105)
+还提到规则误伤自己的 persona 和无害措辞。这些是外部报告，不是我们的复现。
+
+复制给 Agent：
+
+```text
+先检查 Jev 输入是否包含目标、相关原文、关键历史、真实工具回执和候选定义。
+把结果判断与证据是否充分分开问。不要为了大 context 加入无关内容。
+如果要重复 judge，先提出固定的小预算、次数和汇总规则，等我批准；保留所有返回。
+重复一致不当作正确率；用独立标签或真实结果复核，不确定就交给更强模型或人。
+沿用我选定的 key 和服务商，出错后不要擅自换接口或模拟。
+```
 
 <a id="projects"></a>
 ## 🧭 项目、App、评测与替代模型导航
