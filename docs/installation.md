@@ -126,6 +126,27 @@ jev-decide decide skills/jev-triage/assets/example.json --dry-run
 jev-decide decide /path/to/edited-request.json
 ```
 
+### Official native key (no OpenRouter account required)
+
+Obtain a key at the [TypeSafe console](https://console.typesafe.ai) and set it
+locally in the host's launch environment. The placeholder below is not a valid
+credential. Keep real values out of chat, version control and shell history.
+
+```bash
+export TYPESAFE_API_KEY="<your-TypeSafe-key>"
+jev-decide setup
+jev-decide decide skills/jev-triage/assets/example.json --provider typesafe --dry-run
+# Only after approving the data and paid call:
+jev-decide decide /path/to/edited-request.json --provider typesafe > result.json
+```
+
+The CLI still defaults to OpenRouter, even when only the native key is present;
+select `--provider typesafe` explicitly. Neither key works at the other endpoint.
+There is no automatic `.env` loading. Configure the actual host process and
+restart it when needed; `setup` checks presence, not authentication or credits.
+[Setup skill](../skills/jev-setup/SKILL.md#local-key-setup) ·
+[Common pitfalls](../skills/jev/references/pitfalls.md#native-key).
+
 The general `jev` skill also works without installing the CLI:
 
 ```bash

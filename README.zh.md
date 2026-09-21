@@ -2,35 +2,70 @@
 
 # ⚡ Awesome Jev Skills
 
-**看看能做什么，挑一个让 Agent 帮你用起来。**
+**Jev 演示、工作流与 coding Agent 技能合集。**
 
 [![Skills](https://img.shields.io/badge/skills-11-7c3aed?style=flat-square)](#install) [![Scenarios](https://img.shields.io/badge/scenarios-108-0d9488?style=flat-square)](#catalog) [![Tests](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml/badge.svg)](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml) [![MIT](https://img.shields.io/badge/license-MIT-ea580c?style=flat-square)](LICENSE)
 
 [English](README.md) · **简体中文**
 
-[🧭 项目导航](#projects) · [🎬 看演示](#showcase) · [📦 安装](#install) · [🚀 怎么用](#usage) · [🗂 全部 108 个场景](#catalog) · [🧪 输入 → 输出](#io) · [🆕 更新记录](docs/updates/README.md)
+[概览](#overview) · [目录](#contents) · [安装](#install)
 
 </div>
 
-Jev 负责选择、分类和评分，agent 负责提供上下文和执行。
-既可以接进长程任务，也可以拿来处理消息、读文档、做游戏和创作工具。
+<a id="overview"></a>
+## 概览
+
+Jev 负责选择、分类和评分，你自己的 coding Agent 负责提供上下文和执行。
+这个合集帮你找到用法，再让 Agent 帮你用起来：
+
+- **找灵感：** 45 个项目与资料入口、108 个场景，从浏览器操作到音乐创作。
+- **直接用：** 11 个技能，交给自己的 Codex、Claude Code 或 OpenCode 安装。
+- **改成你的：** 14 组真实输入输出、可修改的模板，以及评测记录。
+
+**第一次来？** [把安装提示词发给 Agent](#install)，跟它确认 setup，再挑一个例子试试。
+不用自己写命令或 JSON。
+
+<a id="contents"></a>
+## 目录
+
+| 开始使用 | 找项目与用法 | 深入了解 |
+|---|---|---|
+| [📦 安装](#install) | [🎬 演示](#showcase) | [🧯 避坑指南](#pitfalls) |
+| [🔑 Agent 设置](#no-key) | [🧭 项目导航](#projects) | [⚡ 上下文与批量](#context-tips) |
+| [🚀 怎么用](#usage) | [🗂 全部场景](#catalog) | [🎯 概率校准](#calibration) |
+| [🧪 输入 → 输出](#io) | [📊 实验记录](#experiments) | [🔗 来源与致谢](#credits) |
+
+<details>
+<summary>按主题浏览场景</summary>
+
+| | |
+|---|---|
+| [长程 Agent](#agent) | [监督、审查与评测](#quality) |
+| [路由与上下文](#routing) | [浏览器与桌面](#interaction) |
+| [邮件与客服](#business) | [文档与研究](#documents) |
+| [数据与开发工具](#data) | [游戏与创作](#creative) |
+| [自己搭工具](#building) | [更多实验与安全评测](#more-uses) |
+
+</details>
+
+[🆕 更新记录](docs/updates/README.md)
 
 <a id="showcase"></a>
-## 🎬 别人已经做出了什么
+## 🎬 演示
 
-点图片看原项目或视频。素材来自原作者，不是本仓库的复现结果。
+点图片看原项目、视频或图解。素材来自原作者，不是本仓库的复现结果。
 
 <table>
 <tr>
 <td width="50%" valign="top">
 <a href="https://github.com/browser-use/jev-ultrafast"><img src="https://raw.githubusercontent.com/browser-use/jev-ultrafast/1231850a0bf1a0c0341fe408ef1668dbbfdfac46/docs/demo.gif" width="100%" alt="浏览器自己选择下一步" /></a>
-<br /><b>🌐 浏览器自己选择下一步</b><br />
+<br /><b>🌐 浏览器自动化</b><br />
 <sub>Jev 选动作，浏览器工具点击和输入。</sub><br />
 <a href="https://github.com/browser-use/jev-ultrafast">原项目 / 演示 ↗</a>
 </td>
 <td width="50%" valign="top">
 <a href="https://github.com/thelau/jev-tetris"><img src="https://raw.githubusercontent.com/thelau/jev-tetris/9869b602965cf002afff766013f8c068846d36aa/docs/stills/states/3-decided-desktop.png" width="100%" alt="把决策概率画在俄罗斯方块上" /></a>
-<br /><b>🧱 把决策概率画在俄罗斯方块上</b><br />
+<br /><b>🧱 俄罗斯方块</b><br />
 <sub>代码枚举合法落点，Jev 给候选排序。</sub><br />
 <a href="https://github.com/thelau/jev-tetris">原项目 / 演示 ↗</a>
 </td>
@@ -38,20 +73,34 @@ Jev 负责选择、分类和评分，agent 负责提供上下文和执行。
 <tr>
 <td width="50%" valign="top">
 <a href="https://x.com/gokayfem/status/2101022590722810271"><img src="docs/media/whale-city.png" width="100%" alt="用决策维持一座鲸背城市" /></a>
-<br /><b>🐋 用决策维持一座鲸背城市</b><br />
+<br /><b>🐋 鲸背城市</b><br />
 <sub>Astra 设定世界，Jev 决策，H3 渲染。</sub><br />
 <a href="https://x.com/gokayfem/status/2101022590722810271">原项目 / 演示 ↗</a>
 </td>
 <td width="50%" valign="top">
 <a href="https://github.com/cocktailpeanut/jevthoven"><img src="docs/media/jevthoven.png" width="100%" alt="从音乐部件编排出多轨作品" /></a>
-<br /><b>🎹 从音乐部件编排出多轨作品</b><br />
+<br /><b>🎹 MIDI 作曲</b><br />
 <sub>Jev 选部件，代码渲染可编辑的 MIDI。</sub><br />
 <a href="https://github.com/cocktailpeanut/jevthoven">原项目 / 演示 ↗</a>
 </td>
 </tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://github.com/devagrawal09/jev-review"><img src="https://raw.githubusercontent.com/devagrawal09/jev-review/31f89602797fb7bea007f8a480bf368bf564954e/docs/dashboard.png" width="100%" alt="代码审查面板与风险热力图" /></a>
+<br /><b>🔎 代码审查</b><br />
+<sub>Jev 标记待复核的文件与证据。</sub><br />
+<a href="https://github.com/devagrawal09/jev-review">原项目 / 面板 ↗</a>
+</td>
+<td width="50%" valign="top">
+<a href="https://github.com/davila7/jev-explained"><img src="https://raw.githubusercontent.com/davila7/jev-explained/5cbe35e04609112be77b1bd447bd79b3bde7980b/docs/jev-primitives.png" width="100%" alt="原作者绘制的 Noul、Choice、Score 示意图" /></a>
+<br /><b>🎨 决策游乐场</b><br />
+<sub>学习判断、选择和评分；配图为作者示意图。</sub><br />
+<a href="https://github.com/davila7/jev-explained">原项目 / Playground ↗</a>
+</td>
+</tr>
 </table>
 
-[素材来源](docs/media/README.md) · 还可以看：[代码审查面板](https://github.com/devagrawal09/jev-review)、[语义 ⌘F](#sc-semantic-find)、[剧情监测](#sc-story-sensors)。
+[素材来源](docs/media/README.md) · 还可以看：[语义 ⌘F](#sc-semantic-find)、[剧情监测](#sc-story-sensors)。
 
 **9 月 20 日新收录：** 语义查找、赞助口播、剧情监测、MIDI 编排、本地模型对照。[调研记录 →](docs/updates/2026-09-20.md)
 
@@ -61,8 +110,12 @@ Jev 负责选择、分类和评分，agent 负责提供上下文和执行。
 把下面这段话发给 **Codex、Claude Code 或 OpenCode**：
 
 ```text
-帮我给当前 Agent 安装 Jev Skills，包括通用技能和全部场景技能。请读取并按照这份安装指南操作，完成后验证安装是否成功：
+帮我给当前 coding Agent 安装 Jev Skills，包括全部场景技能：
 https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md
+你来检查环境并完成安装，用 jev-setup 跟我确认：
+A：用我的 OpenRouter 或官方 TypeSafe 账号调用真实 Jev；B：由你模拟。
+等我选择；需要 key 时指导我在本地安全配置，不要让我发到聊天里。
+先完成离线验证，发送数据或付费调用前再征得我同意。
 ```
 
 Agent 会检查环境，默认安装到当前项目，并完成离线验证。
@@ -77,31 +130,36 @@ Agent 会检查环境，默认安装到当前项目，并完成离线验证。
 可以调用真实 Jev，也可以在你同意后，由当前 Agent 按相同标准模拟判断。
 
 <a id="no-key"></a>
-### 🔑 Setup：OpenRouter、官方 API，或者模拟
+### 🔑 和你的 Agent 完成设置
 
-直接告诉 Agent：**“用 jev-setup 检查可用方式，先不要做付费调用。”**
-它只检查 key 是否存在；切换模式或数据发送对象前先问你。
+**你的 coding Agent 负责 setup，你只需选方式、确认授权。**
+已经装好了？把下面这段话发到同一个 Codex、Claude Code 或 OpenCode 会话：
 
-| 你的情况 | 下一步 |
+```text
+用 jev-setup 给当前 coding Agent 配置 Jev。检查 key 是否存在，不要显示密钥。
+先跟我确认用哪种方式，等我选完再继续：
+A：真实 Jev——用我的 OpenRouter 账号，或者官方 TypeSafe 服务。
+B：由你模拟；只有我明确选择时，才使用 DeepSeek 等其他可用模型。
+技术步骤由你来完成。需要 key 时，指导我打开对应账号页面，在本地安全配置，
+不要让我把 key 发到聊天里。先做离线验证，告诉我哪些已完成、哪些还需要我操作。
+暂时不要做付费调用。
+```
+
+| 你告诉 Agent | Agent 接下来做什么 |
 |---|---|
-| 已经使用 OpenRouter | 到 [OpenRouter](https://openrouter.ai/settings/keys) 使用或申请 key，本地配置 `OPENROUTER_API_KEY`。 |
-| 不用 OpenRouter | 去 [TypeSafe 官方控制台](https://console.typesafe.ai)，本地配置 `TYPESAFE_API_KEY`，不必另开聚合平台账号。 |
-| 两边都没有，或不想申请 | 选 B：让当前 Agent，或你明确指定的可用模型（例如 DeepSeek）按提示词模拟。 |
+| “我有 OpenRouter。” | 检查 `OPENROUTER_API_KEY`；需要时指导你打开 [OpenRouter 密钥页](https://openrouter.ai/settings/keys)。 |
+| “我有／想用官方 Jev key。” | 使用 `TYPESAFE_API_KEY` 和 `--provider typesafe`，指导你使用 [TypeSafe 控制台](https://console.typesafe.ai)，不需要 OpenRouter 账号。 |
+| “我不想申请 key。” | 提供 B，等你确认后，由当前 Agent 模拟判断。 |
 
-> **A：真实 Jev。** 选 OpenRouter 或官方 TypeSafe，在本地配置对应 key，再确认要发送的数据与 API 用量。
->
-> **B：模拟。** 使用相同上下文、候选项和标准，让当前 Agent 或你明确选择的可用模型分类。
+你只需处理账号登录、私密输入 key 和必要授权，**不要在聊天中发送 key**。
+安装、命令和离线检查交给 Agent；离线验证不代表 key 已通过鉴权。
+Agent 不会擅自换服务商，也不会悄悄转为模拟。
 
-**必须先提醒、询问，等你选择；API 报错也不能擅自切换。**
-当前 Agent 模拟标记 `mode: agent_simulation`；另选模型标记 `mode: model_simulation`。
-两者都标记 `jev_called: false`，`probability` 和 `confidence` 都是 `null`。
-不会凭空提供 DeepSeek 账号或免费额度；使用你已有并同意的入口。
-[复制模拟提示词](skills/jev-setup/references/simulation.md)。
+模拟会标记 `agent_simulation`（另选模型则为 `model_simulation`）、
+`jev_called: false`，概率和置信度为 null；使用的是你已有的 Agent／模型入口，
+不是免费提供 Jev 或 DeepSeek 额度。
 
-`jev-decide setup` 只读检查，不联网、不登录、不保存密钥。
-`--dry-run` 只校验格式；真实调用有用量。不要把 key 发进聊天。
-真实接口分别用 `--provider openrouter` 或 `--provider typesafe`，不会自动兜底换服务。
-[完整 Setup 技能](skills/jev-setup/SKILL.md)。
+[给 Agent 的 Setup 指引](skills/jev-setup/SKILL.md) · [手动 key 配置与排错](docs/installation.md#official-native-key-no-openrouter-account-required)
 
 ### 先跑一个例子
 
@@ -214,6 +272,7 @@ jev-decide decide request.json > result.json
 上表中文是便于阅读的概述；下方请求保留调用时的英文。这些调用没有实际执行所选动作。
 Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2 这样的评分**不是概率**。
 
+<a id="context-tips"></a>
 ## ⚡ 用好 Jev，先记住两件事
 
 - **上下文给够。** 把目标、规则、原始证据、相关历史和候选项含义一起传进去。
@@ -226,6 +285,40 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 · [两条记录、六个问题的模板](skills/jev/assets/batch-triage.json)（合成输入，不是实测输出）。
 
 **9 月 21 日更新：** 项目导航、18 个补充场景、Setup 与安全评测技能。[收录与验证记录 →](docs/updates/2026-09-21-collection-setup.md)
+
+<a id="pitfalls"></a>
+## 🧯 避坑：多判断几次可以，但别把重复当证据
+
+**上下文要给足，不是越大越好；重复 judge 可以测稳定性，不保证提准。**
+[完整指南、诊断步骤与原始来源](skills/jev/references/pitfalls.md)。
+
+| 容易踩的坑 | 更实用的做法 |
+|---|---|
+| 同一输入重跑到出现满意答案 | 先约定次数和处理规则，保留每次返回；不同意就补证据或复核，不挑最高分 |
+| 三次一致就当作三份独立证据 | 分开测稳定性和对独立标签的准确率；同一个模型可能稳定地错 |
+| 只问“安全吗／完成了吗” | 同时问结果是否支持、证据是否齐全、是否满足具体规则；有依赖的问题下一轮再问 |
+| 为了快，只传最后一句或 agent 自己的结论 | 给目标、原始回执、关键历史、候选含义和缺失项 |
+| 把整个会话、仓库都塞进 state | 保留决定答案的上下文，过滤重复和无关材料；信息缺失不是靠堆字数补齐 |
+| 批量越大越划算 | 区分同一状态多问题与多条记录混在一起；用相同标注检查不同批量规模 |
+| 标签只有 `easy`、`hard` | 写清每个选项的适用条件、边界和 `unknown`，先改问法再考虑重跑 |
+| 0.9 就直接执行 | 区分选项概率、confidence 和 score；在自己的留出数据上校准，权限仍在宿主 |
+| 只测攻击，没测误报 | 加无害提及、引用、缺证据和矛盾样本；别让筛查悄悄挡掉正常流程 |
+| 有 key／dry-run 成功就是连通了 | 官方 key 配 `--provider typesafe`；只读检查不联网，真实鉴权需另行获准调用 |
+
+**社区教训值得看：** [pg-jev](skills/jev/references/pitfalls.md#batch) 作者发现大批量降低准确率，
+但“20 条”不是通用上限；[路由消融](skills/jev/references/pitfalls.md#questions)补充候选描述后改善，
+但标签是合成难度分档，不是实际模型能力测试；[@twid 的实战记录](https://x.com/twid/status/2101642632837366105)
+还提到规则误伤自己的 persona 和无害措辞。这些是外部报告，不是我们的复现。
+
+复制给 Agent：
+
+```text
+先检查 Jev 输入是否包含目标、相关原文、关键历史、真实工具回执和候选定义。
+把结果判断与证据是否充分分开问。不要为了大 context 加入无关内容。
+如果要重复 judge，先提出固定的小预算、次数和汇总规则，等我批准；保留所有返回。
+重复一致不当作正确率；用独立标签或真实结果复核，不确定就交给更强模型或人。
+沿用我选定的 key 和服务商，出错后不要擅自换接口或模拟。
+```
 
 <a id="projects"></a>
 ## 🧭 项目、App、评测与替代模型导航
@@ -2555,6 +2648,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 先展示方案，暂不启动 Agent 或访问目标。
 ```
 
+<a id="calibration"></a>
 ## 🎯 让概率真正有用
 
 “自动处理 / 强模型复核 / 交给人”是**可以定制的策略**，不是通用的 0.9/0.7 规则。
@@ -2573,6 +2667,7 @@ Jev 本身不浏览、不执行工具，也不生成自由文本。判断输入�
 - [此前的 5 个真实 API 示例](evals/results/examples-2026-09-20.json)：保留请求/响应，是冒烟回执，不是场景准确率测试。
 - [验证与复现说明](docs/validation.md)：分别记录打包检查、离线运行，以及尚未验证的宿主边界。
 
+<a id="credits"></a>
 ## 🔗 更多资料 · 致谢
 
 本合集参考了这些 awesome 项目的线索整理：

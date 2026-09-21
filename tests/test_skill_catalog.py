@@ -41,6 +41,24 @@ class SkillCatalogTests(unittest.TestCase):
             self.assertEqual(len(re.findall(r"^\| ", section, re.M)) - 1, 45)
             self.assertEqual(len(re.findall(r"^### \d+\.", text, re.M)), 108)
 
+    def test_overview_and_contents_precede_demos_and_install(self):
+        targets = ("install", "showcase", "pitfalls", "no-key", "projects",
+                   "context-tips", "usage", "catalog", "calibration", "io",
+                   "experiments", "credits", "agent", "quality", "routing",
+                   "interaction", "business", "documents", "data", "creative",
+                   "building", "more-uses")
+        for filename in ("README.md", "README.zh.md"):
+            text = (ROOT / filename).read_text()
+            positions = [text.index(f'<a id="{anchor}"></a>')
+                         for anchor in ("overview", "contents", "showcase", "install")]
+            self.assertEqual(positions, sorted(positions))
+            contents = text[positions[1]:positions[2]]
+            for anchor in targets:
+                self.assertIn(f"](#{anchor})", contents)
+                self.assertEqual(text.count(f'<a id="{anchor}"></a>'), 1)
+            self.assertIn("<details>", contents)
+            self.assertIn("docs/updates/README.md", contents)
+
     def test_agent_first_installation_entrypoint(self):
         guide_url = "https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md"
         for filename in ("README.md", "README.zh.md"):
@@ -68,7 +86,7 @@ class SkillCatalogTests(unittest.TestCase):
             text = (ROOT / filename).read_text()
             self.assertTrue('<a id="usage"></a>' in text, filename)
             usage = text.split('<a id="usage"></a>', 1)[1].split('<a id="io"></a>', 1)[0]
-            self.assertEqual(len(re.findall(r"```text\n", usage)), 3)
+            self.assertEqual(len(re.findall(r"```text\n", usage)), 4)
             for name in ("jev", *SCENARIOS):
                 self.assertIn(f"`{name}`", usage)
             for command in ("jev-decide decide request.json --dry-run",
@@ -199,11 +217,18 @@ class SkillCatalogTests(unittest.TestCase):
                 '<a id="install"></a>', 1
             )[0]
             previews = re.findall(r'<a href="https://[^"]+"><img src="([^"]+)"', gallery)
-            self.assertEqual(len(previews), 4)
+            self.assertEqual(len(previews), 6)
             for source in previews:
                 if not source.startswith("https://"):
                     self.assertTrue((ROOT / source).is_file(), source)
             self.assertIn("docs/media/README.md", gallery)
+            credits = (ROOT / "docs/media/README.md").read_text()
+            for repo, revision in (
+                ("devagrawal09/jev-review", "31f89602797fb7bea007f8a480bf368bf564954e"),
+                ("davila7/jev-explained", "5cbe35e04609112be77b1bd447bd79b3bde7980b"),
+            ):
+                self.assertIn(f"{repo}/{revision}/", gallery)
+                self.assertIn(f"{repo}/tree/{revision}", credits)
             self.assertIn("docs/updates/2026-09-20.md", gallery)
         self.assertTrue((ROOT / "docs/media/README.md").is_file())
         self.assertTrue((ROOT / "docs/updates/2026-09-20.md").is_file())

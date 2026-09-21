@@ -5,6 +5,12 @@ description: Set up Jev for an agent, choose OpenRouter or the official TypeSafe
 
 # Set up Jev
 
+This skill is run by the user's own coding agent, not a separate setup app.
+Handle environment inspection, installation checks and commands yourself; do not
+make the user run a terminal checklist. Ask them to confirm the service/simulation
+choice and handle private key entry or approvals. If the host is not identifiable,
+ask which coding agent and project to configure before writing files.
+
 Use the user's current host and existing account where possible. Setup is not a
 model call, account creation, provider switch or permission to spend.
 
@@ -62,18 +68,41 @@ A missing key is never a reason to collect a secret in chat or browser history.
 Let the user complete account/terms/payment steps; describe environment-variable
 names and ask them to configure their host locally. Do not edit shell profiles.
 
-Run `jev-decide setup` if already installed. Otherwise check environment presence
-with the host tools; the skill does not require Python just to offer choices.
-For A, ensure Python 3.10+ and the reviewed shared CLI are available, then:
+<a id="local-key-setup"></a>
+## Agent-side key setup
+
+The native TypeSafe route is already supported; it does not need an OpenRouter
+key or a Vercel account. Use **one** matching key/provider pair in the environment
+that launches the agent. The lines below contain placeholders, not real secrets;
+guide the user to enter their key through the host's local secret/environment settings. Avoid
+saving real keys in shell history, chat or tracked files.
 
 ```bash
+# Official TypeSafe: obtain the key at https://console.typesafe.ai
+export TYPESAFE_API_KEY="<your-TypeSafe-key>"
+jev-decide setup
 jev-decide decide /path/to/request.json --provider typesafe --dry-run
-# Only after approval for this input, destination and API usage:
+# Only after approval for this input and paid call:
 jev-decide decide /path/to/request.json --provider typesafe > result.json
 ```
 
-Replace `typesafe` with `openrouter` for that route. A dry run maps the known
-bundled model ID for direct TypeSafe; use `--model` for a deliberate override.
+```bash
+# Alternative: OpenRouter key from https://openrouter.ai/settings/keys
+export OPENROUTER_API_KEY="<your-OpenRouter-key>"
+jev-decide decide /path/to/request.json --provider openrouter --dry-run
+```
+
+Setting `TYPESAFE_API_KEY` does not select the provider: keep `--provider typesafe`
+on native calls even when both keys exist. This CLI does **not** auto-load `.env`.
+An already running desktop agent may need a restart to inherit its environment.
+Do not print variables to troubleshoot; check presence only. A present placeholder
+is still not a valid key. Neither `setup` nor `--dry-run` authenticates it.
+
+Run `jev-decide setup` if already installed. Otherwise check environment presence
+with the host tools; the skill does not require Python just to offer choices.
+For A, ensure Python 3.10+ and the reviewed shared CLI are available. Use the
+selected route above. A dry run maps the known bundled model ID for direct
+TypeSafe; use `--model` for a deliberate override.
 Report which mode/provider was selected, which prerequisite is missing, what was
 actually verified, and the next user action. Do not call an API merely to test a
 key. A 401/402/403 is not permission to retry or silently switch services.

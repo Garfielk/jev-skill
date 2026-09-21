@@ -5,18 +5,28 @@
 Copy this into Codex, Claude Code or OpenCode:
 
 ```text
-Install Jev Skills for my current agent, including the general skill and all scenario skills. Read and follow this installation guide, then verify the installation:
+Install Jev Skills for this coding agent, including all scenario skills:
 https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md
+Check my environment and handle the installation. Use jev-setup to confirm with me:
+A: real Jev via my OpenRouter or official TypeSafe account; B: simulation with this agent.
+Wait for my choice. Guide any key entry through local secret settings, never this chat.
+Verify offline first; ask before sending data or making a paid call.
 ```
 
 中文：
 
 ```text
-帮我给当前 Agent 安装 Jev Skills，包括通用技能和全部场景技能。请读取并按照这份安装指南操作，完成后验证安装是否成功：
+帮我给当前 coding Agent 安装 Jev Skills，包括全部场景技能：
 https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md
+你来检查环境并完成安装，用 jev-setup 跟我确认：
+A：用我的 OpenRouter 或官方 TypeSafe 账号调用真实 Jev；B：由你模拟。
+等我选择；需要 key 时指导我在本地安全配置，不要让我发到聊天里。
+先完成离线验证，发送数据或付费调用前再征得我同意。
 ```
 
-You do not need to run terminal commands yourself. The agent needs file access
+Use your own coding agent for this conversation; this repository does not supply
+a hosted agent or chat service. You do not need to run terminal commands yourself.
+The agent needs file access
 and permission to run installation commands. It may need your help with a missing
 runtime or a permission prompt. If there is no key, it must first ask you to
 choose **A: get a key** or **B: simulate with your current agent or another explicitly approved available model**.
@@ -39,7 +49,13 @@ MCP servers, hooks, security settings or unrelated skills. Do not install any
 linked community project. No Vercel account, gateway or Node/npm is needed for
 the direct-copy route below. Existing host approval requirements still apply.
 
-### 1. Check the environment
+### 1. Check the environment and confirm with the user
+
+You are the installer. Inspect the current host, carry out the technical steps,
+and explain the next choice in plain language. Do not hand the user a terminal
+checklist as the default workflow. Ask them only for information you cannot
+inspect, route/scope choices, private credential entry and required approvals.
+Key entry belongs in the host's local secret settings, not this conversation.
 
 - Identify the current host from the session, not merely from installed binaries.
 - Locate the actual project root and read any applicable local instructions.

@@ -2,35 +2,70 @@
 
 # ⚡ Awesome Jev Skills
 
-**Things to try. Skills to install. Ideas to make your own.**
+**Jev demos, workflows and skills for coding agents.**
 
 [![Skills](https://img.shields.io/badge/skills-11-7c3aed?style=flat-square)](#install) [![Scenarios](https://img.shields.io/badge/scenarios-108-0d9488?style=flat-square)](#catalog) [![Tests](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml/badge.svg)](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml) [![MIT](https://img.shields.io/badge/license-MIT-ea580c?style=flat-square)](LICENSE)
 
 [English](README.md) · [简体中文](README.zh.md)
 
-[🧭 Projects](#projects) · [🎬 Demos](#showcase) · [📦 Install](#install) · [🚀 How to use](#usage) · [🗂 All 108 scenarios](#catalog) · [🧪 Input → output](#io) · [🆕 Updates](docs/updates/README.md)
+[Overview](#overview) · [Contents](#contents) · [Install](#install)
 
 </div>
 
-Jev chooses, classifies and scores. Your agent supplies the context and does the work.
-Use it in an agent loop, or on your own inbox, documents and creative projects.
+<a id="overview"></a>
+## Overview
+
+Jev chooses, classifies and scores. Your coding agent supplies context and executes
+the next step. This collection helps you find a use case and try it:
+
+- **Explore:** 45 project and resource entries and 108 scenarios, from browser control to music.
+- **Install:** 11 skills for your own Codex, Claude Code or OpenCode agent.
+- **Adapt:** 14 recorded input/output examples, editable templates and evaluation notes.
+
+**New here?** [Give the install prompt to your agent](#install), confirm setup,
+then pick one example. You do not need to write commands or JSON yourself.
+
+<a id="contents"></a>
+## Table of contents
+
+| Get started | Explore | Go deeper |
+|---|---|---|
+| [📦 Install](#install) | [🎬 Demos](#showcase) | [🧯 Pitfalls](#pitfalls) |
+| [🔑 Agent setup](#no-key) | [🧭 Projects](#projects) | [⚡ Context & batching](#context-tips) |
+| [🚀 How to use](#usage) | [🗂 All scenarios](#catalog) | [🎯 Calibration](#calibration) |
+| [🧪 Input → output](#io) | [📊 Experiments](#experiments) | [🔗 Sources & credits](#credits) |
+
+<details>
+<summary>Browse scenarios by topic</summary>
+
+| | |
+|---|---|
+| [Long-running agents](#agent) | [Review & evaluation](#quality) |
+| [Routing & context](#routing) | [Browser & desktop](#interaction) |
+| [Inbox & support](#business) | [Documents & research](#documents) |
+| [Data & developer tools](#data) | [Games & creative tools](#creative) |
+| [Build your own](#building) | [More experiments & safety testing](#more-uses) |
+
+</details>
+
+[🆕 Update log](docs/updates/README.md)
 
 <a id="showcase"></a>
-## 🎬 See what people are building
+## 🎬 Demos
 
-Community demos, linked to their authors. These are not our test runs.
+Community demos and an illustrated guide. Click a preview for the original; these are not our test runs.
 
 <table>
 <tr>
 <td width="50%" valign="top">
 <a href="https://github.com/browser-use/jev-ultrafast"><img src="https://raw.githubusercontent.com/browser-use/jev-ultrafast/1231850a0bf1a0c0341fe408ef1668dbbfdfac46/docs/demo.gif" width="100%" alt="A browser that picks its next move" /></a>
-<br /><b>🌐 A browser that picks its next move</b><br />
+<br /><b>🌐 Browser automation</b><br />
 <sub>Jev selects; browser tools click and type.</sub><br />
 <a href="https://github.com/browser-use/jev-ultrafast">Original / demo ↗</a>
 </td>
 <td width="50%" valign="top">
 <a href="https://github.com/thelau/jev-tetris"><img src="https://raw.githubusercontent.com/thelau/jev-tetris/9869b602965cf002afff766013f8c068846d36aa/docs/stills/states/3-decided-desktop.png" width="100%" alt="Tetris you can read as probabilities" /></a>
-<br /><b>🧱 Tetris you can read as probabilities</b><br />
+<br /><b>🧱 Tetris</b><br />
 <sub>Code enumerates placements; Jev ranks them.</sub><br />
 <a href="https://github.com/thelau/jev-tetris">Original / demo ↗</a>
 </td>
@@ -38,20 +73,34 @@ Community demos, linked to their authors. These are not our test runs.
 <tr>
 <td width="50%" valign="top">
 <a href="https://x.com/gokayfem/status/2101022590722810271"><img src="docs/media/whale-city.png" width="100%" alt="A city on a whale, driven by decisions" /></a>
-<br /><b>🐋 A city on a whale, driven by decisions</b><br />
+<br /><b>🐋 Whale city</b><br />
 <sub>Astra builds the world; Jev acts; H3 renders.</sub><br />
 <a href="https://x.com/gokayfem/status/2101022590722810271">Original / demo ↗</a>
 </td>
 <td width="50%" valign="top">
 <a href="https://github.com/cocktailpeanut/jevthoven"><img src="docs/media/jevthoven.png" width="100%" alt="Music assembled from musical choices" /></a>
-<br /><b>🎹 Music assembled from musical choices</b><br />
+<br /><b>🎹 MIDI composer</b><br />
 <sub>Jev picks parts; code renders editable MIDI.</sub><br />
 <a href="https://github.com/cocktailpeanut/jevthoven">Original / demo ↗</a>
 </td>
 </tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://github.com/devagrawal09/jev-review"><img src="https://raw.githubusercontent.com/devagrawal09/jev-review/31f89602797fb7bea007f8a480bf368bf564954e/docs/dashboard.png" width="100%" alt="Code-review dashboard with a risk heatmap" /></a>
+<br /><b>🔎 Code review</b><br />
+<sub>Jev flags files and evidence for review.</sub><br />
+<a href="https://github.com/devagrawal09/jev-review">Original dashboard ↗</a>
+</td>
+<td width="50%" valign="top">
+<a href="https://github.com/davila7/jev-explained"><img src="https://raw.githubusercontent.com/davila7/jev-explained/5cbe35e04609112be77b1bd447bd79b3bde7980b/docs/jev-primitives.png" width="100%" alt="Author illustration of Noul, Choice and Score" /></a>
+<br /><b>🎨 Decision playground</b><br />
+<sub>Learn yes/no, choice and scoring; author illustration.</sub><br />
+<a href="https://github.com/davila7/jev-explained">Original / playground ↗</a>
+</td>
+</tr>
 </table>
 
-[Media credits](docs/media/README.md) · Also explore [code-review dashboards](https://github.com/devagrawal09/jev-review), [semantic ⌘F](#sc-semantic-find) and [story sensors](#sc-story-sensors).
+[Media credits](docs/media/README.md) · Also explore [semantic ⌘F](#sc-semantic-find) and [story sensors](#sc-story-sensors).
 
 **September 20:** added semantic find, sponsor segments, story sensors, MIDI composition and local-model comparisons. [Research notes →](docs/updates/2026-09-20.md)
 
@@ -61,8 +110,12 @@ Community demos, linked to their authors. These are not our test runs.
 Paste this into **Codex, Claude Code or OpenCode**:
 
 ```text
-Install Jev Skills for my current agent, including the general skill and all scenario skills. Read and follow this installation guide, then verify the installation:
+Install Jev Skills for this coding agent, including all scenario skills:
 https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md
+Check my environment and handle the installation. Use jev-setup to confirm with me:
+A: real Jev via my OpenRouter or official TypeSafe account; B: simulation with this agent.
+Wait for my choice. Guide any key entry through local secret settings, never this chat.
+Verify offline first; ask before sending data or making a paid call.
 ```
 
 Your agent checks the environment, installs into the current project by default,
@@ -78,31 +131,36 @@ No Vercel account is needed; Node/npm is not required by the default install rou
 need; you do not have to write JSON. Use real Jev through either supported provider, or an approved agent/model simulation.
 
 <a id="no-key"></a>
-### 🔑 Setup: OpenRouter, official API, or simulation
+### 🔑 Set up with your agent
 
-Tell your agent: **“Use jev-setup to check which route is available; do not make a paid call yet.”**
-The agent checks key presence only and asks before changing mode or destination.
+**Your coding agent handles setup. You choose the route and approve access.**
+Already installed? Copy this into the same Codex, Claude Code or OpenCode session:
 
-| Your situation | Next step |
+```text
+Use jev-setup to configure Jev for this coding agent. Check which keys are present,
+without displaying them. Confirm my choice before continuing:
+A: real Jev — use my OpenRouter account, or the official TypeSafe service.
+B: simulate with you; use another available model such as DeepSeek only if I choose it.
+Handle the technical steps. If I need a key, guide me to the right account page
+and local secret settings; never ask me to paste it here. Verify offline first.
+Tell me what is ready and what still needs my action. Do not make a paid call yet.
+```
+
+| Tell your agent | What happens next |
 |---|---|
-| Already use OpenRouter | Use/get a key at [OpenRouter](https://openrouter.ai/settings/keys); set `OPENROUTER_API_KEY` locally. |
-| Do not use OpenRouter | Use the [official TypeSafe console](https://console.typesafe.ai); set `TYPESAFE_API_KEY` locally. No aggregator account required. |
-| Neither key, or no wish to apply | Choose B: current-agent or explicitly selected available-model simulation, including DeepSeek. |
+| “I use OpenRouter.” | It checks `OPENROUTER_API_KEY` and guides you to [OpenRouter's key page](https://openrouter.ai/settings/keys) if needed. |
+| “I have / want an official Jev key.” | It uses `TYPESAFE_API_KEY` with `--provider typesafe` and the [TypeSafe console](https://console.typesafe.ai). No OpenRouter account needed. |
+| “I don't want to apply for a key.” | It offers B, waits for your confirmation, then uses this agent to simulate. |
 
-> **A: Real Jev.** Choose OpenRouter or TypeSafe, configure the matching key locally, then approve the input and API usage.
->
-> **B: Simulate.** Use the same context, candidates and criteria with your current agent or an available model you explicitly choose.
+You only handle account sign-in, private key entry and approvals. **Do not send a key
+in chat.** The agent performs installation and offline checks; those checks do not
+prove a key is valid. It never switches provider or simulation mode silently.
 
-**The agent must warn, ask and wait.** An API error is not permission to switch.
-Current-agent results say `mode: agent_simulation`; a separately selected model
-says `mode: model_simulation`. Both say `jev_called: false`, with `probability`
-and `confidence` set to `null`. DeepSeek access/costs are not magically provided;
-use an existing approved interface. [Copyable simulation prompt](skills/jev-setup/references/simulation.md).
+Simulation is labeled `agent_simulation` (or `model_simulation` for a model you
+select), with `jev_called: false` and null probability/confidence. It uses your
+existing agent/model access, not free Jev or DeepSeek credits.
 
-`jev-decide setup` is read-only: no network, login or credential storage.
-`--dry-run` validates input only. Real calls incur usage. Do not paste keys in chat.
-Use `--provider openrouter` or `--provider typesafe`; there is no automatic fallback.
-[Full setup skill](skills/jev-setup/SKILL.md).
+[Agent setup instructions](skills/jev-setup/SKILL.md) · [Manual key setup and troubleshooting](docs/installation.md#official-native-key-no-openrouter-account-required)
 
 ### Try one example
 
@@ -227,6 +285,7 @@ remain in their original English. These calls did not execute the chosen actions
 For Noul, `probability` means **P(true)** even when `value` is false; a rubric score
 such as 1.29/2 is **not** a probability.
 
+<a id="context-tips"></a>
 ## ⚡ Two habits that make Jev useful
 
 - **Give it enough context.** Include the goal, rules, source evidence, relevant
@@ -242,6 +301,46 @@ The general skill and all scenario skills teach these rules. [Context and throug
 · [Two-record, six-question template](skills/jev/assets/batch-triage.json) (synthetic, not a measured result).
 
 **September 21:** project directory, 18 additional scenarios, setup and safety-evaluation skills. [Intake and validation →](docs/updates/2026-09-21-collection-setup.md)
+
+<a id="pitfalls"></a>
+## 🧯 Pitfalls: repeat judgments, not mistakes
+
+**Supply enough context, not the largest context. Repeated judging measures
+stability; it does not guarantee accuracy.**
+[Full guide, diagnostic protocol and original sources](skills/jev/references/pitfalls.md).
+
+| Common trap | Better approach |
+|---|---|
+| Rerun until the answer looks right | Set a budget/rule first; keep every answer, not just the highest probability |
+| Treat three agreeing calls as independent evidence | Measure repeatability separately from accuracy against independent labels |
+| One vague “safe and done?” question | Separate outcome, evidence sufficiency and specific rules; sequence dependent checks |
+| Send only the last sentence or the agent's conclusion | Include goal, source receipts, decisive history, candidate meanings and gaps |
+| Paste the entire conversation/repository | Preserve decisive evidence; filter irrelevant and duplicated material |
+| Maximize records per request | Distinguish shared-state questions from mixed-record batches; compare labeled batch sizes |
+| Supply only `easy` / `hard` labels | Describe conditions, boundaries and an unknown option before trying more calls |
+| Execute whenever a number exceeds 0.9 | Distinguish probability, confidence and score; calibrate locally and retain host permissions |
+| Test attacks but not false alarms | Include benign mentions, quotations, missing evidence and contradictions |
+| A key or successful dry-run means connected | Native keys need `--provider typesafe`; offline checks do not authenticate |
+
+**Useful community lessons:** [pg-jev](skills/jev/references/pitfalls.md#batch)
+reports a large-batch quality drop, not a universal 20-row limit.
+[A router ablation](skills/jev/references/pitfalls.md#questions) improves with
+option descriptions, but its labels are designed difficulty tiers, not measured
+model capabilities. [@twid's practitioner report](https://x.com/twid/status/2101642632837366105)
+describes false alarms on a bot persona and harmless wording. These are external
+reports, not our reproductions.
+
+Copy to your agent:
+
+```text
+Check that Jev receives the goal, relevant sources, decisive history, actual tool
+receipts and candidate definitions. Ask outcome and evidence sufficiency separately.
+Do not add unrelated text just to enlarge context. If repeated judging would help,
+propose a fixed small budget, repeat count and aggregation rule, then wait for approval.
+Keep every answer. Check accuracy against independent labels or actual outcomes;
+agreement alone is not correctness. Escalate uncertainty rather than retrying for approval.
+Keep my selected provider and key; do not silently switch services or simulate.
+```
 
 <a id="projects"></a>
 ## 🧭 Projects, apps, reports & alternatives
@@ -2629,6 +2728,7 @@ histories and a shared budget. Show the plan first; do not spawn agents or run t
 yet.
 ```
 
+<a id="calibration"></a>
 ## 🎯 Make probabilities useful
 
 “Auto-handle / stronger model / person” is a **customizable policy**, not a universal
@@ -2649,6 +2749,7 @@ Data sent for judgment goes to your selected service; use synthetic data first.
 - [Five earlier live API examples](evals/results/examples-2026-09-20.json): request/response smoke receipts, not scenario-level accuracy tests.
 - [Validation and reproduction](docs/validation.md): package checks, dry runs and untested host boundaries are recorded separately.
 
+<a id="credits"></a>
 ## 🔗 More to explore · Credits
 
 This collection builds on discovery work from
