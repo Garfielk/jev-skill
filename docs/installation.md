@@ -1,5 +1,8 @@
 # Manual installation and host compatibility
 
+**Already installed?** Give your agent the [update prompt](update.md) to refresh
+skills and the existing CLI without changing your setup choices.
+
 **Prefer to let your agent install it?** Copy the prompt from the
 [agent installation guide](install.md). The direct-copy route needs no Node/npm.
 The commands below are optional manual alternatives, not steps every user must run.

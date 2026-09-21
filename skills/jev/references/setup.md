@@ -9,6 +9,13 @@ ask which coding agent and project to configure before writing files.
 Use the user's current host and existing account where possible. Setup is not a
 model call, account creation, provider switch or permission to spend.
 
+## Updating an existing installation
+
+When the user asks to update, follow the [agent update guide](https://github.com/wuyoscar/jev-skill/blob/main/docs/update.md).
+Update the installed skill files as well as any separate CLI; preserve the chosen
+source channel, local edits and provider/simulation mode. Do not run setup again
+to silently replace those choices. Verify offline; updating does not authorize API calls.
+
 ## Setup: choose the service or simulation
 
 Check only the presence of `OPENROUTER_API_KEY` and `TYPESAFE_API_KEY`; never
