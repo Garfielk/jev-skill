@@ -43,8 +43,8 @@ asks before changing that choice. **Updating the CLI alone does not update skill
   replacement; do not call the target verified.
 
 **Current release boundary:** published **v0.2.0 has eleven entry points**; the
-six-entry collection on main is a source preview, not a newer published release.
-For a deliberate eleven-to-six update, use [the migration map](skill-migration.md).
+five-entry collection on main is a source preview, not a newer published release.
+For a deliberate eleven-to-five update, use [the migration map](skill-migration.md).
 For a pinned v0.2.0 install, “already at your selected version” is a valid outcome.
 After future releases, use the actual target's catalog and instructions rather than
 assuming a fixed number of skills. Do not reintroduce retired aliases.
@@ -97,7 +97,7 @@ Keep backups until the new installation has been verified.
 ### 4. Verify the installed result and report
 
 Run the selected target's offline installation checks **against the installed
-copies**, not just the checkout. For the six-entry collection, follow
+copies**, not just the checkout. For the five-entry collection, follow
 [installation verification](install.md#5-verify-installed-copies-not-only-the-source):
 check discoverable names/subset, local references, bundled examples with
 `--dry-run`, and the installed CLI's help/setup when applicable. Use the chosen

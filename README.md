@@ -4,98 +4,77 @@
 
 **Jev demos, workflows and skills for coding agents.**
 
-[![Skills](https://img.shields.io/badge/skills-6-7c3aed?style=flat-square)](#install) [![Scenarios](https://img.shields.io/badge/scenarios-108-0d9488?style=flat-square)](#catalog) [![Tests](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml/badge.svg)](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml) [![MIT](https://img.shields.io/badge/license-MIT-ea580c?style=flat-square)](LICENSE)
+[![Skills](https://img.shields.io/badge/skills-5-7c3aed?style=flat-square)](#install) [![Scenarios](https://img.shields.io/badge/scenarios-108-0d9488?style=flat-square)](#catalog) [![Tests](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml/badge.svg)](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml) [![MIT](https://img.shields.io/badge/license-MIT-ea580c?style=flat-square)](LICENSE)
 
 [English](README.md) · [简体中文](README.zh.md)
 
-[Overview](#overview) · [Contents](#contents) · [Install](#install)
+[Projects](#projects) · [Skills](#skills) · [Examples](#catalog)
 
 </div>
 
 <a id="overview"></a>
-## Overview
-
-Jev chooses, classifies and scores. Your coding agent supplies context and executes
-the next step. This collection helps you find a use case and try it:
-
-- **Explore:** 45 project and resource entries and 108 scenarios, from browser control to music.
-- **Install:** 6 skills for your own Codex, Claude Code or OpenCode agent.
-- **Adapt:** 14 recorded input/output examples, editable templates and evaluation notes.
-
-**New here?** [Give the install prompt to your agent](#install), confirm setup,
-then pick one example. You do not need to write commands or JSON yourself.
+Jev chooses, classifies and scores. Your agent supplies evidence and takes action.
+Browse **57 projects and resources, 5 skills and 108 scenarios**, with 14 recorded input/output pairs.
 
 <a id="contents"></a>
-## Table of contents
-
-| Get started | Explore | Go deeper |
+| [Projects](#projects) | [Skills](#skills) | [Examples](#catalog) |
 |---|---|---|
-| [📦 Install](#install) · [🔄 Update](#update) | [🎬 Demos](#showcase) | [🧯 Pitfalls](#pitfalls) |
-| [🔑 Agent setup](#no-key) | [🧭 Projects](#projects) | [⚡ Context & batching](#context-tips) |
-| [🚀 How to use](#usage) | [🗂 All scenarios](#catalog) | [🎯 Calibration](#calibration) |
-| [🧪 Input → output](#io) | [📊 Experiments](#experiments) | [🔗 Sources & credits](#credits) |
+| See demos, apps and local models | Install and pick a skill | Find a task, edit a template, see the output |
 
-<details>
-<summary>Browse scenarios by topic</summary>
+New here? [Give the install prompt to your agent](#install). Already installed? [Ask it to update](#update).
+[Update log](docs/updates/README.md)
 
-| | |
-|---|---|
-| [Long-running agents](#agent) | [Review & evaluation](#quality) |
-| [Routing & context](#routing) | [Browser & desktop](#interaction) |
-| [Inbox & support](#business) | [Documents & research](#documents) |
-| [Data & developer tools](#data) | [Games & creative tools](#creative) |
-| [Build your own](#building) | [More experiments & safety testing](#more-uses) |
+<a id="projects"></a>
+## Projects
 
-</details>
-
-[🆕 Update log](docs/updates/README.md)
+Community projects, separate from our skills. Listed does not mean installed or tested. Alternatives are not official Jev and are not connected automatically.
 
 <a id="showcase"></a>
-## 🎬 Demos
+### Demos
 
 Community demos and an illustrated guide. Click a preview for the original; these are not our test runs.
 
 <table>
 <tr>
 <td width="50%" valign="top">
-<a href="https://github.com/browser-use/jev-ultrafast"><img src="https://raw.githubusercontent.com/browser-use/jev-ultrafast/1231850a0bf1a0c0341fe408ef1668dbbfdfac46/docs/demo.gif" width="100%" alt="A browser that picks its next move" /></a>
-<br /><b>🌐 Browser automation</b><br />
-<sub>Jev selects; browser tools click and type.</sub><br />
-<a href="https://github.com/browser-use/jev-ultrafast">Original / demo ↗</a>
+<a href="https://github.com/browser-use/jev-ultrafast"><img src="docs/media/browser-preview.gif" width="100%" alt="A browser that picks its next move" /></a>
+<br /><b>🌐 Browser</b><br />
+<sub>Jev picks browser steps.</sub><br />
+<a href="https://github.com/browser-use/jev-ultrafast">View project ↗</a>
 </td>
 <td width="50%" valign="top">
-<a href="https://github.com/thelau/jev-tetris"><img src="https://raw.githubusercontent.com/thelau/jev-tetris/9869b602965cf002afff766013f8c068846d36aa/docs/stills/states/3-decided-desktop.png" width="100%" alt="Tetris you can read as probabilities" /></a>
+<a href="https://github.com/thelau/jev-tetris"><img src="docs/media/tetris-preview.png" width="100%" alt="Tetris you can read as probabilities" /></a>
 <br /><b>🧱 Tetris</b><br />
-<sub>Code enumerates placements; Jev ranks them.</sub><br />
-<a href="https://github.com/thelau/jev-tetris">Original / demo ↗</a>
+<sub>Code lists legal moves.</sub><br />
+<a href="https://github.com/thelau/jev-tetris">View project ↗</a>
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
-<a href="https://x.com/gokayfem/status/2101022590722810271"><img src="docs/media/whale-city.png" width="100%" alt="A city on a whale, driven by decisions" /></a>
+<a href="https://x.com/gokayfem/status/2101022590722810271"><img src="docs/media/whale-preview.png" width="100%" alt="A city on a whale, driven by decisions" /></a>
 <br /><b>🐋 Whale city</b><br />
-<sub>Astra builds the world; Jev acts; H3 renders.</sub><br />
-<a href="https://x.com/gokayfem/status/2101022590722810271">Original / demo ↗</a>
+<sub>Jev runs a small world.</sub><br />
+<a href="https://x.com/gokayfem/status/2101022590722810271">View project ↗</a>
 </td>
 <td width="50%" valign="top">
-<a href="https://github.com/cocktailpeanut/jevthoven"><img src="docs/media/jevthoven.png" width="100%" alt="Music assembled from musical choices" /></a>
-<br /><b>🎹 MIDI composer</b><br />
-<sub>Jev picks parts; code renders editable MIDI.</sub><br />
-<a href="https://github.com/cocktailpeanut/jevthoven">Original / demo ↗</a>
+<a href="https://github.com/cocktailpeanut/jevthoven"><img src="docs/media/music-preview.png" width="100%" alt="Music assembled from musical choices" /></a>
+<br /><b>🎹 Music</b><br />
+<sub>Jev picks music parts.</sub><br />
+<a href="https://github.com/cocktailpeanut/jevthoven">View project ↗</a>
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
-<a href="https://github.com/devagrawal09/jev-review"><img src="https://raw.githubusercontent.com/devagrawal09/jev-review/31f89602797fb7bea007f8a480bf368bf564954e/docs/dashboard.png" width="100%" alt="Code-review dashboard with a risk heatmap" /></a>
+<a href="https://github.com/devagrawal09/jev-review"><img src="docs/media/review-preview.png" width="100%" alt="Code-review dashboard summary" /></a>
 <br /><b>🔎 Code review</b><br />
-<sub>Jev flags files and evidence for review.</sub><br />
-<a href="https://github.com/devagrawal09/jev-review">Original dashboard ↗</a>
+<sub>Jev flags code to check.</sub><br />
+<a href="https://github.com/devagrawal09/jev-review">View project ↗</a>
 </td>
 <td width="50%" valign="top">
-<a href="https://github.com/davila7/jev-explained"><img src="https://raw.githubusercontent.com/davila7/jev-explained/5cbe35e04609112be77b1bd447bd79b3bde7980b/docs/jev-primitives.png" width="100%" alt="Author illustration of Noul, Choice and Score" /></a>
-<br /><b>🎨 Decision playground</b><br />
-<sub>Learn yes/no, choice and scoring; author illustration.</sub><br />
-<a href="https://github.com/davila7/jev-explained">Original / playground ↗</a>
+<a href="https://github.com/davila7/jev-explained"><img src="docs/media/primitives-preview.png" width="100%" alt="Author illustration of Noul, Choice and Score" /></a>
+<br /><b>🎨 Learn Jev</b><br />
+<sub>Three ways to ask Jev.</sub><br />
+<a href="https://github.com/davila7/jev-explained">View project ↗</a>
 </td>
 </tr>
 </table>
@@ -104,10 +83,124 @@ Community demos and an illustrated guide. Click a preview for the original; thes
 
 **September 20:** added semantic find, sponsor segments, story sensors, MIDI composition and local-model comparisons. [Research notes →](docs/updates/2026-09-20.md)
 
-<a id="install"></a>
-## 📦 Install: give this to your agent
+### Apps
 
-> **The six-entry collection is a source preview, not a new release.** Published v0.2.0 still has 11 entry points. [Installation and upgrade](docs/install.md) · [Old-to-new names](docs/skill-migration.md)
+| Type | Project | What it does | Source |
+|---|---|---|---|
+| Browser | [Jev Ultrafast](https://github.com/browser-use/jev-ultrafast) | DOM actions; a small LLM handles typing | README |
+| Browser | [WebMCP / WindTunnel](https://github.com/nekuda-ai/WindTunnel) | Website-tool selection and a published browser benchmark | Report |
+| Browser | [Stagehand + Jev](https://x.com/kylejeong/status/2101046888468553855) | Jev inside act / observe / extract primitives | Author post |
+| Browser | [Jev Browser Use](https://github.com/wy-coliney/jev-browser-use) | Codex owns typing and verification; Jev picks controls | README |
+| Desktop | [Jev Desktop](https://github.com/yikangy873-gif/jev-desktop) | Bounded controls in an existing Codex CUA runtime | README |
+| Agent | [Jev Codex Router](https://github.com/0xNatoshi/jev-codex-router) | Recommend a model tier per turn; inspect shadow mode | README |
+| Context | [winnow](https://github.com/GhalebDweikat/winnow) | Recoverable tool-output filtering and recall stubs | README |
+| Review | [Jev Review](https://github.com/devagrawal09/jev-review) | Staged code-review judgments and dashboard | README |
+| Search | [Blink (ellipsis-dev)](https://github.com/ellipsis-dev/blink) | Explore repository file/folder names, not full review | README |
+| Context | [fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction) | Select history to retain; inspect cache and deletion risks | README |
+| Context | [compact-adviser](https://github.com/kunchenguid/compact-adviser) | Judge when to compact, not what to delete | README |
+| Agent | [pi-warden](https://github.com/DevMortimer/pi-warden) | Check drift, loops and unsupported done claims | README |
+| Security | [jev-shield (caiovicentino)](https://github.com/caiovicentino/jev-shield) | MCP screening signal; not a security boundary | README |
+| Data | [pg-jev](https://github.com/realZachi/pg-jev) | Semantic SQL extension; requires plpython3u/superuser | README |
+| Data | [jevql](https://github.com/kylemclaren/jevql) | CLI semantic evaluation plus ordinary Postgres queries | README |
+| Research | [1kpapers](https://www.1kpapers.com/) | Paper explorer: generation for summaries, Jev for topics | Directory |
+| Inbox | [500 / 1,500-email demos](https://madewithjev.com/builds/inbox-triage-1500-emails) | Batch inbox labels; throughput does not prove accuracy | Directory |
+| Content | [724-ad teardown](https://x.com/TheMattBerman/status/2100654891756589230) | Multiple dimensions per ad, then aggregate a comparison | Author post |
+| Content | [SuperX draft scoring](https://x.com/robj3d3/status/2100722975645598191) | Rubric-based draft review; not a virality guarantee | Directory |
+| Video | [Sponsor Skipper](https://github.com/trungdq88/youtube-sponsor-detection) | Transcript windows to sponsor timestamps | README |
+| UI | [jev-ui (etweisberg)](https://github.com/etweisberg/jev-ui) | Choose predefined React views and optional affordances | README |
+| Music | [Jevthoven](https://github.com/cocktailpeanut/jevthoven) | Select music parts; code produces editable MIDI | README |
+| Game | [Jev Tetris](https://github.com/thelau/jev-tetris) | Legal placements with a useful simple-baseline comparison | README |
+| Game | [typesafe-mario](https://github.com/fhshaik/typesafe-mario) | Choose controls from structured emulator state | README |
+| Language | [Probably](https://x.com/southpolesteve/status/2100767781868150938) | Toy semantic control flow; bound every loop | Author post |
+| Demo | [Doom & Wikiracing](https://typesafe.ai/blog/introducing-system-one-models-and-jev) | Watch the official game demos; no standalone repo linked on this page. | Author demo |
+
+### Local models
+
+| Type | Project | What it does | Source |
+|---|---|---|---|
+| Alternative | [OpenJev (DiffusionGemma)](https://github.com/razorback16/openjev) | Different open model with a typed-decision server | Other model |
+| Alternative | [OpenJev SGLang](https://github.com/ekzhang/openjev-sglang) | Prefill/logit-based decisions using open models | Other model |
+| Alternative | [Jevify](https://github.com/fidecastro/jevify) | Local-model adapter; compare the same held-out cases | Other model |
+| Alternative | [jevlike](https://github.com/vinnylarouge/jevlike) | Train a small option scorer; includes Doom and chess examples. | README |
+| Alternative | [Jev on a laptop](https://github.com/rorshopping/jev-on-a-laptop) | Try local typed decisions and compare models on Apple Silicon. | Report |
+| Alternative | [Qwen-2.5-1B-RLCD](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD) | MLX parallel decision engine; this snapshot contains no weight files. | Model card |
+| Alternative | [SemIf](https://github.com/TheoLeeCJ/SemIf) | Score choices with open models; formerly OpenJev. | README |
+| Alternative | [LitJev](https://github.com/zhengxuyu/litjev) | Read choice scores from Qwen models without training. | README |
+| Alternative | [Laya](https://huggingface.co/convaiinnovations/laya) | ModernBERT-based model for Choice, Score and Noul. | Model card |
+| Alternative | [LFM2.5-350M-RLCD](https://huggingface.co/notnotsamuel/LFM2.5-350M-RLCD) | Small Liquid-model decision variant; check its model license. | Model card |
+| Alternative | [LFM2.5-2.6B-RLCD](https://huggingface.co/monotykamary/LFM2.5-2.6B-RLCD) | Larger Liquid-model decision variant; check its model license. | Model card |
+| Alternative | [Verdict / rlcd-modernbert-151m](https://github.com/Heman10x-NGU/Verdict-open-jev) | ModernBERT decision model with evaluation and browser examples. | README |
+
+### Tools & resources
+
+| Type | Project | What it does | Source |
+|---|---|---|---|
+| MCP | [TypeSafe MCP](https://github.com/itsmostafa/typesafe-mcp) | Generic evaluate tool; TypeSafe or OpenRouter | README |
+| MCP | [Jev MCP (jkudish)](https://github.com/jkudish/jev-mcp) | Named classify, rerank, review and gate tools | README |
+| CLI | [SemDecide](https://github.com/sharziki/semdecide) | Semantic predicates and JSONL shell pipelines | README |
+| Skills | [jev-skill-gate](https://github.com/ShivamPansuriya/jev-skill-gate) | Select relevant skills; check what becomes hidden | README |
+| Cascade | [Jev + Kimi fraud experiment](https://madewithjev.com/) | Fast screening, then review uncertain email cases | Directory |
+| Learn | [TypeSafe AI Playground](https://github.com/TypeSafeAI/typesafe-playground) | Community playground; distinguish mock and live | README |
+| Learn | [Jev Explained](https://github.com/davila7/jev-explained) | Small examples to modify with an agent | README |
+| Report | [jev-evaluation](https://github.com/willkelly/jev-evaluation) | Adversarial cases, calibration and batching experiments | Report |
+| Report | [PrimeLine comparison](https://primeline.cc/blog/typesafe-jev-pre-registered-test) | Task-dependent results with important labeling caveats | Report |
+| Report | [LangChain Jev-as-a-Judge](https://www.langchain.com/blog/jev-agent-evals-langsmith) | Judge consistency, quality, latency and cost | Report |
+| Methods | [HarmBench](https://github.com/centerforaisafety/HarmBench) | Separate test generation, target completion and scoring | Method |
+| Methods | [PAIR](https://github.com/patrickrchao/JailbreakingLLMs) | Authorized iterative red-team methodology, not a Jev app | Method |
+| Methods | [AgentDojo](https://github.com/ethz-spylab/agentdojo) | Agent injection evaluation with task outcomes | Method |
+| Directory | [Made with Jev](https://madewithjev.com/) | Projects, apps, articles and author-reported demonstrations | Directory |
+| Directory | [Awesome Jev (kraayenjon)](https://github.com/kraayenjon/awesome-jev) | Companion list of projects and implementation patterns | README |
+| Directory | [Awesome Jev (Anil-matcha)](https://github.com/Anil-matcha/awesome-jev-by-typesafe) | More projects and community discovery | Directory |
+| Directory | [LINUX DO / QianCheng](https://linux.do/t/topic/2919004) | 39-use-case roundup with original-post links | Roundup |
+| Resource | [Awesome Jev (OmniJev)](https://github.com/OmniJev/awesome-jev-gallery) | Browse open models, projects and independent evaluations. | Directory |
+| Resource | [prompt2jev](https://github.com/sumleo/prompt2jev) | Turn a prompt into typed questions and calling code. | README |
+
+[New project checks](skills/jev/references/intake-2026-09-22.md) · [Earlier sources](skills/jev/references/ecosystem.md)
+
+<details>
+<summary>More sources and credits</summary>
+
+<a id="credits"></a>
+### More sources
+
+This collection builds on discovery work from
+[Anil-matcha/awesome-jev-by-typesafe](https://github.com/Anil-matcha/awesome-jev-by-typesafe),
+[cobanov/awesome-jev](https://github.com/cobanov/awesome-jev),
+[yibie/awesome-jev](https://github.com/yibie/awesome-jev),
+[yzfly/awesome-jev-zh](https://github.com/yzfly/awesome-jev-zh),
+[hellogumbo/awesome-jev](https://github.com/hellogumbo/awesome-jev) and
+[logicrw/awesome-jev-projects](https://github.com/logicrw/awesome-jev-projects).
+
+Go deeper: [pinned project research](skills/jev/references/ecosystem.md) ·
+[Reddit, GitHub and other field reports](skills/jev/references/community.md) ·
+[29 supplied X posts and follow-up checks](skills/jev/references/x-intake-2026-09-20.md) ·
+[56 agent/human recipes](skills/jev/references/index.md).
+
+Inspired also by the [official Jev skill](https://docs.typesafe.ai/agent-skill).
+
+Special thanks to [LINUX DO](https://linux.do/?tl=en).
+
+[MIT](LICENSE); linked projects retain their own licenses.
+
+</details>
+
+<a id="skills"></a>
+## Skills
+
+Each skill does one kind of job. Read its short entry, then one guide or template. You do not need the whole README.
+
+| Skill | Job | Examples |
+|---|---|---|
+| [`jev`](skills/jev/SKILL.md) | Design questions and batch calls | [Turn a plain-language task into editable questions](#sc-compile) · [Tool routing](#sc-a15) · [More](skills/jev/references/scenarios.md) |
+| [`jev-triage`](skills/jev-triage/SKILL.md) | Sort and label records | [Support queue routing](#sc-h02) · [Urgency screening](#sc-h03) · [More](skills/jev-triage/references/scenarios.md) |
+| [`jev-documents`](skills/jev-documents/SKILL.md) | Find and check source evidence | [Repository navigation](#sc-a20) · [Claim-to-source check](#sc-h08) · [More](skills/jev-documents/references/scenarios.md) |
+| [`jev-eval`](skills/jev-eval/SKILL.md) | Check outputs against a rubric | [Prioritize code review](#sc-a12) · [Review jailbreak evaluations in batches](#sc-redteam-batch) · [More](skills/jev-eval/references/scenarios.md) |
+| [`jev-act`](skills/jev-act/SKILL.md) | Choose the next legal action | [Next browser action](#sc-a23) · [Choose legal game and NPC actions](#sc-a28) · [More](skills/jev-act/references/scenarios.md) |
+
+<a id="install"></a>
+### 📦 Install: give this to your agent
+
+> **The five-entry collection is a source preview, not a new release.** Published v0.2.0 still has 11 entry points. [Installation and upgrade](docs/install.md) · [Old-to-new names](docs/skill-migration.md)
 
 Paste this into **Codex, Claude Code or OpenCode**:
 
@@ -127,7 +220,7 @@ No Vercel account is needed; Node/npm is not required by the default install rou
 [Agent installation guide](docs/install.md) · [Manual installation and troubleshooting](docs/installation.md)
 
 <a id="update"></a>
-## 🔄 Update
+### 🔄 Update
 
 Already installed? Give your agent this prompt:
 
@@ -142,7 +235,7 @@ a pinned version never silently switches to main.
 [Update guide](docs/update.md) · [Skill-name migration](docs/skill-migration.md)
 
 <a id="usage"></a>
-## 🚀 Installed it? Here is how to use it
+### 🚀 Installed it? Here is how to use it
 
 **Send one of these prompts to your agent.** Name the skill and the decision you
 need; you do not have to write JSON. Use real Jev through either supported provider, or an approved agent/model simulation.
@@ -261,12 +354,11 @@ The linked receipts include the shared policy and every full request/response.
 
 | I want to… | Ask the agent to use |
 |---|---|
-| Set up Jev, make custom decisions, route tools/models or review context | `jev` |
+| Design questions, convert a prompt, route tools or review context | `jev` |
 | Classify, label and prioritize records in bulk | `jev-triage` |
 | Find evidence in documents/code, extract spans or check claims | `jev-documents` |
 | Evaluate outputs, code changes or authorized safety-test results | `jev-eval` |
-| Choose an observed action in a real browser or desktop | `jev-ui` |
-| Choose legal actions for a game, NPC or simulated world | `jev-simulation` |
+| Choose a browser, desktop or simulated action | `jev-act` |
 
 To customize a use case, tell the agent **what to judge, the criteria, the options
 and how you will use the result**. Use `choice` for one option, `noul` for an
@@ -302,32 +394,8 @@ with `python3 <actual-skill-directory>/scripts/jev.py`.
 
 **Setup and safety evaluation:** [`jev`](skills/jev/references/setup.md) chooses a route; [`jev-eval`](skills/jev-eval/SKILL.md) supplies [batch / multi-turn / team examples](skills/jev-eval/references/workflows.md).
 
-<a id="io"></a>
-## 🧪 What goes in, what comes out
-
-These are **saved results from real Jev calls on synthetic examples**. Here is the
-short version; each link opens the full input and output below.
-
-| Try it on… | 📥 Input excerpt | 📤 Observed output |
-|---|---|---|
-| [A stuck agent](#sc-a02) | “Same UnicodeDecodeError, twice. No source change between runs.” Choose: inspect the input, retry unchanged, report done or ask the user. | `next_step = inspect_input`<br />`stuck = true`, yes-probability `0.88` |
-| [A support ticket](#sc-h02) | “The export button returns an error for all team members. We need the monthly report tomorrow.” Choose a queue and rate urgency. | `queue = bug`<br />`urgency = 1.29 / 2` |
-| [A document](#sc-spans) | `s1`: General questions: hello@example.invalid<br />`s2`: Send invoices to accounts@example.invalid<br />Which span is for invoice delivery? Does the claim naming `s1` hold? | `source = s2`, probability `0.97`<br />`claim_support = contradicted` |
-
-**All 14 I/O pairs:** [recovery](#sc-a02) · [completion](#sc-a06) ·
-[code review](#sc-a08) · [model routing](#sc-a16) · [file search](#sc-a20) ·
-[context](#sc-a21) · [browser choices ×2](#sc-a23) · [support triage ×2](#sc-h02) ·
-[document evidence](#sc-spans) · [simulation](#sc-a28) · [idea rubric](#sc-h25) · [voice direction](#sc-tts).
-
-Each **Input** block reproduces the saved request: model, context (`state`), questions
-and candidate definitions. Each **Output** block shows the CLI-normalized decisions;
-the linked receipt also contains the raw API response and distributions. The requests
-remain in their original English. These calls did not execute the chosen actions.
-For Noul, `probability` means **P(true)** even when `value` is false; a rubric score
-such as 1.29/2 is **not** a probability.
-
 <a id="context-tips"></a>
-## ⚡ Two habits that make Jev useful
+### ⚡ Two habits that make Jev useful
 
 - **Give it enough context.** Include the goal, rules, source evidence, relevant
   history and candidate meanings. Jev does not inherit your agent's conversation.
@@ -344,7 +412,7 @@ The general skill and all scenario skills teach these rules. [Context and throug
 **September 21:** project directory, 18 additional scenarios, setup and safety-evaluation skills. [Intake and validation →](docs/updates/2026-09-21-collection-setup.md)
 
 <a id="pitfalls"></a>
-## 🧯 Pitfalls: repeat judgments, not mistakes
+### 🧯 Pitfalls: repeat judgments, not mistakes
 
 **Supply enough context, not the largest context. Repeated judging measures
 stability; it does not guarantee accuracy.**
@@ -383,65 +451,10 @@ agreement alone is not correctness. Escalate uncertainty rather than retrying fo
 Keep my selected provider and key; do not silently switch services or simulate.
 ```
 
-<a id="projects"></a>
-## 🧭 Projects, apps, reports & alternatives
-
-Pick something to try, not just another link to star. These are optional upstream projects; installing this skill does **not** install them. “README/report” means source material inspected, not reproduced. Directory entries and demos are leads, not tested products. Alternatives are **not Jev weights** and are not silently substituted.
-
-| Type | Project / entry | What to try | Evidence |
-|---|---|---|---|
-| Browser | [Jev Ultrafast](https://github.com/browser-use/jev-ultrafast) | DOM actions; a small LLM handles typing | README |
-| Browser | [WebMCP / WindTunnel](https://github.com/nekuda-ai/WindTunnel) | Website-tool selection and a published browser benchmark | Report |
-| Browser | [Stagehand + Jev](https://x.com/kylejeong/status/2101046888468553855) | Jev inside act / observe / extract primitives | Author post |
-| Browser | [Jev Browser Use](https://github.com/wy-coliney/jev-browser-use) | Codex owns typing and verification; Jev picks controls | README |
-| Desktop | [Jev Desktop](https://github.com/yikangy873-gif/jev-desktop) | Bounded controls in an existing Codex CUA runtime | README |
-| MCP | [TypeSafe MCP](https://github.com/itsmostafa/typesafe-mcp) | Generic evaluate tool; TypeSafe or OpenRouter | README |
-| MCP | [Jev MCP (jkudish)](https://github.com/jkudish/jev-mcp) | Named classify, rerank, review and gate tools | README |
-| CLI | [SemDecide](https://github.com/sharziki/semdecide) | Semantic predicates and JSONL shell pipelines | README |
-| Agent | [Jev Codex Router](https://github.com/0xNatoshi/jev-codex-router) | Recommend a model tier per turn; inspect shadow mode | README |
-| Context | [winnow](https://github.com/GhalebDweikat/winnow) | Recoverable tool-output filtering and recall stubs | README |
-| Review | [Jev Review](https://github.com/devagrawal09/jev-review) | Staged code-review judgments and dashboard | README |
-| Search | [Blink (ellipsis-dev)](https://github.com/ellipsis-dev/blink) | Explore repository file/folder names, not full review | README |
-| Context | [fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction) | Select history to retain; inspect cache and deletion risks | README |
-| Context | [compact-adviser](https://github.com/kunchenguid/compact-adviser) | Judge when to compact, not what to delete | README |
-| Skills | [jev-skill-gate](https://github.com/ShivamPansuriya/jev-skill-gate) | Select relevant skills; check what becomes hidden | README |
-| Agent | [pi-warden](https://github.com/DevMortimer/pi-warden) | Check drift, loops and unsupported done claims | README |
-| Security | [jev-shield (caiovicentino)](https://github.com/caiovicentino/jev-shield) | MCP screening signal; not a security boundary | README |
-| Data | [pg-jev](https://github.com/realZachi/pg-jev) | Semantic SQL extension; requires plpython3u/superuser | README |
-| Data | [jevql](https://github.com/kylemclaren/jevql) | CLI semantic evaluation plus ordinary Postgres queries | README |
-| Research | [1kpapers](https://www.1kpapers.com/) | Paper explorer: generation for summaries, Jev for topics | Directory |
-| Inbox | [500 / 1,500-email demos](https://madewithjev.com/builds/inbox-triage-1500-emails) | Batch inbox labels; throughput does not prove accuracy | Directory |
-| Cascade | [Jev + Kimi fraud experiment](https://madewithjev.com/) | Fast screening, then review uncertain email cases | Directory |
-| Content | [724-ad teardown](https://x.com/TheMattBerman/status/2100654891756589230) | Multiple dimensions per ad, then aggregate a comparison | Author post |
-| Content | [SuperX draft scoring](https://x.com/robj3d3/status/2100722975645598191) | Rubric-based draft review; not a virality guarantee | Directory |
-| Video | [Sponsor Skipper](https://github.com/trungdq88/youtube-sponsor-detection) | Transcript windows to sponsor timestamps | README |
-| UI | [jev-ui (etweisberg)](https://github.com/etweisberg/jev-ui) | Choose predefined React views and optional affordances | README |
-| Music | [Jevthoven](https://github.com/cocktailpeanut/jevthoven) | Select music parts; code produces editable MIDI | README |
-| Game | [Jev Tetris](https://github.com/thelau/jev-tetris) | Legal placements with a useful simple-baseline comparison | README |
-| Game | [typesafe-mario](https://github.com/fhshaik/typesafe-mario) | Choose controls from structured emulator state | README |
-| Language | [Probably](https://x.com/southpolesteve/status/2100767781868150938) | Toy semantic control flow; bound every loop | Author post |
-| Learn | [TypeSafe AI Playground](https://github.com/TypeSafeAI/typesafe-playground) | Community playground; distinguish mock and live | README |
-| Learn | [Jev Explained](https://github.com/davila7/jev-explained) | Small examples to modify with an agent | README |
-| Report | [jev-evaluation](https://github.com/willkelly/jev-evaluation) | Adversarial cases, calibration and batching experiments | Report |
-| Report | [PrimeLine comparison](https://primeline.cc/blog/typesafe-jev-pre-registered-test) | Task-dependent results with important labeling caveats | Report |
-| Report | [LangChain Jev-as-a-Judge](https://www.langchain.com/blog/jev-agent-evals-langsmith) | Judge consistency, quality, latency and cost | Report |
-| Alternative | [OpenJev (DiffusionGemma)](https://github.com/razorback16/openjev) | Different open model with a typed-decision server | Other model |
-| Alternative | [OpenJev SGLang](https://github.com/ekzhang/openjev-sglang) | Prefill/logit-based decisions using open models | Other model |
-| Alternative | [Jevify](https://github.com/fidecastro/jevify) | Local-model adapter; compare the same held-out cases | Other model |
-| Methods | [HarmBench](https://github.com/centerforaisafety/HarmBench) | Separate test generation, target completion and scoring | Method |
-| Methods | [PAIR](https://github.com/patrickrchao/JailbreakingLLMs) | Authorized iterative red-team methodology, not a Jev app | Method |
-| Methods | [AgentDojo](https://github.com/ethz-spylab/agentdojo) | Agent injection evaluation with task outcomes | Method |
-| Directory | [Made with Jev](https://madewithjev.com/) | Projects, apps, articles and author-reported demonstrations | Directory |
-| Directory | [Awesome Jev (kraayenjon)](https://github.com/kraayenjon/awesome-jev) | Companion list of projects and implementation patterns | README |
-| Directory | [Awesome Jev (Anil-matcha)](https://github.com/Anil-matcha/awesome-jev-by-typesafe) | More projects and community discovery | Directory |
-| Directory | [LINUX DO / QianCheng](https://linux.do/t/topic/2919004) | 39-use-case roundup with original-post links | Roundup |
-
-[Setup requirements and pinned sources](skills/jev/references/ecosystem.md) · [All 15 + 22 + 39 supplied entries, deduplicated and mapped](skills/jev/references/intake-2026-09-21.md). Counts describe source lists, not new benchmarks.
-
 <a id="catalog"></a>
-## 🗂 Pick a job
+## Examples
 
-**108 scenarios · 6 installable skills · 14 recorded API examples.**
+**108 scenarios · 5 installable skills · 14 recorded API examples.**
 Every scenario stays on this page: copy a task, open its template, change the criteria.
 
 | | | |
@@ -455,14 +468,41 @@ Every scenario stays on this page: copy a task, open its template, change the cr
 
 The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilities differ from scores](skills/jev/references/calibration.md).
 
+<a id="io"></a>
+### 🧪 What goes in, what comes out
+
+These are **saved results from real Jev calls on synthetic examples**. Here is the
+short version; each link opens the full input and output below.
+
+| Try it on… | 📥 Input excerpt | 📤 Observed output |
+|---|---|---|
+| [A stuck agent](#sc-a02) | “Same UnicodeDecodeError, twice. No source change between runs.” Choose: inspect the input, retry unchanged, report done or ask the user. | `next_step = inspect_input`<br />`stuck = true`, yes-probability `0.88` |
+| [A support ticket](#sc-h02) | “The export button returns an error for all team members. We need the monthly report tomorrow.” Choose a queue and rate urgency. | `queue = bug`<br />`urgency = 1.29 / 2` |
+| [A document](#sc-spans) | `s1`: General questions: hello@example.invalid<br />`s2`: Send invoices to accounts@example.invalid<br />Which span is for invoice delivery? Does the claim naming `s1` hold? | `source = s2`, probability `0.97`<br />`claim_support = contradicted` |
+
+**All 14 I/O pairs:** [recovery](#sc-a02) · [completion](#sc-a06) ·
+[code review](#sc-a08) · [model routing](#sc-a16) · [file search](#sc-a20) ·
+[context](#sc-a21) · [browser choices ×2](#sc-a23) · [support triage ×2](#sc-h02) ·
+[document evidence](#sc-spans) · [simulation](#sc-a28) · [idea rubric](#sc-h25) · [voice direction](#sc-tts).
+
+Each **Input** block reproduces the saved request: model, context (`state`), questions
+and candidate definitions. Each **Output** block shows the CLI-normalized decisions;
+the linked receipt also contains the raw API response and distributions. The requests
+remain in their original English. These calls did not execute the chosen actions.
+For Noul, `probability` means **P(true)** even when `value` is false; a rubric score
+such as 1.29/2 is **not** a probability.
+
 <a id="agent"></a>
-## 🧭 Keep a long task on track
+### 🧭 Keep a long task on track
 
 [Goal-drift checkpoint](#sc-a01) · [Stuck-loop recovery](#sc-a02) · [Completion evidence check](#sc-a06) · [Detect unsupported success language](#sc-a07) · [Postmortem failure attribution](#sc-a27)
 
 <a id="sc-a01"></a>
 <!-- covers: A01 -->
-### 1. Goal-drift checkpoint
+#### 1. Goal-drift checkpoint
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: **Noul:** “Does this action directly advance acceptance check C3?” Criteria: concrete link to the check, not merely useful adjacent cleanup.
 
@@ -475,7 +515,10 @@ The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilit
 
 <a id="sc-a02"></a>
 <!-- covers: A02 -->
-### 2. Stuck-loop recovery
+#### 2. Stuck-loop recovery
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: **Choice:** `inspect_error` (unread evidence), `change_hypothesis` (same approach failed), `verify_fix` (new success evidence), `escalate_unknown`.
 
@@ -548,7 +591,10 @@ The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilit
 
 <a id="sc-a06"></a>
 <!-- covers: A06 H13 -->
-### 3. Completion evidence check
+#### 3. Completion evidence check
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Use Jev: **Noul per criterion:** “Does the supplied evidence support criterion C2?” Require evidence for that criterion, not a generic success log.
 
@@ -627,7 +673,10 @@ The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilit
 
 <a id="sc-a07"></a>
 <!-- covers: A07 -->
-### 4. Detect unsupported success language
+#### 4. Detect unsupported success language
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Use Jev: **Noul:** “Does this message claim a successful outcome not established by the ledger?” Distinguish planned, attempted and observed.
 
@@ -640,7 +689,10 @@ The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilit
 
 <a id="sc-a27"></a>
 <!-- covers: A27 -->
-### 5. Postmortem failure attribution
+#### 5. Postmortem failure attribution
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: Separate **Choice** questions: responsible agent ID; decisive step ID; error class (`missing_evidence`, `wrong_tool`, `stale_state`, `execution_error`, `unknown`).
 
@@ -652,13 +704,16 @@ The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilit
 - **Status:** Adaptation; this exact recipe has not been individually evaluated.
 
 <a id="quality"></a>
-## 🔎 Supervision, review and evaluation
+### 🔎 Supervision, review and evaluation
 
 [Plan versus action](#sc-a03) · [Test weakening / reward gaming](#sc-a08) · [Project-rule compliance](#sc-a09) · [Action-risk triage](#sc-a10) · [Suspicious tool-output instructions](#sc-a11) · [Prioritize code review](#sc-a12) · [Empty or unhelpful tool response](#sc-a13) · [Independent answer comparison](#sc-h14) · [Use Jev as a repeatable evaluation judge](#sc-judge)
 
 <a id="sc-a03"></a>
 <!-- covers: A03 -->
-### 6. Plan versus action
+#### 6. Plan versus action
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Use Jev: **Noul:** “Is this call consistent with the stated plan?” Compare target, scope and intended effect.
 
@@ -671,7 +726,10 @@ The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilit
 
 <a id="sc-a08"></a>
 <!-- covers: A08 -->
-### 7. Test weakening / reward gaming
+#### 7. Test weakening / reward gaming
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Use Jev: **Noul:** “Does this edit weaken a required check without implementing the requirement?” Show before/after assertion behavior.
 
@@ -757,7 +815,10 @@ The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilit
 
 <a id="sc-a09"></a>
 <!-- covers: A09 -->
-### 8. Project-rule compliance
+#### 8. Project-rule compliance
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Use Jev: **Noul:** “Does this diff violate this rule?” Criteria quote the rule and its exceptions.
 
@@ -770,7 +831,10 @@ The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilit
 
 <a id="sc-a10"></a>
 <!-- covers: A10 -->
-### 9. Action-risk triage
+#### 9. Action-risk triage
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: **Choice:** `read_only`, `reversible_local_change`, `external_effect`, `potentially_destructive`, `unknown`.
 
@@ -783,7 +847,10 @@ The first complete I/O pair: [stuck-loop recovery ↓](#sc-a02). [How probabilit
 
 <a id="sc-a11"></a>
 <!-- covers: A11 -->
-### 10. Suspicious tool-output instructions
+#### 10. Suspicious tool-output instructions
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Use Jev: **Noul:** “Does this content try to redirect the agent's instructions or request secrets/actions outside the task?”
 
@@ -804,7 +871,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-a12"></a>
 <!-- covers: A12 H12 -->
-### 11. Prioritize code review
+#### 11. Prioritize code review
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Use Jev: **Score per hunk:** 0 = cosmetic; 1 = behavior touched; 2 = plausible defect requires inspection; 3 = plausible security/data-loss issue.
 
@@ -817,7 +887,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-a13"></a>
 <!-- covers: A13 -->
-### 12. Empty or unhelpful tool response
+#### 12. Empty or unhelpful tool response
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Use Jev: **Choice:** `usable_result`, `empty_or_error`, `missing_required_information`, `policy_refusal`.
 
@@ -830,7 +903,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h14"></a>
 <!-- covers: H14 -->
-### 13. Independent answer comparison
+#### 13. Independent answer comparison
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Use Jev: **Score per answer:** 0 = unsupported; 1 = partly supported/incomplete; 2 = supported and meets the stated requirement.
 
@@ -843,7 +919,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-judge"></a>
 <!-- covers: E04 U14 U17 U27 -->
-### 14. Use Jev as a repeatable evaluation judge
+#### 14. Use Jev as a repeatable evaluation judge
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Use Jev: Apply a fixed rubric to saved agent traces, repeat the same judgments and compare agreement with human labels, latency and cost.
 
@@ -857,13 +936,16 @@ or a test of the detector above. Typed output does not make a decision injection
 
 
 <a id="routing"></a>
-## 🔀 Routing, delegation and context
+### 🔀 Routing, delegation and context
 
 [User absent, safe work remains](#sc-a04) · [Decide whether to escalate](#sc-a05) · [Subagent report admission](#sc-a14) · [Tool routing](#sc-a15) · [Model tier routing](#sc-a16) · [Specialist delegation](#sc-a17) · [Skill/tool discovery](#sc-a18) · [Rerank search and retrieval results](#sc-a19) · [Repository navigation](#sc-a20) · [Recoverable output reduction](#sc-a21) · [Duplicate observation suppression](#sc-a22) · [Choose a safe moment to compact](#sc-compaction)
 
 <a id="sc-a04"></a>
 <!-- covers: A04 -->
-### 15. User absent, safe work remains
+#### 15. User absent, safe work remains
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: **Choice:** `inspect_logs`, `run_local_checks`, `draft_patch`, `checkpoint_and_wait`; offer only currently available, pre-authorized actions.
 
@@ -876,7 +958,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-a05"></a>
 <!-- covers: A05 -->
-### 16. Decide whether to escalate
+#### 16. Decide whether to escalate
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: **Choice:** `gather_local_evidence` (an untried relevant read), `request_reasoning_review` (evidence exists), `needs_user_input` (preference/authority missing).
 
@@ -889,7 +974,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-a14"></a>
 <!-- covers: A14 -->
-### 17. Subagent report admission
+#### 17. Subagent report admission
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Use Jev: **Choice:** `action_required_now`, `useful_next_checkpoint`, `duplicate`, `needs_verification`.
 
@@ -902,7 +990,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-a15"></a>
 <!-- covers: A15 -->
-### 18. Tool routing
+#### 18. Tool routing
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: **Choice:** `search_web`, `read_local_file`, `run_test`, `ask_user`, `none`; each ID maps to a real permitted capability.
 
@@ -915,7 +1006,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-a16"></a>
 <!-- covers: A16 -->
-### 19. Model tier routing
+#### 19. Model tier routing
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: **Choice:** `small_text`, `reasoning`, `vision`, `cannot_route`. Define tiers by capabilities, not prestige.
 
@@ -979,7 +1073,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-a17"></a>
 <!-- covers: A17 -->
-### 20. Specialist delegation
+#### 20. Specialist delegation
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: **Choice:** `researcher`, `implementer`, `reviewer`, `stay_with_parent`; describe inputs/outputs and exclusions.
 
@@ -992,7 +1089,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-a18"></a>
 <!-- covers: A18 M02 -->
-### 21. Skill/tool discovery
+#### 21. Skill/tool discovery
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: **Score per optional skill:** 0 = unrelated; 1 = possibly relevant; 2 = directly useful.
 
@@ -1005,7 +1105,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-a19"></a>
 <!-- covers: A19 H23 U07 -->
-### 22. Rerank search and retrieval results
+#### 22. Rerank search and retrieval results
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: **Noul per passage:** “Does passage D7 contain information relevant to answering this query?” Define relevant versus merely sharing vocabulary.
 
@@ -1021,7 +1124,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-a20"></a>
 <!-- covers: A20 -->
-### 23. Repository navigation
+#### 23. Repository navigation
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: **Choice:** `auth/session.ts`, `api/login.ts`, `tests/session.test.ts`, `none`; candidates must come from actual discovery.
 
@@ -1086,7 +1192,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-a21"></a>
 <!-- covers: A21 -->
-### 24. Recoverable output reduction
+#### 24. Recoverable output reduction
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: **Score per block:** 0 = unrelated/redundant; 1 = useful context; 2 = needed evidence; 3 = required diagnostic.
 
@@ -1172,7 +1281,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-a22"></a>
 <!-- covers: A22 -->
-### 25. Duplicate observation suppression
+#### 25. Duplicate observation suppression
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: **Noul:** “Would this observation provide no new information for the current subgoal?”
 
@@ -1185,7 +1297,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-compaction"></a>
 <!-- covers: M19 U13 -->
-### 26. Choose a safe moment to compact
+#### 26. Choose a safe moment to compact
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: Is this a completed phase or unfinished investigation? Give a compaction hint; let context pressure change the policy, not the probability.
 
@@ -1196,20 +1311,23 @@ or a test of the detector above. Typed output does not make a decision injection
 - **Status:** Upstream describes small/private-label tuning. Our context example returned ongoing; no actual compaction ran.
 
 <a id="interaction"></a>
-## 🌐 Browser, desktop and interactive tools
+### 🌐 Browser, desktop and interactive tools
 
 [Next browser action](#sc-a23) · [Browser wait versus intervention](#sc-a24) · [Browser outcome verification](#sc-a25) · [Personal-assistant handoff](#sc-a26) · [Smart-home intent resolution](#sc-h26) · [Turn observations into reusable situation labels](#sc-situations) · [Turn partial speech into a browser action](#sc-voice-browser) · [Choose website tools instead of long click sequences](#sc-webmcp) · [Use Jev inside one act, observe or extract step](#sc-primitive) · [Ask the next useful question in a form](#sc-forms) · [Choose controls in a desktop application](#sc-desktop) · [Semantic ⌘F](#sc-semantic-find) · [Sponsor segments](#sc-sponsor-skip)
 
 <a id="sc-a23"></a>
 <!-- covers: A23 U03 U09 -->
-### 27. Next browser action
+#### 27. Next browser action
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: **Choice:** `click:17`, `select:8:option2`, `scroll:main`, `wait`, `blocked`; offer only compatible operations.
 
 - **Input → output:** Fresh DOM/accessibility snapshot, goal and observed action IDs.
 - **Use the result:** Existing browser tools execute after rechecking snapshot/target freshness. Never turn generated text into selectors or coordinates. Text entry belongs to a separate validated step.
 - **Customize:** Allowed actions, target conditions and observation freshness.
-- **Start:** [jev-ui](skills/jev-ui/SKILL.md) · [Template to adapt](skills/jev-ui/assets/example.json).
+- **Start:** [jev-act](skills/jev-act/references/ui.md) · [Template to adapt](skills/jev-act/assets/example.json).
 - **Sources:** [P05](skills/jev/references/community.md#p05) · [Jev Ultrafast](https://github.com/browser-use/jev-ultrafast)
 - **Status:** [Live synthetic example](evals/SCENARIO_EXAMPLES.md): chose `open_policy`; no browser action executed. Ultrafast timing is an author demo.
 
@@ -1337,33 +1455,42 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-a24"></a>
 <!-- covers: A24 -->
-### 28. Browser wait versus intervention
+#### 28. Browser wait versus intervention
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: **Choice:** `wait_for_results`, `refresh_observation`, `inspect_error`, `needs_login_or_consent`, `blocked`.
 
 - **Input → output:** Current page status, observed loading/error states and recent action.
 - **Use the result:** Bound waits and retries in code. Do not log in, accept terms, grant permissions or defeat a CAPTCHA because the classifier selects a route.
 - **Customize:** Timeouts, retry limits and login/consent handoff.
-- **Start:** [jev-ui](skills/jev-ui/SKILL.md) · [Template to adapt](skills/jev-ui/assets/example.json).
+- **Start:** [jev-act](skills/jev-act/references/ui.md) · [Template to adapt](skills/jev-act/assets/example.json).
 - **Sources:** [P05](skills/jev/references/community.md#p05)
 - **Status:** Adaptation; this exact recipe has not been individually evaluated.
 
 <a id="sc-a25"></a>
 <!-- covers: A25 -->
-### 29. Browser outcome verification
+#### 29. Browser outcome verification
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: **Noul per item:** “Does this observation establish the requested route?” Check other fields separately.
 
 - **Input → output:** Fresh result readback and an explicit checklist, such as route/date/results visible.
 - **Use the result:** Code validates exact dates/counts; independently inspect the resulting page. A `DONE` choice is only a request to verify, never proof of a booking/payment.
 - **Customize:** Result checklist, exact-field validation and outcome receipts.
-- **Start:** [jev-ui](skills/jev-ui/SKILL.md) · [Template to adapt](skills/jev-ui/assets/example.json).
+- **Start:** [jev-act](skills/jev-act/references/ui.md) · [Template to adapt](skills/jev-act/assets/example.json).
 - **Sources:** [P05](skills/jev/references/community.md#p05)
 - **Status:** Adaptation; this exact recipe has not been individually evaluated.
 
 <a id="sc-a26"></a>
 <!-- covers: A26 -->
-### 30. Personal-assistant handoff
+#### 30. Personal-assistant handoff
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: **Choice:** `scrape_missing_recipe`, `save_complete_recipe`, `calendar_candidate`, `needs_clarification`, `other`.
 
@@ -1376,7 +1503,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h26"></a>
 <!-- covers: H26 M04 -->
-### 31. Smart-home intent resolution
+#### 31. Smart-home intent resolution
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: **Choice:** `living_room_light_on`, `living_room_light_off`, `no_match`, `clarify`; include room ambiguity.
 
@@ -1389,7 +1519,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-situations"></a>
 <!-- covers: M12 -->
-### 32. Turn observations into reusable situation labels
+#### 32. Turn observations into reusable situation labels
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: From the authorized home observations, estimate whether cooking is happening. Publish a timestamped state for low-risk automations, with unknown and expiry.
 
@@ -1401,43 +1534,55 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-voice-browser"></a>
 <!-- covers: M14 -->
-### 33. Turn partial speech into a browser action
+#### 33. Turn partial speech into a browser action
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: Use the partial transcript and fresh page controls to decide whether I finished a command, which target I mean, or whether to wait.
 
 - **Input → output:** Speech transcript + fresh UI + candidate spans → intent, target and completeness → host action/wait.
 - **Customize:** Completion rules, debounce, candidate text and confirmation policy.
-- **Start:** [jev-ui](skills/jev-ui/SKILL.md) · [Template to adapt](skills/jev-ui/assets/example.json).
+- **Start:** [jev-act](skills/jev-act/references/ui.md) · [Template to adapt](skills/jev-act/assets/example.json).
 - **Sources:** [Voice-browser implementation](skills/jev/references/community.md#p18)
 - **Status:** Source-described pattern; this adaptation has not been run here.
 
 <a id="sc-webmcp"></a>
 <!-- covers: M18 U08 -->
-### 34. Choose website tools instead of long click sequences
+#### 34. Choose website tools instead of long click sequences
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: If the site exposes a real search_products tool, select that action and let a text model supply its query; validate arguments before execution.
 
 - **Input → output:** Task + exposed website tools → tool selection → argument generation → execution and verification.
 - **Customize:** Action granularity, argument source, fallback UI and completion criteria.
-- **Start:** [jev-ui](skills/jev-ui/SKILL.md) · [Template to adapt](skills/jev-ui/assets/example.json).
+- **Start:** [jev-act](skills/jev-act/references/ui.md) · [Template to adapt](skills/jev-act/assets/example.json).
 - **Sources:** [WindTunnel](https://github.com/nekuda-ai/WindTunnel) · [Benchmark methodology](skills/jev/references/x-intake-2026-09-20.md)
 - **Status:** Upstream reports 49/49 tasks by majority of three attempts, 141/147 attempts passed; not reproduced here or a pure interface ablation.
 
 <a id="sc-primitive"></a>
 <!-- covers: M18 U12 U23 -->
-### 35. Use Jev inside one act, observe or extract step
+#### 35. Use Jev inside one act, observe or extract step
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: Inside this existing Stagehand step, choose the visible element or source text to use. Keep the surrounding workflow unchanged.
 
 - **Input → output:** One observed state + operation-specific candidates → local selection inside a primitive.
 - **Customize:** Primitive boundary, target inventory, argument source and verification.
-- **Start:** [jev-ui](skills/jev-ui/SKILL.md) · [Template to adapt](skills/jev-ui/assets/example.json).
+- **Start:** [jev-act](skills/jev-act/references/ui.md) · [Template to adapt](skills/jev-act/assets/example.json).
 - **Sources:** [Stagehand author report](https://x.com/kylejeong/status/2101046888468553855)
 - **Status:** Author description; no Stagehand integration was installed or timed here.
 
 <a id="sc-forms"></a>
 <!-- covers: X02 -->
-### 36. Ask the next useful question in a form
+#### 36. Ask the next useful question in a form
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: Given completed fields and missing information, select a permitted next question, clarification or finish; validate required fields in code.
 
@@ -1449,13 +1594,16 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-desktop"></a>
 <!-- covers: E01 -->
-### 37. Choose controls in a desktop application
+#### 37. Choose controls in a desktop application
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: Use fresh desktop observations to find the export dialog. Stop before overwriting an existing file; verify each actual action.
 
 - **Input → output:** Observed controls + allowed operations → operation/target → host CUA execution.
 - **Customize:** App-specific actions, prepared values, stopping points and readback checks.
-- **Start:** [jev-ui](skills/jev-ui/SKILL.md) · [Template to adapt](skills/jev-ui/assets/example.json).
+- **Start:** [jev-act](skills/jev-act/references/ui.md) · [Template to adapt](skills/jev-act/assets/example.json).
 - **Sources:** [Jev Desktop](https://github.com/yikangy873-gif/jev-desktop) · [Setup notes](skills/jev/references/ecosystem.md)
 - **Status:** Upstream integration samples, not a controlled speedup. Our UI smoke was a synthetic page, not this desktop workflow.
 
@@ -1464,7 +1612,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-semantic-find"></a>
 <!-- covers: D01 -->
-### 38. Find meaning on a page, not just matching words
+#### 38. Find meaning on a page, not just matching words
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Find the passages about cancelling a subscription, even when the page calls it “ending your membership”. Highlight the original text.
 
@@ -1476,7 +1627,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-sponsor-skip"></a>
 <!-- covers: D02 -->
-### 39. Mark sponsor segments in a video
+#### 39. Mark sponsor segments in a video
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Find promotional reads in this timestamped transcript. Show each proposed segment before skipping anything.
 
@@ -1487,13 +1641,16 @@ or a test of the detector above. Typed output does not make a decision injection
 - **Status:** Upstream README checked; extension not run. Its provider and optional speech-to-text setup are separate from this skill.
 
 <a id="business"></a>
-## 📬 Inbox, support and everyday workflows
+### 📬 Inbox, support and everyday workflows
 
 [Support queue routing](#sc-h02) · [Urgency screening](#sc-h03) · [Conversation concern prefilter](#sc-h15) · [Customer churn signals](#sc-h16) · [Sales/support next-step suggestion](#sc-h17) · [Security incident triage](#sc-h18) · [Suspicious message screening](#sc-h19) · [Form/inquiry routing](#sc-h20) · [Personal inbox/event sorting](#sc-h24) · [Write your own multilabel inbox rules](#sc-mail-rules) · [Filter a research or social feed by your own interests](#sc-personal-feed)
 
 <a id="sc-h02"></a>
 <!-- covers: H02 U21 -->
-### 40. Support queue routing
+#### 40. Support queue routing
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: **Choice:** `billing`, `technical`, `account_access`, `security_review`, `other`; distinguish payment disputes from login failures.
 
@@ -1631,7 +1788,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h03"></a>
 <!-- covers: H03 -->
-### 41. Urgency screening
+#### 41. Urgency screening
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: **Score:** 0 = informational; 1 = workaround available; 2 = important work blocked; 3 = critical active impact.
 
@@ -1644,7 +1804,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h15"></a>
 <!-- covers: H15 -->
-### 42. Conversation concern prefilter
+#### 42. Conversation concern prefilter
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: **Noul:** “Does this conversation contain an unresolved product-safety complaint?” Show what counts as unresolved.
 
@@ -1657,7 +1820,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h16"></a>
 <!-- covers: H16 -->
-### 43. Customer churn signals
+#### 43. Customer churn signals
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: **Noul:** “Does this message express a concrete intent to cancel because of an unresolved issue?” Distinguish hypothetical discussion.
 
@@ -1670,7 +1836,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h17"></a>
 <!-- covers: H17 -->
-### 44. Sales/support next-step suggestion
+#### 44. Sales/support next-step suggestion
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: **Choice:** `send_requested_docs`, `schedule_followup`, `technical_investigation`, `no_commitment`, `clarify`.
 
@@ -1683,7 +1852,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h18"></a>
 <!-- covers: H18 -->
-### 45. Security incident triage
+#### 45. Security incident triage
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: **Choice:** `possible_account_takeover`, `service_issue`, `benign_change`, `insufficient_evidence`.
 
@@ -1696,7 +1868,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h19"></a>
 <!-- covers: H19 -->
-### 46. Suspicious message screening
+#### 46. Suspicious message screening
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: **Noul:** “Does this message solicit credentials or payment through suspicious instructions?”
 
@@ -1709,7 +1884,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h20"></a>
 <!-- covers: H20 -->
-### 47. Form/inquiry routing
+#### 47. Form/inquiry routing
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: **Choice:** `support`, `sales`, `partnership`, `feedback`, `spam_or_other`.
 
@@ -1722,7 +1900,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h24"></a>
 <!-- covers: H24 -->
-### 48. Personal inbox/event sorting
+#### 48. Personal inbox/event sorting
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: **Choice:** `new_event_candidate`, `event_change`, `reminder_only`, `not_an_event`, `ambiguous`.
 
@@ -1735,7 +1916,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-mail-rules"></a>
 <!-- covers: M13 -->
-### 49. Write your own multilabel inbox rules
+#### 49. Write your own multilabel inbox rules
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: Label each message independently for invoices, travel and action-needed; show conflicts before applying any mailbox action.
 
@@ -1747,7 +1931,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-personal-feed"></a>
 <!-- covers: X05 -->
-### 50. Filter a research or social feed by your own interests
+#### 50. Filter a research or social feed by your own interests
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: Score these visible posts for my research interests, then let me adjust local weights and undo hiding decisions.
 
@@ -1758,7 +1945,7 @@ or a test of the detector above. Typed output does not make a decision injection
 - **Status:** Author-post excerpt; no feed integration installed here.
 
 <a id="documents"></a>
-## 📚 Documents, research and evidence
+### 📚 Documents, research and evidence
 
 [Reading-list/literature screen](#sc-h07) · [Claim-to-source check](#sc-h08) · [Policy checklist triage](#sc-h09) · [Contract-clause sorting](#sc-h10) · [Editorial/brand checks](#sc-h11) · [Job-requirement evidence organization](#sc-h21) · [Extract the right original value](#sc-spans) · [Check whether any candidate is actually suitable](#sc-suitability) · [Recover headings, lists and paragraphs](#sc-structure) · [Extract date meaning, then resolve it in code](#sc-dates) · [Check a cheap model’s structured extraction](#sc-extraction-cascade) · [Annotate talks, interviews or presentations](#sc-transcript)
 
@@ -1767,7 +1954,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h07"></a>
 <!-- covers: H07 -->
-### 51. Reading-list/literature screen
+#### 51. Reading-list/literature screen
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: **Noul per criterion:** “Does this study evaluate an agent executing tools?” Distinguish mention from measured study.
 
@@ -1780,7 +1970,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h08"></a>
 <!-- covers: H08 -->
-### 52. Claim-to-source check
+#### 52. Claim-to-source check
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: **Noul:** “Do these passages support this exact claim?” Require matching scope, population and conditions.
 
@@ -1793,7 +1986,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h09"></a>
 <!-- covers: H09 -->
-### 53. Policy checklist triage
+#### 53. Policy checklist triage
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: **Choice:** `explicitly_addressed`, `apparently_conflicting`, `not_shown`, `ambiguous`.
 
@@ -1806,7 +2002,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h10"></a>
 <!-- covers: H10 -->
-### 54. Contract-clause sorting
+#### 54. Contract-clause sorting
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: **Choice:** `termination`, `liability`, `data_use`, `payment`, `other`.
 
@@ -1819,7 +2018,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h11"></a>
 <!-- covers: H11 -->
-### 55. Editorial/brand checks
+#### 55. Editorial/brand checks
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Use Jev: **Noul:** “Does this excerpt make an unsupported superlative claim?” Define exclusions such as attributed quotations.
 
@@ -1832,7 +2034,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h21"></a>
 <!-- covers: H21 -->
-### 56. Job-requirement evidence organization
+#### 56. Job-requirement evidence organization
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: **Choice:** `explicit_evidence`, `related_evidence`, `not_stated`; criteria require supplied text.
 
@@ -1845,7 +2050,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-spans"></a>
 <!-- covers: M01 -->
-### 57. Extract the right original value
+#### 57. Extract the right original value
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: Select the invoice-delivery email from these source spans; return its ID so code can copy the original value.
 
@@ -1918,7 +2126,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-suitability"></a>
 <!-- covers: M02 -->
-### 58. Check whether any candidate is actually suitable
+#### 58. Check whether any candidate is actually suitable
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: Choose the closest passage, then separately judge whether any passage answers the question. Return no match if none does.
 
@@ -1930,7 +2141,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-structure"></a>
 <!-- covers: M03 -->
-### 59. Recover headings, lists and paragraphs
+#### 59. Recover headings, lists and paragraphs
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: Group these OCR lines without rewriting them, then classify each block as heading, list or paragraph.
 
@@ -1942,7 +2156,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-dates"></a>
 <!-- covers: M05 -->
-### 60. Extract date meaning, then resolve it in code
+#### 60. Extract date meaning, then resolve it in code
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: Identify the meaning of “next Friday” using the supplied reference date and timezone; let calendar code calculate the actual date.
 
@@ -1954,7 +2171,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-extraction-cascade"></a>
 <!-- covers: M10 -->
-### 61. Check a cheap model’s structured extraction
+#### 61. Check a cheap model’s structured extraction
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: Compare these extracted invoice fields with the source. Mark each supported, inconsistent or missing before requesting a bounded repair.
 
@@ -1966,7 +2186,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-transcript"></a>
 <!-- covers: M15 -->
-### 62. Annotate talks, interviews or presentations
+#### 62. Annotate talks, interviews or presentations
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: Apply my rubric to each speaking turn: direct answer, supporting evidence, vague claim. Keep context and show a timeline of annotations.
 
@@ -1980,13 +2203,16 @@ or a test of the detector above. Typed output does not make a decision injection
 
 
 <a id="data"></a>
-## 🛠️ Data, search and developer workflows
+### 🛠️ Data, search and developer workflows
 
 [Semantic grep](#sc-h01) · [Product taxonomy assignment](#sc-h04) · [Duplicate/entity matching](#sc-h05) · [Survey/interview coding](#sc-h06) · [Dataset curation](#sc-h22) · [Navigate a knowledge graph or large hierarchy](#sc-graph) · [Build semantic features for a supervised model](#sc-features) · [Validate meaning after validating JSON shape](#sc-semantic-validation) · [Find a useful command from your history](#sc-shell-history) · [Add semantic predicates to data queries](#sc-semantic-sql) · [Make a spreadsheet column a semantic rubric](#sc-spreadsheet) · [Replay market decisions without placing orders](#sc-market-replay)
 
 <a id="sc-h01"></a>
 <!-- covers: H01 -->
-### 63. Semantic grep
+#### 63. Semantic grep
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: **Noul per chunk:** “Does this describe a user unable to complete checkout?” Require actual inability, not generic payment discussion.
 
@@ -1999,7 +2225,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h04"></a>
 <!-- covers: H04 M06 -->
-### 64. Product taxonomy assignment
+#### 64. Product taxonomy assignment
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: **Choice:** `fastener`, `bearing`, `seal`, `electrical_component`, `other`; use a second call for observed subcategories if needed.
 
@@ -2012,7 +2241,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h05"></a>
 <!-- covers: H05 -->
-### 65. Duplicate/entity matching
+#### 65. Duplicate/entity matching
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: **Noul:** “Do these records refer to the same real-world entity?” Criteria: compatible identity attributes, not just similar names.
 
@@ -2025,7 +2257,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h06"></a>
 <!-- covers: H06 -->
-### 66. Survey/interview coding
+#### 66. Survey/interview coding
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: Separate **Noul** questions for `price_concern`, `missing_feature`, `usability_issue`; codes may co-occur.
 
@@ -2038,7 +2273,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h22"></a>
 <!-- covers: H22 -->
-### 67. Dataset curation
+#### 67. Dataset curation
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: **Score:** 0 = irrelevant/unusable; 1 = partially useful; 2 = directly useful and coherent. Ask separate Nouls for duplication or sensitive-data concerns.
 
@@ -2051,7 +2289,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-graph"></a>
 <!-- covers: M06 -->
-### 68. Navigate a knowledge graph or large hierarchy
+#### 68. Navigate a knowledge graph or large hierarchy
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: Choose relevant neighbors from the current graph node; keep a small frontier and stop when a verified target is reached.
 
@@ -2065,7 +2306,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-features"></a>
 <!-- covers: M08 -->
-### 69. Build semantic features for a supervised model
+#### 69. Build semantic features for a supervised model
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: Propose useful questions about these reviews, use Jev for numeric features, then train a predictor without exposing held-out test labels.
 
@@ -2077,7 +2321,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-semantic-validation"></a>
 <!-- covers: M09 -->
-### 70. Validate meaning after validating JSON shape
+#### 70. Validate meaning after validating JSON shape
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Use Jev: After schema validation, check whether the description matches the selected category and whether required evidence is actually present.
 
@@ -2089,7 +2336,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-shell-history"></a>
 <!-- covers: M11 -->
-### 71. Find a useful command from your history
+#### 71. Find a useful command from your history
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Use Jev: Rank these sanitized history commands for the current directory and task; show a suggestion, do not execute it.
 
@@ -2101,7 +2351,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-semantic-sql"></a>
 <!-- covers: M16 -->
-### 72. Add semantic predicates to data queries
+#### 72. Add semantic predicates to data queries
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Use Jev: First select recent feedback rows in SQL, then ask Jev which rows describe an unresolved export failure. Keep row IDs and judgments.
 
@@ -2116,7 +2369,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-spreadsheet"></a>
 <!-- covers: X04 -->
-### 73. Make a spreadsheet column a semantic rubric
+#### 73. Make a spreadsheet column a semantic rubric
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Use Jev: Turn this column heading into clear scoring anchors, then rate each row. When I change the heading, version the rubric and invalidate old scores.
 
@@ -2128,18 +2384,21 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-market-replay"></a>
 <!-- covers: E05 U05 U15 -->
-### 74. Replay market decisions without placing orders
+#### 74. Replay market decisions without placing orders
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: In a mock replay only, choose among buy, sell and hold from supplied snapshots; reject late decisions and keep intent separate from execution receipts.
 
 - **Input → output:** Historical/synthetic snapshot → bounded decision → dry-run simulator and receipt accounting.
 - **Customize:** Snapshot age, deadline, one-in-flight scheduling and replay metrics.
-- **Start:** [jev-simulation](skills/jev-simulation/SKILL.md) · [Template to adapt](skills/jev-simulation/assets/example.json).
+- **Start:** [jev-act](skills/jev-act/references/world.md) · [Template to adapt](skills/jev-act/assets/world.json).
 - **Sources:** [Jev Trader](https://github.com/jarrodwatts/jev-trader) · [Mock/live distinction](skills/jev/references/x-intake-2026-09-20.md)
 - **Status:** Author demo plus README describing mock/dry-run defaults; no wallet connected or trading run here.
 
 <a id="creative"></a>
-## 🎨 Ideas, games and creative tools
+### 🎨 Ideas, games and creative tools
 
 [Choose legal game and NPC actions](#sc-a28) · [Idea workshop](#sc-h25) · [Reusable document-component selection](#sc-h28) · [Compare options with weights you can change](#sc-reweight) · [Turn world decisions into a visual story](#sc-world-video) · [Let a planner set strategy and Jev handle local moves](#sc-strategy) · [Choose who speaks next in a multi-bot conversation](#sc-speakers) · [Choose a voice delivery style for a script](#sc-tts) · [Keep simulated negotiation from stalling](#sc-negotiation) · [Choose an image or video generator for a request](#sc-creative-route) · [Story sensors](#sc-story-sensors) · [MIDI composition](#sc-midi)
 
@@ -2148,14 +2407,17 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-a28"></a>
 <!-- covers: A28 H27 -->
-### 75. Choose legal game and NPC actions
+#### 75. Choose legal game and NPC actions
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: **Choice:** `move_left`, `move_right`, `interact`, `wait`; restrict choices to current legal actions.
 
 - **Input → output:** Structured visible game state, legal actions and short objective.
 - **Use the result:** Execute in a sandboxed simulator, observe again and score objective outcomes. This is not vision, strategic reasoning or a physical safety controller.
 - **Customize:** Character rubric, goals, action budget and progress measures.
-- **Start:** [jev-simulation](skills/jev-simulation/SKILL.md) · [Template to adapt](skills/jev-simulation/assets/example.json).
+- **Start:** [jev-act](skills/jev-act/references/world.md) · [Template to adapt](skills/jev-act/assets/world.json).
 - **Sources:** [R10](skills/jev/references/community.md#r10) · [X01](skills/jev/references/twitter-workflows.md#x01) · [X03](skills/jev/references/twitter-workflows.md#x03) · [R03](skills/jev/references/community.md#r03)
 - **Status:** [Live synthetic example](evals/SCENARIO_EXAMPLES.md): inspect warehouse; no simulator transition or win-rate measurement.
 
@@ -2217,7 +2479,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h25"></a>
 <!-- covers: H25 -->
-### 76. Idea workshop
+#### 76. Idea workshop
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Use Jev: Separate **Scores** for problem clarity, audience specificity and testability: 0 = absent; 1 = vague; 2 = concrete.
 
@@ -2286,7 +2551,10 @@ or a test of the detector above. Typed output does not make a decision injection
 
 <a id="sc-h28"></a>
 <!-- covers: H28 -->
-### 77. Choose a document block or a React view
+#### 77. Choose a document block or a React view
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: **Choice:** `comparison_table` (parallel attributes), `timeline` (dated sequence), `checklist` (actions), `paragraph` (narrative), `none`.
 
@@ -2300,7 +2568,7 @@ or a test of the detector above. Typed output does not make a decision injection
 **Also try: chart or table?** [etweisberg/jev-ui](https://github.com/etweisberg/jev-ui)
 turns this pattern into React components: `Branch` selects a view, `Rank` orders
 candidates, and `Gate` adds an optional affordance. This is a separate library,
-not this repository's browser-control `jev-ui` skill.
+not this repository's browser-control `jev-act` skill.
 
 ```text
 Use Jev to select an existing dashboard view. Include the user's question,
@@ -2318,7 +2586,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-reweight"></a>
 <!-- covers: M07 -->
-### 78. Compare options with weights you can change
+#### 78. Compare options with weights you can change
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: Score these proposals for clarity, evidence and effort separately. Save the values so I can change weights without another model call.
 
@@ -2330,31 +2601,40 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-world-video"></a>
 <!-- covers: M17 X01 -->
-### 79. Turn world decisions into a visual story
+#### 79. Turn world decisions into a visual story
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: Let a planner design a whale-city world, Jev choose legal actions, the simulator update state and a renderer visualize the resulting rounds.
 
 - **Input → output:** Authored world → state + legal actions → decision → simulator → optional images/video.
 - **Customize:** World rules, character goals, round IDs and rendering medium.
-- **Start:** [jev-simulation](skills/jev-simulation/SKILL.md) · [Template to adapt](skills/jev-simulation/assets/example.json).
+- **Start:** [jev-act](skills/jev-act/references/world.md) · [Template to adapt](skills/jev-act/assets/world.json).
 - **Sources:** [gokayfem demo](https://x.com/gokayfem/status/2101022590722810271) · [Access and claim notes](skills/jev/references/twitter-workflows.md#x01)
 - **Status:** Author reports 264 clips in about five minutes; not our run or proof of exactly 264 API calls.
 
 <a id="sc-strategy"></a>
 <!-- covers: M20 X03 U10 U26 -->
-### 80. Let a planner set strategy and Jev handle local moves
+#### 80. Let a planner set strategy and Jev handle local moves
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: Let the planner choose a Pac-Man subgoal; Jev selects legal moves until the subgoal completes, assumptions change or progress stalls.
 
 - **Input → output:** Occasional strategy → repeated local decisions → fresh state → replan trigger.
 - **Customize:** Subgoals, refresh triggers, progress windows and per-strategy action budget.
-- **Start:** [jev-simulation](skills/jev-simulation/SKILL.md) · [Template to adapt](skills/jev-simulation/assets/example.json).
+- **Start:** [jev-act](skills/jev-act/references/world.md) · [Template to adapt](skills/jev-act/assets/world.json).
 - **Sources:** [Pac-Man report](https://x.com/daniel_mac8/status/2100335929273524541) · [Tetris lead](skills/jev/references/twitter-workflows.md#x03)
 - **Status:** Author demos; no long-horizon success measurement reproduced here.
 
 <a id="sc-speakers"></a>
 <!-- covers: M21 U28 -->
-### 81. Choose who speaks next in a multi-bot conversation
+#### 81. Choose who speaks next in a multi-bot conversation
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: Select the next eligible speaker or pause, using the conversation state and turn-taking rules. Let another model write the line.
 
@@ -2366,7 +2646,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-tts"></a>
 <!-- covers: M21 U28 -->
-### 82. Choose a voice delivery style for a script
+#### 82. Choose a voice delivery style for a script
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: Choose calm, bright, serious or neutral delivery for this fictional line, then map it to a supported TTS preset.
 
@@ -2444,19 +2727,25 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-negotiation"></a>
 <!-- covers: X06 -->
-### 83. Keep simulated negotiation from stalling
+#### 83. Keep simulated negotiation from stalling
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Use Jev: In this Catan-style negotiation, choose accept, counter, decline or pass from legal moves, and stop after the no-progress budget is exhausted.
 
 - **Input → output:** Offer history + legal options → local response → host progress/deadlock check.
 - **Customize:** Negotiation budget, utility rubric, pass/terminate options and progress definition.
-- **Start:** [jev-simulation](skills/jev-simulation/SKILL.md) · [Template to adapt](skills/jev-simulation/assets/example.json).
+- **Start:** [jev-act](skills/jev-act/references/world.md) · [Template to adapt](skills/jev-act/assets/world.json).
 - **Sources:** [Catan failure report](skills/jev/references/twitter-workflows.md#x06)
 - **Status:** The source reports agents stopping negotiation; this is a failure-informed adaptation, not a demonstrated fix.
 
 <a id="sc-creative-route"></a>
 <!-- covers: X07 -->
-### 84. Choose an image or video generator for a request
+#### 84. Choose an image or video generator for a request
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: Choose from my available generators using the requested medium, edit needs, output size and budget; invoke the selected tool separately.
 
@@ -2468,19 +2757,25 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-story-sensors"></a>
 <!-- covers: D03 -->
-### 85. Keep a roleplay or story consistent over time
+#### 85. Keep a roleplay or story consistent over time
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > After each scene, score its tone, tension and consistency with my character card. Suggest one correction only when a sustained drift appears.
 
 - **Input → output:** Character/world rules + recent passages → independent anchored scores, tracked across turns.
 - **Customize:** Sensors, recent-context window, rolling thresholds and whether to suggest a nudge or request a reroll.
-- **Try:** [jev-simulation](skills/jev-simulation/SKILL.md) · [Rubric template](skills/jev/assets/rubric.json).
+- **Try:** [jev-act](skills/jev-act/references/world.md) · [Rubric template](skills/jev/assets/rubric.json).
 - **Source:** [ST-jeved](https://github.com/mossyfield/ST-jeved) · [Author’s September 20 Reddit post](https://www.reddit.com/r/SillyTavernAI/comments/1wl7uje/jev_might_be_the_next_frontier_for_improving/).
 - **Status:** Author-reported workflow; not reproduced. Jev measures the scene; the narrator writes it. Scores are not calibrated probabilities.
 
 <a id="sc-midi"></a>
 <!-- covers: D04 -->
-### 86. Compose editable music by choosing musical parts
+#### 86. Compose editable music by choosing musical parts
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Build a gentle waltz: choose a meter, instruments, chords and each next bar from legal candidates. Let code render and export the MIDI.
 
@@ -2491,13 +2786,16 @@ TypeSafe key; we have not installed it or tested its thresholds.
 - **Status:** README and video preview inspected; not run here. Jev selects symbolic parts, not audio; the upstream app also has a fixture mode.
 
 <a id="building"></a>
-## 🧩 Build and connect your own tools
+### 🧩 Build and connect your own tools
 
 [Turn a plain-language task into editable questions](#sc-compile) · [Add reusable decision tools through MCP](#sc-mcp) · [Learn by changing examples in a playground](#sc-playground) · [Local decision baseline](#sc-local-comparison)
 
 <a id="sc-compile"></a>
 <!-- covers: M22 -->
-### 87. Turn a plain-language task into editable questions
+#### 87. Turn a plain-language task into editable questions
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: Turn “find feedback about active blockers” into typed questions and criteria. Show near-miss examples before applying it to each record.
 
@@ -2509,7 +2807,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-mcp"></a>
 <!-- covers: E02 -->
-### 88. Add reusable decision tools through MCP
+#### 88. Add reusable decision tools through MCP
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: Expose either one generic evaluate tool or named classify/verify/rerank tools, with my editable criteria and an explicit review path.
 
@@ -2521,7 +2822,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-playground"></a>
 <!-- covers: E03 U29 -->
-### 89. Learn by changing examples in a playground
+#### 89. Learn by changing examples in a playground
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Use Jev: Clone a reviewed playground, inspect one example’s state, questions, sample inputs and consumer, then ask the coding agent to add a related example.
 
@@ -2533,7 +2837,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-local-comparison"></a>
 <!-- covers: D05 -->
-### 90. Compare Jev decisions with a local-model baseline
+#### 90. Compare Jev decisions with a local-model baseline
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Keep the same records, questions and held-out labels. Compare hosted Jev with a local typed-decision adapter on quality, latency and review rate.
 
@@ -2545,11 +2852,14 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 
 <a id="more-uses"></a>
-## 🧰 More community experiments & safety evaluation
+### 🧰 More community experiments & safety evaluation
 
 <a id="sc-moderation"></a>
 <!-- covers: E01 -->
-### 91. Moderate a community queue
+#### 91. Moderate a community queue
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Message + channel rules → allow / review / likely_violation → moderator queue.
 
@@ -2560,7 +2870,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-syntax"></a>
 <!-- covers: E02 -->
-### 92. Color code with semantic token labels
+#### 92. Color code with semantic token labels
+<!-- skill: jev-triage -->
+**Skill:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > Code spans + language hints + token taxonomy → span label → syntax-color renderer.
 
@@ -2571,7 +2884,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-ai-text"></a>
 <!-- covers: E03 -->
-### 93. Explore AI-text style signals
+#### 93. Explore AI-text style signals
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Text + observable style rubric → repeated phrasing / generic structure / unknown → reviewer notes.
 
@@ -2582,7 +2898,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-mute"></a>
 <!-- covers: E04 -->
-### 94. Suggest a microphone pause
+#### 94. Suggest a microphone pause
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Consented transcript + explicit meeting rules → continue / suggest_pause / review → visible suggestion.
 
@@ -2593,7 +2912,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-launcher"></a>
 <!-- covers: E05 -->
-### 95. Rank launcher results by intent
+#### 95. Rank launcher results by intent
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Typed query + permitted recent file/app candidates → candidate ID / none → user selects a result.
 
@@ -2606,7 +2928,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-language"></a>
 <!-- covers: E06 -->
-### 96. Experiment with semantic control flow
+#### 96. Experiment with semantic control flow
+<!-- skill: jev -->
+**Skill:** [jev](skills/jev/SKILL.md)
+
 
 > Program state + named predicate or branches → typed answer → interpreter chooses a bounded branch.
 
@@ -2617,7 +2942,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-drawing"></a>
 <!-- covers: E07 -->
-### 97. Select drawing actions on a canvas
+#### 97. Select drawing actions on a canvas
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Textual scene description + allowed shapes, tools and targets → action ID → host drawing tool.
 
@@ -2628,7 +2956,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-emoji"></a>
 <!-- covers: E08 -->
-### 98. Suggest an emoji from a fixed palette
+#### 98. Suggest an emoji from a fixed palette
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Draft + tone goal + approved emoji descriptions → emoji ID / none → optional insertion.
 
@@ -2639,7 +2970,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-clipboard"></a>
 <!-- covers: E09 -->
-### 99. Find a relevant clipboard item
+#### 99. Find a relevant clipboard item
+<!-- skill: jev-documents -->
+**Skill:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > Current task + explicitly permitted clipboard entries → entry ID / none → local preview.
 
@@ -2650,7 +2984,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-vitals-demo"></a>
 <!-- covers: E10 -->
-### 100. Explore synthetic telemetry in a simulator
+#### 100. Explore synthetic telemetry in a simulator
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Synthetic signal summary + fixture conditions → named demo state / unknown → simulator display.
 
@@ -2661,7 +2998,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-video-effects"></a>
 <!-- covers: E11 -->
-### 101. Select an effect while a video plays
+#### 101. Select an effect while a video plays
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Transcript window + predefined effect descriptions → effect ID / none → renderer.
 
@@ -2672,7 +3012,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-pixels"></a>
 <!-- covers: E12 -->
-### 102. Paint by choosing colors
+#### 102. Paint by choosing colors
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Scene description + pixel/region coordinates + palette → color ID → JavaScript painter.
 
@@ -2683,7 +3026,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-video-edit"></a>
 <!-- covers: E13 -->
-### 103. Pick clips for an editable video
+#### 103. Pick clips for an editable video
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Host-written frame descriptions + clip IDs + editing rubric → opening/ending/rank → editor timeline.
 
@@ -2694,7 +3040,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-levels"></a>
 <!-- covers: E14 -->
-### 104. Select the next legal level section
+#### 104. Select the next legal level section
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Current level state + prevalidated segment candidates → segment ID → game engine.
 
@@ -2705,7 +3054,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-ads"></a>
 <!-- covers: E15 -->
-### 105. Break down a library of ads
+#### 105. Break down a library of ads
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Authorized ad text + landing-page evidence + taxonomy → hook/format/offer/CTA labels → comparison table.
 
@@ -2716,7 +3068,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-physics"></a>
 <!-- covers: E16 -->
-### 106. Choose bounded actions in a physics simulator
+#### 106. Choose bounded actions in a physics simulator
+<!-- skill: jev-act -->
+**Skill:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > Textual simulator telemetry + legal controls → steering/thrust/hold choice → simulated step.
 
@@ -2727,7 +3082,10 @@ TypeSafe key; we have not installed it or tested its thresholds.
 
 <a id="sc-redteam-batch"></a>
 <!-- covers: E17 -->
-### 107. Review jailbreak evaluations in batches
+#### 107. Review jailbreak evaluations in batches
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Approved captured transcripts + tested boundary → outcome + evidence status → independent audit.
 
@@ -2753,7 +3111,10 @@ before any model call.
 
 <a id="sc-redteam-team"></a>
 <!-- covers: E18 -->
-### 108. Coordinate multi-turn, multi-agent red-team tests
+#### 108. Coordinate multi-turn, multi-agent red-team tests
+<!-- skill: jev-eval -->
+**Skill:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > Scoped sessions + full turn history + budget + permitted next steps → continue / stop / review → authorized runner.
 
@@ -2770,7 +3131,7 @@ yet.
 ```
 
 <a id="calibration"></a>
-## 🎯 Make probabilities useful
+### 🎯 Make probabilities useful
 
 “Auto-handle / stronger model / person” is a **customizable policy**, not a universal
 0.9/0.7 rule. First define which answer's probability you mean, check it against
@@ -2782,32 +3143,11 @@ outcome after acting. Jev does not browse, execute tools or generate prose by it
 Data sent for judgment goes to your selected service; use synthetic data first.
 
 <a id="experiments"></a>
-## 🧪 Experiments you can inspect
+### 🧪 Experiments you can inspect
 
+- [Five-skill checks: installation, navigation and three live Jev requests](docs/validation-five-skills.md).
 - [Agent before/after](evals/RESULTS.md): 12 pairs, baseline 12/12 vs fixed-checkpoint 10/12. Small negative result for that integration policy.
 - [Decision/calibration pilot](evals/CALIBRATION_RESULTS.md): 136/160 benchmark labels matched; the confidence ≥0.9 group still had 8/100 errors.
 - [Nine scenario API examples](evals/SCENARIO_EXAMPLES.md): observed answers for all eight focused skills plus voice direction; no host actions.
 - [Five earlier live API examples](evals/results/examples-2026-09-20.json): request/response smoke receipts, not scenario-level accuracy tests.
 - [Validation and reproduction](docs/validation.md): package checks, dry runs and untested host boundaries are recorded separately.
-
-<a id="credits"></a>
-## 🔗 More to explore · Credits
-
-This collection builds on discovery work from
-[Anil-matcha/awesome-jev-by-typesafe](https://github.com/Anil-matcha/awesome-jev-by-typesafe),
-[cobanov/awesome-jev](https://github.com/cobanov/awesome-jev),
-[yibie/awesome-jev](https://github.com/yibie/awesome-jev),
-[yzfly/awesome-jev-zh](https://github.com/yzfly/awesome-jev-zh),
-[hellogumbo/awesome-jev](https://github.com/hellogumbo/awesome-jev) and
-[logicrw/awesome-jev-projects](https://github.com/logicrw/awesome-jev-projects).
-
-Go deeper: [pinned project research](skills/jev/references/ecosystem.md) ·
-[Reddit, GitHub and other field reports](skills/jev/references/community.md) ·
-[29 supplied X posts and follow-up checks](skills/jev/references/x-intake-2026-09-20.md) ·
-[56 agent/human recipes](skills/jev/references/index.md).
-
-Inspired also by the [official Jev skill](https://docs.typesafe.ai/agent-skill).
-
-Special thanks to [LINUX DO](https://linux.do/?tl=en).
-
-[MIT](LICENSE); linked projects retain their own licenses.

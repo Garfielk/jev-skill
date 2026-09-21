@@ -1,0 +1,134 @@
+{
+  "checked_at": "2026-09-22",
+  "projects": [
+    {
+      "id": "ekzhang/openjev-sglang",
+      "url": "https://github.com/ekzhang/openjev-sglang",
+      "revision": "f3e1678168b2e9a298bb47639444b428b661c4b2",
+      "license": "not declared",
+      "evidence": "README inspected, not run",
+      "existing": true,
+      "decision": "Already listed; API server on open models. No repository license detected; do not infer reuse rights."
+    },
+    {
+      "id": "vinnylarouge/jevlike",
+      "url": "https://github.com/vinnylarouge/jevlike",
+      "revision": "94f5fd1b0b11d52bbdfdf4e0ee6aa96b568f8452",
+      "license": "MIT",
+      "evidence": "README inspected, not run",
+      "existing": false,
+      "decision": "Add: option-scoring model and training/game examples."
+    },
+    {
+      "id": "rorshopping/jev-on-a-laptop",
+      "url": "https://github.com/rorshopping/jev-on-a-laptop",
+      "revision": "5821d910610331a695f5185a6ad1d6b514e8a62f",
+      "license": "NOASSERTION",
+      "evidence": "README inspected, not run",
+      "existing": false,
+      "decision": "Add: independent study and benchmark runner; not official Jev weights. Inspect upstream LICENSE for its exact terms."
+    },
+    {
+      "id": "TheoLeeCJ/SemIf",
+      "url": "https://github.com/TheoLeeCJ/SemIf",
+      "revision": "ca3ba65f142967030ecb453346e94d6f476a69df",
+      "license": "MIT",
+      "evidence": "README inspected, not run",
+      "existing": false,
+      "decision": "Add: direct option scoring; renamed from OpenJev."
+    },
+    {
+      "id": "zhengxuyu/litjev",
+      "url": "https://github.com/zhengxuyu/litjev",
+      "revision": "e7fb109a7466da9709028eb9c4e9f16eaeb4e2a3",
+      "license": "Apache-2.0",
+      "evidence": "README inspected, not run",
+      "existing": false,
+      "decision": "Add: pretrained-Qwen decision layer; probabilities not calibrated by default."
+    },
+    {
+      "id": "Heman10x-NGU/Verdict-open-jev",
+      "url": "https://github.com/Heman10x-NGU/Verdict-open-jev",
+      "revision": "30f15564821626ca5c1ad5b2638c4eb7078787dd",
+      "license": "NOASSERTION",
+      "evidence": "README inspected, not run",
+      "existing": false,
+      "decision": "Add: ModernBERT decision model and evaluation code. README declares Apache-2.0; GitHub license detection is NOASSERTION, so consult LICENSE."
+    },
+    {
+      "id": "OmniJev/awesome-jev-gallery",
+      "url": "https://github.com/OmniJev/awesome-jev-gallery",
+      "revision": "2b84d22ab0fb9e54098788955187feb023c40ab3",
+      "license": "NOASSERTION",
+      "evidence": "README inspected, not run",
+      "existing": false,
+      "decision": "Add: directory. Old awesome-jev URL redirects here; do not recursively import its entries."
+    },
+    {
+      "id": "sumleo/prompt2jev",
+      "url": "https://github.com/sumleo/prompt2jev",
+      "revision": "f3b6bc763b742b9f489bf0fa0c9514e334996283",
+      "license": "MIT",
+      "evidence": "README inspected, not run",
+      "existing": false,
+      "decision": "Add: upstream prompt-conversion skill. Its method is adapted into jev, not installed as a sixth skill."
+    },
+    {
+      "id": "harshatheg/Qwen-2.5-1B-RLCD",
+      "url": "https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD",
+      "revision": "2af86848be75847ccb3553b0941cc51d6ef7e4e9",
+      "license": "apache-2.0",
+      "evidence": "model card and file list inspected, not run",
+      "weight_files": [],
+      "existing": false,
+      "decision": "Add as an inference engine. File-list check found no safetensors/bin/pt weights at this revision; do not call it a released RLCD fine-tune."
+    },
+    {
+      "id": "convaiinnovations/laya",
+      "url": "https://huggingface.co/convaiinnovations/laya",
+      "revision": "1c5edc17a7acd8701df6fc341c0d179f1c62c982",
+      "license": "apache-2.0",
+      "evidence": "model card and file list inspected, not run",
+      "weight_files": [
+        "model.safetensors",
+        "multilingual/model.safetensors",
+        "typed-decisions/model.safetensors"
+      ],
+      "existing": false,
+      "decision": "Add: model card describes ModernBERT decision heads; weight files present, not evaluated here."
+    },
+    {
+      "id": "notnotsamuel/LFM2.5-350M-RLCD",
+      "url": "https://huggingface.co/notnotsamuel/LFM2.5-350M-RLCD",
+      "revision": "deb589d803d141cabd158ef55f6617b128529f36",
+      "license": "other",
+      "evidence": "model card and file list inspected, not run",
+      "weight_files": [
+        "model.safetensors"
+      ],
+      "existing": false,
+      "decision": "Add: smaller Liquid-based model variant; custom/base-model license terms apply."
+    },
+    {
+      "id": "monotykamary/LFM2.5-2.6B-RLCD",
+      "url": "https://huggingface.co/monotykamary/LFM2.5-2.6B-RLCD",
+      "revision": "31455458983bdbdc41b69ebbcedabd0d5de299c9",
+      "license": "other",
+      "evidence": "model card and file list inspected, not run",
+      "weight_files": [
+        "model-00001-of-00002.safetensors",
+        "model-00002-of-00002.safetensors"
+      ],
+      "existing": false,
+      "decision": "Add: larger Liquid-based model variant; custom/base-model license terms apply."
+    }
+  ],
+  "demos": {
+    "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+    "names": [
+      "Doom",
+      "Wikiracing"
+    ],
+    "decision": "Add one grouped official-demo entry; the checked launch page does not link standalone repositories."
+  }
+}

@@ -4,98 +4,77 @@
 
 **Jev 演示、工作流与 coding Agent 技能合集。**
 
-[![Skills](https://img.shields.io/badge/skills-6-7c3aed?style=flat-square)](#install) [![Scenarios](https://img.shields.io/badge/scenarios-108-0d9488?style=flat-square)](#catalog) [![Tests](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml/badge.svg)](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml) [![MIT](https://img.shields.io/badge/license-MIT-ea580c?style=flat-square)](LICENSE)
+[![Skills](https://img.shields.io/badge/skills-5-7c3aed?style=flat-square)](#install) [![Scenarios](https://img.shields.io/badge/scenarios-108-0d9488?style=flat-square)](#catalog) [![Tests](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml/badge.svg)](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml) [![MIT](https://img.shields.io/badge/license-MIT-ea580c?style=flat-square)](LICENSE)
 
 [English](README.md) · **简体中文**
 
-[概览](#overview) · [目录](#contents) · [安装](#install)
+[项目](#projects) · [技能](#skills) · [用法](#catalog)
 
 </div>
 
 <a id="overview"></a>
-## 概览
-
-Jev 负责选择、分类和评分，你自己的 coding Agent 负责提供上下文和执行。
-这个合集帮你找到用法，再让 Agent 帮你用起来：
-
-- **找灵感：** 45 个项目与资料入口、108 个场景，从浏览器操作到音乐创作。
-- **直接用：** 6 个技能，交给自己的 Codex、Claude Code 或 OpenCode 安装。
-- **改成你的：** 14 组真实输入输出、可修改的模板，以及评测记录。
-
-**第一次来？** [把安装提示词发给 Agent](#install)，跟它确认 setup，再挑一个例子试试。
-不用自己写命令或 JSON。
+Jev 负责选择、分类和评分，Agent 负责提供证据和执行。
+这里有 **57 个项目与资料入口、5 个技能、108 个场景**，以及 14 组已记录的输入输出。
 
 <a id="contents"></a>
-## 目录
-
-| 开始使用 | 找项目与用法 | 深入了解 |
+| [项目](#projects) | [技能](#skills) | [用法](#catalog) |
 |---|---|---|
-| [📦 安装](#install) · [🔄 更新](#update) | [🎬 演示](#showcase) | [🧯 避坑指南](#pitfalls) |
-| [🔑 Agent 设置](#no-key) | [🧭 项目导航](#projects) | [⚡ 上下文与批量](#context-tips) |
-| [🚀 怎么用](#usage) | [🗂 全部场景](#catalog) | [🎯 概率校准](#calibration) |
-| [🧪 输入 → 输出](#io) | [📊 实验记录](#experiments) | [🔗 来源与致谢](#credits) |
+| 看 Demo、应用和本地模型 | 安装技能，按任务选择 | 找场景，改模板，看输入输出 |
 
-<details>
-<summary>按主题浏览场景</summary>
+第一次来？[把安装提示词发给 Agent](#install)。已有安装？[让 Agent 更新](#update)。
+[更新记录](docs/updates/README.md)
 
-| | |
-|---|---|
-| [长程 Agent](#agent) | [监督、审查与评测](#quality) |
-| [路由与上下文](#routing) | [浏览器与桌面](#interaction) |
-| [邮件与客服](#business) | [文档与研究](#documents) |
-| [数据与开发工具](#data) | [游戏与创作](#creative) |
-| [自己搭工具](#building) | [更多实验与安全评测](#more-uses) |
+<a id="projects"></a>
+## 项目
 
-</details>
-
-[🆕 更新记录](docs/updates/README.md)
+社区项目与我们的技能分开展示。收录不代表已安装或实测；替代实现不是官方 Jev，也不会自动接入。
 
 <a id="showcase"></a>
-## 🎬 演示
+### 演示
 
 点图片看原项目、视频或图解。素材来自原作者，不是本仓库的复现结果。
 
 <table>
 <tr>
 <td width="50%" valign="top">
-<a href="https://github.com/browser-use/jev-ultrafast"><img src="https://raw.githubusercontent.com/browser-use/jev-ultrafast/1231850a0bf1a0c0341fe408ef1668dbbfdfac46/docs/demo.gif" width="100%" alt="浏览器自己选择下一步" /></a>
+<a href="https://github.com/browser-use/jev-ultrafast"><img src="docs/media/browser-preview.gif" width="100%" alt="浏览器自己选择下一步" /></a>
 <br /><b>🌐 浏览器自动化</b><br />
-<sub>Jev 选动作，浏览器工具点击和输入。</sub><br />
-<a href="https://github.com/browser-use/jev-ultrafast">原项目 / 演示 ↗</a>
+<sub>选择浏览器动作。</sub><br />
+<a href="https://github.com/browser-use/jev-ultrafast">查看原项目 ↗</a>
 </td>
 <td width="50%" valign="top">
-<a href="https://github.com/thelau/jev-tetris"><img src="https://raw.githubusercontent.com/thelau/jev-tetris/9869b602965cf002afff766013f8c068846d36aa/docs/stills/states/3-decided-desktop.png" width="100%" alt="把决策概率画在俄罗斯方块上" /></a>
+<a href="https://github.com/thelau/jev-tetris"><img src="docs/media/tetris-preview.png" width="100%" alt="把决策概率画在俄罗斯方块上" /></a>
 <br /><b>🧱 俄罗斯方块</b><br />
-<sub>代码枚举合法落点，Jev 给候选排序。</sub><br />
-<a href="https://github.com/thelau/jev-tetris">原项目 / 演示 ↗</a>
+<sub>选择合法落点。</sub><br />
+<a href="https://github.com/thelau/jev-tetris">查看原项目 ↗</a>
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
-<a href="https://x.com/gokayfem/status/2101022590722810271"><img src="docs/media/whale-city.png" width="100%" alt="用决策维持一座鲸背城市" /></a>
+<a href="https://x.com/gokayfem/status/2101022590722810271"><img src="docs/media/whale-preview.png" width="100%" alt="用决策维持一座鲸背城市" /></a>
 <br /><b>🐋 鲸背城市</b><br />
-<sub>Astra 设定世界，Jev 决策，H3 渲染。</sub><br />
-<a href="https://x.com/gokayfem/status/2101022590722810271">原项目 / 演示 ↗</a>
+<sub>控制模拟世界。</sub><br />
+<a href="https://x.com/gokayfem/status/2101022590722810271">查看原项目 ↗</a>
 </td>
 <td width="50%" valign="top">
-<a href="https://github.com/cocktailpeanut/jevthoven"><img src="docs/media/jevthoven.png" width="100%" alt="从音乐部件编排出多轨作品" /></a>
+<a href="https://github.com/cocktailpeanut/jevthoven"><img src="docs/media/music-preview.png" width="100%" alt="从音乐部件编排出多轨作品" /></a>
 <br /><b>🎹 MIDI 作曲</b><br />
-<sub>Jev 选部件，代码渲染可编辑的 MIDI。</sub><br />
-<a href="https://github.com/cocktailpeanut/jevthoven">原项目 / 演示 ↗</a>
+<sub>选择音乐部件。</sub><br />
+<a href="https://github.com/cocktailpeanut/jevthoven">查看原项目 ↗</a>
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
-<a href="https://github.com/devagrawal09/jev-review"><img src="https://raw.githubusercontent.com/devagrawal09/jev-review/31f89602797fb7bea007f8a480bf368bf564954e/docs/dashboard.png" width="100%" alt="代码审查面板与风险热力图" /></a>
+<a href="https://github.com/devagrawal09/jev-review"><img src="docs/media/review-preview.png" width="100%" alt="代码审查面板与风险热力图" /></a>
 <br /><b>🔎 代码审查</b><br />
-<sub>Jev 标记待复核的文件与证据。</sub><br />
-<a href="https://github.com/devagrawal09/jev-review">原项目 / 面板 ↗</a>
+<sub>标出待检查的代码。</sub><br />
+<a href="https://github.com/devagrawal09/jev-review">查看原项目 ↗</a>
 </td>
 <td width="50%" valign="top">
-<a href="https://github.com/davila7/jev-explained"><img src="https://raw.githubusercontent.com/davila7/jev-explained/5cbe35e04609112be77b1bd447bd79b3bde7980b/docs/jev-primitives.png" width="100%" alt="原作者绘制的 Noul、Choice、Score 示意图" /></a>
+<a href="https://github.com/davila7/jev-explained"><img src="docs/media/primitives-preview.png" width="100%" alt="原作者绘制的 Noul、Choice、Score 示意图" /></a>
 <br /><b>🎨 决策游乐场</b><br />
-<sub>学习判断、选择和评分；配图为作者示意图。</sub><br />
-<a href="https://github.com/davila7/jev-explained">原项目 / Playground ↗</a>
+<sub>图解三种问题。</sub><br />
+<a href="https://github.com/davila7/jev-explained">查看原项目 ↗</a>
 </td>
 </tr>
 </table>
@@ -104,10 +83,124 @@ Jev 负责选择、分类和评分，你自己的 coding Agent 负责提供上�
 
 **9 月 20 日新收录：** 语义查找、赞助口播、剧情监测、MIDI 编排、本地模型对照。[调研记录 →](docs/updates/2026-09-20.md)
 
-<a id="install"></a>
-## 📦 安装：复制给你的 Agent
+### 应用
 
-> **六入口版本目前是源码预览，尚未发布新版。** 已发布的 v0.2.0 仍有 11 个入口；不要把旧版本当成六入口版安装。[安装与升级说明](docs/install.md) · [旧名称去了哪里](docs/skill-migration.md)
+| 类型 | 项目 | 可以做什么 | 来源 |
+|---|---|---|---|
+| Browser | [Jev Ultrafast](https://github.com/browser-use/jev-ultrafast) | DOM 动作选择，小模型补输入 | README |
+| Browser | [WebMCP / WindTunnel](https://github.com/nekuda-ai/WindTunnel) | 网站工具选择与浏览器评测 | 报告 |
+| Browser | [Stagehand + Jev](https://x.com/kylejeong/status/2101046888468553855) | 接进 act / observe / extract | 作者原帖 |
+| Browser | [Jev Browser Use](https://github.com/wy-coliney/jev-browser-use) | Codex 输入并验证，Jev 选控件 | README |
+| Desktop | [Jev Desktop](https://github.com/yikangy873-gif/jev-desktop) | 已有 Codex CUA 环境里的受限控件选择 | README |
+| Agent | [Jev Codex Router](https://github.com/0xNatoshi/jev-codex-router) | 逐轮选模型档位，先看影子模式 | README |
+| Context | [winnow](https://github.com/GhalebDweikat/winnow) | 可恢复的工具结果裁剪 | README |
+| Review | [Jev Review](https://github.com/devagrawal09/jev-review) | 分阶段代码审查与面板 | README |
+| Search | [Blink (ellipsis-dev)](https://github.com/ellipsis-dev/blink) | 按文件和目录名找代码，不等于完整审查 | README |
+| Context | [fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction) | 选择保留历史，注意缓存和删除风险 | README |
+| Context | [compact-adviser](https://github.com/kunchenguid/compact-adviser) | 判断压缩时机，不是删哪些内容 | README |
+| Agent | [pi-warden](https://github.com/DevMortimer/pi-warden) | 检查跑偏、循环与无证据的完成声明 | README |
+| Security | [jev-shield (caiovicentino)](https://github.com/caiovicentino/jev-shield) | MCP 语义筛查，不是安全边界 | README |
+| Data | [pg-jev](https://github.com/realZachi/pg-jev) | 语义 SQL 扩展，需要 plpython3u / 超级用户 | README |
+| Data | [jevql](https://github.com/kylemclaren/jevql) | CLI 语义判断加普通 Postgres 查询 | README |
+| Research | [1kpapers](https://www.1kpapers.com/) | 论文浏览：生成模型写摘要，Jev 选主题 | 目录线索 |
+| Inbox | [500 / 1,500-email demos](https://madewithjev.com/builds/inbox-triage-1500-emails) | 批量邮件分类，吞吐量不代表准确率 | 目录线索 |
+| Content | [724-ad teardown](https://x.com/TheMattBerman/status/2100654891756589230) | 每条广告多维判断，再汇总对比 | 作者原帖 |
+| Content | [SuperX draft scoring](https://x.com/robj3d3/status/2100722975645598191) | 用标准审稿，不保证传播效果 | 目录线索 |
+| Video | [Sponsor Skipper](https://github.com/trungdq88/youtube-sponsor-detection) | 把转写窗口变成赞助口播时间段 | README |
+| UI | [jev-ui (etweisberg)](https://github.com/etweisberg/jev-ui) | 选择已有 React 视图与可选提示 | README |
+| Music | [Jevthoven](https://github.com/cocktailpeanut/jevthoven) | 选择音乐部件，代码生成可编辑 MIDI | README |
+| Game | [Jev Tetris](https://github.com/thelau/jev-tetris) | 合法落点与简单基线对照 | README |
+| Game | [typesafe-mario](https://github.com/fhshaik/typesafe-mario) | 从结构化模拟器状态里选控制动作 | README |
+| Language | [Probably](https://x.com/southpolesteve/status/2100767781868150938) | 语义控制流玩具，每个循环要设上限 | 作者原帖 |
+| 应用 | [Doom & Wikiracing](https://typesafe.ai/blog/introducing-system-one-models-and-jev) | 官方游戏演示；该页面未给出独立源码仓库。 | Author demo |
+
+### 本地模型
+
+| 类型 | 项目 | 可以做什么 | 来源 |
+|---|---|---|---|
+| Alternative | [OpenJev (DiffusionGemma)](https://github.com/razorback16/openjev) | 另一种开放模型的类型化决策服务 | 其他模型 README |
+| Alternative | [OpenJev SGLang](https://github.com/ekzhang/openjev-sglang) | 基于开放模型 prefill / logits 的决策 | 其他模型 README |
+| Alternative | [Jevify](https://github.com/fidecastro/jevify) | 本地模型适配器，应用相同留出集比较 | 其他模型 README |
+| 本地模型 | [jevlike](https://github.com/vinnylarouge/jevlike) | 训练小型选项评分模型，带 Doom 和国际象棋示例。 | README |
+| 本地模型 | [Jev on a laptop](https://github.com/rorshopping/jev-on-a-laptop) | 在 Apple Silicon 上试用结构化决策、对比本地模型。 | Report |
+| 本地模型 | [Qwen-2.5-1B-RLCD](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD) | MLX 并行决策引擎；本次核查的版本不含权重文件。 | Model card |
+| 本地模型 | [SemIf](https://github.com/TheoLeeCJ/SemIf) | 用开放模型给选项评分，旧名 OpenJev。 | README |
+| 本地模型 | [LitJev](https://github.com/zhengxuyu/litjev) | 无需训练，从 Qwen 模型读取选项分数。 | README |
+| 本地模型 | [Laya](https://huggingface.co/convaiinnovations/laya) | 基于 ModernBERT 的选择、评分和判断模型。 | Model card |
+| 本地模型 | [LFM2.5-350M-RLCD](https://huggingface.co/notnotsamuel/LFM2.5-350M-RLCD) | 小型 Liquid 决策模型变体，使用前查看模型许可。 | Model card |
+| 本地模型 | [LFM2.5-2.6B-RLCD](https://huggingface.co/monotykamary/LFM2.5-2.6B-RLCD) | 较大的 Liquid 决策模型变体，使用前查看模型许可。 | Model card |
+| 本地模型 | [Verdict / rlcd-modernbert-151m](https://github.com/Heman10x-NGU/Verdict-open-jev) | ModernBERT 决策模型，带评测和浏览器示例。 | README |
+
+### 工具与资源
+
+| 类型 | 项目 | 可以做什么 | 来源 |
+|---|---|---|---|
+| MCP | [TypeSafe MCP](https://github.com/itsmostafa/typesafe-mcp) | 通用 evaluate 工具，支持两种供应商 | README |
+| MCP | [Jev MCP (jkudish)](https://github.com/jkudish/jev-mcp) | 分类、重排、审查等命名工具 | README |
+| CLI | [SemDecide](https://github.com/sharziki/semdecide) | 语义谓词与 JSONL 管道 | README |
+| Skills | [jev-skill-gate](https://github.com/ShivamPansuriya/jev-skill-gate) | 筛相关技能，检查被隐藏的能力 | README |
+| Cascade | [Jev + Kimi fraud experiment](https://madewithjev.com/) | 先快速筛查，再复核不确定邮件 | 目录线索 |
+| Learn | [TypeSafe AI Playground](https://github.com/TypeSafeAI/typesafe-playground) | 社区 Playground，区分模拟和真实调用 | README |
+| Learn | [Jev Explained](https://github.com/davila7/jev-explained) | 让 Agent 改写的小例子 | README |
+| Report | [jev-evaluation](https://github.com/willkelly/jev-evaluation) | 对抗样例、校准和批量判断实验 | 报告 |
+| Report | [PrimeLine comparison](https://primeline.cc/blog/typesafe-jev-pre-registered-test) | 任务依赖的结果，注意标签来源限制 | 报告 |
+| Report | [LangChain Jev-as-a-Judge](https://www.langchain.com/blog/jev-agent-evals-langsmith) | 比较判分一致性、质量、延迟和成本 | 报告 |
+| Methods | [HarmBench](https://github.com/centerforaisafety/HarmBench) | 分离样例生成、目标输出与评测 | 方法参考 |
+| Methods | [PAIR](https://github.com/patrickrchao/JailbreakingLLMs) | 授权迭代红队方法，不是 Jev 应用 | 方法参考 |
+| Methods | [AgentDojo](https://github.com/ethz-spylab/agentdojo) | 结合任务结果的 Agent 注入评测 | 方法参考 |
+| Directory | [Made with Jev](https://madewithjev.com/) | 项目、App、文章和作者演示索引 | 目录线索 |
+| Directory | [Awesome Jev (kraayenjon)](https://github.com/kraayenjon/awesome-jev) | 项目与实现方式的配套合集 | README |
+| Directory | [Awesome Jev (Anil-matcha)](https://github.com/Anil-matcha/awesome-jev-by-typesafe) | 更多项目与社区线索 | 目录线索 |
+| Directory | [LINUX DO / QianCheng](https://linux.do/t/topic/2919004) | 带原帖链接的 39 项用途汇总 | 汇总原文 |
+| 工具与资源 | [Awesome Jev (OmniJev)](https://github.com/OmniJev/awesome-jev-gallery) | 浏览开放模型、项目和独立评测。 | Directory |
+| 工具与资源 | [prompt2jev](https://github.com/sumleo/prompt2jev) | 把 Prompt 转成结构化问题和调用代码。 | README |
+
+[本次项目核查](skills/jev/references/intake-2026-09-22.md) · [已有项目来源](skills/jev/references/ecosystem.md)
+
+<details>
+<summary>更多来源与致谢</summary>
+
+<a id="credits"></a>
+### 更多来源
+
+本合集参考了这些 awesome 项目的线索整理：
+[Anil-matcha/awesome-jev-by-typesafe](https://github.com/Anil-matcha/awesome-jev-by-typesafe)、
+[cobanov/awesome-jev](https://github.com/cobanov/awesome-jev)、
+[yibie/awesome-jev](https://github.com/yibie/awesome-jev)、
+[yzfly/awesome-jev-zh](https://github.com/yzfly/awesome-jev-zh)、
+[hellogumbo/awesome-jev](https://github.com/hellogumbo/awesome-jev)、
+[logicrw/awesome-jev-projects](https://github.com/logicrw/awesome-jev-projects)。
+
+继续探索：[固定版本的项目调研](skills/jev/references/ecosystem.md) ·
+[Reddit、GitHub 等平台使用记录](skills/jev/references/community.md) ·
+[你提供的 29 条 X 分享及后续核验](skills/jev/references/x-intake-2026-09-20.md) ·
+[56 个 agent / 人工场景](skills/jev/references/index.md)。
+
+也受到[官方 Jev skill](https://docs.typesafe.ai/agent-skill)的启发。
+
+特别感谢 [LINUX DO](https://linux.do/?tl=en)。
+
+[MIT](LICENSE)，外链项目保留各自许可证。
+
+</details>
+
+<a id="skills"></a>
+## 技能
+
+每个技能只负责一类任务。先读短入口，再按需要打开一个指南或模板，不用读完整份 README。
+
+| 技能 | 做什么 | 例子 |
+|---|---|---|
+| [`jev`](skills/jev/SKILL.md) | 设计问题、批量调用 | [用一句需求生成可编辑的判断问题](#sc-compile) · [选择下一步该用哪个工具](#sc-a15) · [更多](skills/jev/references/scenarios.md) |
+| [`jev-triage`](skills/jev-triage/SKILL.md) | 分类、标签、优先级 | [给客服工单分流](#sc-h02) · [按紧急程度排列待办和故障](#sc-h03) · [更多](skills/jev-triage/references/scenarios.md) |
+| [`jev-documents`](skills/jev-documents/SKILL.md) | 找原文、核对证据 | [在代码库里找功能入口](#sc-a20) · [检查一句主张有没有原文支持](#sc-h08) · [更多](skills/jev-documents/references/scenarios.md) |
+| [`jev-eval`](skills/jev-eval/SKILL.md) | 按标准检查输出 | [给代码审查排优先级](#sc-a12) · [批量整理和判定越狱评测](#sc-redteam-batch) · [更多](skills/jev-eval/references/scenarios.md) |
+| [`jev-act`](skills/jev-act/SKILL.md) | 选择下一步合法动作 | [决定浏览器下一步点哪里](#sc-a23) · [让游戏 NPC 从合法动作里作选择](#sc-a28) · [更多](skills/jev-act/references/scenarios.md) |
+
+<a id="install"></a>
+### 📦 安装：复制给你的 Agent
+
+> **五入口版本目前是源码预览，尚未发布新版。** 已发布的 v0.2.0 仍有 11 个入口；不要把旧版本当成五入口版安装。[安装与升级说明](docs/install.md) · [旧名称去了哪里](docs/skill-migration.md)
 
 把下面这段话发给 **Codex、Claude Code 或 OpenCode**：
 
@@ -126,7 +219,7 @@ Agent 会检查环境，默认安装到当前项目，并完成离线验证。
 [Agent 安装指南](docs/install.md) · [手动安装与排错](docs/installation.md)
 
 <a id="update"></a>
-## 🔄 更新
+### 🔄 更新
 
 已经装过？把这句话复制给你的 Agent：
 
@@ -140,7 +233,7 @@ Agent 会检查安装来源，同时更新技能文件和已有的 CLI，再做�
 [更新指南](docs/update.md) · [旧技能名称迁移](docs/skill-migration.md)
 
 <a id="usage"></a>
-## 🚀 装好以后，怎么用？
+### 🚀 装好以后，怎么用？
 
 **直接把下面的话发给 Agent。** 点名技能、说清要判断什么，不用自己写 JSON。
 可以调用真实 Jev，也可以在你同意后，由当前 Agent 按相同标准模拟判断。
@@ -255,8 +348,7 @@ B 模式：由你按同样标准判断，明确标注模拟，不编造 API 响�
 | 批量分类、打标签、分流、排优先级 | `jev-triage` |
 | 检索文档或代码、提取原文、核对证据 | `jev-documents` |
 | 评估回答、代码改动或授权安全测试的结果 | `jev-eval` |
-| 从真实浏览器或桌面的已观察动作中选择 | `jev-ui` |
-| 在游戏、NPC 或仿真世界里选择合法动作 | `jev-simulation` |
+| 选择浏览器、桌面或模拟世界中的动作 | `jev-act` |
 
 想定制时，直接告诉 Agent：**输入是什么、按什么标准、有哪些选项、结果给谁用**。
 几选一用 `choice`，独立的是/否判断用 `noul`，按等级评分用 `score`。
@@ -288,30 +380,8 @@ jev-decide decide request.json > result.json
 用 `python3 <实际技能目录>/scripts/jev.py` 替换 `jev-decide` 即可。
 [更多命令与排错](docs/installation.md#cli-behavior) · [直接看输入输出](#io)
 
-<a id="io"></a>
-## 🧪 输入什么，实际返回什么
-
-下面是**合成样例调用真实 Jev API 后保存的结果**。
-先看简版；点场景名称，就能看到完整输入和对应输出。
-
-| 拿来做什么 | 📥 输入摘录 | 📤 实际返回 |
-|---|---|---|
-| [帮卡住的 Agent 选下一步](#sc-a02) | 连续两次相同的 `UnicodeDecodeError`，期间没改源码。在检查输入、原样重试、报告完成、询问用户之间选择。 | `next_step = inspect_input`：先查输入<br />`stuck = true`，是的概率 `0.88` |
-| [给客服消息分流](#sc-h02) | “所有团队成员点击导出都报错，明天需要月报。”选择队列，并按给定的 0–2 级标准评估紧急程度。 | `queue = bug`：建议故障队列<br />`urgency = 1.29 / 2` |
-| [从文档里找对证据](#sc-spans) | `s1`：一般咨询 hello@example.invalid<br />`s2`：账单发往 accounts@example.invalid<br />哪段写了账单地址？“账单发往 s1”这个说法对吗？ | `source = s2`，概率 `0.97`<br />`claim_support = contradicted`：原文与该说法矛盾 |
-
-**全部 14 组 I/O：** [失败恢复](#sc-a02) · [完成检查](#sc-a06) ·
-[代码审查](#sc-a08) · [模型路由](#sc-a16) · [查找代码](#sc-a20) ·
-[上下文取舍](#sc-a21) · [浏览器选动作 ×2](#sc-a23) · [客服分流 ×2](#sc-h02) ·
-[文档证据](#sc-spans) · [模拟决策](#sc-a28) · [想法评分](#sc-h25) · [声音编排](#sc-tts)。
-
-每组 **Input** 都原样展示保存的请求：模型、上下文（`state`）、问题和候选项。
-**Output** 是 CLI 整理后的实际决策，链接里还有原始 API 响应和完整概率分布。
-上表中文是便于阅读的概述；下方请求保留调用时的英文。这些调用没有实际执行所选动作。
-Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2 这样的评分**不是概率**。
-
 <a id="context-tips"></a>
-## ⚡ 用好 Jev，先记住两件事
+### ⚡ 用好 Jev，先记住两件事
 
 - **上下文给够。** 把目标、规则、原始证据、相关历史和候选项含义一起传进去。
   Jev 不会自动继承 agent 的对话。问题可以小，判断所需的上下文不能省。
@@ -325,7 +395,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 **9 月 21 日更新：** 项目导航、18 个补充场景、Setup 与安全评测技能。[收录与验证记录 →](docs/updates/2026-09-21-collection-setup.md)
 
 <a id="pitfalls"></a>
-## 🧯 避坑：多判断几次可以，但别把重复当证据
+### 🧯 避坑：多判断几次可以，但别把重复当证据
 
 **上下文要给足，不是越大越好；重复 judge 可以测稳定性，不保证提准。**
 [完整指南、诊断步骤与原始来源](skills/jev/references/pitfalls.md)。
@@ -358,65 +428,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 沿用我选定的 key 和服务商，出错后不要擅自换接口或模拟。
 ```
 
-<a id="projects"></a>
-## 🧭 项目、App、评测与替代模型导航
-
-先找你想做的事，再点项目。它们是可选的上游项目，安装本技能**不会顺带安装**。README / 报告表示查过来源，不等于复现；目录条目和 Demo 是线索，不是已验证产品。替代模型**不是 Jev 权重**，也不会被自动替换进来。
-
-| 类型 | 项目 / 入口 | 可以拿来做什么 | 证据类型 |
-|---|---|---|---|
-| Browser | [Jev Ultrafast](https://github.com/browser-use/jev-ultrafast) | DOM 动作选择，小模型补输入 | README |
-| Browser | [WebMCP / WindTunnel](https://github.com/nekuda-ai/WindTunnel) | 网站工具选择与浏览器评测 | 报告 |
-| Browser | [Stagehand + Jev](https://x.com/kylejeong/status/2101046888468553855) | 接进 act / observe / extract | 作者原帖 |
-| Browser | [Jev Browser Use](https://github.com/wy-coliney/jev-browser-use) | Codex 输入并验证，Jev 选控件 | README |
-| Desktop | [Jev Desktop](https://github.com/yikangy873-gif/jev-desktop) | 已有 Codex CUA 环境里的受限控件选择 | README |
-| MCP | [TypeSafe MCP](https://github.com/itsmostafa/typesafe-mcp) | 通用 evaluate 工具，支持两种供应商 | README |
-| MCP | [Jev MCP (jkudish)](https://github.com/jkudish/jev-mcp) | 分类、重排、审查等命名工具 | README |
-| CLI | [SemDecide](https://github.com/sharziki/semdecide) | 语义谓词与 JSONL 管道 | README |
-| Agent | [Jev Codex Router](https://github.com/0xNatoshi/jev-codex-router) | 逐轮选模型档位，先看影子模式 | README |
-| Context | [winnow](https://github.com/GhalebDweikat/winnow) | 可恢复的工具结果裁剪 | README |
-| Review | [Jev Review](https://github.com/devagrawal09/jev-review) | 分阶段代码审查与面板 | README |
-| Search | [Blink (ellipsis-dev)](https://github.com/ellipsis-dev/blink) | 按文件和目录名找代码，不等于完整审查 | README |
-| Context | [fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction) | 选择保留历史，注意缓存和删除风险 | README |
-| Context | [compact-adviser](https://github.com/kunchenguid/compact-adviser) | 判断压缩时机，不是删哪些内容 | README |
-| Skills | [jev-skill-gate](https://github.com/ShivamPansuriya/jev-skill-gate) | 筛相关技能，检查被隐藏的能力 | README |
-| Agent | [pi-warden](https://github.com/DevMortimer/pi-warden) | 检查跑偏、循环与无证据的完成声明 | README |
-| Security | [jev-shield (caiovicentino)](https://github.com/caiovicentino/jev-shield) | MCP 语义筛查，不是安全边界 | README |
-| Data | [pg-jev](https://github.com/realZachi/pg-jev) | 语义 SQL 扩展，需要 plpython3u / 超级用户 | README |
-| Data | [jevql](https://github.com/kylemclaren/jevql) | CLI 语义判断加普通 Postgres 查询 | README |
-| Research | [1kpapers](https://www.1kpapers.com/) | 论文浏览：生成模型写摘要，Jev 选主题 | 目录线索 |
-| Inbox | [500 / 1,500-email demos](https://madewithjev.com/builds/inbox-triage-1500-emails) | 批量邮件分类，吞吐量不代表准确率 | 目录线索 |
-| Cascade | [Jev + Kimi fraud experiment](https://madewithjev.com/) | 先快速筛查，再复核不确定邮件 | 目录线索 |
-| Content | [724-ad teardown](https://x.com/TheMattBerman/status/2100654891756589230) | 每条广告多维判断，再汇总对比 | 作者原帖 |
-| Content | [SuperX draft scoring](https://x.com/robj3d3/status/2100722975645598191) | 用标准审稿，不保证传播效果 | 目录线索 |
-| Video | [Sponsor Skipper](https://github.com/trungdq88/youtube-sponsor-detection) | 把转写窗口变成赞助口播时间段 | README |
-| UI | [jev-ui (etweisberg)](https://github.com/etweisberg/jev-ui) | 选择已有 React 视图与可选提示 | README |
-| Music | [Jevthoven](https://github.com/cocktailpeanut/jevthoven) | 选择音乐部件，代码生成可编辑 MIDI | README |
-| Game | [Jev Tetris](https://github.com/thelau/jev-tetris) | 合法落点与简单基线对照 | README |
-| Game | [typesafe-mario](https://github.com/fhshaik/typesafe-mario) | 从结构化模拟器状态里选控制动作 | README |
-| Language | [Probably](https://x.com/southpolesteve/status/2100767781868150938) | 语义控制流玩具，每个循环要设上限 | 作者原帖 |
-| Learn | [TypeSafe AI Playground](https://github.com/TypeSafeAI/typesafe-playground) | 社区 Playground，区分模拟和真实调用 | README |
-| Learn | [Jev Explained](https://github.com/davila7/jev-explained) | 让 Agent 改写的小例子 | README |
-| Report | [jev-evaluation](https://github.com/willkelly/jev-evaluation) | 对抗样例、校准和批量判断实验 | 报告 |
-| Report | [PrimeLine comparison](https://primeline.cc/blog/typesafe-jev-pre-registered-test) | 任务依赖的结果，注意标签来源限制 | 报告 |
-| Report | [LangChain Jev-as-a-Judge](https://www.langchain.com/blog/jev-agent-evals-langsmith) | 比较判分一致性、质量、延迟和成本 | 报告 |
-| Alternative | [OpenJev (DiffusionGemma)](https://github.com/razorback16/openjev) | 另一种开放模型的类型化决策服务 | 其他模型 README |
-| Alternative | [OpenJev SGLang](https://github.com/ekzhang/openjev-sglang) | 基于开放模型 prefill / logits 的决策 | 其他模型 README |
-| Alternative | [Jevify](https://github.com/fidecastro/jevify) | 本地模型适配器，应用相同留出集比较 | 其他模型 README |
-| Methods | [HarmBench](https://github.com/centerforaisafety/HarmBench) | 分离样例生成、目标输出与评测 | 方法参考 |
-| Methods | [PAIR](https://github.com/patrickrchao/JailbreakingLLMs) | 授权迭代红队方法，不是 Jev 应用 | 方法参考 |
-| Methods | [AgentDojo](https://github.com/ethz-spylab/agentdojo) | 结合任务结果的 Agent 注入评测 | 方法参考 |
-| Directory | [Made with Jev](https://madewithjev.com/) | 项目、App、文章和作者演示索引 | 目录线索 |
-| Directory | [Awesome Jev (kraayenjon)](https://github.com/kraayenjon/awesome-jev) | 项目与实现方式的配套合集 | README |
-| Directory | [Awesome Jev (Anil-matcha)](https://github.com/Anil-matcha/awesome-jev-by-typesafe) | 更多项目与社区线索 | 目录线索 |
-| Directory | [LINUX DO / QianCheng](https://linux.do/t/topic/2919004) | 带原帖链接的 39 项用途汇总 | 汇总原文 |
-
-[安装条件与固定版本来源](skills/jev/references/ecosystem.md) · [15 + 22 + 39 项逐条整理、去重和场景映射](skills/jev/references/intake-2026-09-21.md)。没有把转载数字当成我们的实测。
-
 <a id="catalog"></a>
-## 🗂 从你想做的事开始
+## 用法
 
-**108 个场景 · 6 个可安装技能 · 14 次真实 API 示例。**
+**108 个场景 · 5 个可安装技能 · 14 次真实 API 示例。**
 所有场景都在本页：复制任务，打开模板，再按自己的需求改标准。
 
 | | | |
@@ -430,14 +445,39 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 第一个完整 I/O：[从失败循环里脱困 ↓](#sc-a02)。[概率和评分有什么区别](skills/jev/references/calibration.md)。
 
+<a id="io"></a>
+### 🧪 输入什么，实际返回什么
+
+下面是**合成样例调用真实 Jev API 后保存的结果**。
+先看简版；点场景名称，就能看到完整输入和对应输出。
+
+| 拿来做什么 | 📥 输入摘录 | 📤 实际返回 |
+|---|---|---|
+| [帮卡住的 Agent 选下一步](#sc-a02) | 连续两次相同的 `UnicodeDecodeError`，期间没改源码。在检查输入、原样重试、报告完成、询问用户之间选择。 | `next_step = inspect_input`：先查输入<br />`stuck = true`，是的概率 `0.88` |
+| [给客服消息分流](#sc-h02) | “所有团队成员点击导出都报错，明天需要月报。”选择队列，并按给定的 0–2 级标准评估紧急程度。 | `queue = bug`：建议故障队列<br />`urgency = 1.29 / 2` |
+| [从文档里找对证据](#sc-spans) | `s1`：一般咨询 hello@example.invalid<br />`s2`：账单发往 accounts@example.invalid<br />哪段写了账单地址？“账单发往 s1”这个说法对吗？ | `source = s2`，概率 `0.97`<br />`claim_support = contradicted`：原文与该说法矛盾 |
+
+**全部 14 组 I/O：** [失败恢复](#sc-a02) · [完成检查](#sc-a06) ·
+[代码审查](#sc-a08) · [模型路由](#sc-a16) · [查找代码](#sc-a20) ·
+[上下文取舍](#sc-a21) · [浏览器选动作 ×2](#sc-a23) · [客服分流 ×2](#sc-h02) ·
+[文档证据](#sc-spans) · [模拟决策](#sc-a28) · [想法评分](#sc-h25) · [声音编排](#sc-tts)。
+
+每组 **Input** 都原样展示保存的请求：模型、上下文（`state`）、问题和候选项。
+**Output** 是 CLI 整理后的实际决策，链接里还有原始 API 响应和完整概率分布。
+上表中文是便于阅读的概述；下方请求保留调用时的英文。这些调用没有实际执行所选动作。
+Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2 这样的评分**不是概率**。
+
 <a id="agent"></a>
-## 🧭 长程任务与恢复
+### 🧭 长程任务与恢复
 
 [检查长程任务有没有跑偏](#sc-a01) · [从反复失败的循环里脱困](#sc-a02) · [检查任务是否真的完成](#sc-a06) · [拦住没有证据的“已完成”表述](#sc-a07) · [复盘一次 agent 失败发生在哪里](#sc-a27)
 
 <a id="sc-a01"></a>
 <!-- covers: A01 -->
-### 1. 检查长程任务有没有跑偏
+#### 1. 检查长程任务有没有跑偏
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 对照最初验收标准，判断“现在去改主题颜色”是否推进修复登录失败这个目标。
 
@@ -449,7 +489,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a02"></a>
 <!-- covers: A02 -->
-### 2. 从反复失败的循环里脱困
+#### 2. 从反复失败的循环里脱困
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 同一测试已经失败三次。用 Jev 在读错误、换假设、验证新修复、升级求助之间选一步。
 
@@ -521,7 +564,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a06"></a>
 <!-- covers: A06 H13 -->
-### 3. 检查任务是否真的完成
+#### 3. 检查任务是否真的完成
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 把验收清单逐项对上当前版本的测试和产物回执；没有证据的项目写“未证实”。
 
@@ -599,7 +645,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a07"></a>
 <!-- covers: A07 -->
-### 4. 拦住没有证据的“已完成”表述
+#### 4. 拦住没有证据的“已完成”表述
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 核对这段最终汇报：只排队了任务，是否却写成已经成功运行？保留原始失败记录。
 
@@ -611,7 +660,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a27"></a>
 <!-- covers: A27 -->
-### 5. 复盘一次 agent 失败发生在哪里
+#### 5. 复盘一次 agent 失败发生在哪里
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 根据编号轨迹，分别选出可疑步骤、相关 agent 和错误类别，输出调查清单而非追责结论。
 
@@ -622,13 +674,16 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 - **状态：** 延伸配方；这个具体场景尚未单独评估。
 
 <a id="quality"></a>
-## 🔎 监督、审查与评测
+### 🔎 监督、审查与评测
 
 [核对计划和实际调用是否一致](#sc-a03) · [发现削弱测试、刷通过的修复](#sc-a08) · [检查项目约定和语义规则](#sc-a09) · [给即将执行的动作分风险类](#sc-a10) · [标出工具结果里的诱导指令](#sc-a11) · [给代码审查排优先级](#sc-a12) · [判断工具返回是否真正有用](#sc-a13) · [匿名比较几个候选答案](#sc-h14) · [把 Jev 用作可重复的评测裁判](#sc-judge)
 
 <a id="sc-a03"></a>
 <!-- covers: A03 -->
-### 6. 核对计划和实际调用是否一致
+#### 6. 核对计划和实际调用是否一致
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 计划是只读检查，拟调用却包含写入参数。请比较目标、范围和效果，标出不一致。
 
@@ -640,7 +695,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a08"></a>
 <!-- covers: A08 -->
-### 7. 发现削弱测试、刷通过的修复
+#### 7. 发现削弱测试、刷通过的修复
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 比较改动前后的断言：把检查改成 assert True 是否绕过了需求，而不是修复行为？
 
@@ -725,7 +783,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a09"></a>
 <!-- covers: A09 -->
-### 8. 检查项目约定和语义规则
+#### 8. 检查项目约定和语义规则
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 按“业务层不能绕过统一鉴权”这条项目规则检查 diff，每条规则分别判断。
 
@@ -737,7 +798,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a10"></a>
 <!-- covers: A10 -->
-### 9. 给即将执行的动作分风险类
+#### 9. 给即将执行的动作分风险类
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 把这些动作分成只读、可逆本地修改、外部影响、潜在破坏、未知，先给审阅顺序。
 
@@ -749,7 +813,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a11"></a>
 <!-- covers: A11 -->
-### 10. 标出工具结果里的诱导指令
+#### 10. 标出工具结果里的诱导指令
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 这段网页是否试图让 agent 忽略目标、读取密钥或执行无关动作？把可疑片段列出来。
 
@@ -768,7 +835,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a12"></a>
 <!-- covers: A12 H12 -->
-### 11. 给代码审查排优先级
+#### 11. 给代码审查排优先级
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 按行为变化、潜在缺陷、权限或数据丢失风险给 diff 分块评分，让我先看最值得查的地方。
 
@@ -780,7 +850,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a13"></a>
 <!-- covers: A13 -->
-### 12. 判断工具返回是否真正有用
+#### 12. 判断工具返回是否真正有用
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 这个工具虽然退出了，但回复是否为空、缺少必要信息、返回错误，还是明确的政策拒绝？
 
@@ -792,7 +865,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h14"></a>
 <!-- covers: H14 -->
-### 13. 匿名比较几个候选答案
+#### 13. 匿名比较几个候选答案
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 按相同证据给 A/B 答案评分，打乱展示顺序，检查支持度、完整性和是否满足要求。
 
@@ -804,7 +880,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-judge"></a>
 <!-- covers: E04 U14 U17 U27 -->
-### 14. 把 Jev 用作可重复的评测裁判
+#### 14. 把 Jev 用作可重复的评测裁判
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 对保存的 agent 轨迹用固定标准判断，多次重复，分别测与人工标签的一致性、重复性、延迟和成本。
 
@@ -818,13 +897,16 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 
 <a id="routing"></a>
-## 🔀 路由、委派与上下文
+### 🔀 路由、委派与上下文
 
 [用户不在时选择还能继续的工作](#sc-a04) · [决定查证、升级模型还是交给人](#sc-a05) · [决定子 agent 的消息何时打断主任务](#sc-a14) · [选择下一步该用哪个工具](#sc-a15) · [按任务选择模型档位](#sc-a16) · [把子任务交给合适的专家](#sc-a17) · [从很多技能里挑需要加载的几个](#sc-a18) · [给搜索或 RAG 结果重新排序](#sc-a19) · [在代码库里找功能入口](#sc-a20) · [压缩工具输出，但保留找回原文的能力](#sc-a21) · [避免重复读取没有变化的信息](#sc-a22) · [根据任务边界和上下文压力决定何时压缩](#sc-compaction)
 
 <a id="sc-a04"></a>
 <!-- covers: A04 -->
-### 15. 用户不在时选择还能继续的工作
+#### 15. 用户不在时选择还能继续的工作
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 我只授权本地修改和测试。下一步在检查日志、运行测试、准备补丁、存档等待中选，不要推送。
 
@@ -836,7 +918,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a05"></a>
 <!-- covers: A05 -->
-### 16. 决定查证、升级模型还是交给人
+#### 16. 决定查证、升级模型还是交给人
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 根据当前证据，判断应该再读一份日志、交给强推理模型分析，还是缺少只有我能决定的信息。
 
@@ -848,7 +933,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a14"></a>
 <!-- covers: A14 -->
-### 17. 决定子 agent 的消息何时打断主任务
+#### 17. 决定子 agent 的消息何时打断主任务
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 这些子任务汇报中，哪些必须现在处理，哪些可以等检查点，哪些重复或需要核验？
 
@@ -860,7 +948,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a15"></a>
 <!-- covers: A15 -->
-### 18. 选择下一步该用哪个工具
+#### 18. 选择下一步该用哪个工具
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 根据眼前子目标，在真实可用的搜索、读文件、运行测试、询问用户之间选工具。
 
@@ -872,7 +963,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a16"></a>
 <!-- covers: A16 -->
-### 19. 按任务选择模型档位
+#### 19. 按任务选择模型档位
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 把简单改写、多步推理和看图任务分别路由到可用模型；不要只按模型名字大小来选。
 
@@ -935,7 +1029,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a17"></a>
 <!-- covers: A17 -->
-### 20. 把子任务交给合适的专家
+#### 20. 把子任务交给合适的专家
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 从研究、实现、审查专家或留在主 agent 之间选一个，并明确交接的输入输出。
 
@@ -947,7 +1044,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a18"></a>
 <!-- covers: A18 M02 -->
-### 21. 从很多技能里挑需要加载的几个
+#### 21. 从很多技能里挑需要加载的几个
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 根据当前任务为已安装技能打相关性分，优先加载直接有用的；不要跳过必需指令。
 
@@ -959,7 +1059,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a19"></a>
 <!-- covers: A19 H23 U07 -->
-### 22. 给搜索或 RAG 结果重新排序
+#### 22. 给搜索或 RAG 结果重新排序
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 对“取消订阅后是否保留数据”这个问题，按真正能回答问题而非只含关键词来排段落。
 
@@ -974,7 +1077,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a20"></a>
 <!-- covers: A20 -->
-### 23. 在代码库里找功能入口
+#### 23. 在代码库里找功能入口
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 优先用项目代码图，缩小发票生成逻辑的候选路径，再打开源码验证。
 
@@ -1038,7 +1144,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a21"></a>
 <!-- covers: A21 -->
-### 24. 压缩工具输出，但保留找回原文的能力
+#### 24. 压缩工具输出，但保留找回原文的能力
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 给这份长日志按块标记无关、背景、必要证据、关键诊断，先旁路看建议，不直接丢弃。
 
@@ -1123,7 +1232,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a22"></a>
 <!-- covers: A22 -->
-### 25. 避免重复读取没有变化的信息
+#### 25. 避免重复读取没有变化的信息
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 检查这次读文件是否与上次参数相同、相关状态未变，而且不会给当前问题带来新信息。
 
@@ -1135,7 +1247,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-compaction"></a>
 <!-- covers: M19 U13 -->
-### 26. 根据任务边界和上下文压力决定何时压缩
+#### 26. 根据任务边界和上下文压力决定何时压缩
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 现在是阶段结束，还是未完成调查？先给压缩建议，用上下文压力调整策略，别改写模型给出的概率。
 
@@ -1146,19 +1261,22 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 - **状态：** 上游描述了小规模/私有标签调试；本仓库上下文例子返回 ongoing，没有实际压缩。
 
 <a id="interaction"></a>
-## 🌐 浏览器、桌面与交互工具
+### 🌐 浏览器、桌面与交互工具
 
 [决定浏览器下一步点哪里](#sc-a23) · [网页没反应时判断等待还是介入](#sc-a24) · [核验网页动作的真实结果](#sc-a25) · [个人助理把消息交接给下一条工作流](#sc-a26) · [解析智能家居的低风险指令](#sc-h26) · [把观察变成可复用的“当前状态”](#sc-situations) · [边说边判断浏览器操作是否完整](#sc-voice-browser) · [直接选网站工具，少走一长串点击](#sc-webmcp) · [只给一个操作加判断，不必做完整 agent](#sc-primitive) · [让表单根据回答选择下一问](#sc-forms) · [在桌面应用里选择下一步控件](#sc-desktop) · [语义 ⌘F](#sc-semantic-find) · [赞助口播](#sc-sponsor-skip)
 
 <a id="sc-a23"></a>
 <!-- covers: A23 U03 U09 -->
-### 27. 决定浏览器下一步点哪里
+#### 27. 决定浏览器下一步点哪里
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 根据最新页面控件，在打开取消政策、滚动、等待或阻塞之间选一步；不要下单。
 
 - **输入 → 输出：** 最新 DOM/无障碍文本、目标、真实动作 ID → 下一步操作。
 - **可以改：** 允许的动作、目标条件、观察新鲜度；浏览器由宿主执行。
-- **动手：** [jev-ui](skills/jev-ui/SKILL.md) · [改写这个模板](skills/jev-ui/assets/example.json)。
+- **动手：** [jev-act](skills/jev-act/references/ui.md) · [改写这个模板](skills/jev-act/assets/example.json)。
 - **来源：** [P05](skills/jev/references/community.md#p05) · [Jev Ultrafast](https://github.com/browser-use/jev-ultrafast)
 - **状态：** [真实合成示例](evals/SCENARIO_EXAMPLES.md)：选出 `open_policy`，未执行浏览器动作；Ultrafast 速度来自作者演示。
 
@@ -1286,31 +1404,40 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a24"></a>
 <!-- covers: A24 -->
-### 28. 网页没反应时判断等待还是介入
+#### 28. 网页没反应时判断等待还是介入
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 页面仍在加载还是已经报错？在有限等待、重新观察、检查错误、需要登录/同意之间选路。
 
 - **输入 → 输出：** 加载状态、错误、上一动作、等待记录 → 等待／查错／交接。
 - **可以改：** 超时、重试上限、登录交接；不能据此代替用户同意或绕过验证码。
-- **动手：** [jev-ui](skills/jev-ui/SKILL.md) · [改写这个模板](skills/jev-ui/assets/example.json)。
+- **动手：** [jev-act](skills/jev-act/references/ui.md) · [改写这个模板](skills/jev-act/assets/example.json)。
 - **来源：** [P05](skills/jev/references/community.md#p05)
 - **状态：** 延伸配方；这个具体场景尚未单独评估。
 
 <a id="sc-a25"></a>
 <!-- covers: A25 -->
-### 29. 核验网页动作的真实结果
+#### 29. 核验网页动作的真实结果
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 点击之后重新读页面，逐项确认路线、日期和结果是否符合要求，不把点过按钮当成功。
 
 - **输入 → 输出：** 最新页面回读、明确清单 → 每项是否被观察支持。
 - **可以改：** 结果清单、精确字段校验、证据截图或文本；付款等结果需要真实回执。
-- **动手：** [jev-ui](skills/jev-ui/SKILL.md) · [改写这个模板](skills/jev-ui/assets/example.json)。
+- **动手：** [jev-act](skills/jev-act/references/ui.md) · [改写这个模板](skills/jev-act/assets/example.json)。
 - **来源：** [P05](skills/jev/references/community.md#p05)
 - **状态：** 延伸配方；这个具体场景尚未单独评估。
 
 <a id="sc-a26"></a>
 <!-- covers: A26 -->
-### 30. 个人助理把消息交接给下一条工作流
+#### 30. 个人助理把消息交接给下一条工作流
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 判断这条食谱消息该补抓网页、保存完整食谱、提取日程候选，还是先问清楚。
 
@@ -1322,7 +1449,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h26"></a>
 <!-- covers: H26 M04 -->
-### 31. 解析智能家居的低风险指令
+#### 31. 解析智能家居的低风险指令
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 根据真实设备清单判断“把客厅灯打开”，如果房间或设备不清楚就问，不猜门锁动作。
 
@@ -1334,7 +1464,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-situations"></a>
 <!-- covers: M12 -->
-### 32. 把观察变成可复用的“当前状态”
+#### 32. 把观察变成可复用的“当前状态”
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 根据已授权的家居观察判断是否在做饭，输出带时间和过期条件的状态，供低风险自动化读取。
 
@@ -1346,43 +1479,55 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-voice-browser"></a>
 <!-- covers: M14 -->
-### 33. 边说边判断浏览器操作是否完整
+#### 33. 边说边判断浏览器操作是否完整
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 结合半句语音转写和最新页面，判断我是不是说完了、指哪个控件，还是应该继续等。
 
 - **输入 → 输出：** 语音转写、最新 UI、候选片段 → 意图、目标、完整性 → 操作或等待。
 - **可以改：** 完整性标准、去抖时间、候选文本、确认规则；识别语音和浏览器执行都是其他工具。
-- **动手：** [jev-ui](skills/jev-ui/SKILL.md) · [改写这个模板](skills/jev-ui/assets/example.json)。
+- **动手：** [jev-act](skills/jev-act/references/ui.md) · [改写这个模板](skills/jev-act/assets/example.json)。
 - **来源：** [Voice-browser implementation](skills/jev/references/community.md#p18)
 - **状态：** 来源描述了这种方法；这里的改编尚未运行。
 
 <a id="sc-webmcp"></a>
 <!-- covers: M18 U08 -->
-### 34. 直接选网站工具，少走一长串点击
+#### 34. 直接选网站工具，少走一长串点击
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 网站确实提供 search_products 时，先选这个工具，再让文本模型提供参数，校验后执行，不要虚构网站 API。
 
 - **输入 → 输出：** 任务、网站实际工具 → 选工具 → 生成参数 → 执行与核验。
 - **可以改：** 动作粒度、参数来源、UI 兜底、完成标准；生成文本与选择工具分开。
-- **动手：** [jev-ui](skills/jev-ui/SKILL.md) · [改写这个模板](skills/jev-ui/assets/example.json)。
+- **动手：** [jev-act](skills/jev-act/references/ui.md) · [改写这个模板](skills/jev-act/assets/example.json)。
 - **来源：** [WindTunnel](https://github.com/nekuda-ai/WindTunnel) · [Benchmark methodology](skills/jev/references/x-intake-2026-09-20.md)
 - **状态：** 上游按每题三次多数成功统计为 49/49 题，实际 141/147 次成功；本仓库未复现，也不是只改接口的严格消融。
 
 <a id="sc-primitive"></a>
 <!-- covers: M18 U12 U23 -->
-### 35. 只给一个操作加判断，不必做完整 agent
+#### 35. 只给一个操作加判断，不必做完整 agent
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 只在已有 Stagehand 操作内部选择控件或源文本，外围流程保持不变，不必新建自治 agent。
 
 - **输入 → 输出：** 单次观察、操作内候选 → act／observe／extract 内部的局部选择。
 - **可以改：** 操作边界、目标清单、参数来源、核验方式；选择有效按钮和选择正确下一步不同。
-- **动手：** [jev-ui](skills/jev-ui/SKILL.md) · [改写这个模板](skills/jev-ui/assets/example.json)。
+- **动手：** [jev-act](skills/jev-act/references/ui.md) · [改写这个模板](skills/jev-act/assets/example.json)。
 - **来源：** [Stagehand author report](https://x.com/kylejeong/status/2101046888468553855)
 - **状态：** 作者描述；本仓库未安装 Stagehand 集成或测其耗时。
 
 <a id="sc-forms"></a>
 <!-- covers: X02 -->
-### 36. 让表单根据回答选择下一问
+#### 36. 让表单根据回答选择下一问
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 根据已填内容和缺失信息，选择下一问、澄清或结束；必填校验仍由代码做。
 
@@ -1394,13 +1539,16 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-desktop"></a>
 <!-- covers: E01 -->
-### 37. 在桌面应用里选择下一步控件
+#### 37. 在桌面应用里选择下一步控件
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 根据最新桌面观察找到导出窗口；覆盖旧文件前停止，每一步看真实结果。
 
 - **输入 → 输出：** 真实控件、允许操作 → 操作/目标 → 宿主 CUA 执行。
 - **可以改：** 应用动作、预备输入值、停止点、回读核验；需要已有桌面工具。
-- **动手：** [jev-ui](skills/jev-ui/SKILL.md) · [改写这个模板](skills/jev-ui/assets/example.json)。
+- **动手：** [jev-act](skills/jev-act/references/ui.md) · [改写这个模板](skills/jev-act/assets/example.json)。
 - **来源：** [Jev Desktop](https://github.com/yikangy873-gif/jev-desktop) · [Setup notes](skills/jev/references/ecosystem.md)
 - **状态：** 上游提供集成样例而非受控加速实验；我们的 UI 冒烟是合成网页，不是这个桌面流程。
 
@@ -1409,7 +1557,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-semantic-find"></a>
 <!-- covers: D01 -->
-### 38. 在网页里按意思找，而不只是匹配关键词
+#### 38. 在网页里按意思找，而不只是匹配关键词
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 找出这页所有讲“取消订阅”的段落，即使原文写的是“终止会员资格”，并高亮原文。
 
@@ -1421,7 +1572,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-sponsor-skip"></a>
 <!-- covers: D02 -->
-### 39. 标出视频里的赞助口播
+#### 39. 标出视频里的赞助口播
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 从带时间戳的字幕里找出推广段落，先列出起止位置让我确认，不要直接跳过。
 
@@ -1432,13 +1586,16 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 - **状态：** 已读原项目 README，未运行扩展；上游的模型和可选转写服务需另行配置。
 
 <a id="business"></a>
-## 📬 消息、客服与日常工作流
+### 📬 消息、客服与日常工作流
 
 [给客服工单分流](#sc-h02) · [按紧急程度排列待办和故障](#sc-h03) · [预筛聊天记录里的未解决问题](#sc-h15) · [识别明确的取消或流失信号](#sc-h16) · [从销售或客服对话整理下一步](#sc-h17) · [给安全事件初步分诊](#sc-h18) · [筛可疑邮件和消息](#sc-h19) · [把联系表单分给正确团队](#sc-h20) · [从消息里整理日程候选](#sc-h24) · [自己写邮件标签和处理规则](#sc-mail-rules) · [按自己的兴趣筛研究流和社交内容](#sc-personal-feed)
 
 <a id="sc-h02"></a>
 <!-- covers: H02 U21 -->
-### 40. 给客服工单分流
+#### 40. 给客服工单分流
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 把这批工单分成账单、技术、账号访问、安全复核和其他，混合问题单独留给分诊。
 
@@ -1575,7 +1732,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h03"></a>
 <!-- covers: H03 -->
-### 41. 按紧急程度排列待办和故障
+#### 41. 按紧急程度排列待办和故障
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 区分信息通知、有替代方案、重要工作阻塞、严重进行中影响，不猜测未提供的受影响人数。
 
@@ -1587,7 +1747,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h15"></a>
 <!-- covers: H15 -->
-### 42. 预筛聊天记录里的未解决问题
+#### 42. 预筛聊天记录里的未解决问题
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 找出仍未解决的产品安全投诉，区分用户已经确认解决和只是客服说会处理。
 
@@ -1599,7 +1762,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h16"></a>
 <!-- covers: H16 -->
-### 43. 识别明确的取消或流失信号
+#### 43. 识别明确的取消或流失信号
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 哪些消息表达了“问题未解决，所以我要取消”，哪些只是询问取消规则？
 
@@ -1611,7 +1777,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h17"></a>
 <!-- covers: H17 -->
-### 44. 从销售或客服对话整理下一步
+#### 44. 从销售或客服对话整理下一步
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 按实际承诺选出发资料、安排跟进、技术排查、未承诺或需澄清，给每项附原文。
 
@@ -1623,7 +1792,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h18"></a>
 <!-- covers: H18 -->
-### 45. 给安全事件初步分诊
+#### 45. 给安全事件初步分诊
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 按给定事件规则，把报告分为可能账号被接管、服务故障、正常变化或信息不足。
 
@@ -1635,7 +1807,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h19"></a>
 <!-- covers: H19 -->
-### 46. 筛可疑邮件和消息
+#### 46. 筛可疑邮件和消息
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 标出要求提供凭据或转账的可疑指令，只看已提供的正文和链接元数据，不打开附件。
 
@@ -1647,7 +1822,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h20"></a>
 <!-- covers: H20 -->
-### 47. 把联系表单分给正确团队
+#### 47. 把联系表单分给正确团队
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 把这些咨询分给支持、销售、合作、反馈或其他，不要把陌生但合法的请求直接丢掉。
 
@@ -1659,7 +1837,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h24"></a>
 <!-- covers: H24 -->
-### 48. 从消息里整理日程候选
+#### 48. 从消息里整理日程候选
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 区分新事件、时间变更、只是提醒、非事件和模糊项，先给草稿，不直接发邀请。
 
@@ -1671,7 +1852,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-mail-rules"></a>
 <!-- covers: M13 -->
-### 49. 自己写邮件标签和处理规则
+#### 49. 自己写邮件标签和处理规则
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 给每封邮件独立判断账单、旅行、需要回复等标签；一封可以命中多个，冲突时先给我看。
 
@@ -1683,7 +1867,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-personal-feed"></a>
 <!-- covers: X05 -->
-### 50. 按自己的兴趣筛研究流和社交内容
+#### 50. 按自己的兴趣筛研究流和社交内容
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 按我的研究兴趣给已读取的帖子评分，我可以本地调权重或撤销隐藏，不把喜好当成通用质量。
 
@@ -1694,7 +1881,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 - **状态：** 作者帖子摘录；本仓库未安装信息流集成。
 
 <a id="documents"></a>
-## 📚 文档、研究与证据
+### 📚 文档、研究与证据
 
 [初筛论文和阅读清单](#sc-h07) · [检查一句主张有没有原文支持](#sc-h08) · [把政策要求做成可复核清单](#sc-h09) · [把合同条款整理给审核人](#sc-h10) · [按品牌和编辑规则检查文案](#sc-h11) · [帮求职者整理岗位要求的证据](#sc-h21) · [选出正确的原始字段值](#sc-spans) · [别把“最像”当成“真的有答案”](#sc-suitability) · [把散乱文本恢复成标题、列表和段落](#sc-structure) · [理解日期表达，再交给代码算日期](#sc-dates) · [复核小模型提取的结构化数据](#sc-extraction-cascade) · [给演讲、访谈、展示做逐段批注](#sc-transcript)
 
@@ -1703,7 +1890,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h07"></a>
 <!-- covers: H07 -->
-### 51. 初筛论文和阅读清单
+#### 51. 初筛论文和阅读清单
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 按“实测 agent 调用工具”筛摘要，区分只提到 agent 和真正做了实验，模糊项留给全文阅读。
 
@@ -1715,7 +1905,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h08"></a>
 <!-- covers: H08 -->
-### 52. 检查一句主张有没有原文支持
+#### 52. 检查一句主张有没有原文支持
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 这段引用真的支持“所有用户都受影响”吗？核对范围、对象和条件，不只看词语相似。
 
@@ -1727,7 +1920,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h09"></a>
 <!-- covers: H09 -->
-### 53. 把政策要求做成可复核清单
+#### 53. 把政策要求做成可复核清单
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 对照审核员提供的要求，把条款标成明确涉及、似有冲突、未展示、模糊，并链接原文。
 
@@ -1739,7 +1935,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h10"></a>
 <!-- covers: H10 -->
-### 54. 把合同条款整理给审核人
+#### 54. 把合同条款整理给审核人
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 把条款分为终止、责任、数据使用、付款和其他，保留条款号，不判断合同是否应该签。
 
@@ -1751,7 +1950,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h11"></a>
 <!-- covers: H11 -->
-### 55. 按品牌和编辑规则检查文案
+#### 55. 按品牌和编辑规则检查文案
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 按“不得使用无依据的最强、第一”这条规则检查草稿，区分作者断言与带来源的引述。
 
@@ -1763,7 +1965,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h21"></a>
 <!-- covers: H21 -->
-### 56. 帮求职者整理岗位要求的证据
+#### 56. 帮求职者整理岗位要求的证据
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 逐条找出我的简历对岗位要求有什么明确、相关或未写出的证据，不替招聘方筛掉人。
 
@@ -1775,7 +1980,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-spans"></a>
 <!-- covers: M01 -->
-### 57. 选出正确的原始字段值
+#### 57. 选出正确的原始字段值
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 从已提取的两个邮箱片段里选账单收件地址，返回片段 ID，让代码复制原值而不是编一个邮箱。
 
@@ -1848,7 +2056,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-suitability"></a>
 <!-- covers: M02 -->
-### 58. 别把“最像”当成“真的有答案”
+#### 58. 别把“最像”当成“真的有答案”
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 先选最相关段落，再独立判断这里到底有没有答案；几个都不合适时返回无匹配。
 
@@ -1860,7 +2071,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-structure"></a>
 <!-- covers: M03 -->
-### 59. 把散乱文本恢复成标题、列表和段落
+#### 59. 把散乱文本恢复成标题、列表和段落
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 保留 OCR 原文，先判断哪些相邻行属于同一块，再把块分成标题、列表、普通段落。
 
@@ -1872,7 +2086,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-dates"></a>
 <!-- covers: M05 -->
-### 60. 理解日期表达，再交给代码算日期
+#### 60. 理解日期表达，再交给代码算日期
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 识别“下周五”的日期语义，用指定基准日和时区交给日历代码算具体日期，不让模型心算。
 
@@ -1884,7 +2101,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-extraction-cascade"></a>
 <!-- covers: M10 -->
-### 61. 复核小模型提取的结构化数据
+#### 61. 复核小模型提取的结构化数据
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 对照发票原文逐字段核验小模型提取结果，区分支持、矛盾和缺失；需要修复时只修问题字段。
 
@@ -1896,7 +2116,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-transcript"></a>
 <!-- covers: M15 -->
-### 62. 给演讲、访谈、展示做逐段批注
+#### 62. 给演讲、访谈、展示做逐段批注
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 按我的 rubric 给每轮发言标直接回答、给出证据、含糊主张，保留上下文，再做批注时间线。
 
@@ -1910,13 +2133,16 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 
 <a id="data"></a>
-## 🛠️ 数据、检索与开发工具
+### 🛠️ 数据、检索与开发工具
 
 [像 grep 一样按语义找日志或笔记](#sc-h01) · [给商品或内容分层归类](#sc-h04) · [发现重复记录或同一实体](#sc-h05) · [给问卷和访谈做多标签编码](#sc-h06) · [给数据集记录做质量侧栏](#sc-h22) · [沿知识图谱或大分类树逐步寻找](#sc-graph) · [给传统机器学习模型制作语义特征](#sc-features) · [JSON 格式正确以后，再检查含义](#sc-semantic-validation) · [从已有命令历史里选合适的建议](#sc-shell-history) · [在普通查询旁边加语义筛选](#sc-semantic-sql) · [让表格列名变成可修改的语义规则](#sc-spreadsheet) · [用市场回放研究决策与过期处理](#sc-market-replay)
 
 <a id="sc-h01"></a>
 <!-- covers: H01 -->
-### 63. 像 grep 一样按语义找日志或笔记
+#### 63. 像 grep 一样按语义找日志或笔记
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 找出真正描述“无法完成结账”的片段，而不只是提到了支付；返回原始片段 ID。
 
@@ -1928,7 +2154,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h04"></a>
 <!-- covers: H04 M06 -->
-### 64. 给商品或内容分层归类
+#### 64. 给商品或内容分层归类
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 先判断这件零件属于紧固件、轴承、密封件还是电气件，再在真实子类中继续分类。
 
@@ -1940,7 +2169,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h05"></a>
 <!-- covers: H05 -->
-### 65. 发现重复记录或同一实体
+#### 65. 发现重复记录或同一实体
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 这两条店铺记录是否指向同一实体？比较名称、地址和来源，不要仅凭名字相似就合并。
 
@@ -1952,7 +2184,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h06"></a>
 <!-- covers: H06 -->
-### 66. 给问卷和访谈做多标签编码
+#### 66. 给问卷和访谈做多标签编码
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 按我的 codebook，分别判断每条回答是否谈到价格、缺功能和易用性；允许多个标签共存。
 
@@ -1964,7 +2199,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h22"></a>
 <!-- covers: H22 -->
-### 67. 给数据集记录做质量侧栏
+#### 67. 给数据集记录做质量侧栏
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 按用途给每条数据评相关性、完整性，再分别标重复和敏感信息疑点；原始数据不删除。
 
@@ -1976,7 +2214,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-graph"></a>
 <!-- covers: M06 -->
-### 68. 沿知识图谱或大分类树逐步寻找
+#### 68. 沿知识图谱或大分类树逐步寻找
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 每次只给当前节点的真实邻居，让 Jev 选值得展开的方向，代码限制深度、去重并验证目标。
 
@@ -1990,7 +2231,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-features"></a>
 <!-- covers: M08 -->
-### 69. 给传统机器学习模型制作语义特征
+#### 69. 给传统机器学习模型制作语义特征
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 让生成模型提出评论相关问题，用 Jev 答成数值特征，再训练传统预测器；留出的测试标签不能参与挑问题。
 
@@ -2002,7 +2246,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-semantic-validation"></a>
 <!-- covers: M09 -->
-### 70. JSON 格式正确以后，再检查含义
+#### 70. JSON 格式正确以后，再检查含义
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 先通过 schema 校验，再判断描述是否符合所选类别、要求的证据是否真的出现；每条语义规则独立问。
 
@@ -2014,7 +2261,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-shell-history"></a>
 <!-- covers: M11 -->
-### 71. 从已有命令历史里选合适的建议
+#### 71. 从已有命令历史里选合适的建议
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 根据当前目录和任务，从脱敏后的历史命令里选建议，允许无匹配，不直接执行。
 
@@ -2026,7 +2276,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-semantic-sql"></a>
 <!-- covers: M16 -->
-### 72. 在普通查询旁边加语义筛选
+#### 72. 在普通查询旁边加语义筛选
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 先用 SQL 缩小近期反馈范围，再让 Jev 筛“未解决的导出失败”；保留行 ID 和判断记录。
 
@@ -2041,7 +2294,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-spreadsheet"></a>
 <!-- covers: X04 -->
-### 73. 让表格列名变成可修改的语义规则
+#### 73. 让表格列名变成可修改的语义规则
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 把“是否值得跟进”这个列名变成明确分级标准，再逐行评分；改列名时更新规则并标记旧结果失效。
 
@@ -2053,18 +2309,21 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-market-replay"></a>
 <!-- covers: E05 U05 U15 -->
-### 74. 用市场回放研究决策与过期处理
+#### 74. 用市场回放研究决策与过期处理
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 仅在 mock 回放中，根据给定快照选择买、卖或不动，丢弃迟到决策，分别记录意图、执行回执和成交。
 
 - **输入 → 输出：** 历史/合成快照 → 有界决策 → dry-run 模拟器与回执记录。
 - **可以改：** 快照时效、截止时间、单请求在途、回放指标；这里只研究流程，不授权真实交易或声称盈利。
-- **动手：** [jev-simulation](skills/jev-simulation/SKILL.md) · [改写这个模板](skills/jev-simulation/assets/example.json)。
+- **动手：** [jev-act](skills/jev-act/references/world.md) · [改写这个模板](skills/jev-act/assets/world.json)。
 - **来源：** [Jev Trader](https://github.com/jarrodwatts/jev-trader) · [Mock/live distinction](skills/jev/references/x-intake-2026-09-20.md)
 - **状态：** 作者演示与 README 的 mock/dry-run 默认模式分别记录；未连接钱包、未运行交易。
 
 <a id="creative"></a>
-## 🎨 想法、游戏与创作
+### 🎨 想法、游戏与创作
 
 [让游戏 NPC 从合法动作里作选择](#sc-a28) · [按自己的标准做想法工作坊](#sc-h25) · [给内容选择适合的文档组件](#sc-h28) · [一次测维度，随时改自己的权重](#sc-reweight) · [世界设计、动作选择、视频呈现分开接](#sc-world-video) · [大模型定策略，Jev 高频选局部动作](#sc-strategy) · [给多个聊天角色排发言顺序](#sc-speakers) · [给剧本或播报选择 TTS 语气](#sc-tts) · [让模拟谈判有退出条件，不原地打转](#sc-negotiation) · [按创作要求选图片或视频模型](#sc-creative-route) · [剧情监测](#sc-story-sensors) · [MIDI 编排](#sc-midi)
 
@@ -2073,13 +2332,16 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-a28"></a>
 <!-- covers: A28 H27 -->
-### 75. 让游戏 NPC 从合法动作里作选择
+#### 75. 让游戏 NPC 从合法动作里作选择
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 根据眼前游戏状态和角色目标，在帮助、撤退、交谈、等待中选合法动作，再让模拟器更新状态。
 
 - **输入 → 输出：** 可见世界、角色准则、合法动作 → 下一步动作。
 - **可以改：** 角色性格、目标、行动预算、进度指标；不要假装知道隐藏状态。
-- **动手：** [jev-simulation](skills/jev-simulation/SKILL.md) · [改写这个模板](skills/jev-simulation/assets/example.json)。
+- **动手：** [jev-act](skills/jev-act/references/world.md) · [改写这个模板](skills/jev-act/assets/world.json)。
 - **来源：** [R10](skills/jev/references/community.md#r10) · [X01](skills/jev/references/twitter-workflows.md#x01) · [X03](skills/jev/references/twitter-workflows.md#x03) · [R03](skills/jev/references/community.md#r03)
 - **状态：** [真实合成示例](evals/SCENARIO_EXAMPLES.md)：检查仓库；未运行状态更新或测胜率。
 
@@ -2141,7 +2403,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h25"></a>
 <!-- covers: H25 -->
-### 76. 按自己的标准做想法工作坊
+#### 76. 按自己的标准做想法工作坊
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 给这个想法的问题清晰度、受众具体度、可测试性分别打分，再设计真正要验证的问题。
 
@@ -2209,7 +2474,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-h28"></a>
 <!-- covers: H28 -->
-### 77. 给内容选文档组件，给界面选图表或表格
+#### 77. 给内容选文档组件，给界面选图表或表格
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 这段内容应该用比较表、时间线、清单还是普通段落？选已有组件，让代码渲染原内容。
 
@@ -2221,7 +2489,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 **也可以用在 React 界面里。** [etweisberg/jev-ui](https://github.com/etweisberg/jev-ui)
 把这套做法做成了组件：`Branch` 选视图，`Rank` 排候选项，`Gate` 添加可选提示。
-它是另一个项目，不是本仓库用于浏览器控制的 `jev-ui` 技能。
+它是另一个项目，不是本仓库用于浏览器控制的 `jev-act` 技能。
 
 ```text
 用 Jev 给现有仪表盘选视图。提供用户的问题、可用数据字段和受众信息。
@@ -2236,7 +2504,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-reweight"></a>
 <!-- covers: M07 -->
-### 78. 一次测维度，随时改自己的权重
+#### 78. 一次测维度，随时改自己的权重
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 给方案的清晰度、证据、投入分别评分，保存结果；我调权重时用本地代码重排，不重新调用模型。
 
@@ -2248,31 +2519,40 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-world-video"></a>
 <!-- covers: M17 X01 -->
-### 79. 世界设计、动作选择、视频呈现分开接
+#### 79. 世界设计、动作选择、视频呈现分开接
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 规划模型设计鲸背城市，Jev 选合法动作，模拟器更新世界，渲染工具再把真实轮次结果做成视频。
 
 - **输入 → 输出：** 世界规则 → 状态和合法动作 → 决策 → 模拟器 → 可选图像或视频。
 - **可以改：** 世界规则、角色目标、轮次 ID、呈现方式；视频里桥修好了不代表模拟器真的修好了。
-- **动手：** [jev-simulation](skills/jev-simulation/SKILL.md) · [改写这个模板](skills/jev-simulation/assets/example.json)。
+- **动手：** [jev-act](skills/jev-act/references/world.md) · [改写这个模板](skills/jev-act/assets/world.json)。
 - **来源：** [gokayfem demo](https://x.com/gokayfem/status/2101022590722810271) · [Access and claim notes](skills/jev/references/twitter-workflows.md#x01)
 - **状态：** 作者报告约五分钟生成 264 个片段；不是本仓库复现，也不足以确定恰好调用了 264 次 API。
 
 <a id="sc-strategy"></a>
 <!-- covers: M20 X03 U10 U26 -->
-### 80. 大模型定策略，Jev 高频选局部动作
+#### 80. 大模型定策略，Jev 高频选局部动作
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 规划模型给 Pac-Man 一个短期目标，Jev 连续选合法动作；目标完成、条件变化或停滞时再规划。
 
 - **输入 → 输出：** 低频策略 → 高频局部动作 → 新状态 → 重规划触发。
 - **可以改：** 子目标、刷新触发、进度窗口、行动预算；过期子目标不能取代原始目标。
-- **动手：** [jev-simulation](skills/jev-simulation/SKILL.md) · [改写这个模板](skills/jev-simulation/assets/example.json)。
+- **动手：** [jev-act](skills/jev-act/references/world.md) · [改写这个模板](skills/jev-act/assets/world.json)。
 - **来源：** [Pac-Man report](https://x.com/daniel_mac8/status/2100335929273524541) · [Tetris lead](skills/jev/references/twitter-workflows.md#x03)
 - **状态：** 作者演示；本仓库没有复现长程成功率。
 
 <a id="sc-speakers"></a>
 <!-- covers: M21 U28 -->
-### 81. 给多个聊天角色排发言顺序
+#### 81. 给多个聊天角色排发言顺序
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 根据对话状态、角色职责和发言资格选下一位，或者暂停；台词仍让生成模型写。
 
@@ -2284,7 +2564,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-tts"></a>
 <!-- covers: M21 U28 -->
-### 82. 给剧本或播报选择 TTS 语气
+#### 82. 给剧本或播报选择 TTS 语气
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 给这句虚构角色台词选平静、明快、严肃或中性语气，再映射到已有 TTS 预设。
 
@@ -2362,19 +2645,25 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-negotiation"></a>
 <!-- covers: X06 -->
-### 83. 让模拟谈判有退出条件，不原地打转
+#### 83. 让模拟谈判有退出条件，不原地打转
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 在 Catan 式模拟谈判里从接受、还价、拒绝、跳过中选合法动作，超过无进展预算就退出。
 
 - **输入 → 输出：** 报价历史、合法选项 → 局部回应 → 宿主检查进度与死锁。
 - **可以改：** 谈判预算、效用标准、跳过/终止动作、进度定义；局部合理不保证集体推进。
-- **动手：** [jev-simulation](skills/jev-simulation/SKILL.md) · [改写这个模板](skills/jev-simulation/assets/example.json)。
+- **动手：** [jev-act](skills/jev-act/references/world.md) · [改写这个模板](skills/jev-act/assets/world.json)。
 - **来源：** [Catan failure report](skills/jev/references/twitter-workflows.md#x06)
 - **状态：** 来源报告了谈判停滞；这里是根据失败设计的改编，不是已经证明有效的修复。
 
 <a id="sc-creative-route"></a>
 <!-- covers: X07 -->
-### 84. 按创作要求选图片或视频模型
+#### 84. 按创作要求选图片或视频模型
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 根据图片/视频类型、编辑要求、尺寸、预算，从实际可用的生成器里选一个，再单独调用。
 
@@ -2386,19 +2675,25 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-story-sensors"></a>
 <!-- covers: D03 -->
-### 85. 持续检查角色扮演有没有偏离人设和世界观
+#### 85. 持续检查角色扮演有没有偏离人设和世界观
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 每段剧情后，分别给语气、张力、世界观一致性评分；持续跑偏时才建议一句纠偏提示。
 
 - **输入 → 输出：** 角色卡、世界规则、最近几段剧情 → 多个独立等级评分，跨轮次观察变化。
 - **可以改：** 监测维度、近期上下文窗口、滚动阈值，以及建议纠偏还是请求重写。
-- **动手：** [jev-simulation](skills/jev-simulation/SKILL.md) · [评分模板](skills/jev/assets/rubric.json)。
+- **动手：** [jev-act](skills/jev-act/references/world.md) · [评分模板](skills/jev/assets/rubric.json)。
 - **来源：** [ST-jeved](https://github.com/mossyfield/ST-jeved) · [作者 9 月 20 日的 Reddit 分享](https://www.reddit.com/r/SillyTavernAI/comments/1wl7uje/jev_might_be_the_next_frontier_for_improving/)。
 - **状态：** 作者报告，尚未复现；Jev 监测，大模型写剧情。评分不是校准后的正确率。
 
 <a id="sc-midi"></a>
 <!-- covers: D04 -->
-### 86. 通过选择音乐部件，编排可编辑的 MIDI
+#### 86. 通过选择音乐部件，编排可编辑的 MIDI
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 编一段轻柔圆舞曲：从合法候选里选拍号、乐器、和弦和下一小节，让代码渲染、导出 MIDI。
 
@@ -2409,13 +2704,16 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 - **状态：** 已看 README 和视频预览，未运行应用。Jev 选择符号化音乐部件，不生成音频；上游也有模拟模式。
 
 <a id="building"></a>
-## 🧩 制作与接入自己的工具
+### 🧩 制作与接入自己的工具
 
 [用一句需求生成可编辑的判断问题](#sc-compile) · [通过 MCP 给现有 agent 增加判断工具](#sc-mcp) · [边改例子边学，再让 agent 写新例子](#sc-playground) · [本地模型对照](#sc-local-comparison)
 
 <a id="sc-compile"></a>
 <!-- covers: M22 -->
-### 87. 用一句需求生成可编辑的判断问题
+#### 87. 用一句需求生成可编辑的判断问题
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 把“找出当前阻碍使用的反馈”编成 typed questions 和标准，先给边界例子检查，再逐条应用。
 
@@ -2427,7 +2725,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-mcp"></a>
 <!-- covers: E02 -->
-### 88. 通过 MCP 给现有 agent 增加判断工具
+#### 88. 通过 MCP 给现有 agent 增加判断工具
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 选择一个通用 evaluate 工具，或者 classify/verify/rerank 这类命名工具，用自己的标准和复核路径。
 
@@ -2439,7 +2740,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-playground"></a>
 <!-- covers: E03 U29 -->
-### 89. 边改例子边学，再让 agent 写新例子
+#### 89. 边改例子边学，再让 agent 写新例子
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 读一个 playground 例子的 state、questions、替换输入和消费者，再让 coding agent 照这个结构写自己的用法。
 
@@ -2451,7 +2755,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-local-comparison"></a>
 <!-- covers: D05 -->
-### 90. 拿本地模型做同题决策对照
+#### 90. 拿本地模型做同题决策对照
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 固定记录、问题和留出集标签，对比 Jev 与本地决策适配器的质量、延迟和人工复核比例。
 
@@ -2463,11 +2770,14 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 
 <a id="more-uses"></a>
-## 🧰 更多社区实验与安全评测
+### 🧰 更多社区实验与安全评测
 
 <a id="sc-moderation"></a>
 <!-- covers: E01 -->
-### 91. 给社区审核队列分类
+#### 91. 给社区审核队列分类
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 消息 + 频道规则 → 允许 / 复核 / 疑似违规 → 管理员队列。
 
@@ -2478,7 +2788,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-syntax"></a>
 <!-- covers: E02 -->
-### 92. 给代码做语义高亮
+#### 92. 给代码做语义高亮
+<!-- skill: jev-triage -->
+**技能:** [jev-triage](skills/jev-triage/SKILL.md)
+
 
 > 代码片段 + 语言提示 + token 类别 → 片段标签 → 高亮渲染器。
 
@@ -2489,7 +2802,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-ai-text"></a>
 <!-- covers: E03 -->
-### 93. 研究 AI 文本风格信号
+#### 93. 研究 AI 文本风格信号
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 文本 + 可观察的风格标准 → 重复措辞 / 泛化结构 / 未知 → 供人审阅。
 
@@ -2500,7 +2816,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-mute"></a>
 <!-- covers: E04 -->
-### 94. 给麦克风提供暂停建议
+#### 94. 给麦克风提供暂停建议
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 获同意的转写 + 明确会议规则 → 继续 / 建议暂停 / 复核 → 可见提示。
 
@@ -2511,7 +2830,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-launcher"></a>
 <!-- covers: E05 -->
-### 95. 根据意图排列启动器结果
+#### 95. 根据意图排列启动器结果
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 输入意图 + 允许查看的近期文件或应用 → 候选 ID / none → 用户确认打开。
 
@@ -2524,7 +2846,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-language"></a>
 <!-- covers: E06 -->
-### 96. 试做带语义判断的编程语言
+#### 96. 试做带语义判断的编程语言
+<!-- skill: jev -->
+**技能:** [jev](skills/jev/SKILL.md)
+
 
 > 程序状态 + 已定义的谓词或分支 → 类型化判断 → 解释器走受限分支。
 
@@ -2535,7 +2860,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-drawing"></a>
 <!-- covers: E07 -->
-### 97. 在画布里选择绘图动作
+#### 97. 在画布里选择绘图动作
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 文字化画面描述 + 可用图形、工具和目标 → 动作 ID → 宿主绘图工具。
 
@@ -2546,7 +2874,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-emoji"></a>
 <!-- covers: E08 -->
-### 98. 从固定候选里推荐 Emoji
+#### 98. 从固定候选里推荐 Emoji
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 草稿 + 语气目标 + Emoji 候选描述 → Emoji ID / none → 可选插入。
 
@@ -2557,7 +2888,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-clipboard"></a>
 <!-- covers: E09 -->
-### 99. 给剪贴板历史提供相关建议
+#### 99. 给剪贴板历史提供相关建议
+<!-- skill: jev-documents -->
+**技能:** [jev-documents](skills/jev-documents/SKILL.md)
+
 
 > 当前任务 + 明确允许读取的剪贴板条目 → 条目 ID / none → 本地预览。
 
@@ -2568,7 +2902,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-vitals-demo"></a>
 <!-- covers: E10 -->
-### 100. 在模拟器里研究合成监测信号
+#### 100. 在模拟器里研究合成监测信号
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 合成信号摘要 + 仿真条件 → 演示状态 / unknown → 模拟器显示。
 
@@ -2579,7 +2916,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-video-effects"></a>
 <!-- covers: E11 -->
-### 101. 实时选择视频特效
+#### 101. 实时选择视频特效
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 转写窗口 + 预设特效描述 → 特效 ID / none → 渲染器。
 
@@ -2590,7 +2930,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-pixels"></a>
 <!-- covers: E12 -->
-### 102. 通过颜色选择逐像素绘画
+#### 102. 通过颜色选择逐像素绘画
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 场景描述 + 像素或区域坐标 + 色板 → 颜色 ID → JavaScript 绘制。
 
@@ -2601,7 +2944,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-video-edit"></a>
 <!-- covers: E13 -->
-### 103. 给可编辑视频挑选片段
+#### 103. 给可编辑视频挑选片段
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 宿主提供的抽帧描述 + 素材 ID + 剪辑标准 → 开场 / 结尾 / 排序 → 剪辑时间线。
 
@@ -2612,7 +2958,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-levels"></a>
 <!-- covers: E14 -->
-### 104. 选择下一个合法关卡片段
+#### 104. 选择下一个合法关卡片段
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 当前关卡状态 + 预验证的片段候选 → 片段 ID → 游戏引擎。
 
@@ -2623,7 +2972,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-ads"></a>
 <!-- covers: E15 -->
-### 105. 批量拆解广告素材
+#### 105. 批量拆解广告素材
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 获准使用的广告文本 + 落地页证据 + 分类标准 → Hook / 形式 / Offer / CTA → 对比表。
 
@@ -2634,7 +2986,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-physics"></a>
 <!-- covers: E16 -->
-### 106. 在物理仿真里选择受限动作
+#### 106. 在物理仿真里选择受限动作
+<!-- skill: jev-act -->
+**技能:** [jev-act](skills/jev-act/SKILL.md)
+
 
 > 仿真遥测的文字摘要 + 合法控制 → 转向 / 推力 / 保持 → 仿真一步。
 
@@ -2645,7 +3000,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-redteam-batch"></a>
 <!-- covers: E17 -->
-### 107. 批量整理和判定越狱评测
+#### 107. 批量整理和判定越狱评测
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 获授权的已采集对话 + 待测边界 → 结果标签 + 证据状态 → 独立复核。
 
@@ -2671,7 +3029,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 <a id="sc-redteam-team"></a>
 <!-- covers: E18 -->
-### 108. 组织多人、多 Agent 与多轮安全评测
+#### 108. 组织多人、多 Agent 与多轮安全评测
+<!-- skill: jev-eval -->
+**技能:** [jev-eval](skills/jev-eval/SKILL.md)
+
 
 > 授权会话 + 完整轮次历史 + 预算 + 允许的下一步 → 继续 / 停止 / 复核 → 获授权的执行器。
 
@@ -2687,7 +3048,7 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 ```
 
 <a id="calibration"></a>
-## 🎯 让概率真正有用
+### 🎯 让概率真正有用
 
 “自动处理 / 强模型复核 / 交给人”是**可以定制的策略**，不是通用的 0.9/0.7 规则。
 先明确使用的是哪个答案的概率，在留出的标注数据上检验，再按错误代价选阈值。
@@ -2697,32 +3058,11 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 Jev 本身不浏览、不执行工具，也不生成自由文本。判断输入会发送给你选定的服务商，建议先用合成数据尝试。
 
 <a id="experiments"></a>
-## 🧪 可以查看的实验
+### 🧪 可以查看的实验
 
+- [五技能验证：安装、导航和三次真实 Jev 请求](docs/validation-five-skills.md).
 - [Agent 使用前后对照](evals/RESULTS.md)：12 组，baseline 12/12，固定检查点 10/12；是该接入策略的小规模负面结果。
 - [决策/校准试验](evals/CALIBRATION_RESULTS.md)：160 题命中 136 题；置信度 ≥0.9 的 100 题仍错了 8 题。
 - [9 个场景 API 示例](evals/SCENARIO_EXAMPLES.md)：记录了 8 个场景技能和声音编排的实际返回，没有执行宿主动作。
 - [此前的 5 个真实 API 示例](evals/results/examples-2026-09-20.json)：保留请求/响应，是冒烟回执，不是场景准确率测试。
 - [验证与复现说明](docs/validation.md)：分别记录打包检查、离线运行，以及尚未验证的宿主边界。
-
-<a id="credits"></a>
-## 🔗 更多资料 · 致谢
-
-本合集参考了这些 awesome 项目的线索整理：
-[Anil-matcha/awesome-jev-by-typesafe](https://github.com/Anil-matcha/awesome-jev-by-typesafe)、
-[cobanov/awesome-jev](https://github.com/cobanov/awesome-jev)、
-[yibie/awesome-jev](https://github.com/yibie/awesome-jev)、
-[yzfly/awesome-jev-zh](https://github.com/yzfly/awesome-jev-zh)、
-[hellogumbo/awesome-jev](https://github.com/hellogumbo/awesome-jev)、
-[logicrw/awesome-jev-projects](https://github.com/logicrw/awesome-jev-projects)。
-
-继续探索：[固定版本的项目调研](skills/jev/references/ecosystem.md) ·
-[Reddit、GitHub 等平台使用记录](skills/jev/references/community.md) ·
-[你提供的 29 条 X 分享及后续核验](skills/jev/references/x-intake-2026-09-20.md) ·
-[56 个 agent / 人工场景](skills/jev/references/index.md)。
-
-也受到[官方 Jev skill](https://docs.typesafe.ai/agent-skill)的启发。
-
-特别感谢 [LINUX DO](https://linux.do/?tl=en)。
-
-[MIT](LICENSE)，外链项目保留各自许可证。

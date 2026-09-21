@@ -5,72 +5,37 @@ description: Locate, select, extract and verify evidence in documents or observe
 
 # Find and verify source evidence
 
-## Setup: choose the service or simulation
+## Use safely
 
-Check only the presence of `OPENROUTER_API_KEY` and `TYPESAFE_API_KEY`; never
-print credentials. Respect the user's already chosen mode. For a new setup,
-prefer the user's existing OpenRouter account; otherwise offer official TypeSafe.
-If OpenRouter is missing, explain that direct TypeSafe is also real Jev. Do not
-silently change destination, send data, create an account or switch the host model.
+Choose the service once and keep that choice. If unset, ask **A: real Jev** via
+OpenRouter (`OPENROUTER_API_KEY`) or TypeSafe (`TYPESAFE_API_KEY`), or **B: simulation**
+with this agent or an explicitly chosen available model such as DeepSeek. Wait for
+consent; errors do not authorize switching. Check key presence only, never values.
+Real calls send evidence and cost money; get approval before sending private data.
 
-If no route has been chosen, explain the available routes and ask:
+For B, skip CLI/API calls. Mark `agent_simulation` or `model_simulation`, identify
+the actual model when available, set `jev_called: false`, `probability: null` and
+`confidence: null`. Return a value, evidence-based reason and `needs_review`; use
+null/review when evidence is missing. Do not invent Jev output or probabilities.
+Choice uses supplied labels, Noul uses booleans, Score uses integer rubric indices.
 
-> **A — Real Jev:** use/get an OpenRouter key at https://openrouter.ai/settings/keys
-> if you use OpenRouter; otherwise use/get a TypeSafe key at
-> https://console.typesafe.ai. Configure it locally, not in chat.
-> **B — Simulate:** use the current agent, or an explicitly selected available
-> model such as DeepSeek, with the same context, questions and criteria.
+For A, use the existing `jev-decide` CLI with the chosen `--provider openrouter`
+or `--provider typesafe`. If absent, explain the dependency; do not silently install.
+`--dry-run` is offline validation, not a judgment. Exit 0 means selected/scored,
+2 means review, 1 means error. Read each value: false Noul remains false. Selection
+is not permission, and confidence is not accuracy. Keep unknown/review paths.
 
-**Wait for an explicit choice.** Do not ask again for every record in the same
-approved task. API errors do not authorize switching providers or simulation.
-Missing both keys is not a dead end: offer B. It requires no Jev key but the
-chosen agent/model's ordinary access, usage costs and privacy terms still apply.
-Do not assume DeepSeek is installed, free or locally hosted.
+## First request
 
-In B, return `mode: agent_simulation` for the current host or
-`mode: model_simulation` for another explicitly approved model, plus its actual
-model identity when available and `jev_called: false`. Each question has `value`,
-`needs_review`, a brief evidence-based `reason`, `probability: null` and
-`confidence: null`. Choice values must be supplied labels, Noul values booleans,
-and Score values integer rubric indices. Use null/review for missing evidence.
-Never present this as Jev, calibrated probability or equivalent speed/accuracy.
-Skip Jev CLI/API steps in B; use the approved model's existing interface and do
-not install a substitute or send data elsewhere without consent.
-
-In A, select the CLI destination explicitly: `--provider openrouter` or
-`--provider typesafe`. The latter uses `TYPESAFE_API_KEY` and maps the bundled
-OpenRouter model ID to `jev-1.13.0`. `--dry-run` only validates; it neither
-classifies nor makes a network call. `jev-decide setup` reports presence only,
-not key validity, credits or permission. For guided setup and a copyable
-DeepSeek prompt, read the [setup guide](https://github.com/wuyoscar/jev-skill/blob/main/skills/jev/references/setup.md).
-
-## Jev API prerequisite and first example
-
-In Jev API mode, use the shared `jev-decide` CLI (Python 3.10+), installed from the reviewed
-`jev-skill` package. If unavailable, explain the missing dependency rather than
-silently installing software. The agent process must inherit
-`OPENROUTER_API_KEY` or `TYPESAFE_API_KEY` for the chosen provider; never place the key in a prompt or request file.
-No sibling skill or third-party integration is required for this judgment.
-Actual UI, file, mailbox or simulation actions require the host's own tools.
-
-Resolve `<skill-dir>` to this installed folder. Copy and edit
-[assets/example.json](assets/example.json) for the user's task; it is synthetic
-input, not a captured successful result. Validate it without a key or API call:
-
-The commands below default to OpenRouter. For the official route, append
-`--provider typesafe` to both validation and live calls.
+Adapt [the example](assets/example.json). The shared CLI needs Python 3.10+;
+no sibling skill is needed. Host tools still own collection and actions.
+Resolve `<skill-dir>` to this installed folder:
 
 ```bash
 jev-decide decide <skill-dir>/assets/example.json --dry-run
-# After reviewing the input and authorization to send it to the chosen provider:
-jev-decide decide /path/to/edited-request.json
+# After approval, send the edited request with the selected provider:
+jev-decide decide /path/to/request.json --provider openrouter
 ```
-
-Normal calls send the supplied evidence to the selected Jev provider and incur
-usage. Read relevant answers, not only the exit code: `0` means selected/scored,
-`2` means review, `1` means error. A confidently false Noul is still false;
-selection is not permission. Unknown, missing or conflicting evidence needs a
-fallback. Test thresholds on the user's task rather than assuming 0.9 is safe.
 
 ## Choose the evidence workflow
 
@@ -115,3 +80,10 @@ host or person consumes each answer before enabling any automatic effect.
 [Related project or author example](https://github.com/jkudish/jev-mcp). Our workflow is an adaptation,
 not that project's code, an automatic installer, or a reproduced benchmark.
 [OpenRouter request contract](https://openrouter.ai/docs/api/api-reference/alphadecisions/submit-a-decisions-questions-and-answers-request).
+
+## Examples
+
+[Rerank search and retrieval results](https://github.com/wuyoscar/jev-skill#sc-a19) · [Repository navigation](https://github.com/wuyoscar/jev-skill#sc-a20) · [Find meaning on a page, not just matching words](https://github.com/wuyoscar/jev-skill#sc-semantic-find)
+
+[More tasks and local templates](references/scenarios.md). Open only the matching row;
+there is no need to read the full README before a judgment.
