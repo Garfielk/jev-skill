@@ -68,7 +68,7 @@ class SkillCatalogTests(unittest.TestCase):
             text = (ROOT / filename).read_text()
             self.assertTrue('<a id="usage"></a>' in text, filename)
             usage = text.split('<a id="usage"></a>', 1)[1].split('<a id="io"></a>', 1)[0]
-            self.assertEqual(len(re.findall(r"```text\n", usage)), 3)
+            self.assertEqual(len(re.findall(r"```text\n", usage)), 4)
             for name in ("jev", *SCENARIOS):
                 self.assertIn(f"`{name}`", usage)
             for command in ("jev-decide decide request.json --dry-run",
@@ -199,11 +199,18 @@ class SkillCatalogTests(unittest.TestCase):
                 '<a id="install"></a>', 1
             )[0]
             previews = re.findall(r'<a href="https://[^"]+"><img src="([^"]+)"', gallery)
-            self.assertEqual(len(previews), 4)
+            self.assertEqual(len(previews), 6)
             for source in previews:
                 if not source.startswith("https://"):
                     self.assertTrue((ROOT / source).is_file(), source)
             self.assertIn("docs/media/README.md", gallery)
+            credits = (ROOT / "docs/media/README.md").read_text()
+            for repo, revision in (
+                ("devagrawal09/jev-review", "31f89602797fb7bea007f8a480bf368bf564954e"),
+                ("davila7/jev-explained", "5cbe35e04609112be77b1bd447bd79b3bde7980b"),
+            ):
+                self.assertIn(f"{repo}/{revision}/", gallery)
+                self.assertIn(f"{repo}/tree/{revision}", credits)
             self.assertIn("docs/updates/2026-09-20.md", gallery)
         self.assertTrue((ROOT / "docs/media/README.md").is_file())
         self.assertTrue((ROOT / "docs/updates/2026-09-20.md").is_file())

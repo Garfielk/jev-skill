@@ -2,7 +2,7 @@
 
 # ⚡ Awesome Jev Skills
 
-**看看能做什么，挑一个让 Agent 帮你用起来。**
+**Jev 演示、工作流与 coding Agent 技能合集。**
 
 [![Skills](https://img.shields.io/badge/skills-11-7c3aed?style=flat-square)](#install) [![Scenarios](https://img.shields.io/badge/scenarios-108-0d9488?style=flat-square)](#catalog) [![Tests](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml/badge.svg)](https://github.com/wuyoscar/jev-skill/actions/workflows/test.yml) [![MIT](https://img.shields.io/badge/license-MIT-ea580c?style=flat-square)](LICENSE)
 
@@ -16,21 +16,21 @@ Jev 负责选择、分类和评分，agent 负责提供上下文和执行。
 既可以接进长程任务，也可以拿来处理消息、读文档、做游戏和创作工具。
 
 <a id="showcase"></a>
-## 🎬 别人已经做出了什么
+## 🎬 演示
 
-点图片看原项目或视频。素材来自原作者，不是本仓库的复现结果。
+点图片看原项目、视频或图解。素材来自原作者，不是本仓库的复现结果。
 
 <table>
 <tr>
 <td width="50%" valign="top">
 <a href="https://github.com/browser-use/jev-ultrafast"><img src="https://raw.githubusercontent.com/browser-use/jev-ultrafast/1231850a0bf1a0c0341fe408ef1668dbbfdfac46/docs/demo.gif" width="100%" alt="浏览器自己选择下一步" /></a>
-<br /><b>🌐 浏览器自己选择下一步</b><br />
+<br /><b>🌐 浏览器自动化</b><br />
 <sub>Jev 选动作，浏览器工具点击和输入。</sub><br />
 <a href="https://github.com/browser-use/jev-ultrafast">原项目 / 演示 ↗</a>
 </td>
 <td width="50%" valign="top">
 <a href="https://github.com/thelau/jev-tetris"><img src="https://raw.githubusercontent.com/thelau/jev-tetris/9869b602965cf002afff766013f8c068846d36aa/docs/stills/states/3-decided-desktop.png" width="100%" alt="把决策概率画在俄罗斯方块上" /></a>
-<br /><b>🧱 把决策概率画在俄罗斯方块上</b><br />
+<br /><b>🧱 俄罗斯方块</b><br />
 <sub>代码枚举合法落点，Jev 给候选排序。</sub><br />
 <a href="https://github.com/thelau/jev-tetris">原项目 / 演示 ↗</a>
 </td>
@@ -38,20 +38,34 @@ Jev 负责选择、分类和评分，agent 负责提供上下文和执行。
 <tr>
 <td width="50%" valign="top">
 <a href="https://x.com/gokayfem/status/2101022590722810271"><img src="docs/media/whale-city.png" width="100%" alt="用决策维持一座鲸背城市" /></a>
-<br /><b>🐋 用决策维持一座鲸背城市</b><br />
+<br /><b>🐋 鲸背城市</b><br />
 <sub>Astra 设定世界，Jev 决策，H3 渲染。</sub><br />
 <a href="https://x.com/gokayfem/status/2101022590722810271">原项目 / 演示 ↗</a>
 </td>
 <td width="50%" valign="top">
 <a href="https://github.com/cocktailpeanut/jevthoven"><img src="docs/media/jevthoven.png" width="100%" alt="从音乐部件编排出多轨作品" /></a>
-<br /><b>🎹 从音乐部件编排出多轨作品</b><br />
+<br /><b>🎹 MIDI 作曲</b><br />
 <sub>Jev 选部件，代码渲染可编辑的 MIDI。</sub><br />
 <a href="https://github.com/cocktailpeanut/jevthoven">原项目 / 演示 ↗</a>
 </td>
 </tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://github.com/devagrawal09/jev-review"><img src="https://raw.githubusercontent.com/devagrawal09/jev-review/31f89602797fb7bea007f8a480bf368bf564954e/docs/dashboard.png" width="100%" alt="代码审查面板与风险热力图" /></a>
+<br /><b>🔎 代码审查</b><br />
+<sub>Jev 标记待复核的文件与证据。</sub><br />
+<a href="https://github.com/devagrawal09/jev-review">原项目 / 面板 ↗</a>
+</td>
+<td width="50%" valign="top">
+<a href="https://github.com/davila7/jev-explained"><img src="https://raw.githubusercontent.com/davila7/jev-explained/5cbe35e04609112be77b1bd447bd79b3bde7980b/docs/jev-primitives.png" width="100%" alt="原作者绘制的 Noul、Choice、Score 示意图" /></a>
+<br /><b>🎨 决策游乐场</b><br />
+<sub>学习判断、选择和评分；配图为作者示意图。</sub><br />
+<a href="https://github.com/davila7/jev-explained">原项目 / Playground ↗</a>
+</td>
+</tr>
 </table>
 
-[素材来源](docs/media/README.md) · 还可以看：[代码审查面板](https://github.com/devagrawal09/jev-review)、[语义 ⌘F](#sc-semantic-find)、[剧情监测](#sc-story-sensors)。
+[素材来源](docs/media/README.md) · 还可以看：[语义 ⌘F](#sc-semantic-find)、[剧情监测](#sc-story-sensors)。
 
 **9 月 20 日新收录：** 语义查找、赞助口播、剧情监测、MIDI 编排、本地模型对照。[调研记录 →](docs/updates/2026-09-20.md)
 
@@ -61,8 +75,12 @@ Jev 负责选择、分类和评分，agent 负责提供上下文和执行。
 把下面这段话发给 **Codex、Claude Code 或 OpenCode**：
 
 ```text
-帮我给当前 Agent 安装 Jev Skills，包括通用技能和全部场景技能。请读取并按照这份安装指南操作，完成后验证安装是否成功：
+帮我给当前 coding Agent 安装 Jev Skills，包括全部场景技能：
 https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md
+你来检查环境并完成安装，用 jev-setup 跟我确认：
+A：用我的 OpenRouter 或官方 TypeSafe 账号调用真实 Jev；B：由你模拟。
+等我选择；需要 key 时指导我在本地安全配置，不要让我发到聊天里。
+先完成离线验证，发送数据或付费调用前再征得我同意。
 ```
 
 Agent 会检查环境，默认安装到当前项目，并完成离线验证。
@@ -77,53 +95,36 @@ Agent 会检查环境，默认安装到当前项目，并完成离线验证。
 可以调用真实 Jev，也可以在你同意后，由当前 Agent 按相同标准模拟判断。
 
 <a id="no-key"></a>
-### 🔑 Setup：OpenRouter、官方 API，或者模拟
+### 🔑 和你的 Agent 完成设置
 
-直接告诉 Agent：**“用 jev-setup 检查可用方式，先不要做付费调用。”**
-它只检查 key 是否存在；切换模式或数据发送对象前先问你。
+**你的 coding Agent 负责 setup，你只需选方式、确认授权。**
+已经装好了？把下面这段话发到同一个 Codex、Claude Code 或 OpenCode 会话：
 
-| 你的情况 | 下一步 |
-|---|---|
-| 已经使用 OpenRouter | 到 [OpenRouter](https://openrouter.ai/settings/keys) 使用或申请 key，本地配置 `OPENROUTER_API_KEY`。 |
-| 不用 OpenRouter | 去 [TypeSafe 官方控制台](https://console.typesafe.ai)，本地配置 `TYPESAFE_API_KEY`，不必另开聚合平台账号。 |
-| 两边都没有，或不想申请 | 选 B：让当前 Agent，或你明确指定的可用模型（例如 DeepSeek）按提示词模拟。 |
-
-> **A：真实 Jev。** 选 OpenRouter 或官方 TypeSafe，在本地配置对应 key，再确认要发送的数据与 API 用量。
->
-> **B：模拟。** 使用相同上下文、候选项和标准，让当前 Agent 或你明确选择的可用模型分类。
-
-**必须先提醒、询问，等你选择；API 报错也不能擅自切换。**
-当前 Agent 模拟标记 `mode: agent_simulation`；另选模型标记 `mode: model_simulation`。
-两者都标记 `jev_called: false`，`probability` 和 `confidence` 都是 `null`。
-不会凭空提供 DeepSeek 账号或免费额度；使用你已有并同意的入口。
-[复制模拟提示词](skills/jev-setup/references/simulation.md)。
-
-`jev-decide setup` 只读检查，不联网、不登录、不保存密钥。
-`--dry-run` 只校验格式；真实调用有用量。不要把 key 发进聊天。
-真实接口分别用 `--provider openrouter` 或 `--provider typesafe`，不会自动兜底换服务。
-[完整 Setup 技能](skills/jev-setup/SKILL.md)。
-
-<details>
-<summary><strong>已有官方原生 key？直接这样设置</strong></summary>
-
-到 [TypeSafe 控制台](https://console.typesafe.ai) 获取 key，在启动 Agent 的本地环境中配置。
-下面是占位示例；真实 key 不要发到聊天、写入仓库或留在 shell 历史里。
-
-```bash
-export TYPESAFE_API_KEY="<你的-TypeSafe-key>"
-jev-decide setup
-jev-decide decide request.json --provider typesafe --dry-run
-# 确认输入和付费调用后：
-jev-decide decide request.json --provider typesafe > result.json
+```text
+用 jev-setup 给当前 coding Agent 配置 Jev。检查 key 是否存在，不要显示密钥。
+先跟我确认用哪种方式，等我选完再继续：
+A：真实 Jev——用我的 OpenRouter 账号，或者官方 TypeSafe 服务。
+B：由你模拟；只有我明确选择时，才使用 DeepSeek 等其他可用模型。
+技术步骤由你来完成。需要 key 时，指导我打开对应账号页面，在本地安全配置，
+不要让我把 key 发到聊天里。先做离线验证，告诉我哪些已完成、哪些还需要我操作。
+暂时不要做付费调用。
 ```
 
-`request.json` 可从下方实测 Input 保存并改写。官方入口不需要 OpenRouter key。
-**只设置 key 不会自动切换服务商**，每次都带 `--provider typesafe`；两种 key 不能混用。
-CLI 不自动读取 `.env`；已运行的桌面 Agent 可能需要重启才能继承环境变量。
-`setup` 只检查是否存在，`--dry-run` 只校验格式，都不证明 key 有效。
-[完整配置与排错](skills/jev-setup/SKILL.md#local-key-setup)。
+| 你告诉 Agent | Agent 接下来做什么 |
+|---|---|
+| “我有 OpenRouter。” | 检查 `OPENROUTER_API_KEY`；需要时指导你打开 [OpenRouter 密钥页](https://openrouter.ai/settings/keys)。 |
+| “我有／想用官方 Jev key。” | 使用 `TYPESAFE_API_KEY` 和 `--provider typesafe`，指导你使用 [TypeSafe 控制台](https://console.typesafe.ai)，不需要 OpenRouter 账号。 |
+| “我不想申请 key。” | 提供 B，等你确认后，由当前 Agent 模拟判断。 |
 
-</details>
+你只需处理账号登录、私密输入 key 和必要授权，**不要在聊天中发送 key**。
+安装、命令和离线检查交给 Agent；离线验证不代表 key 已通过鉴权。
+Agent 不会擅自换服务商，也不会悄悄转为模拟。
+
+模拟会标记 `agent_simulation`（另选模型则为 `model_simulation`）、
+`jev_called: false`，概率和置信度为 null；使用的是你已有的 Agent／模型入口，
+不是免费提供 Jev 或 DeepSeek 额度。
+
+[给 Agent 的 Setup 指引](skills/jev-setup/SKILL.md) · [手动 key 配置与排错](docs/installation.md#official-native-key-no-openrouter-account-required)
 
 ### 先跑一个例子
 

@@ -15,8 +15,7 @@ import jev
 class SetupTests(unittest.TestCase):
     def test_native_key_examples_are_visible_and_pitfalls_are_linked(self):
         root = Path(__file__).resolve().parents[1]
-        for name in ("README.md", "README.zh.md", "docs/installation.md",
-                     "skills/jev-setup/SKILL.md"):
+        for name in ("docs/installation.md", "skills/jev-setup/SKILL.md"):
             text = (root / name).read_text()
             self.assertIn('export TYPESAFE_API_KEY=', text, name)
             self.assertIn('--provider typesafe --dry-run', text, name)
@@ -28,6 +27,25 @@ class SetupTests(unittest.TestCase):
         for term in ("repeatability", "accuracy", "relevant", "uid", "pg-jev",
                      "TYPESAFE_API_KEY", "--provider typesafe", "held-out"):
             self.assertIn(term, guide)
+
+    def test_setup_is_a_conversation_with_the_current_coding_agent(self):
+        root = Path(__file__).resolve().parents[1]
+        for name in ("README.md", "README.zh.md"):
+            text = (root / name).read_text()
+            setup = text.split('<a id="no-key"></a>', 1)[1].split("### ", 2)[1]
+            self.assertIn("```text", setup)
+            self.assertNotIn("```bash", setup)
+            for term in ("jev-setup", "coding Agent" if name.endswith("zh.md") else "coding agent",
+                         "A:", "B:"):
+                # Chinese prompts use full-width punctuation.
+                self.assertIn(term, setup.replace("：", ":"))
+            for term in ("TYPESAFE_API_KEY", "--provider typesafe", "OPENROUTER_API_KEY",
+                         "jev_called: false", "null", "docs/installation.md"):
+                self.assertIn(term, setup)
+        skill = (root / "skills/jev-setup/SKILL.md").read_text()
+        self.assertIn("user's own coding agent", skill)
+        self.assertIn("Wait for an explicit choice", skill)
+        self.assertIn("do not\nmake the user run a terminal checklist", skill)
 
     def test_native_cli_full_mock_response_uses_native_key_and_model(self):
         payload = {"model": jev.DEFAULT_MODEL, "state": "fixture", "questions": {

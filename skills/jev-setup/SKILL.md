@@ -5,6 +5,12 @@ description: Set up Jev for an agent, choose OpenRouter or the official TypeSafe
 
 # Set up Jev
 
+This skill is run by the user's own coding agent, not a separate setup app.
+Handle environment inspection, installation checks and commands yourself; do not
+make the user run a terminal checklist. Ask them to confirm the service/simulation
+choice and handle private key entry or approvals. If the host is not identifiable,
+ask which coding agent and project to configure before writing files.
+
 Use the user's current host and existing account where possible. Setup is not a
 model call, account creation, provider switch or permission to spend.
 
@@ -63,12 +69,12 @@ Let the user complete account/terms/payment steps; describe environment-variable
 names and ask them to configure their host locally. Do not edit shell profiles.
 
 <a id="local-key-setup"></a>
-## Set the chosen key locally
+## Agent-side key setup
 
 The native TypeSafe route is already supported; it does not need an OpenRouter
 key or a Vercel account. Use **one** matching key/provider pair in the environment
 that launches the agent. The lines below contain placeholders, not real secrets;
-enter your key locally using your host's secret/environment settings. Avoid
+guide the user to enter their key through the host's local secret/environment settings. Avoid
 saving real keys in shell history, chat or tracked files.
 
 ```bash
