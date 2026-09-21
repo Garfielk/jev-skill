@@ -1,5 +1,7 @@
 # Community evidence ledger
 
+New: [all 15 + 22 + 39 supplied entries](intake-2026-09-21.md), with recovered original links, duplicates and evidence limits.
+
 For a task-based comparison of MCP, browser/desktop, routing, context, code-review
 and playground projects, see the [pinned ecosystem guide](ecosystem.md).
 

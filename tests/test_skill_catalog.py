@@ -16,11 +16,31 @@ import jev
 
 SCENARIOS = (
     "jev-triage", "jev-documents", "jev-ui", "jev-route",
-    "jev-context", "jev-code-review", "jev-find-code", "jev-simulation",
+    "jev-context", "jev-code-review", "jev-find-code", "jev-simulation", "jev-redteam",
 )
 
 
 class SkillCatalogTests(unittest.TestCase):
+    def test_setup_and_all_skills_keep_explicit_modes(self):
+        folders = list((ROOT / "skills").glob("*/SKILL.md"))
+        self.assertEqual(len(folders), 11)
+        for path in folders:
+            text = path.read_text()
+            for term in ("OPENROUTER_API_KEY", "TYPESAFE_API_KEY", "agent_simulation",
+                         "model_simulation", "jev_called", "DeepSeek"):
+                self.assertIn(term, text, str(path))
+        self.assertTrue((ROOT / "skills/jev-setup/references/simulation.md").is_file())
+
+    def test_new_collection_covers_all_supplied_roundups(self):
+        ledger = (ROOT / "skills/jev/references/intake-2026-09-21.md").read_text()
+        rows = re.findall(r"^\| (\d+) \|", ledger, re.M)
+        self.assertEqual(len(rows), 39 + 15 + 22)
+        for filename in ("README.md", "README.zh.md"):
+            text = (ROOT / filename).read_text()
+            section = text.split('<a id="projects"></a>', 1)[1].split('<a id="catalog"></a>', 1)[0]
+            self.assertEqual(len(re.findall(r"^\| ", section, re.M)) - 1, 45)
+            self.assertEqual(len(re.findall(r"^### \d+\.", text, re.M)), 108)
+
     def test_agent_first_installation_entrypoint(self):
         guide_url = "https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md"
         for filename in ("README.md", "README.zh.md"):
@@ -32,7 +52,7 @@ class SkillCatalogTests(unittest.TestCase):
         guide = (ROOT / "docs/install.md").read_text()
         for name in ("jev", *SCENARIOS):
             self.assertIn(f"`{name}`", guide)
-        for requirement in ("OPENROUTER_API_KEY", "--dry-run", "v0.1.2"):
+        for requirement in ("OPENROUTER_API_KEY", "--dry-run", "v0.2.0"):
             self.assertIn(requirement, guide)
 
     def test_all_skills_teach_context_and_parallelism(self):
@@ -169,7 +189,7 @@ class SkillCatalogTests(unittest.TestCase):
             badge = re.search(r"/badge/scenarios-(\d+)-", text)
             self.assertEqual(int(badge.group(1)), len(numbers))
             counts = re.findall(r"<br />(\d+) (?:recipes|个用法)", text)
-            self.assertEqual(len(counts), 9)
+            self.assertEqual(len(counts), 10)
             self.assertEqual(sum(map(int, counts)), len(numbers))
 
     def test_showcase_has_attributed_previews_and_existing_local_media(self):

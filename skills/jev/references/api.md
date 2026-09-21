@@ -1,6 +1,6 @@
-# Jev through OpenRouter
+# Jev through OpenRouter or official TypeSafe
 
-Verified against public documentation on **2026-09-20**. The Decisions endpoint is **alpha**; pin a model and recheck this contract before upgrading.
+Provider contracts checked against public documentation on **2026-09-21**; direct TypeSafe transport is mock-tested, not live-tested here. The Decisions endpoint is **alpha**; pin a model and recheck this contract before upgrading.
 
 ## Transport
 
@@ -13,6 +13,20 @@ Content-Type: application/json
 This is **not** `/api/v1/chat/completions`, `/api/v1/decisions`, or TypeSafe's direct `/v1/systemone` endpoint. Send `state` and `questions`, not `messages`. No second TypeSafe key is needed. [OpenRouter Decisions API](https://openrouter.ai/docs/api/api-reference/alphadecisions/submit-a-decisions-questions-and-answers-request)
 
 For the OpenRouter TypeScript SDK, use a separate Decisions client with `serverURL: 'https://openrouter.ai'`; the cookbook documents a 404 with the default base URL in SDK 1.2.146. [Verified-cascade cookbook](https://openrouter.ai/docs/cookbook/evaluate-and-optimize/jev-verified-cascade)
+
+## Official TypeSafe route
+
+Select it deliberately with `--provider typesafe`; use `TYPESAFE_API_KEY`.
+The endpoint is `POST https://api.typesafe.ai/v1/systemone`, with Bearer auth and
+the same state/questions shape. Its pinned model is `jev-1.13.0`. Only the known
+bundled `typesafe/jev-1.13` ID is mapped when selecting TypeSafe; an explicit
+`--model` override is not rewritten. Response validation and review policy are
+shared. Keys are bound to fixed provider endpoints; no arbitrary base URL,
+automatic service switching, retry or simulation is provided.
+
+`jev-decide setup` checks presence only and explains A/B choices. See the
+[setup skill](https://github.com/wuyoscar/jev-skill/blob/main/skills/jev-setup/SKILL.md)
+and [official API](https://docs.typesafe.ai/api), [model IDs](https://docs.typesafe.ai/models).
 
 ## Native request
 

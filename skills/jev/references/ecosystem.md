@@ -2,7 +2,7 @@
 
 Checked **2026-09-20** against original READMEs and selected documentation.
 These are optional upstream projects, **not dependencies automatically bundled
-or installed by this skill**. Examples in this repository use OpenRouter; an
+or installed by this skill**. Examples support OpenRouter or explicit direct TypeSafe; an
 upstream project may require another provider key or host. No upstream project
 was installed or run for this directory update.
 
@@ -180,3 +180,11 @@ setup instructions or benchmark claims. Directory membership is not verification
 This collection's contribution is **task → editable example → separately
 installable skill → evidence**, not a claim to have invented or bundled these
 projects. Keep the original authors' attribution and license if reusing code.
+
+## Expanded project directory
+
+See the [45-entry README project table](https://github.com/wuyoscar/jev-skill/blob/main/README.md#projects)
+for apps, demos, reports, model alternatives and methodology references. The
+[September 21 intake](intake-2026-09-21.md) maps all 76 supplied list entries and
+records newly inspected commits. Alternative-model API compatibility is not
+Jev equivalence. These projects are never installed by the setup skill.

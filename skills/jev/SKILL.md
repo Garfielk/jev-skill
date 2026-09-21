@@ -1,9 +1,9 @@
 ---
 name: jev
-description: Use TypeSafe Jev through OpenRouter for context-rich typed judgments rather than generated prose, especially high-volume classification, scoring and routing with parallel independent decisions. Define questions, choices or rubrics for ambiguous agent checkpoints (goal drift, repeated failures, tool routing, completion claims), browser states or human review. Supply sufficient relevant context in every request and batch independent questions. Use code for exact rules or arithmetic; Jev is advisory, not an authorization or security boundary.
+description: Use TypeSafe Jev through OpenRouter or its official API for context-rich typed judgments rather than generated prose, especially high-volume classification, scoring and routing with parallel independent decisions. Define questions, choices or rubrics for ambiguous agent checkpoints (goal drift, repeated failures, tool routing, completion claims), browser states or human review. Supply sufficient relevant context in every request and batch independent questions. Use code for exact rules or arithmetic; Jev is advisory, not an authorization or security boundary.
 license: MIT
 metadata:
-  requirements: Jev API mode needs Python 3.10+, network access to OpenRouter, and OPENROUTER_API_KEY in the calling process. API calls incur charges. No MCP server required. User-approved host-agent simulation needs no Jev API key or CLI.
+  requirements: Jev API mode needs Python 3.10+, network access and either OPENROUTER_API_KEY or TYPESAFE_API_KEY for the selected provider. API calls incur charges. No MCP server required. User-approved host-agent simulation needs no Jev API key or CLI.
 ---
 
 # Jev
@@ -16,43 +16,44 @@ The recipe library is inspiration, **not a fixed menu of supported functions**.
 Customize the evidence, questions, criteria and next consumer for the user’s task.
 This changes the decision interface and workflow, not the model weights.
 
-## Missing key: ask before choosing a mode
+## Setup: choose the service or simulation
 
-Before making a decision, check **only the presence** of `OPENROUTER_API_KEY` in
-this agent's execution environment; never print its value. If the key is missing,
-warn the user and ask in their language:
+Check only the presence of `OPENROUTER_API_KEY` and `TYPESAFE_API_KEY`; never
+print credentials. Respect the user's already chosen mode. For a new setup,
+prefer the user's existing OpenRouter account; otherwise offer official TypeSafe.
+If OpenRouter is missing, explain that direct TypeSafe is also real Jev. Do not
+silently change destination, send data, create an account or switch the host model.
 
-> No OpenRouter key was found, so I cannot call Jev. Which option do you prefer?
-> **A — Get a key:** create one at https://openrouter.ai/settings/keys and configure
-> `OPENROUTER_API_KEY` locally to use the real Jev API.
-> **B — Use your current agent:** I simulate the classification using the same
-> evidence and criteria, without calling Jev or requiring an OpenRouter key.
+If no route has been chosen, explain the available routes and ask:
 
-**Wait for an explicit A or B choice. Never silently simulate.** For A, help with
-local setup without collecting the secret in chat; resume Jev calls only when
-configured and authorized. For B, remember consent for the current task, not as a
-permanent default. Do not ask again for every record in that approved task. A key
-appearing later does not authorize silently switching an approved B task to A.
-API errors are not consent to simulate; report them instead of switching modes.
+> **A — Real Jev:** use/get an OpenRouter key at https://openrouter.ai/settings/keys
+> if you use OpenRouter; otherwise use/get a TypeSafe key at
+> https://console.typesafe.ai. Configure it locally, not in chat.
+> **B — Simulate:** use the current agent, or an explicitly selected available
+> model such as DeepSeek, with the same context, questions and criteria.
 
-In **B / agent simulation**, the current host agent does the judgment itself:
-- Use the same goal, sufficient context, question IDs and candidate definitions.
-  For `choice`, select a supplied label; for `noul`, return a boolean; for
-  `score`, choose an anchored rubric level, not a claimed Jev probability-weighted
-  score. If evidence is insufficient or no option fits, use `value: null` and
-  `needs_review: true`; never invent a new candidate. Keep ambiguity visible.
-- Mark every output `mode: agent_simulation` and `jev_called: false`. For each
-  question return `value`, `needs_review` and a short evidence-based `reason`;
-  set `probability` and `confidence` to `null`. Never invent Jev distributions,
-  provider receipts or calibrated certainty, or apply probability-threshold
-  automation to these judgments. Keep them separate from real Jev benchmarks.
-- Skip the CLI, API/key requirements and API-specific steps below. Do not install
-  another model/provider to simulate. Existing permissions and outcome checks
-  still apply; the host agent's normal costs and privacy terms still apply too.
-  B is not a promise of free, local, offline or Jev-speed execution.
+**Wait for an explicit choice.** Do not ask again for every record in the same
+approved task. API errors do not authorize switching providers or simulation.
+Missing both keys is not a dead end: offer B. It requires no Jev key but the
+chosen agent/model's ordinary access, usage costs and privacy terms still apply.
+Do not assume DeepSeek is installed, free or locally hosted.
 
-Explicit dry-run validation is separate: it checks input, not classification.
-It needs neither a key nor simulated answers.
+In B, return `mode: agent_simulation` for the current host or
+`mode: model_simulation` for another explicitly approved model, plus its actual
+model identity when available and `jev_called: false`. Each question has `value`,
+`needs_review`, a brief evidence-based `reason`, `probability: null` and
+`confidence: null`. Choice values must be supplied labels, Noul values booleans,
+and Score values integer rubric indices. Use null/review for missing evidence.
+Never present this as Jev, calibrated probability or equivalent speed/accuracy.
+Skip Jev CLI/API steps in B; use the approved model's existing interface and do
+not install a substitute or send data elsewhere without consent.
+
+In A, select the CLI destination explicitly: `--provider openrouter` or
+`--provider typesafe`. The latter uses `TYPESAFE_API_KEY` and maps the bundled
+OpenRouter model ID to `jev-1.13.0`. `--dry-run` only validates; it neither
+classifies nor makes a network call. `jev-decide setup` reports presence only,
+not key validity, credits or permission. For guided setup and a copyable
+DeepSeek prompt, use `jev-setup` or the [setup guide](https://github.com/wuyoscar/jev-skill/blob/main/skills/jev-setup/SKILL.md).
 
 ## Context first
 
@@ -136,6 +137,7 @@ Read only the relevant slice, not the entire catalog:
 | Calibrated decisions, confidence bands, review versus deferral | [Calibration](references/calibration.md) |
 | Labeled decision benchmarks; Chinese/English tricky questions | [Decision datasets](references/decision-datasets.md) |
 | Choose a community project, MCP server or host integration | [Ecosystem guide](references/ecosystem.md) |
+| Supplied 15/22/39 lists, complete source mapping and corrections | [Roundup intake](references/intake-2026-09-21.md) |
 | What users and authors actually tried across platforms | [Community evidence](references/community.md) |
 | X/Twitter demos: creative loops, adaptive UI, personal policies | [X workflows](references/twitter-workflows.md) |
 
@@ -174,6 +176,9 @@ invent consent, approve spending, or remove a host confirmation requirement.
 Resolve `<skill-dir>` to the directory containing this `SKILL.md`; do not assume
 the project working directory is the skill directory. The script is self-contained.
 
+The commands below default to OpenRouter. For the official route, append
+`--provider typesafe` to both validation and live calls.
+
 ```bash
 python3 <skill-dir>/scripts/jev.py decide /path/to/request.json --dry-run
 python3 <skill-dir>/scripts/jev.py decide /path/to/request.json
@@ -181,9 +186,9 @@ python3 <skill-dir>/scripts/jev.py decide /path/to/request.json
 jev-decide decide /path/to/request.json
 ```
 
-`OPENROUTER_API_KEY` must already be in this process's environment. Never print it,
+The selected provider's key must already be in this process's environment. Never print it,
 copy it to another app, write it into the request, or change the agent's main model.
-Default model: `typesafe/jev-1.13`; override deliberately with `--model` or `JEV_MODEL`.
+Default OpenRouter model: `typesafe/jev-1.13`; direct TypeSafe: `jev-1.13.0`. Override deliberately with `--model` or `JEV_MODEL`.
 Use files/stdin for untrusted content instead of interpolating it into shell commands.
 
 Exit **0**: valid selected/scored result; **2**: at least one question needs review;

@@ -1,7 +1,15 @@
-# Validation snapshot — September 20, 2026
+# Validation snapshots
 
 This separates package checks, live model calls, and agent-outcome evidence.
 None substitutes for the others.
+
+## v0.2.0 — September 21, 2026
+
+See the [collection/setup validation record](updates/2026-09-21-collection-setup.md):
+96 tests, 11 skill validators, fresh wheel installation, 60 provider-specific
+copied-skill dry runs and the offline red-team request builder. Official TypeSafe
+transport is mock-tested, not live-tested. No new model or target calls were made.
+The sections below are historical snapshots, not current installation pins.
 
 ## Missing-key choice — v0.1.2
 

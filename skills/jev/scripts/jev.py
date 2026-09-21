@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Typed Jev decisions through OpenRouter. Python standard library only."""
+"""Typed Jev decisions through OpenRouter or TypeSafe. Python standard library only."""
 
 import argparse
 import json
@@ -13,6 +13,8 @@ import urllib.request
 
 DEFAULT_MODEL = "typesafe/jev-1.13"
 DECISIONS_URL = "https://openrouter.ai/api/alpha/decisions"
+TYPESAFE_URL = "https://api.typesafe.ai/v1/systemone"
+TYPESAFE_MODEL = "jev-1.13.0"
 REVIEW_LABELS = {"other", "unknown", "abstain", "review", "ask_user", "wait",
                  "none", "defer", "insufficient_evidence"}
 
@@ -95,14 +97,20 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 
 def http_json(url, payload, timeout=30):
     """No retries or redirects; never put API keys or provider error bodies in logs."""
-    if url not in {DECISIONS_URL, "https://openrouter.ai/api/v1/chat/completions"}:
-        raise JevError("Only the documented OpenRouter endpoints are supported")
+    endpoints = {
+        DECISIONS_URL: ("OPENROUTER_API_KEY", "OpenRouter"),
+        "https://openrouter.ai/api/v1/chat/completions": ("OPENROUTER_API_KEY", "OpenRouter"),
+        TYPESAFE_URL: ("TYPESAFE_API_KEY", "TypeSafe"),
+    }
+    if url not in endpoints:
+        raise JevError("Only the documented OpenRouter and TypeSafe endpoints are supported")
+    key_name, provider_name = endpoints[url]
     number(timeout, 0.1, 300, "timeout")
-    key = os.environ.get("OPENROUTER_API_KEY", "").strip()
+    key = os.environ.get(key_name, "").strip()
     if not key:
-        raise JevError("Set OPENROUTER_API_KEY in the calling process environment")
+        raise JevError(f"Set {key_name} in the calling process environment; run setup for choices")
     if any(ord(character) < 33 or ord(character) > 126 for character in key):
-        raise JevError("OPENROUTER_API_KEY contains invalid whitespace or non-ASCII characters")
+        raise JevError(f"{key_name} contains invalid whitespace or non-ASCII characters")
     request = urllib.request.Request(
         url, data=json.dumps(payload, allow_nan=False).encode(),
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json",
@@ -114,19 +122,40 @@ def http_json(url, payload, timeout=30):
     except urllib.error.HTTPError as error:
         status = error.code
         error.close()
-        raise JevError(f"OpenRouter HTTP {status}; no automatic retry was made",
+        raise JevError(f"{provider_name} HTTP {status}; no automatic retry was made",
                        http_status=status) from None
     except (urllib.error.URLError, TimeoutError, OSError):
-        raise JevError("OpenRouter connection failed or timed out; no automatic retry was made") from None
+        raise JevError(f"{provider_name} connection failed or timed out; no automatic retry was made") from None
     except (json.JSONDecodeError, UnicodeError):
-        raise JevError("OpenRouter returned invalid JSON") from None
+        raise JevError(f"{provider_name} returned invalid JSON") from None
     if not isinstance(result, dict) or "error" in result:
-        raise JevError("OpenRouter returned an error or a non-object response")
+        raise JevError(f"{provider_name} returned an error or a non-object response")
     return result
 
 
-def request_decisions(payload, timeout=30):
-    return http_json(DECISIONS_URL, validate_request(payload), timeout)
+def request_decisions(payload, timeout=30, provider="openrouter"):
+    if provider not in {"openrouter", "typesafe"}:
+        raise JevError("provider must be openrouter or typesafe")
+    url = DECISIONS_URL if provider == "openrouter" else TYPESAFE_URL
+    return http_json(url, validate_request(payload), timeout)
+
+
+def setup_report():
+    """Inspect presence only. Do not test credentials, write config or choose a mode."""
+    available = {name: bool(os.environ.get(key, "").strip()) for name, key in
+                 [("openrouter", "OPENROUTER_API_KEY"), ("typesafe", "TYPESAFE_API_KEY")]}
+    return {
+        "available": available,
+        "recommended_provider": next((name for name, present in available.items() if present), None),
+        "requires_user_choice": True, "jev_called": False,
+        "options": {
+            "A": "Real Jev: use or obtain an OpenRouter key if you use OpenRouter; otherwise a TypeSafe key.",
+            "B": "After consent, use the current agent or an explicitly selected available model such as DeepSeek to simulate; no Jev probabilities.",
+        },
+        "key_pages": {"openrouter": "https://openrouter.ai/settings/keys",
+                      "typesafe": "https://console.typesafe.ai"},
+        "note": "Presence is not authentication or credit validation. No network call or configuration change was made.",
+    }
 
 
 def distribution(answer, labels, name):
@@ -197,6 +226,7 @@ class CLIParser(argparse.ArgumentParser):
 def parser():
     result = CLIParser(description=__doc__)
     commands = result.add_subparsers(dest="command", required=True)
+    commands.add_parser("setup", help="Inspect key presence and show choices without network or configuration changes")
     decide = commands.add_parser("decide", help="Judge a native state/questions JSON request")
     decide.add_argument("request", help="JSON file, or - for stdin")
     classify = commands.add_parser("classify", help="Classify one text against described labels")
@@ -205,6 +235,8 @@ def parser():
     text.add_argument("--text-file", help="UTF-8 file, or - for stdin")
     classify.add_argument("--criteria", required=True, help="JSON file mapping labels to descriptions")
     for command in [decide, classify]:
+        command.add_argument("--provider", choices=["openrouter", "typesafe"], default="openrouter",
+                             help="Explicit destination; default openrouter. Never falls back automatically")
         command.add_argument("--model", help=f"Default: request model, JEV_MODEL, or {DEFAULT_MODEL}")
         command.add_argument("--min-probability", type=float, default=0.8,
                              help="Top-choice/binary certainty threshold, not API confidence")
@@ -219,6 +251,9 @@ def parser():
 def main(argv=None):
     args = parser().parse_args(argv)
     try:
+        if args.command == "setup":
+            print(json.dumps(setup_report(), ensure_ascii=False, indent=2))
+            return 0
         if args.command == "decide":
             payload = read_json(args.request)
         else:
@@ -233,7 +268,12 @@ def main(argv=None):
                              "criteria": read_json(args.criteria)}}}
         if not isinstance(payload, dict):
             raise JevError("Request must be a JSON object")
-        payload["model"] = args.model or payload.get("model") or os.environ.get("JEV_MODEL") or DEFAULT_MODEL
+        default_model = DEFAULT_MODEL if args.provider == "openrouter" else TYPESAFE_MODEL
+        payload["model"] = args.model or payload.get("model") or os.environ.get("JEV_MODEL") or default_model
+        # Bundled examples carry the OpenRouter model ID; explicit provider selection
+        # maps that one known ID. Custom overrides are never rewritten.
+        if args.provider == "typesafe" and not args.model and payload["model"] == DEFAULT_MODEL:
+            payload["model"] = TYPESAFE_MODEL
         validate_request(payload)
         number(args.min_probability, 0.5, 1, "min_probability")
         number(args.min_margin, 0, 1, "min_margin")
@@ -242,10 +282,13 @@ def main(argv=None):
             print(json.dumps(payload, ensure_ascii=False, indent=2))
             return 0
         started = time.monotonic()
-        response = request_decisions(payload, timeout=args.timeout)
+        response = request_decisions(payload, timeout=args.timeout, provider=args.provider)
         report = build_report(payload, response, args.min_probability, args.min_margin,
                               REVIEW_LABELS | set(args.review_label))
         report["elapsed_seconds"] = round(time.monotonic() - started, 6)
+        report["mode"] = "jev_api"
+        report["jev_called"] = True
+        report["transport"] = args.provider
         print(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False))
         return 2 if any(d["status"] == "needs_review" for d in report["decisions"].values()) else 0
     except (JevError, OSError, json.JSONDecodeError, UnicodeError) as error:
