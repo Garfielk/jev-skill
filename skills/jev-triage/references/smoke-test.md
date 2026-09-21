@@ -95,6 +95,6 @@ collects evidence, generates free text/arguments, schedules and verifies actions
 
 ## Evidence, not a mandatory template
 
-Our [validation record](https://github.com/wuyoscar/jev-skill/blob/codex/jev-followups/evals/FOLLOWUP_VALIDATION.md)
+Our [validation record](https://github.com/wuyoscar/jev-skill/blob/main/evals/FOLLOWUP_VALIDATION.md)
 keeps generated code, synthetic fixtures, real calls and failures. It illustrates
 one support-ticket pilot, not a production scheduler everyone must adopt.

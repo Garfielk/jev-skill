@@ -1,8 +1,9 @@
 # Follow-up status and merge order
 
 The user approved implementation, real OpenRouter calls and a final bug/code
-review on September 21. Merge and release remain user-controlled. This follow-up
-is stacked on the six-entry branch because PR #4 has not yet been merged.
+review on September 21, then delegated final checking, PR merges and tracker
+cleanup to the agent. PR #4 is merged; the follow-up PR #5 now targets main and
+is revalidated against it. No manual review action is required from Oscar.
 
 | Work | Status and evidence |
 |---|---|
@@ -13,17 +14,19 @@ is stacked on the six-entry branch because PR #4 has not yet been merged.
 | Skill/use-case connection | Six entry points, merged-mode examples, shared pilot guide and real API checks; no claim of native invocation across all hosts |
 | Bug/code review and packaging | [Review and release readiness](release-readiness.md); no public release or user-install overwrite |
 
-## Review and merge, one step at a time
+## Integration and release
 
-1. Review and merge PR #4 first. This does not require accepting the follow-up.
-2. Review this stacked follow-up independently; retarget it to main after #4 is
-   merged and rerun CI. Do not merge the old fixed-runner [PR #2](https://github.com/wuyoscar/jev-skill/pull/2)
-   on top: it has been superseded by agent-authored guidance. Close #2 when the
-   replacement is accepted; its original failure evidence is retained here.
-3. Once the reviewed code is on main, approve the release version. Build final
-   artifacts at that exact commit, verify checksums and fresh installation, then
-   update every release pin and publish. Until then, source-preview notices and
-   the actual published v0.2.0 installation remain explicit and separate.
+1. [PR #4](https://github.com/wuyoscar/jev-skill/pull/4) merged first and closed
+   spec #3. PR #5 was retargeted to main and synchronized without code changes;
+   its final checks must pass before the delegated merge.
+2. The old fixed-runner [PR #2](https://github.com/wuyoscar/jev-skill/pull/2) is
+   superseded by this agent-authored guidance. Its failure evidence, branch and
+   original uncommitted local work are preserved rather than merged or deleted.
+3. A new tagged release is separate from merging code. Select a new version,
+   build artifacts at the exact release commit, verify checksums and fresh
+   installation, then update release pins and publish matching assets. Until
+   that is done, source-preview notices and the actual published v0.2.0
+   installation remain explicit and separate.
 
 ## Model choice and limits
 

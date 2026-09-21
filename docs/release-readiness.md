@@ -1,7 +1,8 @@
 # Review and release readiness
 
-This source branch is not a published release. PR #4 and the follow-up require
-Oscar's review/merge first; no tags, releases or automatic merges are created.
+This source is not a published release. Oscar delegated PR merging after review
+and passing checks; the agent handles integration and tracker cleanup. No tags
+or releases are created by that merge operation.
 The actual published v0.2.0 remains the eleven-entry version. Building artifacts
 with the existing metadata is an isolated packaging rehearsal, not permission to
 replace those public assets.
@@ -63,7 +64,7 @@ bugs. [Actual API/pilot evidence](../evals/FOLLOWUP_VALIDATION.md).
 
 ## Publication checklist after merge
 
-1. Agree a new version (do not overwrite v0.2.0). Bump metadata and every install
+1. Select a new version (do not overwrite v0.2.0). Bump metadata and every install
    pin together at a reviewed commit; keep the legacy guide labeled and pinned.
 2. Build wheel, source archive and complete source ZIP at that commit. Inspect
    six SKILL entries, references/assets and the CLI; run clean installation checks.
