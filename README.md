@@ -215,6 +215,33 @@ Keep uncertain cases separate. Do not reply to, delete or move any messages.
 The agent schedules concurrency; the CLI does not start parallel jobs itself.
 Check the sample judgments before choosing a larger batch and budget.
 
+### 🚦 Smoke test before thousands of labels
+
+```text
+Use jev-triage with smoke_test=true on [FILE PATH].
+Write a task-specific pilot for about 30 representative records; compare Jev
+with an available DeepSeek model, giving both the same full context and criteria.
+Test the generated code first. Then show real input/output pairs, disagreements,
+coverage and costs. Stop before the full batch; do not change any accounts.
+```
+
+`smoke_test` tells your agent what to do—not a new skill, Jev API field or required
+runner. Your agent writes the sampling and bounded concurrent calls for your app.
+[Workflow and parameters](skills/jev-triage/references/smoke-test.md) ·
+[Actual pilot, code and failures](evals/FOLLOWUP_VALIDATION.md)
+
+**Observed IO, not an invented example:**
+
+| Input (S11) | Jev | DeepSeek V4 Flash | Preassigned label |
+|---|---|---|---|
+| “How do I download an invoice? I can sign in and the charge is correct.” | `howto` | `billing` | `howto` |
+
+In our 24-record synthetic pilot, both arms completed: Jev matched 24/24
+preassigned labels, DeepSeek 23/24; they agreed on 23/24. Four missing/out-of-scope
+records remained in review. The pilot cost $0.0011213 in reported model usage;
+**it did not authorize a full batch or establish production accuracy/calibration**.
+The linked receipts include the shared policy and every full request/response.
+
 ### Pick the skill for your task
 
 | I want to… | Ask the agent to use |

@@ -208,6 +208,31 @@ B 模式：由你按同样标准判断，明确标注模拟，不编造 API 响�
 
 并发由 Agent 调度，不是 CLI 自动开启。先核对小样本的判断质量，再决定批量范围和预算。
 
+### 🚦 批量打标签前，先做 smoke test
+
+```text
+使用 jev-triage，smoke_test=true，处理【文件路径】。
+根据我的任务写一个约 30 条代表性记录的 pilot，对比 Jev 和可用的 DeepSeek 模型。
+两边提供相同的完整上下文和分类标准；先测试你生成的代码，再跑真实请求。
+给我看实际输入输出、分歧、覆盖率和费用。先停在小样本，不处理全量，不修改账号数据。
+```
+
+`smoke_test` 是告诉 Agent 怎么做的工作流参数，**不是新增技能、Jev API 字段，
+也不是必须运行某个固定 runner**。采样和有界并发代码由 Agent 按你的项目来写。
+[参数与用法](skills/jev-triage/references/smoke-test.md) ·
+[真实测试、代码和失败记录](evals/FOLLOWUP_VALIDATION.md)
+
+**实测 IO，不是示意输出：**
+
+| 输入（S11） | Jev | DeepSeek V4 Flash | 预设标签 |
+|---|---|---|---|
+| “How do I download an invoice? I can sign in and the charge is correct.” | `howto` | `billing` | `howto` |
+
+24 条合成工单全部完成配对：Jev 命中预设标签 24/24，DeepSeek 23/24，
+两边一致 23/24。4 条缺少证据或不属于业务范围的记录仍进入复核。
+该 pilot 的模型报告费用合计 $0.0011213；**没有自动放行全量，也不代表生产准确率或校准结论**。
+完整上下文、分类标准和每条原始输入输出都在测试记录里。
+
 ### 换一个用途，点名对应技能
 
 | 我想做什么 | 让 Agent 使用 |

@@ -1,33 +1,44 @@
-# Next steps — one review at a time
+# Follow-up status and merge order
 
-This is a proposed sequence for Oscar to review, not authorization to run paid
-models, merge PRs, publish releases or start every item in parallel.
+The user approved implementation, real OpenRouter calls and a final bug/code
+review on September 21. Merge and release remain user-controlled. This follow-up
+is stacked on the six-entry branch because PR #4 has not yet been merged.
 
-| Order | Work | Deliverable and acceptance | Depends on |
-|---|---|---|---|
-| 1 | Six skill entry points | [Spec #3](https://github.com/wuyoscar/jev-skill/issues/3), focused PR, copied-installation and migration checks; retain all 108 scenarios and 14 real IO pairs | Oscar reviews and merges |
-| 2 | Transport diagnostics | Separate small PR for the already-local error-category/phase fix. Retain safe diagnostics through CLI and receipts; local timeout/DNS/TLS tests pass; do not claim the old online failure is solved | Rebase the local fix onto merged main; no live replay without approval |
-| 3 | Agent-authored smoke test | Revise [PR #2](https://github.com/wuyoscar/jev-skill/pull/2), whose mandatory fixed runner no longer matches the request. Keep `smoke_test` inside the existing workflow; instruct the host to write task-specific sampling, bounded scheduling, paired calls and comparison code | Six-entry organization merged; agree the comparison models |
-| 4 | Behavioral validation | Test an agent using the revised skill to produce runnable comparison code. First use synthetic data and local fake endpoints; check record pairing, identical evidence, missing/error outputs, budget and no silent full-batch execution. Preserve generated code and actual test receipts | Smoke-test guidance ready for review; any paid calls separately approved |
-| 5 | Release and installation | After approved changes are merged, choose a new version, build and inspect artifacts, verify fresh installation and legacy migration, then update release pins and remove the preview notice | Explicit release approval; never publish a tag before its artifacts exist |
-| Later | Community intake and presentation | Add only verified, useful new workflows or a justified visual/navigation improvement; keep attribution, actual IO and negative results | Separate small PR when there is a substantive increment, not a daily change quota |
+| Work | Status and evidence |
+|---|---|
+| Six skill entry points | [PR #4](https://github.com/wuyoscar/jev-skill/pull/4), [spec #3](https://github.com/wuyoscar/jev-skill/issues/3); 108 scenarios and 14 original real IO pairs retained |
+| Transport diagnosis | Safe phase/kind/status fields, truncated-body handling, duplicate JSON rejection; [replay and limitations](transport-diagnostics.md) |
+| Agent-authored smoke test | Implemented inside `jev-triage`, not a new skill or mandatory runner; [workflow/parameters](../skills/jev-triage/references/smoke-test.md) |
+| Generated-code validation | First draft failed; host-corrected artifact tested and then run on 24 synthetic records; [full evidence](../evals/FOLLOWUP_VALIDATION.md) |
+| Skill/use-case connection | Six entry points, merged-mode examples, shared pilot guide and real API checks; no claim of native invocation across all hosts |
+| Bug/code review and packaging | [Review and release readiness](release-readiness.md); no public release or user-install overwrite |
 
-## Decisions still to settle for smoke testing
+## Review and merge, one step at a time
 
-- The original comparator was **Jev + DeepSeek V4 Flash**. A later explanation
-  mentioned **DeepSeek-VL + GPT**. Treat that as unresolved, not permission to
-  silently choose a different provider/model pair.
-- The skill should express the desired behavior, not prescribe an experiment
-  framework: the agent writes code suited to the user's dataset and existing app.
-- Compare identical evidence and criteria. Without independent labels, report
-  agreement and disagreements, not accuracy. Let the task determine sampling and
-  acceptance criteria rather than baking a universal threshold into the skill.
-- Preserve both the original incomplete live attempt and subsequent debugging
-  evidence. Do not erase a failure when replacing the runner's role in the product.
+1. Review and merge PR #4 first. This does not require accepting the follow-up.
+2. Review this stacked follow-up independently; retarget it to main after #4 is
+   merged and rerun CI. Do not merge the old fixed-runner [PR #2](https://github.com/wuyoscar/jev-skill/pull/2)
+   on top: it has been superseded by agent-authored guidance. Close #2 when the
+   replacement is accepted; its original failure evidence is retained here.
+3. Once the reviewed code is on main, approve the release version. Build final
+   artifacts at that exact commit, verify checksums and fresh installation, then
+   update every release pin and publish. Until then, source-preview notices and
+   the actual published v0.2.0 installation remain explicit and separate.
 
-## Work intentionally left untouched by the six-entry PR
+## Model choice and limits
 
-The original checkout still holds the local timeout-diagnostic changes. The
-six-entry branch starts from main and does not include PR #2's runner, paid
-comparison receipts or parameter policy. Review each concern separately; the old
-PR should not be merged as if its fixed-runner design were the approved final plan.
+This approved text pilot used the original **Jev + DeepSeek V4 Flash** pair, after
+checking the live catalog and successful endpoint calls. No DeepSeek-VL + GPT
+experiment was substituted. The skill leaves comparator selection to each task;
+it does not force our text-only fixture, exact model, thresholds or scheduler.
+
+Agreement is not accuracy. The 24 labels are preassigned synthetic expectations,
+not production truth; the four unknown cases still require review. A passing
+sample alone never grants bulk execution. No unsupported calibration conclusion
+or automatic fallback is permitted.
+
+The original checkout's uncommitted work remains untouched. Diagnostics were
+ported and tested in isolation; the old runner was not copied into installed
+skills. Fresh receipts supplement rather than overwrite the first failed run.
+Community intake and visual changes remain separate, evidence-driven PRs rather
+than a daily update quota; no new media was invented for this follow-up.

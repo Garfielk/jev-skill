@@ -16,6 +16,15 @@ The recipe library is inspiration, **not a fixed menu of supported functions**.
 Customize the evidence, questions, criteria and next consumer for the user’s task.
 This changes the decision interface and workflow, not the model weights.
 
+## Bulk decisions
+
+Before hundreds of repeated judgments, use the `jev-triage` smoke_test workflow:
+have the host write a small task-specific paired pilot, test it, then show real
+IO and disagreements before scaling. The same method applies to the current
+workflow; do not create another skill or silently change its task. Read the
+[pilot guide](https://github.com/wuyoscar/jev-skill/blob/codex/jev-followups/skills/jev-triage/references/smoke-test.md)
+when needed. It is a workflow parameter, not a Jev API field or a CLI scheduler.
+
 ## Choose the workflow
 
 Use natural language to describe the task; these are modes, not extra installed skills.
