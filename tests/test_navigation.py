@@ -29,6 +29,27 @@ class NavigationTests(unittest.TestCase):
             mappings.append(mapping)
         self.assertEqual(*mappings)
 
+    def test_general_skill_reverse_links_use_the_task_specific_template(self):
+        readme = (ROOT / 'README.md').read_text()
+        reverse = (ROOT / 'skills/jev/references/scenarios.md').read_text()
+        for anchor, part in re.findall(
+                r'<a id="(sc-[^"]+)"></a>(.*?)(?=<a id="|\Z)', readme, re.S):
+            if '<!-- skill: jev -->' not in part:
+                continue
+            expected = ('prompt-to-jev.json' if anchor == 'sc-compile' else
+                        re.search(r'\]\(skills/jev/assets/([^)]+)\)', part)[1])
+            row = next(row for row in reverse.splitlines() if '#' + anchor + ')' in row)
+            self.assertIn(f'](../assets/{expected})', row, anchor)
+
+    def test_focused_indexes_use_available_task_specific_templates(self):
+        for skill, anchors, asset in [
+                ('jev-documents', ('sc-graph',), 'find-code.json'),
+                ('jev-eval', ('sc-a06', 'sc-a07', 'sc-a03'), 'code-review.json')]:
+            reverse = (ROOT / 'skills' / skill / 'references/scenarios.md').read_text()
+            for anchor in anchors:
+                row = next(row for row in reverse.splitlines() if '#' + anchor + ')' in row)
+                self.assertIn(f'](../assets/{asset})', row, anchor)
+
     def test_readme_has_three_main_sections_and_keeps_full_examples(self):
         for filename, headings in [('README.md', ['Projects', 'Skills', 'Examples']),
                                    ('README.zh.md', ['项目', '技能', '用法'])]:

@@ -17,8 +17,9 @@ with benign instruction-following or canary fixtures; do not access real secrets
 
 ## Runnable offline example
 
-Resolve `<skill-dir>` to this folder. The included transcripts are **authored
-fixtures**, not target outputs or a jailbreak benchmark. No API is called here.
+Resolve `<skill-dir>` to the installed `jev-eval` folder containing `SKILL.md`,
+not this `references/` folder. The included transcripts are **authored fixtures**,
+not target outputs or a jailbreak benchmark. No API is called here.
 [assets/example.json](../assets/example.json) is the prepared request for case-002;
 it contains no expected label.
 
@@ -57,4 +58,3 @@ Method references (not Jev integrations or reproduced here):
 [HarmBench](https://github.com/centerforaisafety/HarmBench),
 [PAIR](https://github.com/patrickrchao/JailbreakingLLMs),
 [AgentDojo](https://github.com/ethz-spylab/agentdojo).
-

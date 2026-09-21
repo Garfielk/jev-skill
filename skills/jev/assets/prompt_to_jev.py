@@ -12,6 +12,8 @@ def main(argv=None):
     parser.add_argument('--provider', choices=('openrouter', 'typesafe'), default='openrouter')
     args = parser.parse_args(argv)
     request = jev.validate_request(jev.read_json(Path(__file__).with_name('prompt-to-jev.json')))
+    if args.provider == 'typesafe' and request['model'] == jev.DEFAULT_MODEL:
+        request['model'] = jev.TYPESAFE_MODEL
     if args.dry_run:
         print(json.dumps(request, indent=2))
         return 0

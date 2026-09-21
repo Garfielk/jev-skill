@@ -45,17 +45,57 @@ relocated examples, all 108 primary/reverse links, bilingual content, six previe
 canvas sizes, source-list deduplication, conversion dry runs and false/uncertain
 refund handling. Historical request/output equality checks remain in place.
 
-All five skill metadata checks passed. Python compilation passed; the project has
-no configured static type checker. At the first complete link pass, 1,753 local
-link occurrences resolved in active skills, READMEs and installation guides.
+All **136 offline tests passed**, including copied installations in the three
+documented host layouts. All five skill metadata checks and Python compilation
+passed; the project has no configured static type checker. The final link pass
+resolved 1,755 local link occurrences in active skills, READMEs and installation
+guides. The official TypeSafe example's native model ID is checked offline at
+the transport boundary; it was not live-run against the official endpoint.
 
 Both READMEs were rendered with GitHub's Markdown API and inspected in a local
 browser with GitHub Markdown CSS at 1280 px and 390 px. All six images loaded with
 the same 16:9 ratio and pairwise dimensions. This checks sanitized GitHub markup,
 not every client theme or native skill invocation.
 
-Final full-suite, package and independent-review results are recorded below once
-those checks complete.
+The source archive and wheel built successfully. The archive contains exactly
+five skill entries, the preview GIF and the calling example; local agent config,
+specs and tickets are excluded. A fresh offline wheel installation passed the
+public CLI and official-provider example dry runs. The copied safety guide's
+preparation command and all three emitted requests also passed offline checks.
+
+Migration rehearsals covered both eleven-to-five and six-to-five updates in
+temporary folders: backups stayed unchanged, rollback was byte-identical, and
+local edits and symlinks were detected. No real skill installation was touched.
+
+Representative reading paths below start with that skill's `SKILL.md`, then only
+the named guide and request. Counts are whitespace-separated words, including
+frontmatter and JSON, not model tokens or latency estimates. These requests all
+pass the existing offline CLI; no README or sibling skill needs to be loaded.
+
+| Skill | Guide after the entry | Request in `assets/` | Total words |
+|---|---|---|---:|
+| `jev` | `references/prompt-to-jev.md` | `prompt-to-jev.json` | 1,426 |
+| `jev-triage` | Workflow in the entry | `example.json` | 945 |
+| `jev-documents` | `references/find-code.md` | `find-code.json` | 1,115 |
+| `jev-eval` | `references/code-review.md` | `code-review.json` | 1,029 |
+| `jev-act` | `references/ui.md` | `example.json` | 856 |
+
+## Independent review
+
+Two read-only reviews used main commit `36b08bb` as the fixed baseline.
+
+### Standards
+
+Two P2 findings were fixed: the official-provider example's model ID and an
+ambiguous installed-folder path in the safety guide. Regression and copied-folder
+checks passed. The reviewer confirmed both closed; no remaining findings.
+
+### Spec
+
+Two P2 findings were fixed: task-specific reverse template links and worked
+conversion outputs for missing evidence and dependent steps. Offline request and
+navigation checks passed. The reviewer confirmed both closed; no remaining
+findings. These fixtures do not claim autonomous conversion quality.
 
 ## Limits
 

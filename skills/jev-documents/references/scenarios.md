@@ -21,7 +21,7 @@ guide. A project link is a source, not an installed backend or a tested integrat
 | Check a cheap model’s structured extraction | [61](https://github.com/wuyoscar/jev-skill#sc-extraction-cascade) | [Template](../assets/example.json) |
 | Annotate talks, interviews or presentations | [62](https://github.com/wuyoscar/jev-skill#sc-transcript) | [Template](../assets/example.json) |
 | Duplicate/entity matching | [65](https://github.com/wuyoscar/jev-skill#sc-h05) | [Template](../assets/example.json) |
-| Navigate a knowledge graph or large hierarchy | [68](https://github.com/wuyoscar/jev-skill#sc-graph) | [Template](../assets/example.json) |
+| Navigate a knowledge graph or large hierarchy | [68](https://github.com/wuyoscar/jev-skill#sc-graph) | [Template](../assets/find-code.json) |
 | Find a useful command from your history | [71](https://github.com/wuyoscar/jev-skill#sc-shell-history) | [Template](../assets/example.json) |
 | Rank launcher results by intent | [95](https://github.com/wuyoscar/jev-skill#sc-launcher) | [Template](../assets/example.json) |
 | Find a relevant clipboard item | [99](https://github.com/wuyoscar/jev-skill#sc-clipboard) | [Template](../assets/example.json) |

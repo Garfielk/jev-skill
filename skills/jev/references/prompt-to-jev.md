@@ -65,6 +65,11 @@ Syntax checks do not prove that a model followed the conversion guide. Review th
 six checks against the agent's actual conversion, including missing evidence and
 dependent steps. Keep live outputs separate from expected test labels.
 
+The checks include worked outcomes: a missing ticket stays in collect/review with
+no request, and document selection is followed by a separate claim check only
+after the host reads the document. Their observations are authored fixtures, not
+retrieved evidence. The applicable requests pass the existing offline CLI.
+
 ## Source
 
 Thanks to [sumleo/prompt2jev](https://github.com/sumleo/prompt2jev) for the focused

@@ -6,9 +6,9 @@ guide. A project link is a source, not an installed backend or a tested integrat
 
 | Task | Full example | Local start |
 |---|---|---|
-| Completion evidence check | [3](https://github.com/wuyoscar/jev-skill#sc-a06) | [Template](../assets/example.json) |
-| Detect unsupported success language | [4](https://github.com/wuyoscar/jev-skill#sc-a07) | [Template](../assets/example.json) |
-| Plan versus action | [6](https://github.com/wuyoscar/jev-skill#sc-a03) | [Template](../assets/example.json) |
+| Completion evidence check | [3](https://github.com/wuyoscar/jev-skill#sc-a06) | [Template](../assets/code-review.json) |
+| Detect unsupported success language | [4](https://github.com/wuyoscar/jev-skill#sc-a07) | [Template](../assets/code-review.json) |
+| Plan versus action | [6](https://github.com/wuyoscar/jev-skill#sc-a03) | [Template](../assets/code-review.json) |
 | Test weakening / reward gaming | [7](https://github.com/wuyoscar/jev-skill#sc-a08) | [Template](../assets/code-review.json) |
 | Project-rule compliance | [8](https://github.com/wuyoscar/jev-skill#sc-a09) | [Template](../assets/code-review.json) |
 | Suspicious tool-output instructions | [10](https://github.com/wuyoscar/jev-skill#sc-a11) | [Template](../assets/example.json) |
