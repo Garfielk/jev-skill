@@ -30,7 +30,7 @@ Jev 负责选择、分类和评分，你自己的 coding Agent 负责提供上�
 
 | 开始使用 | 找项目与用法 | 深入了解 |
 |---|---|---|
-| [📦 安装](#install) | [🎬 演示](#showcase) | [🧯 避坑指南](#pitfalls) |
+| [📦 安装](#install) · [🔄 更新](#update) | [🎬 演示](#showcase) | [🧯 避坑指南](#pitfalls) |
 | [🔑 Agent 设置](#no-key) | [🧭 项目导航](#projects) | [⚡ 上下文与批量](#context-tips) |
 | [🚀 怎么用](#usage) | [🗂 全部场景](#catalog) | [🎯 概率校准](#calibration) |
 | [🧪 输入 → 输出](#io) | [📊 实验记录](#experiments) | [🔗 来源与致谢](#credits) |
@@ -124,6 +124,20 @@ Agent 会检查环境，默认安装到当前项目，并完成离线验证。
 你不用自己运行命令；只需处理必要的授权。没有 key？Agent 会先让你选[OpenRouter、官方入口或明确的模拟模式](#no-key)，不会擅自切换。
 不需要 Vercel 账号；Node/npm 也不是默认安装方式的依赖。
 [Agent 安装指南](docs/install.md) · [手动安装与排错](docs/installation.md)
+
+<a id="update"></a>
+## 🔄 更新
+
+已经装过？把这句话复制给你的 Agent：
+
+```text
+帮我更新已安装的 Jev Skills：
+https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/update.md
+```
+
+Agent 会检查安装来源，同时更新技能文件和已有的 CLI，再做离线验证。
+保留你的 key、服务商和本地修改；固定版本不会擅自切到 main。
+[更新指南](docs/update.md) · [旧技能名称迁移](docs/skill-migration.md)
 
 <a id="usage"></a>
 ## 🚀 装好以后，怎么用？

@@ -30,7 +30,7 @@ then pick one example. You do not need to write commands or JSON yourself.
 
 | Get started | Explore | Go deeper |
 |---|---|---|
-| [📦 Install](#install) | [🎬 Demos](#showcase) | [🧯 Pitfalls](#pitfalls) |
+| [📦 Install](#install) · [🔄 Update](#update) | [🎬 Demos](#showcase) | [🧯 Pitfalls](#pitfalls) |
 | [🔑 Agent setup](#no-key) | [🧭 Projects](#projects) | [⚡ Context & batching](#context-tips) |
 | [🚀 How to use](#usage) | [🗂 All scenarios](#catalog) | [🎯 Calibration](#calibration) |
 | [🧪 Input → output](#io) | [📊 Experiments](#experiments) | [🔗 Sources & credits](#credits) |
@@ -125,6 +125,21 @@ and verifies the installation offline. You do not need to run commands yourself;
 handle any required approvals. No key? Your agent first asks you to [choose a real-service route or simulation](#no-key); it never switches silently.
 No Vercel account is needed; Node/npm is not required by the default install route.
 [Agent installation guide](docs/install.md) · [Manual installation and troubleshooting](docs/installation.md)
+
+<a id="update"></a>
+## 🔄 Update
+
+Already installed? Give your agent this prompt:
+
+```text
+Update my installed Jev Skills:
+https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/update.md
+```
+
+Your agent checks the source, updates the skill files and any existing CLI, then
+verifies offline. Keys, provider choices and local edits are preserved;
+a pinned version never silently switches to main.
+[Update guide](docs/update.md) · [Skill-name migration](docs/skill-migration.md)
 
 <a id="usage"></a>
 ## 🚀 Installed it? Here is how to use it

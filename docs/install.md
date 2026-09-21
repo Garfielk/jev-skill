@@ -1,5 +1,8 @@
 # Install Jev Skills with your agent
 
+**Already installed?** Give your agent the [update prompt](update.md) to refresh
+skills and the existing CLI without changing your setup choices.
+
 ## For people
 
 Copy this into your own Codex, Claude Code or OpenCode agent:

@@ -99,6 +99,25 @@ class SkillCatalogTests(unittest.TestCase):
             self.assertIn('reviewed', text)
             self.assertIn('skill-migration.md', text)
 
+    def test_agent_first_update_entrypoint_and_safety_contract(self):
+        url = "https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/update.md"
+        for filename in ("README.md", "README.zh.md"):
+            text = (ROOT / filename).read_text()
+            update = text.split('<a id="update"></a>', 1)[1].split('<a id="usage"></a>', 1)[0]
+            self.assertIn(url, update)
+            self.assertIn("```text", update)
+            self.assertIn("](docs/update.md)", update)
+        for filename in ("docs/install.md", "docs/installation.md"):
+            self.assertIn("](update.md)", (ROOT / filename).read_text())
+        guide = (ROOT / "docs/update.md").read_text()
+        for term in ("exact commit", "stays pinned", "local edits", "symlinks",
+                     "outside all host skill-discovery", "simulation mode",
+                     "same reviewed source", "--reinstall", "rollback failure",
+                     "against the installed", "No API calls", "no-op"):
+            self.assertIn(term, guide)
+        setup = (ROOT / "skills/jev/references/setup.md").read_text()
+        self.assertIn("/blob/main/docs/update.md", setup)
+
     def test_setup_and_all_skills_keep_explicit_modes(self):
         folders = list((ROOT / "skills").glob("*/SKILL.md"))
         self.assertEqual({p.parent.name for p in folders}, {"jev", *SCENARIOS})
@@ -120,7 +139,7 @@ class SkillCatalogTests(unittest.TestCase):
             self.assertEqual(len(re.findall(r"^### \d+\.", text, re.M)), 108)
 
     def test_overview_and_contents_precede_demos_and_install(self):
-        targets = ("install", "showcase", "pitfalls", "no-key", "projects",
+        targets = ("install", "update", "showcase", "pitfalls", "no-key", "projects",
                    "context-tips", "usage", "catalog", "calibration", "io",
                    "experiments", "credits", "agent", "quality", "routing",
                    "interaction", "business", "documents", "data", "creative",
