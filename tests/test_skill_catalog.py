@@ -113,6 +113,7 @@ class SkillCatalogTests(unittest.TestCase):
         for term in ("exact commit", "stays pinned", "local edits", "symlinks",
                      "outside all host skill-discovery", "simulation mode",
                      "same reviewed source", "--reinstall", "rollback failure",
+                     "target-only names", "concurrent user work",
                      "against the installed", "No API calls", "no-op"):
             self.assertIn(term, guide)
         setup = (ROOT / "skills/jev/references/setup.md").read_text()

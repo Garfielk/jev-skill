@@ -85,8 +85,12 @@ with the selected source; do not switch installers or install an unrelated PyPI
 package. A skill-only installer does not update the CLI, and a CLI wheel does not
 refresh skill folders. There is no `jev-decide update` command.
 
-If replacement or verification fails, restore the backed-up skill folders and the
-previous CLI source using its recorded installer, then verify the restored state.
+Record the before/after destination inventory. If replacement or verification
+fails, move only the folders written by this update out of discovery, including
+target-only names such as `jev-eval` that had no predecessor. Stop if they changed
+since replacement; do not overwrite concurrent user work. Restore the backed-up
+skill folders and previous CLI source using its recorded installer, then verify
+the original discoverable names, file contents and CLI source.
 Do not report success for a partial update; report any rollback failure explicitly.
 Keep backups until the new installation has been verified.
 
