@@ -26,3 +26,7 @@ guide. A project link is a source, not an installed backend or a tested integrat
 | Add semantic predicates to data queries | [72](https://github.com/wuyoscar/jev-skill#sc-semantic-sql) | [Template](../assets/example.json) |
 | Moderate a community queue | [91](https://github.com/wuyoscar/jev-skill#sc-moderation) | [Template](../assets/example.json) |
 | Color code with semantic token labels | [92](https://github.com/wuyoscar/jev-skill#sc-syntax) | [Template](../assets/example.json) |
+
+## Measured examples
+
+Banking77 intent classification with all 77 options. [Same-item model results, actual I/O and reproduction](https://github.com/wuyoscar/jev-skill/blob/main/docs/experiments/model-panel/README.md). These are small native/adapted/synthetic pilots, not proof that every workflow above succeeds. Re-run a labeled holdout for your task before scaling; never treat a review flag or high probability as action permission.

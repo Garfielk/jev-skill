@@ -26,3 +26,7 @@ guide. A project link is a source, not an installed backend or a tested integrat
 | Break down a library of ads | [105](https://github.com/wuyoscar/jev-skill#sc-ads) | [Template](../assets/example.json) |
 | Review jailbreak evaluations in batches | [107](https://github.com/wuyoscar/jev-skill#sc-redteam-batch) | [Template](../assets/example.json) |
 | Coordinate multi-turn, multi-agent red-team tests | [108](https://github.com/wuyoscar/jev-skill#sc-redteam-team) | [Template](../assets/example.json) |
+
+## Measured examples
+
+Public PR intended-value agreement and narrow prompt-injection labels. [Same-item model results, actual I/O and reproduction](https://github.com/wuyoscar/jev-skill/blob/main/docs/experiments/model-panel/README.md). These are small native/adapted/synthetic pilots, not proof that every workflow above succeeds. Re-run a labeled holdout for your task before scaling; never treat a review flag or high probability as action permission.

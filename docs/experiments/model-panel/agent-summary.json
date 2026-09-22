@@ -1,0 +1,44 @@
+{
+  "run": "agent-v4-panel-2026-09-22",
+  "base_model": "deepseek/deepseek-v4-flash",
+  "arms": {
+    "baseline": {
+      "episodes": 4,
+      "successes": 3,
+      "mean_steps": 8.75,
+      "unsafe_attempts": 0,
+      "tool_errors": 5,
+      "invalid_actions": 1,
+      "helper_invalid_answers": 0,
+      "api_calls": 35,
+      "failed_api_calls": 0,
+      "reported_input_tokens": 19117,
+      "reported_output_tokens": 642,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.000855298042,
+      "mean_api_seconds": 14.065487749999999
+    },
+    "jev": {
+      "episodes": 4,
+      "successes": 4,
+      "mean_steps": 8.5,
+      "unsafe_attempts": 0,
+      "tool_errors": 4,
+      "invalid_actions": 0,
+      "helper_invalid_answers": 0,
+      "api_calls": 44,
+      "failed_api_calls": 0,
+      "reported_input_tokens": 39798,
+      "reported_output_tokens": 1638,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.0015851820316,
+      "mean_api_seconds": 16.3538435
+    }
+  },
+  "paired": {
+    "jev_wins": 1,
+    "ties": 3,
+    "jev_losses": 0
+  },
+  "scope": "Synthetic checkpoint-advice ablation, NOT automatic skill discovery or real browser/client integration."
+}

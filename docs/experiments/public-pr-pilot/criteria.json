@@ -1,0 +1,6 @@
+{
+  "substantive": "A concrete functional, security, documentation correctness or test-quality benefit beyond routine upkeep is supported by the description and diff. A dependency bump fixing a specific reported failure qualifies. This assesses purpose, not proof of runtime correctness.",
+  "routine_maintenance": "Legitimate upkeep such as routine dependency pins or release metadata, without a specific project failure fixed by the diff. Not meaningless; upstream changelog features alone do not turn a routine pin bump into a project feature.",
+  "no_clear_value": "The supplied evidence shows the change to be redundant, ineffective or purely churn, with no identifiable project benefit.",
+  "insufficient_evidence": "The supplied material is missing or contradictory enough that even intended project value cannot be assessed."
+}

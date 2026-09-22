@@ -1,0 +1,642 @@
+[
+  {
+    "id": "routing-incomplete-short",
+    "task": "context_short",
+    "input": {
+      "claim": "This ticket should go to the security incident team.",
+      "policy": "Route confirmed unauthorized account access to security; ordinary invoice questions go to billing. Ambiguous access reports require investigation.",
+      "evidence": "The relevant detailed receipt has not been supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "ci-control-short",
+    "task": "context_short",
+    "input": {
+      "claim": "The patch is ready for technical review.",
+      "policy": "Technical readiness requires the current commit to pass unit and integration tests. This does not authorize merging.",
+      "evidence": "Current commit a17: unit PASS; integration PASS."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "supported",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "access-control-full",
+    "task": "context_full",
+    "input": {
+      "claim": "This user is eligible for write access.",
+      "policy": "Write access requires an active employee account and a current editor role; a viewer role does not qualify.",
+      "evidence": "Current identity receipt: active employee; editor role."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "supported",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "refund-incomplete-short",
+    "task": "context_short",
+    "input": {
+      "claim": "This order qualifies for a refund.",
+      "policy": "Refunds require delivery within 30 days and an unused product; both must be documented.",
+      "evidence": "The relevant detailed receipt has not been supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "routing-contradict-short",
+    "task": "context_short",
+    "input": {
+      "claim": "This ticket should go to the security incident team.",
+      "policy": "Route confirmed unauthorized account access to security; ordinary invoice questions go to billing. Ambiguous access reports require investigation.",
+      "evidence": "The relevant detailed receipt has not been supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "routing-control-short",
+    "task": "context_short",
+    "input": {
+      "claim": "This ticket should go to the security incident team.",
+      "policy": "Route confirmed unauthorized account access to security; ordinary invoice questions go to billing. Ambiguous access reports require investigation.",
+      "evidence": "User explicitly reports a verified unauthorized login from another person."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "supported",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "ci-incomplete-short",
+    "task": "context_short",
+    "input": {
+      "claim": "The patch is ready for technical review.",
+      "policy": "Technical readiness requires the current commit to pass unit and integration tests. This does not authorize merging.",
+      "evidence": "The relevant detailed receipt has not been supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "access-contradict-short",
+    "task": "context_short",
+    "input": {
+      "claim": "This user is eligible for write access.",
+      "policy": "Write access requires an active employee account and a current editor role; a viewer role does not qualify.",
+      "evidence": "The relevant detailed receipt has not been supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "access-contradict-full",
+    "task": "context_full",
+    "input": {
+      "claim": "This user is eligible for write access.",
+      "policy": "Write access requires an active employee account and a current editor role; a viewer role does not qualify.",
+      "evidence": "Current identity receipt: active employee; viewer role only."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "contradicted",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "routing-contradict-full",
+    "task": "context_full",
+    "input": {
+      "claim": "This ticket should go to the security incident team.",
+      "policy": "Route confirmed unauthorized account access to security; ordinary invoice questions go to billing. Ambiguous access reports require investigation.",
+      "evidence": "User explicitly asks only for a copy of a paid invoice; no access issue."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "contradicted",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "access-support-full",
+    "task": "context_full",
+    "input": {
+      "claim": "This user is eligible for write access.",
+      "policy": "Write access requires an active employee account and a current editor role; a viewer role does not qualify.",
+      "evidence": "Current identity receipt: active employee; editor role."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "supported",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "sql-support-short",
+    "task": "context_short",
+    "input": {
+      "claim": "The active customer view excludes deleted accounts.",
+      "policy": "Judge the active SQL definition, not a similarly named historical model. deleted_at IS NULL excludes deleted accounts.",
+      "evidence": "The relevant detailed receipt has not been supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "access-support-short",
+    "task": "context_short",
+    "input": {
+      "claim": "This user is eligible for write access.",
+      "policy": "Write access requires an active employee account and a current editor role; a viewer role does not qualify.",
+      "evidence": "The relevant detailed receipt has not been supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "ci-contradict-short",
+    "task": "context_short",
+    "input": {
+      "claim": "The patch is ready for technical review.",
+      "policy": "Technical readiness requires the current commit to pass unit and integration tests. This does not authorize merging.",
+      "evidence": "The relevant detailed receipt has not been supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "ci-contradict-full",
+    "task": "context_full",
+    "input": {
+      "claim": "The patch is ready for technical review.",
+      "policy": "Technical readiness requires the current commit to pass unit and integration tests. This does not authorize merging.",
+      "evidence": "Current commit a17: unit PASS; integration FAIL."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "contradicted",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "routing-support-full",
+    "task": "context_full",
+    "input": {
+      "claim": "This ticket should go to the security incident team.",
+      "policy": "Route confirmed unauthorized account access to security; ordinary invoice questions go to billing. Ambiguous access reports require investigation.",
+      "evidence": "User explicitly reports a verified unauthorized login from another person."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "supported",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "refund-support-full",
+    "task": "context_full",
+    "input": {
+      "claim": "This order qualifies for a refund.",
+      "policy": "Refunds require delivery within 30 days and an unused product; both must be documented.",
+      "evidence": "Delivered 12 days ago; inspection confirms unused."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "supported",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "access-control-short",
+    "task": "context_short",
+    "input": {
+      "claim": "This user is eligible for write access.",
+      "policy": "Write access requires an active employee account and a current editor role; a viewer role does not qualify.",
+      "evidence": "Current identity receipt: active employee; editor role."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "supported",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "sql-incomplete-short",
+    "task": "context_short",
+    "input": {
+      "claim": "The active customer view excludes deleted accounts.",
+      "policy": "Judge the active SQL definition, not a similarly named historical model. deleted_at IS NULL excludes deleted accounts.",
+      "evidence": "The relevant detailed receipt has not been supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "ci-support-short",
+    "task": "context_short",
+    "input": {
+      "claim": "The patch is ready for technical review.",
+      "policy": "Technical readiness requires the current commit to pass unit and integration tests. This does not authorize merging.",
+      "evidence": "The relevant detailed receipt has not been supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "sql-contradict-short",
+    "task": "context_short",
+    "input": {
+      "claim": "The active customer view excludes deleted accounts.",
+      "policy": "Judge the active SQL definition, not a similarly named historical model. deleted_at IS NULL excludes deleted accounts.",
+      "evidence": "The relevant detailed receipt has not been supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "access-incomplete-full",
+    "task": "context_full",
+    "input": {
+      "claim": "This user is eligible for write access.",
+      "policy": "Write access requires an active employee account and a current editor role; a viewer role does not qualify.",
+      "evidence": "Account is active employee; current role lookup has not completed."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "refund-incomplete-full",
+    "task": "context_full",
+    "input": {
+      "claim": "This order qualifies for a refund.",
+      "policy": "Refunds require delivery within 30 days and an unused product; both must be documented.",
+      "evidence": "Delivered 12 days ago; product condition not recorded."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "sql-control-full",
+    "task": "context_full",
+    "input": {
+      "claim": "The active customer view excludes deleted accounts.",
+      "policy": "Judge the active SQL definition, not a similarly named historical model. deleted_at IS NULL excludes deleted accounts.",
+      "evidence": "Active view SQL: SELECT id FROM accounts WHERE deleted_at IS NULL;"
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "supported",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "sql-incomplete-full",
+    "task": "context_full",
+    "input": {
+      "claim": "The active customer view excludes deleted accounts.",
+      "policy": "Judge the active SQL definition, not a similarly named historical model. deleted_at IS NULL excludes deleted accounts.",
+      "evidence": "Only unrelated orders SQL is available; active customer view definition not supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "sql-support-full",
+    "task": "context_full",
+    "input": {
+      "claim": "The active customer view excludes deleted accounts.",
+      "policy": "Judge the active SQL definition, not a similarly named historical model. deleted_at IS NULL excludes deleted accounts.",
+      "evidence": "Active view SQL: SELECT id FROM accounts WHERE deleted_at IS NULL;"
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "supported",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "routing-support-short",
+    "task": "context_short",
+    "input": {
+      "claim": "This ticket should go to the security incident team.",
+      "policy": "Route confirmed unauthorized account access to security; ordinary invoice questions go to billing. Ambiguous access reports require investigation.",
+      "evidence": "The relevant detailed receipt has not been supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "sql-contradict-full",
+    "task": "context_full",
+    "input": {
+      "claim": "The active customer view excludes deleted accounts.",
+      "policy": "Judge the active SQL definition, not a similarly named historical model. deleted_at IS NULL excludes deleted accounts.",
+      "evidence": "Active view SQL: SELECT id FROM accounts;"
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "contradicted",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "refund-contradict-short",
+    "task": "context_short",
+    "input": {
+      "claim": "This order qualifies for a refund.",
+      "policy": "Refunds require delivery within 30 days and an unused product; both must be documented.",
+      "evidence": "The relevant detailed receipt has not been supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "routing-incomplete-full",
+    "task": "context_full",
+    "input": {
+      "claim": "This ticket should go to the security incident team.",
+      "policy": "Route confirmed unauthorized account access to security; ordinary invoice questions go to billing. Ambiguous access reports require investigation.",
+      "evidence": "User says something looks odd with the account; no further details or investigation available."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "routing-control-full",
+    "task": "context_full",
+    "input": {
+      "claim": "This ticket should go to the security incident team.",
+      "policy": "Route confirmed unauthorized account access to security; ordinary invoice questions go to billing. Ambiguous access reports require investigation.",
+      "evidence": "User explicitly reports a verified unauthorized login from another person."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "supported",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "refund-control-short",
+    "task": "context_short",
+    "input": {
+      "claim": "This order qualifies for a refund.",
+      "policy": "Refunds require delivery within 30 days and an unused product; both must be documented.",
+      "evidence": "Delivered 12 days ago; inspection confirms unused."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "supported",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "ci-incomplete-full",
+    "task": "context_full",
+    "input": {
+      "claim": "The patch is ready for technical review.",
+      "policy": "Technical readiness requires the current commit to pass unit and integration tests. This does not authorize merging.",
+      "evidence": "Previous commit a16 passed; current commit a17 has no integration receipt."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "sql-control-short",
+    "task": "context_short",
+    "input": {
+      "claim": "The active customer view excludes deleted accounts.",
+      "policy": "Judge the active SQL definition, not a similarly named historical model. deleted_at IS NULL excludes deleted accounts.",
+      "evidence": "Active view SQL: SELECT id FROM accounts WHERE deleted_at IS NULL;"
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "supported",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "ci-control-full",
+    "task": "context_full",
+    "input": {
+      "claim": "The patch is ready for technical review.",
+      "policy": "Technical readiness requires the current commit to pass unit and integration tests. This does not authorize merging.",
+      "evidence": "Current commit a17: unit PASS; integration PASS."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "supported",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "refund-contradict-full",
+    "task": "context_full",
+    "input": {
+      "claim": "This order qualifies for a refund.",
+      "policy": "Refunds require delivery within 30 days and an unused product; both must be documented.",
+      "evidence": "Delivered 45 days ago; inspection confirms unused."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "contradicted",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "access-incomplete-short",
+    "task": "context_short",
+    "input": {
+      "claim": "This user is eligible for write access.",
+      "policy": "Write access requires an active employee account and a current editor role; a viewer role does not qualify.",
+      "evidence": "The relevant detailed receipt has not been supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "ci-support-full",
+    "task": "context_full",
+    "input": {
+      "claim": "The patch is ready for technical review.",
+      "policy": "Technical readiness requires the current commit to pass unit and integration tests. This does not authorize merging.",
+      "evidence": "Current commit a17: unit PASS; integration PASS."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "supported",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "refund-control-full",
+    "task": "context_full",
+    "input": {
+      "claim": "This order qualifies for a refund.",
+      "policy": "Refunds require delivery within 30 days and an unused product; both must be documented.",
+      "evidence": "Delivered 12 days ago; inspection confirms unused."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "supported",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  },
+  {
+    "id": "refund-support-short",
+    "task": "context_short",
+    "input": {
+      "claim": "This order qualifies for a refund.",
+      "policy": "Refunds require delivery within 30 days and an unused product; both must be documented.",
+      "evidence": "The relevant detailed receipt has not been supplied."
+    },
+    "criteria": {
+      "supported": "The supplied evidence establishes the claim under the policy.",
+      "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+      "unknown": "The supplied evidence does not establish either the claim or its negation."
+    },
+    "target": "unknown",
+    "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact. This is synthetic data, not authorization to execute an action."
+  }
+]

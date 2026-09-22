@@ -1,0 +1,3482 @@
+[
+  {
+    "id": "ocnli:1160",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:10:56.581207+00:00",
+    "prediction": "neutral",
+    "probabilities": {
+      "contradiction": 0,
+      "entailment": 0,
+      "neutral": 1
+    },
+    "confidence": 0.99,
+    "review_status": "selected",
+    "latency_seconds": 0.8598300829762593,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "0abcc98b08d8f4d9b9d66ca29a3e29ade0279ee766d798d59c6ca6c18121d642",
+    "response_sha256": "efda1eaf585a601bc5a8b4e9497ce6edad7a7697cabb27047d7e9edec7e44d0b",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 433,
+        "output_tokens": 42,
+        "cost": 1.8186e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:1160",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:10:56.582204+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.2023139169905335,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "dafc7ad50eac3e14e8c88001f23dc553abdf860334d930c5c2e4dc2da96d0b64",
+    "response_sha256": "e36dbd0ca16814aff2d315200f5c07ab378c266109dc72b20f536f6f9c3af997",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 127,
+        "completion_tokens": 7,
+        "total_tokens": 134,
+        "cost": 5.278e-06,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 127,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.278e-06,
+          "upstream_inference_prompt_cost": 1.778e-06,
+          "upstream_inference_completions_cost": 3.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1160",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:10:56.582394+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.8814888750202954,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "0f60dcdc24d1b51e8911ae92b7f0ef626e8c4b05c19acd326e78df62f337f994",
+    "response_sha256": "d71e5763810b97306562adac2f95ed0ccae222cb65cd475f49031364ccc6f8de",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 228,
+        "completion_tokens": 12,
+        "total_tokens": 240,
+        "cost": 2.724e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.724e-05,
+          "upstream_inference_prompt_cost": 1.824e-05,
+          "upstream_inference_completions_cost": 9e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1160",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:10:56.582584+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.8796749580069445,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "7c28c30116022e9b44c215e30337caeaf1727dc8a898f814bf204e316751c1b5",
+    "response_sha256": "59edc91745fc0a75d4a78c5cdedad9f4d4a887b9cd54a29deed4d3be63860a67",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 140,
+        "completion_tokens": 11,
+        "total_tokens": 151,
+        "cost": 1.565e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.565e-05,
+          "upstream_inference_prompt_cost": 1.4e-05,
+          "upstream_inference_completions_cost": 1.65e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1160",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:10:57.785963+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 0.3362333750119433,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "b4ebbc174f8911a1eda95b53346791ade16d74df1b44e36b01988a085f33e024",
+    "response_sha256": "b6cb2adbbba04258e08047543bf19dfe8570fdc2fff00925217b0b6b23ae3c71",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 180,
+        "completion_tokens": 9,
+        "total_tokens": 189,
+        "cost": 4.158e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.158e-05,
+          "upstream_inference_prompt_cost": 3.96e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1248",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:10:57.785394+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.7143229589564726,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "85b5b11eb82924eeee914fae0647d9f4644e30bddd6e5ec92a045b0f6daea3d9",
+    "response_sha256": "7e58fab8490ede1149188f4f324cfb572fb8452c8cf6a86273aad6278e063507",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 139,
+        "completion_tokens": 7,
+        "total_tokens": 146,
+        "cost": 2.142e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.142e-05,
+          "upstream_inference_prompt_cost": 1.946e-05,
+          "upstream_inference_completions_cost": 1.96e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1248",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:10:57.785684+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 2.244058625015896,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "cf5cf50af17566a9590c2b16f85fd9c0028de275648fdf3c2ee70acc95f21775",
+    "response_sha256": "33a608f75702475103e0c9c46990c8ab807abd94b9b71243892d57ef1d192f5c",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 150,
+        "completion_tokens": 12,
+        "total_tokens": 162,
+        "cost": 3.45e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.45e-05,
+          "upstream_inference_prompt_cost": 2.25e-05,
+          "upstream_inference_completions_cost": 1.2e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1248",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:10:57.785828+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.0922490829834715,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "b11fdc093db0d2a26357d279ef729eea03a2ef4e53bdf42c3ee533f7696a2845",
+    "response_sha256": "a1ba47089f388b5370950a409893280be43961b2543b6754ba5ace212331a3e0",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 150,
+        "completion_tokens": 11,
+        "total_tokens": 161,
+        "cost": 1.665e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.665e-05,
+          "upstream_inference_prompt_cost": 1.5e-05,
+          "upstream_inference_completions_cost": 1.65e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1248",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:00.030757+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 0.37435412500053644,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "57474d937f4fa3d3405000cc986619a5606c2e11d7a0f284c2a7662bdc1f5cfa",
+    "response_sha256": "ee8dd2cc96a85cb963c2ada0ab1330f51ebae03271b269fdc5ffee002d29a601",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 189,
+        "completion_tokens": 9,
+        "total_tokens": 198,
+        "cost": 4.356e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.356e-05,
+          "upstream_inference_prompt_cost": 4.158e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1248",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:00.030968+00:00",
+    "prediction": "neutral",
+    "probabilities": {
+      "neutral": 1,
+      "entailment": 0,
+      "contradiction": 0
+    },
+    "confidence": 1,
+    "review_status": "selected",
+    "latency_seconds": 0.37473354203393683,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "6139abce650d066d853f854ead9cbb03d6d6b54c9276cee83afd15b19ad93dac",
+    "response_sha256": "9e328609ab4ac4d6aad44cd16e4d17b6063415e4ba12675f476d9ec3d9a8bcfc",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 454,
+        "output_tokens": 42,
+        "cost": 1.9068e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:1283",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:00.031155+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 1.1589120829594322,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "ffb4141c83734fd1289c6243a65a61af968653061b1d21515f731b48e83a50a6",
+    "response_sha256": "a4e781d2007c3321dab634d80adda7967da9b82b4decc204088647c3806a6eed",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 228,
+        "completion_tokens": 14,
+        "total_tokens": 242,
+        "cost": 2.874e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.874e-05,
+          "upstream_inference_prompt_cost": 1.824e-05,
+          "upstream_inference_completions_cost": 1.05e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1283",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:00.031315+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.7609735000296496,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "0dc7ecca0121ea821065d07a59f93c02ad7df5094a8c34778ab99863a67789f5",
+    "response_sha256": "8dedf875e888122e18c14d6f5215651ebed5c92cfd15d19b64c94332dd3f468c",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 140,
+        "completion_tokens": 13,
+        "total_tokens": 153,
+        "cost": 1.595e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.595e-05,
+          "upstream_inference_prompt_cost": 1.4e-05,
+          "upstream_inference_completions_cost": 1.95e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1283",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:01.191124+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.4145873749512248,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "a39831ef2af22abb022c59f8de1c022b329c82e3d0581a0ea992e0a7e393c74d",
+    "response_sha256": "721cdb49ddf7db5f8fc1f4282fc851015fa80a36370387dc64fe133213f79bb0",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 181,
+        "completion_tokens": 9,
+        "total_tokens": 190,
+        "cost": 4.18e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.18e-05,
+          "upstream_inference_prompt_cost": 3.982e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1283",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:01.190799+00:00",
+    "prediction": "entailment",
+    "probabilities": {
+      "neutral": 0,
+      "contradiction": 0,
+      "entailment": 1
+    },
+    "confidence": 1,
+    "review_status": "selected",
+    "latency_seconds": 0.3774659999762662,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "5d1ba30077ef1fab750760256380aae5bebecf2be80cc13497e97355e7cbe1a4",
+    "response_sha256": "18910e06a74c0321ae54c82efba617f9f043fbea6b52965433779a76f4e17710",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 427,
+        "output_tokens": 44,
+        "cost": 1.7934e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:1283",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:01.190582+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.7904537090216763,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "272114a3f8ceb4477b89b58a67e66d2318c0abcf8facc17c148c78af126769f8",
+    "response_sha256": "4d0fb7e6aa3d1cc6dd42088ee4054c66053f08da8631fbf020ef0b3c87455dfe",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 128,
+        "completion_tokens": 9,
+        "total_tokens": 137,
+        "cost": 1.314e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.314e-05,
+          "upstream_inference_prompt_cost": 1.152e-05,
+          "upstream_inference_completions_cost": 1.62e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1302",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:01.191011+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.9050338750239462,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "1d40a7927c99ff801e2ca9e5ad8ac83f549f297313a0d77e7d687a9cbf879999",
+    "response_sha256": "1490ebbaa1ce809ece70fd64c12f32aff066a83b83b1f4b1753be9fc7cae900d",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 150,
+        "completion_tokens": 11,
+        "total_tokens": 161,
+        "cost": 1.665e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.665e-05,
+          "upstream_inference_prompt_cost": 1.5e-05,
+          "upstream_inference_completions_cost": 1.65e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1302",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:02.099659+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.35160975001053885,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "8addc553091ff4cf7563130903e93fcd8554fcb094c661b111b488c7c3b68842",
+    "response_sha256": "73c517fe246ad176c6e666b2fca89024beabef699bd8fe925f8c43a6bfcbf5cc",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 193,
+        "completion_tokens": 9,
+        "total_tokens": 202,
+        "cost": 4.444e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.444e-05,
+          "upstream_inference_prompt_cost": 4.246e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1302",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:02.098282+00:00",
+    "prediction": "neutral",
+    "probabilities": {
+      "contradiction": 0.01,
+      "neutral": 0.84,
+      "entailment": 0.15
+    },
+    "confidence": 0.76,
+    "review_status": "selected",
+    "latency_seconds": 0.3472118329955265,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "6660d0d9b538eb4137021be91013c327a64b0f87d84dfbd3f08818c7d7fd457a",
+    "response_sha256": "384d42a5c4b74dd690f9bf01319da75e7c6a7332b0d703346fa6331efbb23096",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 445,
+        "output_tokens": 42,
+        "cost": 1.869e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:1302",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:02.099936+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 4.048719500016887,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "acf22cc229597a7da94ea29a56472fbdfc56b8dfa1f8a0fbbf7421b50e8bbae6",
+    "response_sha256": "2d337949b68feb431db3ab968d3fb45524663c3578a0d7b5a32548f53e345b9c",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 137,
+        "completion_tokens": 9,
+        "total_tokens": 146,
+        "cost": 1.519e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.519e-05,
+          "upstream_inference_prompt_cost": 1.3426e-05,
+          "upstream_inference_completions_cost": 1.764e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1302",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:02.100052+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 4.649616207985673,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "fdcce09b297a7def966ca0828d7a3f25e5ac0f64ae4b0e98b225c614ccc5a197",
+    "response_sha256": "8dfd27d47d9f0826124140a0a2bd126de2e804ade8246189dfe56395037d7f0d",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 238,
+        "completion_tokens": 7,
+        "total_tokens": 245,
+        "cost": 2.429e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.429e-05,
+          "upstream_inference_prompt_cost": 1.904e-05,
+          "upstream_inference_completions_cost": 5.25e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1444",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:06.750804+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 0.3628315420355648,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "ae20fe89cbdef6121e7f56b3f244895f8c8cf3b986866938a2f37a115deee12d",
+    "response_sha256": "556a8cb33230ba662adb622a6fbbc915560bfd16bd3fd210f4587896d4ef6628",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 175,
+        "completion_tokens": 9,
+        "total_tokens": 184,
+        "cost": 4.048e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.048e-05,
+          "upstream_inference_prompt_cost": 3.85e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1444",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:06.750462+00:00",
+    "prediction": "contradiction",
+    "probabilities": {
+      "contradiction": 0.75,
+      "neutral": 0.2,
+      "entailment": 0.05
+    },
+    "confidence": 0.63,
+    "review_status": "needs_review",
+    "latency_seconds": 0.31567545799771324,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "4e319d3137b6c09f22c4aad63113d1f16ac4bfa9e6c232aa222addfd0325ca2b",
+    "response_sha256": "ec025fc2aa255e5b1c8290c1a67c3382be156b574d86afc4527a8b06397a0ee3",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 426,
+        "output_tokens": 44,
+        "cost": 1.7892e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:1444",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:06.750263+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 1.4967595409834757,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "4bdc95c5434fa3dfc4422f3348e6d0b49c138ec673c4b2e75185666cca38298d",
+    "response_sha256": "6c9ef536fe03142666cdfe66d6e486fcd2f733f78452a623a3e7ac280c368999",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 126,
+        "completion_tokens": 9,
+        "total_tokens": 135,
+        "cost": 1.4112e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.4112e-05,
+          "upstream_inference_prompt_cost": 1.2348e-05,
+          "upstream_inference_completions_cost": 1.764e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1444",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:06.750670+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 0.49005616595968604,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "4bb11692cb86d4814a1493de2a935d7972607475a0ff313aaca98bf42dd49345",
+    "response_sha256": "e16d05a34107e0cfe19e61c533f8e3bbc292d96314b4d115d572f61b3cd86135",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 139,
+        "completion_tokens": 9,
+        "total_tokens": 148,
+        "cost": 2.846e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.846e-05,
+          "upstream_inference_prompt_cost": 1.946e-05,
+          "upstream_inference_completions_cost": 9e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1444",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:08.248722+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 0.7383726249681786,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "f6e7a58c366fb088198db07df4ba1ea91eabf3822ccbdda139d0ba614215d752",
+    "response_sha256": "dcfe19a440fd585f02c9e07aa121e32602eb1c5d2a48bbfba54a93185836bdd7",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 139,
+        "completion_tokens": 13,
+        "total_tokens": 152,
+        "cost": 1.585e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.585e-05,
+          "upstream_inference_prompt_cost": 1.39e-05,
+          "upstream_inference_completions_cost": 1.95e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1475",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:08.247967+00:00",
+    "prediction": "neutral",
+    "probabilities": {
+      "entailment": 0,
+      "contradiction": 0,
+      "neutral": 1
+    },
+    "confidence": 1,
+    "review_status": "selected",
+    "latency_seconds": 0.43622062500799075,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "823a503b7145f542e8d24e3a5291c22e970503112de4cec4de59662c0796f3bb",
+    "response_sha256": "d8d92264fd100b9e450f8e4fdc1866bbbb88cb2a9d0ac94ce887458a5c45e17f",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 449,
+        "output_tokens": 42,
+        "cost": 1.8858e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:1475",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:08.248251+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.1107429579715244,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "9081f5a5ecbfefef5f021062cb152c056cb758e7264a082852b209598c839d7b",
+    "response_sha256": "532ab08d6e29d27ecca843ddc2e18fca8090823ef8e0d9bfba75d1a17b0526dd",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 136,
+        "completion_tokens": 7,
+        "total_tokens": 143,
+        "cost": 5.846e-06,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 119,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.846e-06,
+          "upstream_inference_prompt_cost": 2.346e-06,
+          "upstream_inference_completions_cost": 3.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1475",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:08.248899+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.518014041997958,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "a9ee46b1b87d3eb984e05ce3e71219a13acd45a2fb4a9caafabfdbc2f571c144",
+    "response_sha256": "a0e55b04a1bd9ed0f48d3b9148f59c63877413e97ce1c041a4dcf91a090d6804",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 150,
+        "completion_tokens": 12,
+        "total_tokens": 162,
+        "cost": 3.3e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.3e-05,
+          "upstream_inference_prompt_cost": 2.1e-05,
+          "upstream_inference_completions_cost": 1.2e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1475",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:09.359809+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.851223417033907,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "71222323fd8413ec35734809a949126e4d1e47c8d7474a44497c91255d81cee8",
+    "response_sha256": "1bfee7b50e32cdbd39258a1a7fbf4676a5283399dfaf77fb2fc1ca153aa029ea",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 150,
+        "completion_tokens": 11,
+        "total_tokens": 161,
+        "cost": 1.665e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.665e-05,
+          "upstream_inference_prompt_cost": 1.5e-05,
+          "upstream_inference_completions_cost": 1.65e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1475",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:09.360162+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.3883188330219127,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "5eb7364aa1a0338d24adaa6f31477b77efcc866d446ed708878751ac99263540",
+    "response_sha256": "11eb3a761fd8714bf17f3f92c9c71cd11db6f7a2431dc16fab37e355a676a689",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 193,
+        "completion_tokens": 9,
+        "total_tokens": 202,
+        "cost": 4.444e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.444e-05,
+          "upstream_inference_prompt_cost": 4.246e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:18",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:09.360356+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.7557315420126542,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "3f6939b75261207a2a41fd3b74aa3e3fed79e013d5d6c0a089a91a4bb9ef24a8",
+    "response_sha256": "f07218d837cd370fc9489813e4404e63068c51c43d28373f6512a078a3fd3976",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 123,
+        "completion_tokens": 7,
+        "total_tokens": 130,
+        "cost": 1.32293e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.32293e-05,
+          "upstream_inference_prompt_cost": 1.18818e-05,
+          "upstream_inference_completions_cost": 1.3475e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:18",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:09.360482+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.9431490830029361,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "4b385643db3e18f55a969759a37535380c702f69fab9cedff3e50f0fc5e5eb2c",
+    "response_sha256": "69ea5e9a6010cc4c6d013f1f4fe293f5ba06a604bc5973ea6789d79b4d151962",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 224,
+        "completion_tokens": 12,
+        "total_tokens": 236,
+        "cost": 2.692e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.692e-05,
+          "upstream_inference_prompt_cost": 1.792e-05,
+          "upstream_inference_completions_cost": 9e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:18",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:11.116616+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.1758655840530992,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "73827f3a34464cb1f426151d84ed1271997f45e1c03bf9a1d88db03e3c1aa110",
+    "response_sha256": "3f5b6cdfd75ffad2b73abf01294a5902d30303be680ab69f0875df3f6f26267b",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 136,
+        "completion_tokens": 10,
+        "total_tokens": 146,
+        "cost": 1.51e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.51e-05,
+          "upstream_inference_prompt_cost": 1.36e-05,
+          "upstream_inference_completions_cost": 1.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:18",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:11.116824+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.35153408301994205,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "1fab45c11e96381992675bd68693de2ac384d00d8406f7c2fdcd9ea5bd25a0b4",
+    "response_sha256": "7dec722a091a0e756f0926b049d7923d101aa645bb139e477c4054bc5adefa68",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 172,
+        "completion_tokens": 7,
+        "total_tokens": 179,
+        "cost": 3.938e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.938e-05,
+          "upstream_inference_prompt_cost": 3.784e-05,
+          "upstream_inference_completions_cost": 1.54e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:18",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:11.116953+00:00",
+    "prediction": "neutral",
+    "probabilities": {
+      "entailment": 0,
+      "contradiction": 0.01,
+      "neutral": 0.99
+    },
+    "confidence": 0.99,
+    "review_status": "selected",
+    "latency_seconds": 0.37658812501467764,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "d9cb98dfdc1b841e97d89d64ad08af5ea88a2adc00aa6a70dca91ad42b4371c5",
+    "response_sha256": "10726e1102934d2c0354f84bb83786e679198e55bb0bcd4c1b2ee4ca9edd8193",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 422,
+        "output_tokens": 42,
+        "cost": 1.7724e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:1918",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:11.117190+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.3439535000361502,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "ead63e3eeb413e3ae80b3618ebd62d92990d9120349675bcacc9924f990d6466",
+    "response_sha256": "d2a997ec22e51bd654b7eb085131010f5ee34032a9209f92adc495adc016aeba",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 223,
+        "completion_tokens": 12,
+        "total_tokens": 235,
+        "cost": 2.684e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.684e-05,
+          "upstream_inference_prompt_cost": 1.784e-05,
+          "upstream_inference_completions_cost": 9e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1918",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:12.461847+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.8352792090154253,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "f7a2fb9d49003efdaac1ee9497ca9b7fd832585bd16636b9e71953f2219b10c5",
+    "response_sha256": "a57ad3bf5f34fc799dab357493e66b7e0571373acc1d5650e45d9d26924128fa",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 135,
+        "completion_tokens": 11,
+        "total_tokens": 146,
+        "cost": 1.515e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.515e-05,
+          "upstream_inference_prompt_cost": 1.35e-05,
+          "upstream_inference_completions_cost": 1.65e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1918",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:12.462059+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 0.3629599169944413,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "aad33f4aa79b10a30d4cf2edb2432c248678b3a04ca877db08395bd29c408e1c",
+    "response_sha256": "74a46281d50f4fc402b743edb5245e5c60262bc7e6487f4a506e505880a13b3a",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 177,
+        "completion_tokens": 9,
+        "total_tokens": 186,
+        "cost": 4.092e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.092e-05,
+          "upstream_inference_prompt_cost": 3.894e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:1918",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:12.462182+00:00",
+    "prediction": "neutral",
+    "probabilities": {
+      "neutral": 1,
+      "contradiction": 0,
+      "entailment": 0
+    },
+    "confidence": 1,
+    "review_status": "selected",
+    "latency_seconds": 0.32506158301839605,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "a8e02cc8c8a03e4833ee966b82000b047c1cb27d014241ade053d2686ca2556c",
+    "response_sha256": "d118cc12abe0b88ece06e927cdb512976431d7362cec216207e276086b029484",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 430,
+        "output_tokens": 42,
+        "cost": 1.806e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:1918",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:12.462308+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.4922055000206456,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "aea6139c28a5f99291dcf0a089f1f6cbb853a3fc38cd159e7b872b35134984d9",
+    "response_sha256": "f89e9ea9f9c8cc6a36dece8c4cf300cd8071e92a824aa946b4a9ef577484a5bc",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 123,
+        "completion_tokens": 7,
+        "total_tokens": 130,
+        "cost": 1.2139022e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.2139022e-05,
+          "upstream_inference_prompt_cost": 1.0898538e-05,
+          "upstream_inference_completions_cost": 1.240484e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2045",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:13.954832+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 2.0759303749655373,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "185a6f17380e0f1b83dd73871dbc504dc36a0135741f0ec12da0c2030f5d2c32",
+    "response_sha256": "7c778835facbe7acbe28d942eb10a45efc72f34a5c841116350a4018f2b5eb95",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 130,
+        "completion_tokens": 13,
+        "total_tokens": 143,
+        "cost": 1.495e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.495e-05,
+          "upstream_inference_prompt_cost": 1.3e-05,
+          "upstream_inference_completions_cost": 1.95e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2045",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:13.954964+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 0.5010033750440925,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "43c13d0c6db0e263f9dc20d7f12eeac4503fb35f1614085a94bd99bcfb0c1df8",
+    "response_sha256": "bd463f35ad3eac7d9433021decf7b1d4e7462734bfe33f3a940dde5f1c5cb469",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 167,
+        "completion_tokens": 9,
+        "total_tokens": 176,
+        "cost": 3.872e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.872e-05,
+          "upstream_inference_prompt_cost": 3.674e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2045",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:13.955055+00:00",
+    "prediction": "contradiction",
+    "probabilities": {
+      "contradiction": 1,
+      "entailment": 0,
+      "neutral": 0
+    },
+    "confidence": 1,
+    "review_status": "selected",
+    "latency_seconds": 0.3578288340358995,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "de0c45cd100a07a1c12d73d514c3fd0e3101d688ac21dec9028010bb83917f49",
+    "response_sha256": "a17c7d60289df02efa272e7b9ea9a942c1a6d4846bef8ab9258217123cb60164",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 415,
+        "output_tokens": 44,
+        "cost": 1.743e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:2045",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:13.955174+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 1.2868572500301525,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "4db0502b1215c66ed3cc694280e562133f9e27bdce716b0adef51393591186d1",
+    "response_sha256": "3d769631f83616141aaac926aa1a63dd37b4190bd0733d278b445505992dee73",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 117,
+        "completion_tokens": 9,
+        "total_tokens": 126,
+        "cost": 6.138e-06,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 117,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.138e-06,
+          "upstream_inference_prompt_cost": 1.638e-06,
+          "upstream_inference_completions_cost": 4.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2045",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:16.032144+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 0.902607291995082,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "909b605033baad97e97a8a54e37e8a1fdbe018624b5468564541e19d0ee11648",
+    "response_sha256": "2acdadc36cad156ecfc38c7c2c0b1a11bf3bf5b0ad75144f4edd8967588e71cd",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 218,
+        "completion_tokens": 14,
+        "total_tokens": 232,
+        "cost": 2.794e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.794e-05,
+          "upstream_inference_prompt_cost": 1.744e-05,
+          "upstream_inference_completions_cost": 1.05e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2118",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:16.031656+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.39406654197955504,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "8d68ac3c9b1cc145c2bb19d47840b4ded1367586ec7c789d2ec653c385d64892",
+    "response_sha256": "19d4e38341b32961f76d8343a4530e9085b5c66e4aeb07bc3e1eb6e56f5b8a26",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 168,
+        "completion_tokens": 9,
+        "total_tokens": 177,
+        "cost": 3.894e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.894e-05,
+          "upstream_inference_prompt_cost": 3.696e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2118",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:16.031351+00:00",
+    "prediction": "neutral",
+    "probabilities": {
+      "neutral": 1,
+      "entailment": 0,
+      "contradiction": 0
+    },
+    "confidence": 1,
+    "review_status": "selected",
+    "latency_seconds": 1.036866332986392,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "3b99dc393b6121df012f867d44eef83eab169af127d7cdf19fec16fdc94d4848",
+    "response_sha256": "10a6e72b5b8677ffd36b1e85a84ea76be922611f6baa9e91001baeb4631bdc0a",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 419,
+        "output_tokens": 42,
+        "cost": 1.7598e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:2118",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:16.031889+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.7978979580220766,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "e2a6b8d3d4855fc47372132586108d2194014b7d93f6e1e6b918a4d964f8a173",
+    "response_sha256": "4d503c64b2317f0f29da4852ed4767f265c756234d8478507602a9c1c86defc2",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 121,
+        "completion_tokens": 6,
+        "total_tokens": 127,
+        "cost": 1.995e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.995e-05,
+          "upstream_inference_prompt_cost": 1.815e-05,
+          "upstream_inference_completions_cost": 1.8e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2118",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:17.830177+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.0178272500052117,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "ead9144baa0378ee551457795e3bb44f932d1946e3f62d133448d69557f80556",
+    "response_sha256": "732af0f96d988e74986f7a6885849fc9ec18c3c39fb16bf739e1df7eda4dd85b",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 219,
+        "completion_tokens": 12,
+        "total_tokens": 231,
+        "cost": 2.652e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.652e-05,
+          "upstream_inference_prompt_cost": 1.752e-05,
+          "upstream_inference_completions_cost": 9e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2118",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:17.830583+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.5462284159730189,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "3a315ad5244a71b7380fdc7b2250f05ac76ff851e0c2f56d7d202db94c280662",
+    "response_sha256": "39f3ff844488c430fc5d89623b9c97ee01870a067db272b481dd0d8bfb350b67",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 131,
+        "completion_tokens": 11,
+        "total_tokens": 142,
+        "cost": 1.475e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.475e-05,
+          "upstream_inference_prompt_cost": 1.31e-05,
+          "upstream_inference_completions_cost": 1.65e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2291",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:17.830332+00:00",
+    "prediction": "neutral",
+    "probabilities": {
+      "entailment": 0.2,
+      "contradiction": 0,
+      "neutral": 0.8
+    },
+    "confidence": 0.69,
+    "review_status": "selected",
+    "latency_seconds": 0.3909662920050323,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "dcf732713d36ef41d965e62644a9cfbeebe79d6ee7634571992104ff76d6050f",
+    "response_sha256": "b364ecbbe609c7530248254509beb2fd058d3ff337c83dde6c63132e865275e9",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 440,
+        "output_tokens": 42,
+        "cost": 1.848e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:2291",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:17.830756+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.163231375045143,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "c6584088ad3f3e26aa22bccd8e5662183e7d6033dc72fdc58eba9d87ffdaa01d",
+    "response_sha256": "93693643c1a0cd6ccad4da7abb8a74dc63c4d05493a67d26218320c52283ff92",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 135,
+        "completion_tokens": 7,
+        "total_tokens": 142,
+        "cost": 6.144e-06,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 106,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.144e-06,
+          "upstream_inference_prompt_cost": 2.644e-06,
+          "upstream_inference_completions_cost": 3.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2291",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:19.377089+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.9192014999571256,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "7022451fadd39c96b98a33afb9a0cc0bcf098b63f094a9d02cba3076d1dfdbb2",
+    "response_sha256": "633047b6387526e98bc337e62a16244ed75fc65ce1cc63067a95b4ae3e1404dd",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 236,
+        "completion_tokens": 12,
+        "total_tokens": 248,
+        "cost": 2.788e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.788e-05,
+          "upstream_inference_prompt_cost": 1.888e-05,
+          "upstream_inference_completions_cost": 9e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2291",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:19.377566+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.9400090830167755,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "d11159fcc37fe0fb8ad444c3d227da5cfefda9629b98009066c73fbfa8f7e251",
+    "response_sha256": "199be0bf4fd4d42edd228728631ecf412932f02bd14585a472c9fe848a93d991",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 148,
+        "completion_tokens": 13,
+        "total_tokens": 161,
+        "cost": 1.675e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.675e-05,
+          "upstream_inference_prompt_cost": 1.48e-05,
+          "upstream_inference_completions_cost": 1.95e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2291",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:19.377457+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.36725362500874326,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "75f0b38c960240cd9e95fc7f508deaebfec07b8926c2552e341015c412c208bf",
+    "response_sha256": "a04f934711cf0b5819893ecd0fab32500a30bb7ac656fa459e40f9cbfdf9d21a",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 190,
+        "completion_tokens": 9,
+        "total_tokens": 199,
+        "cost": 4.378e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.378e-05,
+          "upstream_inference_prompt_cost": 4.18e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2440",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:19.377265+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 1.3175482919905335,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "3133108bd330ae7ff4d8b5f5c7e13e16cde880ae3328e111425d0f1a5e22d8f5",
+    "response_sha256": "3b0ed2d51fed2cdcaa2328429152bfdab265c3daca732ea116e66f2e1de66cf9",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 129,
+        "completion_tokens": 9,
+        "total_tokens": 138,
+        "cost": 6.384e-06,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 126,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.384e-06,
+          "upstream_inference_prompt_cost": 1.884e-06,
+          "upstream_inference_completions_cost": 4.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2440",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:20.695286+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 1.0527877089916728,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "3b0410fa3e69c3f6b243917333cee64e41c0ec51f5fa8b1d6b83eb41c82cc55e",
+    "response_sha256": "c442a9a823b13c4c4e1b6fc3dbc62842834be0f5945af2c1c9bdf981d084844e",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 226,
+        "completion_tokens": 14,
+        "total_tokens": 240,
+        "cost": 2.858e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.858e-05,
+          "upstream_inference_prompt_cost": 1.808e-05,
+          "upstream_inference_completions_cost": 1.05e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2440",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:20.695490+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 1.4058057080255821,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "7a1aa14b4c8eb681530b3ceb94a91605144d07e01f4ec4c9680d4ce5c3c86d31",
+    "response_sha256": "8211e00523788869cdac9a048656872d1bf1d7b6ecc427028f4c77589b9f3967",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 138,
+        "completion_tokens": 12,
+        "total_tokens": 150,
+        "cost": 1.56e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.56e-05,
+          "upstream_inference_prompt_cost": 1.38e-05,
+          "upstream_inference_completions_cost": 1.8e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2440",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:20.695629+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 0.36529783299192786,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "f182f8a2a26737ac8e6521c3f590b298d039413fe13996be9eb347da5bdec579",
+    "response_sha256": "a337097997b44d57dba68b26f1193c96adba7e610a12513d758a95a6f5ae126a",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 184,
+        "completion_tokens": 9,
+        "total_tokens": 193,
+        "cost": 4.246e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.246e-05,
+          "upstream_inference_prompt_cost": 4.048e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2440",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:20.695756+00:00",
+    "prediction": "contradiction",
+    "probabilities": {
+      "entailment": 0,
+      "contradiction": 1,
+      "neutral": 0
+    },
+    "confidence": 0.99,
+    "review_status": "selected",
+    "latency_seconds": 0.3621747920406051,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "03a5e6975e2454f3ec9d89d0a4ef4e071a36114fa9f82de75e49744e8a40ac62",
+    "response_sha256": "b150cc5ec3f2f7780a972732f22de31a794c68f9f4509fb26ed5737b3b74b71c",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 435,
+        "output_tokens": 44,
+        "cost": 1.827e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:2457",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:22.101833+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.844300375028979,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "f6f7614a79ded372f52c6c997764f9f229d94ccb6a705f82e1ba58b2c3002749",
+    "response_sha256": "a6912525ba0b87e65049b45615d4717aa7afe86e9914ff0bdc8003735d0b27b5",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 219,
+        "completion_tokens": 12,
+        "total_tokens": 231,
+        "cost": 2.652e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.652e-05,
+          "upstream_inference_prompt_cost": 1.752e-05,
+          "upstream_inference_completions_cost": 9e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2457",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:22.102027+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.0371442090254277,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "1f695a25001b06058e09a07a247e849eb735b32adf5e59e68d36929f0a55907c",
+    "response_sha256": "945152f9afd91dabbd2ed6c2441a002b236d309f072c62896f650dc13bbd9555",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 131,
+        "completion_tokens": 11,
+        "total_tokens": 142,
+        "cost": 1.475e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.475e-05,
+          "upstream_inference_prompt_cost": 1.31e-05,
+          "upstream_inference_completions_cost": 1.65e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2457",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:22.102161+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.3509140000096522,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "82ff8c18bccc5c578f23e729074f769e7b45f7d093186730767d9b03c61fb6ac",
+    "response_sha256": "929c48be100501f7af8d958f5788dd3ba4ca3c890b53f04f1c53606b47f5bac4",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 167,
+        "completion_tokens": 9,
+        "total_tokens": 176,
+        "cost": 3.872e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.872e-05,
+          "upstream_inference_prompt_cost": 3.674e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2457",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:22.102286+00:00",
+    "prediction": "neutral",
+    "probabilities": {
+      "contradiction": 0,
+      "neutral": 1,
+      "entailment": 0
+    },
+    "confidence": 0.99,
+    "review_status": "selected",
+    "latency_seconds": 0.37342233397066593,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "9b121fb242312e856cdf1260867eb235b08b9743a195256cb47fd7e24d1d2103",
+    "response_sha256": "9e16d1d07546794d4416f7cb350d0bca39c0674d0e424a15fc8b438b9b0484a1",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 413,
+        "output_tokens": 42,
+        "cost": 1.7346e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:2457",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:23.139844+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.7313108330126852,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "2514d263a56b3317e77b25b7170cced6c542a94a10a9550838578b4e2382f2e2",
+    "response_sha256": "d5cce1d798f5f02e4b3415dacb08509b72b5facfc03640839680b52aaab4b89b",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 117,
+        "completion_tokens": 7,
+        "total_tokens": 124,
+        "cost": 5.138e-06,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 117,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.138e-06,
+          "upstream_inference_prompt_cost": 1.638e-06,
+          "upstream_inference_completions_cost": 3.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2653",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:23.140038+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 2.2345502080279402,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "5ce59564a0a9f3f31b60fd0d3c1fe07fa16bc584a029ea79daba5f0c01b4814c",
+    "response_sha256": "7f04968d1e95ce3d688354f5935acfd2a33fb55b8b8b0c178124c6d79b664990",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 137,
+        "completion_tokens": 12,
+        "total_tokens": 149,
+        "cost": 1.55e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.55e-05,
+          "upstream_inference_prompt_cost": 1.37e-05,
+          "upstream_inference_completions_cost": 1.8e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2653",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:23.140224+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.3935969999874942,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "f20ade354b1ab4c9121c5593f0c68182dcbc7fe43bfd6d1b2af1837224628dbc",
+    "response_sha256": "513d318b0fcaf169ac6d233b72280d6edaaa78ebe78f54aa375a1059d83480a6",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 176,
+        "completion_tokens": 7,
+        "total_tokens": 183,
+        "cost": 4.026e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.026e-05,
+          "upstream_inference_prompt_cost": 3.872e-05,
+          "upstream_inference_completions_cost": 1.54e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2653",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:23.141130+00:00",
+    "prediction": "entailment",
+    "probabilities": {
+      "neutral": 0.3,
+      "contradiction": 0.01,
+      "entailment": 0.69
+    },
+    "confidence": 0.53,
+    "review_status": "needs_review",
+    "latency_seconds": 0.35258012503618374,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "7a30e0ff247e52034c1a88714f099824bae6a6ae266721deb66c00645cde02e4",
+    "response_sha256": "f2903ba30cee71f6871748af70ad8fef3197adbca8ba51d214dfedd8f8437eb2",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 429,
+        "output_tokens": 44,
+        "cost": 1.8018e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:2653",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:25.375441+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.9362667920067906,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "018e00c4c71af2b1275323e9eb7c64b18a18650e0dab4c47558d49339a1ad0b1",
+    "response_sha256": "121a990d7e75eb7be751568fc1c1e325cc6a4bccb149450a8f493051a7836159",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 125,
+        "completion_tokens": 9,
+        "total_tokens": 134,
+        "cost": 2.002e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.002e-05,
+          "upstream_inference_prompt_cost": 1.75e-05,
+          "upstream_inference_completions_cost": 2.52e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2653",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:25.375756+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.5652175419963896,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "078daa8a4a8df64cae088a5ec747327c206ecddd33c2ffbaa416d152a2a1ef2a",
+    "response_sha256": "792fc10d3e796876ca94bd49ee0466e19ce033e02ed62d7b3640923968bd7b7a",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 139,
+        "completion_tokens": 8,
+        "total_tokens": 147,
+        "cost": 3.29875e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.29875e-05,
+          "upstream_inference_prompt_cost": 2.25875e-05,
+          "upstream_inference_completions_cost": 1.04e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2749",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:25.376672+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.3372074170038104,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "01ee000d8a5a4d518caa25d7401fe5b9a34ab0a7399422c7bc24f71965ecb921",
+    "response_sha256": "6b416d281897b71b6016822a0c76290bad4fa67ac8919cc2d7e713336fd322e2",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 166,
+        "completion_tokens": 7,
+        "total_tokens": 173,
+        "cost": 3.806e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.806e-05,
+          "upstream_inference_prompt_cost": 3.652e-05,
+          "upstream_inference_completions_cost": 1.54e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2749",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:25.376426+00:00",
+    "prediction": "neutral",
+    "probabilities": {
+      "entailment": 0,
+      "neutral": 1,
+      "contradiction": 0
+    },
+    "confidence": 0.99,
+    "review_status": "selected",
+    "latency_seconds": 0.3665301669971086,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "5eb9ea92f614129ef0f0b4bae9753b6cd6b4f5284f94693a8cd0902ab9077d87",
+    "response_sha256": "352ceb27ed56807ec64b4c01610a61a7856f6494e9538872df1bb745e68204ea",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 416,
+        "output_tokens": 42,
+        "cost": 1.7472e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:2749",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:26.312749+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.119347540952731,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "c9f4b681b644ffe5757edece82274b869de43dfde2ceb1b1f284a1af42f62c5e",
+    "response_sha256": "6d4dc518619329c100fa7b33ed795abe700fdd4b5c9a7b6c46e0a163d4e7493f",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 116,
+        "completion_tokens": 7,
+        "total_tokens": 123,
+        "cost": 5.28e-06,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 110,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.28e-06,
+          "upstream_inference_prompt_cost": 1.78e-06,
+          "upstream_inference_completions_cost": 3.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2749",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:26.313172+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 2.0075293330010027,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "28d531b42f8183c58ae3cc38cbb1fbe1232a15edb0b76d6258ba464df1e80a65",
+    "response_sha256": "56682673a6e86f542af2e97a651b9a4b0ce6d31be4401623c39d0a85ae2c53d0",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 217,
+        "completion_tokens": 12,
+        "total_tokens": 229,
+        "cost": 2.636e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.636e-05,
+          "upstream_inference_prompt_cost": 1.736e-05,
+          "upstream_inference_completions_cost": 9e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2749",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:26.313365+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.9374791659647599,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "e419cbbd89ebdd0b5eeea2121241d27b082daeb379dd59c2a1cd5395e7fc6ab5",
+    "response_sha256": "e75d69c9a1206fecaaa8354f6cd96c2f4d048fa9e9a4cf5f90d332f308038cea",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 129,
+        "completion_tokens": 11,
+        "total_tokens": 140,
+        "cost": 1.455e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.455e-05,
+          "upstream_inference_prompt_cost": 1.29e-05,
+          "upstream_inference_completions_cost": 1.65e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2861",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:26.314258+00:00",
+    "prediction": "contradiction",
+    "probabilities": {
+      "neutral": 0,
+      "contradiction": 1,
+      "entailment": 0
+    },
+    "confidence": 0.99,
+    "review_status": "selected",
+    "latency_seconds": 0.31597325002076104,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "9d5b5542beade917c8579d3aa4dc5e4279608b0fc3f8466bdab27df0576f9b55",
+    "response_sha256": "0f4a481d71001896bcfc074431882d8eadd8846d96ba2e4cc00728843953ef16",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 433,
+        "output_tokens": 44,
+        "cost": 1.8186e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:2861",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:28.320978+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 2.9816027500201017,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "8e116b2564fa421ae6cc673e6d40d344732526a42e83a91923976941b442a8b7",
+    "response_sha256": "220c7d35a170a99c98879e41ed630972084e7e2f1029bd4069fa075e064926e5",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 129,
+        "completion_tokens": 9,
+        "total_tokens": 138,
+        "cost": 6.306e-06,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 129,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.306e-06,
+          "upstream_inference_prompt_cost": 1.806e-06,
+          "upstream_inference_completions_cost": 4.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2861",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:28.321115+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 0.9382923750090413,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "c03098c5f68d1694b18722c6467083415e02985688912ea0bd852c05c161fcdf",
+    "response_sha256": "57c1a49f74fd82d943afa9a7cdf5327e9778e6fe09022340ba0f1b761a86dbbc",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 229,
+        "completion_tokens": 14,
+        "total_tokens": 243,
+        "cost": 2.882e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.882e-05,
+          "upstream_inference_prompt_cost": 1.832e-05,
+          "upstream_inference_completions_cost": 1.05e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2861",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:28.321222+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 1.599165332969278,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "493625eb7cb04cf9299325bbcfc6b8fd219a1728b9b22c757d2e68cff3da39c9",
+    "response_sha256": "b6f5681029f4a386e0050970ecf9c3951405fb783434faabac5a61de169b3d55",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 141,
+        "completion_tokens": 12,
+        "total_tokens": 153,
+        "cost": 1.59e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.59e-05,
+          "upstream_inference_prompt_cost": 1.41e-05,
+          "upstream_inference_completions_cost": 1.8e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2861",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:28.321311+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.33611220796592534,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "b09b733bd0e95fc530211d98d21ac4b4a2b2fcecf6d27d384842ba507c9a997a",
+    "response_sha256": "e79b6d035e4fe5d805bc8427fc0a577cded6b37591beffe167b546ca36285ac5",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 182,
+        "completion_tokens": 7,
+        "total_tokens": 189,
+        "cost": 4.158e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.158e-05,
+          "upstream_inference_prompt_cost": 4.004e-05,
+          "upstream_inference_completions_cost": 1.54e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2946",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:31.303083+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.6599992080009542,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "30afe039a71b3de8340d76844423dd22a35658e651de2d72f63bc9b5d2daefda",
+    "response_sha256": "c63001025899e17d1ed547db740508f1ebfde5c664dcdb57fcd5a5300a4f0f7d",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 128,
+        "completion_tokens": 9,
+        "total_tokens": 137,
+        "cost": 1.314e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.314e-05,
+          "upstream_inference_prompt_cost": 1.152e-05,
+          "upstream_inference_completions_cost": 1.62e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2946",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:31.303412+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.8557843749877065,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "0bed1ae370cbe1ba1655f0d0d1b9c14c269ef7cec254297271bb22a27ed1b224",
+    "response_sha256": "fad0b40b84a4668c96fbacc2b7da3ac1b0741096e46babc946c65a042ca744ae",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 229,
+        "completion_tokens": 12,
+        "total_tokens": 241,
+        "cost": 2.732e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.732e-05,
+          "upstream_inference_prompt_cost": 1.832e-05,
+          "upstream_inference_completions_cost": 9e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2946",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:31.303266+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.9280727499863133,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "f74bd6aea59bee3ca70286444e9bbaecfd0125e72e2d7d93f980f801499a5173",
+    "response_sha256": "ae767910bdef418c5860d89a8564c6ddb29ca6fc35c45e229a796dc4eae6d817",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 141,
+        "completion_tokens": 11,
+        "total_tokens": 152,
+        "cost": 1.575e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.575e-05,
+          "upstream_inference_prompt_cost": 1.41e-05,
+          "upstream_inference_completions_cost": 1.65e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2946",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:31.303544+00:00",
+    "prediction": "contradiction",
+    "latency_seconds": 0.36108350002905354,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "a9af1a732383934d0af244abb50c99fcf0d62cf0e514018be3cd345fb6bfd692",
+    "response_sha256": "6f046694373d09f8666c6d9548879f88df3c6a01c9e572a1f86c67965f36e3c0",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 184,
+        "completion_tokens": 9,
+        "total_tokens": 193,
+        "cost": 4.246e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.246e-05,
+          "upstream_inference_prompt_cost": 4.048e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:2946",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:32.234256+00:00",
+    "prediction": "neutral",
+    "probabilities": {
+      "entailment": 0,
+      "contradiction": 0,
+      "neutral": 1
+    },
+    "confidence": 1,
+    "review_status": "selected",
+    "latency_seconds": 0.3386395000270568,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "48e0ea73f655042c3c13b60246eb1b48fafd73d81b2ba71b328de58ab15d42ff",
+    "response_sha256": "dd820dbe35f550cef126901ea05f956fae0dd2d181d4994e315e1ef500cb8703",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 436,
+        "output_tokens": 42,
+        "cost": 1.8312e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:622",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:32.235076+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.8805205830140039,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "902d33a1957445d299b2ed91453eb1448107b16237ae911dd16b6df6e6430255",
+    "response_sha256": "2779d0d6f11a177acdfba89a8fab0d24c7fa8e657ee5bafd9207a8630a99b143",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 228,
+        "completion_tokens": 14,
+        "total_tokens": 242,
+        "cost": 2.874e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.874e-05,
+          "upstream_inference_prompt_cost": 1.824e-05,
+          "upstream_inference_completions_cost": 1.05e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:622",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:32.235437+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.9205745839863084,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "4a2ca331b2a8db2d4f6090170890e255a1fc39bac9708f5d6b7c49513fe479ba",
+    "response_sha256": "87cdf6fa69b9617d228a21e77881a5d63e39fa7031b86283cfcde95b54e6e394",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 140,
+        "completion_tokens": 13,
+        "total_tokens": 153,
+        "cost": 1.595e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.595e-05,
+          "upstream_inference_prompt_cost": 1.4e-05,
+          "upstream_inference_completions_cost": 1.95e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:622",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:32.235893+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.3940844999742694,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "1cf3ac200a911dfc9a9506d092539f1c1e3845af666daf50c2fe6a2704eeec8b",
+    "response_sha256": "0d43ff1a6a5fbe075b976af664cad5632160148921741764a5a1775ddaf55611",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 186,
+        "completion_tokens": 9,
+        "total_tokens": 195,
+        "cost": 4.29e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.29e-05,
+          "upstream_inference_prompt_cost": 4.092e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:622",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:33.156849+00:00",
+    "prediction": "entailment",
+    "probabilities": {
+      "entailment": 0.78,
+      "neutral": 0.22,
+      "contradiction": 0
+    },
+    "confidence": 0.66,
+    "review_status": "needs_review",
+    "latency_seconds": 0.409282082982827,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "fc432e1967d21ac353c42e08e24dd3d9bbe0305c8379a15a5d2ecb5ca2d0e190",
+    "response_sha256": "f0e7a656e3e89f65371db81ad24f510ea65c042005c6b5880c2080620ce955b1",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 432,
+        "output_tokens": 44,
+        "cost": 1.8144e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:622",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:33.156509+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 1.5960208339965902,
+    "task": "ocnli",
+    "target": "entailment",
+    "request_sha256": "68b6159dfe782d31619bb56f4fbab2ef0d94b205b7830479ce5f55fd7bb1975d",
+    "response_sha256": "be897a9912adeaa0dee32be0c9be4af1627abafe4e8abe3ffac6719ca32e91b9",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 129,
+        "completion_tokens": 8,
+        "total_tokens": 137,
+        "cost": 2.03e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.03e-05,
+          "upstream_inference_prompt_cost": 1.806e-05,
+          "upstream_inference_completions_cost": 2.24e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:809",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:33.156726+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.8031062910449691,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "8862729641acef15541ff06a5e576584cf9f844002695de0f47e1d854817e478",
+    "response_sha256": "0a9c164123ba581d559c1ea14290814a2137b5b289fd2df12555a5701c82815c",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 134,
+        "completion_tokens": 11,
+        "total_tokens": 145,
+        "cost": 1.505e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.505e-05,
+          "upstream_inference_prompt_cost": 1.34e-05,
+          "upstream_inference_completions_cost": 1.65e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:809",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:33.157487+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.3659907089895569,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "288624192d304b0b773fa498663827cc3e41894dc8d685db08d6b5a6514a7028",
+    "response_sha256": "490fdb152eb8fa1a93f368d294a5d05a99bd216e0bd2a6f3fcba2330136b91bb",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 172,
+        "completion_tokens": 7,
+        "total_tokens": 179,
+        "cost": 3.938e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.938e-05,
+          "upstream_inference_prompt_cost": 3.784e-05,
+          "upstream_inference_completions_cost": 1.54e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:809",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:34.960303+00:00",
+    "prediction": "neutral",
+    "probabilities": {
+      "contradiction": 0,
+      "entailment": 0,
+      "neutral": 1
+    },
+    "confidence": 1,
+    "review_status": "selected",
+    "latency_seconds": 0.3432345829787664,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "1bd0531d15b31138eadf9b15e0ac64b03ba805fbba9d4f2b317c8f4f9e3d2612",
+    "response_sha256": "70571be06b1ef510eb9eef3e5d4f1ddb7da6b66ab040a787ec2882c3ac91092f",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 421,
+        "output_tokens": 42,
+        "cost": 1.7682e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:809",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:34.960557+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.2317884170333855,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "caabac79f5cf04c463dae15690b93c1e9d28eb838719711ba5acbed3e417f602",
+    "response_sha256": "d42156987a2a2af5856a3adbf2307cf4a1b31b538435d402506ca7e82f95264c",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 124,
+        "completion_tokens": 6,
+        "total_tokens": 130,
+        "cost": 1.904e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.904e-05,
+          "upstream_inference_prompt_cost": 1.736e-05,
+          "upstream_inference_completions_cost": 1.68e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:809",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:34.960710+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.7151585000101477,
+    "task": "ocnli",
+    "target": "neutral",
+    "request_sha256": "06b46137a29aea5b406671d795c0c7ad402b1ebc0f8dcd9526a7f45e67f12e35",
+    "response_sha256": "45164d6f0429fdd444ddde4dd1c8be1b5ef84f033bc8420ed14452963e62ca47",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 136,
+        "completion_tokens": 6,
+        "total_tokens": 142,
+        "cost": 2.99e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.99e-05,
+          "upstream_inference_prompt_cost": 2.21e-05,
+          "upstream_inference_completions_cost": 7.8e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:903",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:11:34.960859+00:00",
+    "prediction": "entailment",
+    "latency_seconds": 0.39524108299519867,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "fea11287257b0afd0c533ace4ffefbf1ecc9a2dff540c196f495bc931ef5126d",
+    "response_sha256": "0b173d76124b5899cd4d953693c65004d146aced04b2690bb271fc78df8c5b10",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 179,
+        "completion_tokens": 9,
+        "total_tokens": 188,
+        "cost": 4.136e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.136e-05,
+          "upstream_inference_prompt_cost": 3.938e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:903",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:11:36.194373+00:00",
+    "prediction": "neutral",
+    "probabilities": {
+      "contradiction": 0,
+      "entailment": 0,
+      "neutral": 1
+    },
+    "confidence": 1,
+    "review_status": "selected",
+    "latency_seconds": 0.3246406670077704,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "218a5a0ff37f2035afe1d6fa04dfe984588ffc8bb33b07344d4d3142cfe79c76",
+    "response_sha256": "96d1d7a9a9ded1384b81e20880ce61864bdd4d406720db1887dd0645867a6d03",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 433,
+        "output_tokens": 42,
+        "cost": 1.8186e-05
+      }
+    }
+  },
+  {
+    "id": "ocnli:903",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:11:36.193405+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.3765330000314862,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "dfc6f59f6a3fa84af176390ecf41db6709b05d05a0e4f33755b1ed7a823be324",
+    "response_sha256": "8f4b8342739e461072064652863b1e47bb2cbfd90c5943a78d9ddeab5e07cb7b",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 129,
+        "completion_tokens": 7,
+        "total_tokens": 136,
+        "cost": 1.2670658e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.2670658e-05,
+          "upstream_inference_prompt_cost": 1.1430174e-05,
+          "upstream_inference_completions_cost": 1.240484e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:903",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:11:36.192972+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 0.8042807090096176,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "239708bea125a0bf0c93445619dd96050528b48c5064d90b5457397d8de06fcf",
+    "response_sha256": "6004caeee8d923ea5ac814645bf2cbf75102f5c4e8d49748b8c941522247deba",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 139,
+        "completion_tokens": 11,
+        "total_tokens": 150,
+        "cost": 3.68875e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.68875e-05,
+          "upstream_inference_prompt_cost": 2.25875e-05,
+          "upstream_inference_completions_cost": 1.43e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "ocnli:903",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:11:36.193719+00:00",
+    "prediction": "neutral",
+    "latency_seconds": 1.4750307089998387,
+    "task": "ocnli",
+    "target": "contradiction",
+    "request_sha256": "6e89386a7b113edac2ae5096ab9248695e1371043426d0300b611a62c0873f66",
+    "response_sha256": "d22ca876a97af5a8e411e623a53b33398595d1ba490068e9e2ae8fec39490a18",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 137,
+        "completion_tokens": 10,
+        "total_tokens": 147,
+        "cost": 1.52e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.52e-05,
+          "upstream_inference_prompt_cost": 1.37e-05,
+          "upstream_inference_completions_cost": 1.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  }
+]

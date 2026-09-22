@@ -1,0 +1,61 @@
+{
+  "logiqa": [
+    {
+      "file": "logiqa2-test-zh.jsonl",
+      "url": "https://raw.githubusercontent.com/csitfun/LogiQA2.0/955e1d3df6c59d9bfb44d9913da1e1a27ec14e18/logiqa/DATA/LOGIQA/test_zh.txt",
+      "sha256": "7a8db83ccb3ebdc8d5b3886fd0ad9346c7e565722d2d592987b24dd57f251853"
+    }
+  ],
+  "ocnli": [
+    {
+      "file": "ocnli-dev.jsonl",
+      "url": "https://raw.githubusercontent.com/CLUEbenchmark/OCNLI/b53efdee17257a5c33993cf6fcf8ffff0497ea0e/data/ocnli/dev.json",
+      "sha256": "001ded235d73a18dac68a45a38cd5f9b3f9311fa4246df623e199422c073ddc5"
+    }
+  ],
+  "banking": [
+    {
+      "file": "banking-test.csv",
+      "url": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/57ec275d8078af65b7731c2a98be812d844a6d6b/banking_data/test.csv",
+      "sha256": "d12d6e3bc4c3103966ae786dc435913c0c563dfa328f5a3646d0e62cfeeb474d"
+    },
+    {
+      "file": "banking-categories.json",
+      "url": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/57ec275d8078af65b7731c2a98be812d844a6d6b/banking_data/categories.json",
+      "sha256": "53261da888122daf2d120d925458631d9619e15d82e56052e7a42e535ce32b63"
+    }
+  ],
+  "boolq": [
+    {
+      "file": "boolq.parquet",
+      "url": "https://huggingface.co/datasets/google/boolq/resolve/35b264d03638db9f4ce671b711558bf7ff0f80d5/data/validation-00000-of-00001.parquet",
+      "sha256": "52355d11524b4b874a9b9dcc278feb10f672d52c4f4eff9872e695ede59820f8"
+    }
+  ],
+  "bfcl": [
+    {
+      "file": "bfcl-multiple.jsonl",
+      "url": "https://raw.githubusercontent.com/ShishirPatil/gorilla/6ea57973c7a6097fd7c5915698c54c17c5b1b6c8/berkeley-function-call-leaderboard/bfcl_eval/data/BFCL_v4_multiple.json",
+      "sha256": "aef168155ebd74b7ac2401198b201343bc7d16d7a3d7e0d4e6d8ee82c6969b2a"
+    },
+    {
+      "file": "bfcl-answers.jsonl",
+      "url": "https://raw.githubusercontent.com/ShishirPatil/gorilla/6ea57973c7a6097fd7c5915698c54c17c5b1b6c8/berkeley-function-call-leaderboard/bfcl_eval/data/possible_answer/BFCL_v4_multiple.json",
+      "sha256": "244e00ce9395df948bcafc7bee64e8f9c87ef70887587d83cae45b13699f3047"
+    }
+  ],
+  "ruozhiba": [
+    {
+      "file": "ruozhiba.jsonl",
+      "url": "https://huggingface.co/datasets/m-a-p/COIG-CQIA/resolve/8b55868c6168adf86c30e7ca0f782cca1c514297/ruozhiba/ruozhiba_ruozhiba.jsonl",
+      "sha256": "40cf9a69ba802d5d19064270bd57993687051613d9b5f52ad62d6f410ef78487"
+    }
+  ],
+  "injection": [
+    {
+      "file": "injection.parquet",
+      "url": "https://huggingface.co/datasets/deepset/prompt-injections/resolve/4f61ecb038e9c3fb77e21034b22511b523772cdd/data/test-00000-of-00001-701d16158af87368.parquet",
+      "sha256": "39ac797cabc157eeed58435a08593b2952bb6cb16fc394a2d383f447cc7b246e"
+    }
+  ]
+}

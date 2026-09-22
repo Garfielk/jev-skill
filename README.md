@@ -439,11 +439,25 @@ model capabilities. [@twid's practitioner report](https://x.com/twid/status/2101
 describes false alarms on a bot persona and harmless wording. These are external
 reports, not our reproductions.
 
+**We tested the context advice:** [20 paired cases / 40 real Jev calls](docs/experiments/context-pilot/README.md),
+with exact inputs and outputs. Short/full evidence scored 20/20 and 19/20 against
+condition-specific labels; unknowns fell from 15 to 4. More evidence enabled more
+decisions, **not higher accuracy**. The report keeps the disagreement and its rubric ambiguity.
+
+**Saved judgments can expire.** The dbt-assay author reports false findings from
+missing claim-specific evidence and from old answers surviving a guard change.
+[Adapt the checks](skills/jev/references/pitfalls.md#evidence-freshness): missing
+evidence means unknown; recheck evidence, question and policy versions when reading
+saved results; keep old receipts without treating them as current verdicts.
+This is an author report and our untested workflow adaptation, not a reproduction.
+
 Copy to your agent:
 
 ```text
 Check that Jev receives the goal, relevant sources, decisive history, actual tool
 receipts and candidate definitions. Ask outcome and evidence sufficiency separately.
+Missing evidence means unknown. Check evidence, question and policy versions before
+reusing saved judgments; keep stale receipts but do not accept them as current decisions.
 Do not add unrelated text just to enlarge context. If repeated judging would help,
 propose a fixed small budget, repeat count and aggregation rule, then wait for approval.
 Keep every answer. Check accuracy against independent labels or actual outcomes;
@@ -667,6 +681,12 @@ such as 1.29/2 is **not** a probability.
 ```
 
 [Original request and full response](evals/results/examples-2026-09-20.json)
+
+**Real PR value triage:** [20 public PRs, exact inputs and outputs](docs/experiments/public-pr-pilot/README.md).
+Jev agreed with pre-call host annotations on 10 substantive improvements and 10
+maintenance changes; one result still needed review. Includes a copy-to-agent
+prompt and replay code. This merged-only sample does not measure bad-PR detection
+or prove merge readiness.
 
 **PR merge eligibility:** give the required checks, actual CI receipts and review state; classify `requirements_met`, `missing` or `needs_review`. Code enforces branch protection and permissions; Jev does not merge the PR. Untested workflow adaptation.
 
@@ -3144,6 +3164,23 @@ Data sent for judgment goes to your selected service; use synthetic data first.
 
 <a id="experiments"></a>
 ### 🧪 Experiments you can inspect
+
+**New: same-item comparisons across five models.** Correct / all attempts below; PR = annotation agreement, not merge accuracy. Small pilots, not a general leaderboard.
+
+| Experiment | N | Jev | DeepSeek V4 Flash | Qwen35B A3B | Qwen9B | Llama3.1 8B |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| [BBH · bounded reasoning](docs/experiments/model-panel/runs/bbh/README.md) | 160 | 138/160 | 108/160 | 114/160 | 102/160 | 88/160 |
+| [LogiQA 2.0 · Chinese logic](docs/experiments/model-panel/runs/logiqa/README.md) | 20 | 16/20 | 19/20 | 18/20 | 16/20 | 13/20 |
+| [OCNLI · Chinese inference](docs/experiments/model-panel/runs/ocnli/README.md) | 20 | 18/20 | 16/20 | 18/20 | 19/20 | 9/20 |
+| [Ruozhiba MC · everyday misconceptions](docs/experiments/model-panel/runs/ruozhiba/README.md) | 20 | 20/20 | 20/20 | 20/20 | 20/20 | 17/20 |
+| [Context · evidence present versus missing](docs/experiments/model-panel/runs/context/README.md) | 40 | 39/40 | 40/40 | 38/40 | 38/40 | 30/40 |
+| [Public PRs · intended value agreement](docs/experiments/model-panel/runs/pr/README.md) | 40 | 38/40 | 36/40 | 33/40 | 37/40 | 29/40 |
+| [Banking77 · ticket routing](docs/experiments/model-panel/runs/banking/README.md) | 20 | 16/20 | 16/20 | 17/20 | 15/20 | 13/20 |
+| [BoolQ · passage-supported answers](docs/experiments/model-panel/runs/boolq/README.md) | 20 | 19/20 | 18/20 | 19/20 | 20/20 | 15/20 |
+| [BFCL · tool name selection](docs/experiments/model-panel/runs/bfcl/README.md) | 20 | 20/20 | 20/20 | 20/20 | 20/20 | 20/20 |
+| [Prompt injection · narrow dataset labels](docs/experiments/model-panel/runs/injection/README.md) | 20 | 17/20 | 17/20 | 18/20 | 19/20 | 16/20 |
+
+[Costs, latency, errors, real I/O and reproduction](docs/experiments/model-panel/README.md). Agent paired pilot: **3/4 → 4/4**, with extra calls; the earlier negative result remains below.
 
 - [Five-skill checks: installation, navigation and three live Jev requests](docs/validation-five-skills.md).
 - [Agent before/after](evals/RESULTS.md): 12 pairs, baseline 12/12 vs fixed-checkpoint 10/12. Small negative result for that integration policy.

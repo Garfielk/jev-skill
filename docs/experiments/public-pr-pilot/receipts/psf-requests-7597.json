@@ -1,0 +1,59 @@
+{
+  "exit_code": 0,
+  "stderr": "",
+  "result": {
+    "decisions": {
+      "value": {
+        "status": "selected",
+        "value": "routine_maintenance",
+        "probability": 1,
+        "margin": 1
+      }
+    },
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "answers": {
+        "value": {
+          "type": "choice",
+          "choice": "routine_maintenance",
+          "probabilities": {
+            "no_clear_value": 0,
+            "routine_maintenance": 1,
+            "substantive": 0,
+            "insufficient_evidence": 0
+          },
+          "confidence": 1
+        }
+      },
+      "usage": {
+        "input_tokens": 1220,
+        "output_tokens": 63,
+        "cost": 5.124e-05
+      },
+      "id": "gen-dec-1790060428-42pCfofxbZ5qn60bhbGb",
+      "provider": "TypeSafe"
+    },
+    "policy": {
+      "min_probability": 0.8,
+      "min_margin": 0.15,
+      "review_labels": [
+        "abstain",
+        "ask_user",
+        "defer",
+        "insufficient_evidence",
+        "none",
+        "other",
+        "review",
+        "unknown",
+        "wait"
+      ],
+      "executes_actions": false
+    },
+    "elapsed_seconds": 0.344398,
+    "mode": "jev_api",
+    "jev_called": true,
+    "transport": "openrouter"
+  },
+  "request_sha256": "c3c14b82d9f0d1e76ad505eb902ffb4c2ab63bd8a6dd4e5ec5486ed86b361ad2",
+  "wall_seconds": 0.43372795899631456
+}

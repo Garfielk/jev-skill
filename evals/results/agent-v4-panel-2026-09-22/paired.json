@@ -1,0 +1,30 @@
+[
+  {
+    "repeat": 1,
+    "case": "goal_recovery",
+    "baseline_success": false,
+    "jev_success": true,
+    "success_delta": 1
+  },
+  {
+    "repeat": 1,
+    "case": "browser_permission",
+    "baseline_success": true,
+    "jev_success": true,
+    "success_delta": 0
+  },
+  {
+    "repeat": 1,
+    "case": "completion_verification",
+    "baseline_success": true,
+    "jev_success": true,
+    "success_delta": 0
+  },
+  {
+    "repeat": 1,
+    "case": "human_triage",
+    "baseline_success": true,
+    "jev_success": true,
+    "success_delta": 0
+  }
+]

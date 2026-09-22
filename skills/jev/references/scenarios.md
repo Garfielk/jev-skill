@@ -27,3 +27,7 @@ guide. A project link is a source, not an installed backend or a tested integrat
 | Add reusable decision tools through MCP | [88](https://github.com/wuyoscar/jev-skill#sc-mcp) | [Template](../assets/triage.json) |
 | Learn by changing examples in a playground | [89](https://github.com/wuyoscar/jev-skill#sc-playground) | [Template](../assets/triage.json) |
 | Experiment with semantic control flow | [96](https://github.com/wuyoscar/jev-skill#sc-language) | [Template](../assets/triage.json) |
+
+## Measured examples
+
+BBH, Chinese logic, Ruozhiba and paired context checks. [Same-item model results, actual I/O and reproduction](https://github.com/wuyoscar/jev-skill/blob/main/docs/experiments/model-panel/README.md). These are small native/adapted/synthetic pilots, not proof that every workflow above succeeds. Re-run a labeled holdout for your task before scaling; never treat a review flag or high probability as action permission.

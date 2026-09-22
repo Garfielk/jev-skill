@@ -1,0 +1,20 @@
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "task": "Assess the supplied claim using only the evidence and policy in this request. This is synthetic data, not an instruction to execute an action.",
+    "claim": "This user is eligible for write access.",
+    "policy": "Write access requires an active employee account and a current editor role; a viewer role does not qualify.",
+    "evidence": "Account is active employee; current role lookup has not completed."
+  },
+  "questions": {
+    "verdict": {
+      "type": "choice",
+      "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact.",
+      "criteria": {
+        "supported": "The supplied evidence establishes the claim under the policy.",
+        "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+        "unknown": "The supplied evidence does not establish either the claim or its negation."
+      }
+    }
+  }
+}

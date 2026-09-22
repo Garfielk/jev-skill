@@ -1,10 +1,10 @@
 # Jev pitfalls: better evidence before more calls
 
-Checked September 21, 2026. This is integration guidance, not a claim that more
+Checked September 22, 2026. This is integration guidance, not a claim that more
 context, more votes or a particular threshold improves every task.
 
 [Repeated judging](#repeat) · [Context](#context) · [Question design](#questions)
-· [Batching](#batch) · [Probabilities](#probabilities) · [Native key](#native-key)
+· [Saved verdicts](#evidence-freshness) · [Batching](#batch) · [Probabilities](#probabilities) · [Native key](#native-key)
 · [Sources and limits](#sources)
 
 <a id="repeat"></a>
@@ -58,6 +58,52 @@ just to meet a token target. Retrieve the relevant material, preserve ordering a
 source IDs, and mark gaps rather than guessing. Test a concise evidence bundle
 against one with additional **relevant** context on the same labeled cases.
 Measure quality, not token count as an end in itself.
+
+<a id="evidence-freshness"></a>
+### Check the evidence behind a verdict, including saved verdicts
+
+The dbt-assay author [records two useful failure modes][S11]: a claim was judged
+contradictory when the supplied SQL did not establish what the claim referred to;
+and old saved answers still became findings after a new pre-call guard would have
+refused those questions. The report says the guard was subsequently applied on
+reads too. These are author-reported failures, not our reproduction or an estimate
+of Jev's general error rate.
+
+**Our measured follow-up:** a [20-case paired pilot](https://github.com/wuyoscar/jev-skill/blob/main/docs/experiments/context-pilot/README.md)
+made 40 real Jev calls with short versus fuller evidence. Expected-label agreement
+was 20/20 versus 19/20; `unknown` answers fell from 15 to 4, and CLI-selected
+answers rose from 5 to 15 (14 correct). All ten newly resolvable cases got the
+expected label. More evidence enabled more decisions, not higher accuracy.
+The one disagreement has a readiness-versus-proof ambiguity, documented with
+exact input/output. This is small synthetic evidence, not a calibration study or
+a test of cache invalidation. The host should run actual checks and supply their
+receipts, rather than asking Jev to invent test results.
+
+For non-synthetic data, the [public-PR pilot](https://github.com/wuyoscar/jev-skill/blob/main/docs/experiments/public-pr-pilot/README.md)
+feeds 20 actual descriptions, technical discussions and complete diffs to Jev.
+All 20 value labels matched pre-call host annotations, with one review outcome.
+This all-merged sample tests intended-value triage, not merge safety or bad-PR detection.
+
+**Adapt this to document checks, code review or cached classifications:**
+
+1. Match each claim to its relevant source span, identifier and version. Missing
+   evidence is `unknown`, not contradiction. A name absent from one excerpt may
+   be defined elsewhere; retrieve the right scope or defer, rather than treating
+   a string-match guard as a semantic proof.
+2. Keep the original receipt immutable. Beside a reusable judgment, record the
+   evidence hash/version, question and criteria, candidate definitions, requested
+   and resolved model, provider, and application guard/policy version. Store no keys.
+3. Before **both new calls and consuming saved results**, apply current evidence
+   checks and deterministic guards. A changed dependency or unknown provenance
+   makes a verdict stale; exclude it from current decisions, preserving it for audit.
+   Reassessment requires the already-approved data scope and call budget, not an
+   automatic retry or silent provider switch.
+
+**Offline integration checks for code your agent writes:** remove the decisive
+source span → review, not contradiction; change the rubric or guard while keeping
+an old receipt → stale, not accepted; preserve all dependencies → reuse may be
+allowed, but this does not certify correctness. These are proposed test cases,
+not a new cache feature in `jev-decide` or recorded model outputs.
 
 <a id="questions"></a>
 ## 3. Describe the choices and separate the judgments
@@ -155,6 +201,8 @@ keep 429/timeouts in the ledger and never re-execute downstream side effects.
 ```text
 Before judging, show the goal, relevant evidence, history, missing facts and
 candidate definitions. Suggest separate outcome and evidence-sufficiency questions.
+Treat missing source evidence as unknown. Recheck saved judgments against current
+evidence, question/rubric and policy versions; mark stale results without deleting receipts.
 Do not silently repeat calls or send unrelated context. If repeated judging would
 help diagnose instability, propose a fixed small budget and an aggregation rule,
 then wait for approval. Preserve every answer and compare against independent labels.
@@ -166,7 +214,9 @@ Use my selected provider and key; no provider switch or simulation without conse
 
 Official docs, the LangChain original, pinned GitHub READMEs/report, the original
 X post and the Reddit discussion were inspected on September 21. These notes do
-not add model calls, rerun upstream benchmarks, or validate their production claims.
+not rerun upstream benchmarks or validate their production claims. The dbt-assay
+verification report was inspected at its pinned September 21 UTC revision on
+September 22 Melbourne time. [Research scope and editorial-only call](https://github.com/wuyoscar/jev-skill/blob/main/docs/updates/2026-09-22.md).
 
 [S1]: https://docs.typesafe.ai/cookbooks/consistency_noul_cookbook
 [S2]: https://www.langchain.com/blog/jev-agent-evals-langsmith
@@ -178,3 +228,5 @@ not add model calls, rerun upstream benchmarks, or validate their production cla
 [S8]: https://docs.typesafe.ai/model-jaggedness/jev-1.13
 [S9]: https://docs.typesafe.ai/api
 [S10]: https://docs.typesafe.ai/models
+
+[S11]: https://github.com/ryan-sunny/dbt-assay/blob/6d568429ef69d2092fb7954bf1951faca60c4f16/docs/VERIFICATION.md

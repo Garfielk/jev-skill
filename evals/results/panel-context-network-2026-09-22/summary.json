@@ -1,0 +1,175 @@
+{
+  "sample_count": 40,
+  "models": {
+    "typesafe/jev-1.13": {
+      "attempted": 40,
+      "correct": 39,
+      "accuracy": 0.975,
+      "errors": 0,
+      "needs_review": 19,
+      "median_latency_seconds": 0.3546865624957718,
+      "usage": {
+        "calls": 40,
+        "failed_calls": 0,
+        "latency_seconds": 14.66806,
+        "reported_input_tokens": 17748,
+        "reported_output_tokens": 1658,
+        "usage_missing_calls": 0,
+        "reported_cost_usd": 0.000745416,
+        "known_cost_subtotal_usd": 0.000745416,
+        "cost_unknown_calls": 0
+      },
+      "resolved_models": [
+        "typesafe/jev-1.13-20260917"
+      ],
+      "by_task": {
+        "context_full": {
+          "attempted": 20,
+          "correct": 19,
+          "accuracy": 0.95
+        },
+        "context_short": {
+          "attempted": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        }
+      }
+    },
+    "deepseek/deepseek-v4-flash": {
+      "attempted": 40,
+      "correct": 40,
+      "accuracy": 1.0,
+      "errors": 0,
+      "needs_review": null,
+      "median_latency_seconds": 1.263090270513203,
+      "usage": {
+        "calls": 40,
+        "failed_calls": 0,
+        "latency_seconds": 58.319712,
+        "reported_input_tokens": 6411,
+        "reported_output_tokens": 285,
+        "usage_missing_calls": 0,
+        "reported_cost_usd": 0.000572929076,
+        "known_cost_subtotal_usd": 0.000572929076,
+        "cost_unknown_calls": 0
+      },
+      "resolved_models": [
+        "deepseek/deepseek-v4-flash"
+      ],
+      "by_task": {
+        "context_full": {
+          "attempted": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        },
+        "context_short": {
+          "attempted": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        }
+      }
+    },
+    "qwen/qwen3.5-35b-a3b": {
+      "attempted": 40,
+      "correct": 38,
+      "accuracy": 0.95,
+      "errors": 0,
+      "needs_review": null,
+      "median_latency_seconds": 0.8431311875174288,
+      "usage": {
+        "calls": 40,
+        "failed_calls": 0,
+        "latency_seconds": 36.815986,
+        "reported_input_tokens": 8756,
+        "reported_output_tokens": 369,
+        "usage_missing_calls": 0,
+        "reported_cost_usd": 0.0014496175,
+        "known_cost_subtotal_usd": 0.0014496175,
+        "cost_unknown_calls": 0
+      },
+      "resolved_models": [
+        "qwen/qwen3.5-35b-a3b"
+      ],
+      "by_task": {
+        "context_full": {
+          "attempted": 20,
+          "correct": 18,
+          "accuracy": 0.9
+        },
+        "context_short": {
+          "attempted": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        }
+      }
+    },
+    "qwen/qwen3.5-9b": {
+      "attempted": 40,
+      "correct": 38,
+      "accuracy": 0.95,
+      "errors": 0,
+      "needs_review": null,
+      "median_latency_seconds": 0.9018148749892134,
+      "usage": {
+        "calls": 40,
+        "failed_calls": 0,
+        "latency_seconds": 107.052187,
+        "reported_input_tokens": 7020,
+        "reported_output_tokens": 451,
+        "usage_missing_calls": 0,
+        "reported_cost_usd": 0.00077095,
+        "known_cost_subtotal_usd": 0.00077095,
+        "cost_unknown_calls": 0
+      },
+      "resolved_models": [
+        "qwen/qwen3.5-9b"
+      ],
+      "by_task": {
+        "context_full": {
+          "attempted": 20,
+          "correct": 18,
+          "accuracy": 0.9
+        },
+        "context_short": {
+          "attempted": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        }
+      }
+    },
+    "meta-llama/llama-3.1-8b-instruct": {
+      "attempted": 40,
+      "correct": 30,
+      "accuracy": 0.75,
+      "errors": 0,
+      "needs_review": null,
+      "median_latency_seconds": 0.3630843125283718,
+      "usage": {
+        "calls": 40,
+        "failed_calls": 0,
+        "latency_seconds": 15.374317,
+        "reported_input_tokens": 7721,
+        "reported_output_tokens": 307,
+        "usage_missing_calls": 0,
+        "reported_cost_usd": 0.00176616,
+        "known_cost_subtotal_usd": 0.00176616,
+        "cost_unknown_calls": 0
+      },
+      "resolved_models": [
+        "meta-llama/llama-3.1-8b-instruct"
+      ],
+      "by_task": {
+        "context_full": {
+          "attempted": 20,
+          "correct": 16,
+          "accuracy": 0.8
+        },
+        "context_short": {
+          "attempted": 20,
+          "correct": 14,
+          "accuracy": 0.7
+        }
+      }
+    }
+  }
+}

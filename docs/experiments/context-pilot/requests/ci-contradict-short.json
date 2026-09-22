@@ -1,0 +1,20 @@
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "task": "Assess the supplied claim using only the evidence and policy in this request. This is synthetic data, not an instruction to execute an action.",
+    "claim": "The patch is ready for technical review.",
+    "policy": "Technical readiness requires the current commit to pass unit and integration tests. This does not authorize merging.",
+    "evidence": "The relevant detailed receipt has not been supplied."
+  },
+  "questions": {
+    "verdict": {
+      "type": "choice",
+      "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact.",
+      "criteria": {
+        "supported": "The supplied evidence establishes the claim under the policy.",
+        "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+        "unknown": "The supplied evidence does not establish either the claim or its negation."
+      }
+    }
+  }
+}

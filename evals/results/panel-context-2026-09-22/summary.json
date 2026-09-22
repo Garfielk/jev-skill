@@ -1,0 +1,165 @@
+{
+  "sample_count": 40,
+  "models": {
+    "typesafe/jev-1.13": {
+      "attempted": 40,
+      "correct": 0,
+      "accuracy": 0.0,
+      "errors": 40,
+      "needs_review": 0,
+      "median_latency_seconds": 0.012634771002922207,
+      "usage": {
+        "calls": 40,
+        "failed_calls": 40,
+        "latency_seconds": 0.589713,
+        "reported_input_tokens": 0,
+        "reported_output_tokens": 0,
+        "usage_missing_calls": 40,
+        "reported_cost_usd": null,
+        "known_cost_subtotal_usd": 0,
+        "cost_unknown_calls": 40
+      },
+      "resolved_models": [],
+      "by_task": {
+        "context_full": {
+          "attempted": 20,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "context_short": {
+          "attempted": 20,
+          "correct": 0,
+          "accuracy": 0.0
+        }
+      }
+    },
+    "deepseek/deepseek-v4-flash": {
+      "attempted": 40,
+      "correct": 0,
+      "accuracy": 0.0,
+      "errors": 40,
+      "needs_review": null,
+      "median_latency_seconds": 0.012491645524278283,
+      "usage": {
+        "calls": 40,
+        "failed_calls": 40,
+        "latency_seconds": 0.615227,
+        "reported_input_tokens": 0,
+        "reported_output_tokens": 0,
+        "usage_missing_calls": 40,
+        "reported_cost_usd": null,
+        "known_cost_subtotal_usd": 0,
+        "cost_unknown_calls": 40
+      },
+      "resolved_models": [],
+      "by_task": {
+        "context_full": {
+          "attempted": 20,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "context_short": {
+          "attempted": 20,
+          "correct": 0,
+          "accuracy": 0.0
+        }
+      }
+    },
+    "qwen/qwen3.5-35b-a3b": {
+      "attempted": 40,
+      "correct": 0,
+      "accuracy": 0.0,
+      "errors": 40,
+      "needs_review": null,
+      "median_latency_seconds": 0.011562666506506503,
+      "usage": {
+        "calls": 40,
+        "failed_calls": 40,
+        "latency_seconds": 0.584854,
+        "reported_input_tokens": 0,
+        "reported_output_tokens": 0,
+        "usage_missing_calls": 40,
+        "reported_cost_usd": null,
+        "known_cost_subtotal_usd": 0,
+        "cost_unknown_calls": 40
+      },
+      "resolved_models": [],
+      "by_task": {
+        "context_full": {
+          "attempted": 20,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "context_short": {
+          "attempted": 20,
+          "correct": 0,
+          "accuracy": 0.0
+        }
+      }
+    },
+    "qwen/qwen3.5-9b": {
+      "attempted": 40,
+      "correct": 0,
+      "accuracy": 0.0,
+      "errors": 40,
+      "needs_review": null,
+      "median_latency_seconds": 0.011816916521638632,
+      "usage": {
+        "calls": 40,
+        "failed_calls": 40,
+        "latency_seconds": 0.616103,
+        "reported_input_tokens": 0,
+        "reported_output_tokens": 0,
+        "usage_missing_calls": 40,
+        "reported_cost_usd": null,
+        "known_cost_subtotal_usd": 0,
+        "cost_unknown_calls": 40
+      },
+      "resolved_models": [],
+      "by_task": {
+        "context_full": {
+          "attempted": 20,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "context_short": {
+          "attempted": 20,
+          "correct": 0,
+          "accuracy": 0.0
+        }
+      }
+    },
+    "meta-llama/llama-3.1-8b-instruct": {
+      "attempted": 40,
+      "correct": 0,
+      "accuracy": 0.0,
+      "errors": 40,
+      "needs_review": null,
+      "median_latency_seconds": 0.012271603976842016,
+      "usage": {
+        "calls": 40,
+        "failed_calls": 40,
+        "latency_seconds": 0.599818,
+        "reported_input_tokens": 0,
+        "reported_output_tokens": 0,
+        "usage_missing_calls": 40,
+        "reported_cost_usd": null,
+        "known_cost_subtotal_usd": 0,
+        "cost_unknown_calls": 40
+      },
+      "resolved_models": [],
+      "by_task": {
+        "context_full": {
+          "attempted": 20,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "context_short": {
+          "attempted": 20,
+          "correct": 0,
+          "accuracy": 0.0
+        }
+      }
+    }
+  }
+}

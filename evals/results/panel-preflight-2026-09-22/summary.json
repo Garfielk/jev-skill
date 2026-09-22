@@ -1,0 +1,115 @@
+{
+  "sample_count": 1,
+  "models": {
+    "typesafe/jev-1.13": {
+      "attempted": 1,
+      "correct": 1,
+      "accuracy": 1.0,
+      "errors": 0,
+      "needs_review": 0,
+      "median_latency_seconds": 0.6074527919990942,
+      "usage": {
+        "calls": 1,
+        "failed_calls": 0,
+        "latency_seconds": 0.607453,
+        "reported_input_tokens": 341,
+        "reported_output_tokens": 31,
+        "usage_missing_calls": 0,
+        "reported_cost_usd": 1.4322e-05,
+        "known_cost_subtotal_usd": 1.4322e-05,
+        "cost_unknown_calls": 0
+      },
+      "resolved_models": [
+        "typesafe/jev-1.13-20260917"
+      ]
+    },
+    "deepseek/deepseek-v4-flash": {
+      "attempted": 1,
+      "correct": 0,
+      "accuracy": 0.0,
+      "errors": 1,
+      "needs_review": null,
+      "median_latency_seconds": 1.5936446670093574,
+      "usage": {
+        "calls": 1,
+        "failed_calls": 1,
+        "latency_seconds": 1.593645,
+        "reported_input_tokens": 78,
+        "reported_output_tokens": 7,
+        "usage_missing_calls": 0,
+        "reported_cost_usd": 4.774e-06,
+        "known_cost_subtotal_usd": 4.774e-06,
+        "cost_unknown_calls": 0
+      },
+      "resolved_models": [
+        "deepseek/deepseek-v4-flash"
+      ]
+    },
+    "qwen/qwen3.5-35b-a3b": {
+      "attempted": 1,
+      "correct": 1,
+      "accuracy": 1.0,
+      "errors": 0,
+      "needs_review": null,
+      "median_latency_seconds": 1.555101374979131,
+      "usage": {
+        "calls": 1,
+        "failed_calls": 0,
+        "latency_seconds": 1.555101,
+        "reported_input_tokens": 137,
+        "reported_output_tokens": 7,
+        "usage_missing_calls": 0,
+        "reported_cost_usd": 1.621e-05,
+        "known_cost_subtotal_usd": 1.621e-05,
+        "cost_unknown_calls": 0
+      },
+      "resolved_models": [
+        "qwen/qwen3.5-35b-a3b"
+      ]
+    },
+    "qwen/qwen3.5-9b": {
+      "attempted": 1,
+      "correct": 1,
+      "accuracy": 1.0,
+      "errors": 0,
+      "needs_review": null,
+      "median_latency_seconds": 1.6422415830311365,
+      "usage": {
+        "calls": 1,
+        "failed_calls": 0,
+        "latency_seconds": 1.642242,
+        "reported_input_tokens": 90,
+        "reported_output_tokens": 12,
+        "usage_missing_calls": 0,
+        "reported_cost_usd": 1.08e-05,
+        "known_cost_subtotal_usd": 1.08e-05,
+        "cost_unknown_calls": 0
+      },
+      "resolved_models": [
+        "qwen/qwen3.5-9b"
+      ]
+    },
+    "meta-llama/llama-3.1-8b-instruct": {
+      "attempted": 1,
+      "correct": 1,
+      "accuracy": 1.0,
+      "errors": 0,
+      "needs_review": null,
+      "median_latency_seconds": 1.0713531670044176,
+      "usage": {
+        "calls": 1,
+        "failed_calls": 0,
+        "latency_seconds": 1.071353,
+        "reported_input_tokens": 88,
+        "reported_output_tokens": 7,
+        "usage_missing_calls": 0,
+        "reported_cost_usd": 2.04e-06,
+        "known_cost_subtotal_usd": 2.04e-06,
+        "cost_unknown_calls": 0
+      },
+      "resolved_models": [
+        "meta-llama/llama-3.1-8b-instruct"
+      ]
+    }
+  }
+}

@@ -418,11 +418,19 @@ jev-decide decide request.json > result.json
 但标签是合成难度分档，不是实际模型能力测试；[@twid 的实战记录](https://x.com/twid/status/2101642632837366105)
 还提到规则误伤自己的 persona 和无害措辞。这些是外部报告，不是我们的复现。
 
+**上下文建议，我们补了实测：** [20 个配对案例 / 40 次真实 Jev 调用](docs/experiments/context-pilot/README.md)，附完整输入输出。
+精简/完整证据分别有 20/20、19/20 符合各自预设答案；“未知”从 15 个降到 4 个。
+更多证据让它能做更多明确判断，**不代表准确率更高**。报告保留了唯一不一致案例及其判定标准歧义。
+
+**旧判断也会过期。** dbt-assay 作者记录了两类误报来源：判断时缺少主张对应的证据，以及规则修正后仍沿用旧答案。
+[可照着改的检查流程](skills/jev/references/pitfalls.md#evidence-freshness)：证据不足走 unknown；读取历史结果时重新核对证据、问题和规则版本；旧回执保留，但不当作当前结论。这是作者报告与我们的流程改编，尚未复现。
+
 复制给 Agent：
 
 ```text
 先检查 Jev 输入是否包含目标、相关原文、关键历史、真实工具回执和候选定义。
 把结果判断与证据是否充分分开问。不要为了大 context 加入无关内容。
+证据不足标 unknown；复用旧判断前核对证据、问题和规则版本，过期结果保留回执但不放行。
 如果要重复 judge，先提出固定的小预算、次数和汇总规则，等我批准；保留所有返回。
 重复一致不当作正确率；用独立标签或真实结果复核，不确定就交给更强模型或人。
 沿用我选定的 key 和服务商，出错后不要擅自换接口或模拟。
@@ -639,6 +647,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 ```
 
 [原始请求与完整响应](evals/results/examples-2026-09-20.json)
+
+**真实 PR 价值分类实测：** [20 个公开 PR，附输入输出与复现代码](docs/experiments/public-pr-pilot/README.md)。
+Jev 与事先的 Agent 标注全部一致：10 个实质改进、10 个常规维护，其中 1 个仍需复核。
+报告有可直接复制给 Agent 的用法。样本全是已合并 PR，不代表能识别无价值 PR，更不是自动合并测试。
 
 **PR 合并资格预审：** 输入必需检查、真实 CI 回执和评审状态，分类为条件满足、缺项或需复核。分支保护和权限由代码执行；Jev 不负责合并。这是未测试的流程改编。
 
@@ -3059,6 +3071,23 @@ Jev 本身不浏览、不执行工具，也不生成自由文本。判断输入�
 
 <a id="experiments"></a>
 ### 🧪 可以查看的实验
+
+**新增：五模型同题对比。** 下表是答对数 / 全部尝试；PR 是预先标注一致率，不是合并正确率。小样本，不是通用排行榜。
+
+| 实验 | N | Jev | DeepSeek V4 Flash | Qwen35B A3B | Qwen9B | Llama3.1 8B |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| [BBH · 有限选项推理](docs/experiments/model-panel/runs/bbh/README.md) | 160 | 138/160 | 108/160 | 114/160 | 102/160 | 88/160 |
+| [LogiQA 2.0 · 中文逻辑](docs/experiments/model-panel/runs/logiqa/README.md) | 20 | 16/20 | 19/20 | 18/20 | 16/20 | 13/20 |
+| [OCNLI · 中文蕴含](docs/experiments/model-panel/runs/ocnli/README.md) | 20 | 18/20 | 16/20 | 18/20 | 19/20 | 9/20 |
+| [Ruozhiba MC · 常识误解改编](docs/experiments/model-panel/runs/ruozhiba/README.md) | 20 | 20/20 | 20/20 | 20/20 | 20/20 | 17/20 |
+| [Context · 证据完整与缺失](docs/experiments/model-panel/runs/context/README.md) | 40 | 39/40 | 40/40 | 38/40 | 38/40 | 30/40 |
+| [Public PRs · 预期价值标注一致率](docs/experiments/model-panel/runs/pr/README.md) | 40 | 38/40 | 36/40 | 33/40 | 37/40 | 29/40 |
+| [Banking77 · 工单分流](docs/experiments/model-panel/runs/banking/README.md) | 20 | 16/20 | 16/20 | 17/20 | 15/20 | 13/20 |
+| [BoolQ · 给定文档问答](docs/experiments/model-panel/runs/boolq/README.md) | 20 | 19/20 | 18/20 | 19/20 | 20/20 | 15/20 |
+| [BFCL · 工具名选择](docs/experiments/model-panel/runs/bfcl/README.md) | 20 | 20/20 | 20/20 | 20/20 | 20/20 | 20/20 |
+| [Prompt injection · 窄口径标签](docs/experiments/model-panel/runs/injection/README.md) | 20 | 17/20 | 17/20 | 18/20 | 19/20 | 16/20 |
+
+[费用、延迟、失败、真实 I/O 与复现](docs/experiments/model-panel/README.md)。Agent 配对实验 **3/4 → 4/4**，但增加了调用；以前的负面结果仍保留在下方。
 
 - [五技能验证：安装、导航和三次真实 Jev 请求](docs/validation-five-skills.md).
 - [Agent 使用前后对照](evals/RESULTS.md)：12 组，baseline 12/12，固定检查点 10/12；是该接入策略的小规模负面结果。

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "connectivity",
+    "task": "preflight",
+    "input": "Choose the option that names a color.",
+    "criteria": {
+      "A": "blue",
+      "B": "seven"
+    },
+    "target": "A"
+  }
+]
