@@ -69,6 +69,16 @@ refused those questions. The report says the guard was subsequently applied on
 reads too. These are author-reported failures, not our reproduction or an estimate
 of Jev's general error rate.
 
+**Our measured follow-up:** a [20-case paired pilot](https://github.com/wuyoscar/jev-skill/blob/main/docs/experiments/context-pilot/README.md)
+made 40 real Jev calls with short versus fuller evidence. Expected-label agreement
+was 20/20 versus 19/20; `unknown` answers fell from 15 to 4, and CLI-selected
+answers rose from 5 to 15 (14 correct). All ten newly resolvable cases got the
+expected label. More evidence enabled more decisions, not higher accuracy.
+The one disagreement has a readiness-versus-proof ambiguity, documented with
+exact input/output. This is small synthetic evidence, not a calibration study or
+a test of cache invalidation. The host should run actual checks and supply their
+receipts, rather than asking Jev to invent test results.
+
 **Adapt this to document checks, code review or cached classifications:**
 
 1. Match each claim to its relevant source span, identifier and version. Missing

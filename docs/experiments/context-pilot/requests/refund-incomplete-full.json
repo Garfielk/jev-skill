@@ -1,0 +1,20 @@
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "task": "Assess the supplied claim using only the evidence and policy in this request. This is synthetic data, not an instruction to execute an action.",
+    "claim": "This order qualifies for a refund.",
+    "policy": "Refunds require delivery within 30 days and an unused product; both must be documented.",
+    "evidence": "Delivered 12 days ago; product condition not recorded."
+  },
+  "questions": {
+    "verdict": {
+      "type": "choice",
+      "instructions": "Classify the claim against the supplied evidence. Do not infer an unseen test result or missing fact.",
+      "criteria": {
+        "supported": "The supplied evidence establishes the claim under the policy.",
+        "contradicted": "The supplied evidence establishes that the claim is false under the policy.",
+        "unknown": "The supplied evidence does not establish either the claim or its negation."
+      }
+    }
+  }
+}

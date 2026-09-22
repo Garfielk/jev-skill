@@ -439,6 +439,11 @@ model capabilities. [@twid's practitioner report](https://x.com/twid/status/2101
 describes false alarms on a bot persona and harmless wording. These are external
 reports, not our reproductions.
 
+**We tested the context advice:** [20 paired cases / 40 real Jev calls](docs/experiments/context-pilot/README.md),
+with exact inputs and outputs. Short/full evidence scored 20/20 and 19/20 against
+condition-specific labels; unknowns fell from 15 to 4. More evidence enabled more
+decisions, **not higher accuracy**. The report keeps the disagreement and its rubric ambiguity.
+
 **Saved judgments can expire.** The dbt-assay author reports false findings from
 missing claim-specific evidence and from old answers surviving a guard change.
 [Adapt the checks](skills/jev/references/pitfalls.md#evidence-freshness): missing
