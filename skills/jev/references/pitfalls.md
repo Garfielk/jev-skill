@@ -79,6 +79,11 @@ exact input/output. This is small synthetic evidence, not a calibration study or
 a test of cache invalidation. The host should run actual checks and supply their
 receipts, rather than asking Jev to invent test results.
 
+For non-synthetic data, the [public-PR pilot](https://github.com/wuyoscar/jev-skill/blob/main/docs/experiments/public-pr-pilot/README.md)
+feeds 20 actual descriptions, technical discussions and complete diffs to Jev.
+All 20 value labels matched pre-call host annotations, with one review outcome.
+This all-merged sample tests intended-value triage, not merge safety or bad-PR detection.
+
 **Adapt this to document checks, code review or cached classifications:**
 
 1. Match each claim to its relevant source span, identifier and version. Missing

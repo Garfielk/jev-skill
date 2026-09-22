@@ -682,6 +682,12 @@ such as 1.29/2 is **not** a probability.
 
 [Original request and full response](evals/results/examples-2026-09-20.json)
 
+**Real PR value triage:** [20 public PRs, exact inputs and outputs](docs/experiments/public-pr-pilot/README.md).
+Jev agreed with pre-call host annotations on 10 substantive improvements and 10
+maintenance changes; one result still needed review. Includes a copy-to-agent
+prompt and replay code. This merged-only sample does not measure bad-PR detection
+or prove merge readiness.
+
 **PR merge eligibility:** give the required checks, actual CI receipts and review state; classify `requirements_met`, `missing` or `needs_review`. Code enforces branch protection and permissions; Jev does not merge the PR. Untested workflow adaptation.
 
 

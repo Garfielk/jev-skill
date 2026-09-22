@@ -37,3 +37,18 @@ host or person consumes each answer before enabling any automatic effect.
 [Related project or author example](https://github.com/devagrawal09/jev-review). Our workflow is an adaptation,
 not that project's code, an automatic installer, or a reproduced benchmark.
 [OpenRouter request contract](https://openrouter.ai/docs/api/api-reference/alphadecisions/submit-a-decisions-questions-and-answers-request).
+
+## Real-data example: assess PR value before deeper review
+
+[Twenty public Requests/Flask PRs](https://github.com/wuyoscar/jev-skill/blob/main/docs/experiments/public-pr-pilot/README.md)
+were classified from descriptions, technical discussion and complete diffs, with
+merge/approval metadata withheld. Jev agreed with all 20 pre-call host-agent
+annotations: 10 substantive improvements and 10 routine maintenance changes.
+One substantive result still required review at option probability 0.79.
+
+Use the report's exact requests, raw outputs and copy-to-agent prompt as a small
+starting example. Value is not correctness or merge eligibility; dependency upkeep
+is not worthless. All samples were merged, no negative cases were labeled, and
+the annotator knew their status: this is agreement on a convenience sample, not
+human-validated accuracy or evidence that Jev detects bad PRs. Upstream tests
+were not run, and no branch protection or merge action is automated.

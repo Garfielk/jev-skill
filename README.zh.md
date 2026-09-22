@@ -648,6 +648,10 @@ Noul 的 `probability` 始终是 **P(true)**，即使 `value` 为 false；1.29/2
 
 [原始请求与完整响应](evals/results/examples-2026-09-20.json)
 
+**真实 PR 价值分类实测：** [20 个公开 PR，附输入输出与复现代码](docs/experiments/public-pr-pilot/README.md)。
+Jev 与事先的 Agent 标注全部一致：10 个实质改进、10 个常规维护，其中 1 个仍需复核。
+报告有可直接复制给 Agent 的用法。样本全是已合并 PR，不代表能识别无价值 PR，更不是自动合并测试。
+
 **PR 合并资格预审：** 输入必需检查、真实 CI 回执和评审状态，分类为条件满足、缺项或需复核。分支保护和权限由代码执行；Jev 不负责合并。这是未测试的流程改编。
 
 
