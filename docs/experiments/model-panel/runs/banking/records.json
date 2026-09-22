@@ -1,0 +1,4962 @@
+[
+  {
+    "id": "banking:1180",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:13:37.758628+00:00",
+    "prediction": "why_verify_identity",
+    "probabilities": {
+      "exchange_charge": 0,
+      "activate_my_card": 0,
+      "card_payment_not_recognised": 0,
+      "cancel_transfer": 0,
+      "reverted_card_payment?": 0,
+      "visa_or_mastercard": 0,
+      "declined_card_payment": 0,
+      "fiat_currency_support": 0,
+      "supported_cards_and_currencies": 0,
+      "exchange_via_app": 0,
+      "pending_card_payment": 0,
+      "card_payment_fee_charged": 0,
+      "order_physical_card": 0,
+      "card_arrival": 0,
+      "card_swallowed": 0,
+      "why_verify_identity": 0.98,
+      "transfer_into_account": 0,
+      "transaction_charged_twice": 0,
+      "top_up_failed": 0,
+      "declined_transfer": 0,
+      "apple_pay_or_google_pay": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "contactless_not_working": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "receiving_money": 0,
+      "country_support": 0,
+      "atm_support": 0,
+      "card_linking": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "card_not_working": 0,
+      "top_up_limits": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "verify_my_identity": 0.02,
+      "exchange_rate": 0,
+      "beneficiary_not_allowed": 0,
+      "disposable_card_limits": 0,
+      "getting_spare_card": 0,
+      "edit_personal_details": 0,
+      "transfer_not_received_by_recipient": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "pending_cash_withdrawal": 0,
+      "unable_to_verify_identity": 0,
+      "getting_virtual_card": 0,
+      "wrong_amount_of_cash_received": 0,
+      "lost_or_stolen_card": 0,
+      "card_delivery_estimate": 0,
+      "top_up_reverted": 0,
+      "topping_up_by_card": 0,
+      "get_physical_card": 0,
+      "top_up_by_card_charge": 0,
+      "automatic_top_up": 0,
+      "lost_or_stolen_phone": 0,
+      "declined_cash_withdrawal": 0,
+      "verify_source_of_funds": 0,
+      "verify_top_up": 0,
+      "transfer_fee_charged": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "change_pin": 0,
+      "Refund_not_showing_up": 0,
+      "compromised_card": 0,
+      "failed_transfer": 0,
+      "pending_top_up": 0,
+      "passcode_forgotten": 0,
+      "pending_transfer": 0,
+      "cash_withdrawal_charge": 0,
+      "virtual_card_not_working": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "extra_charge_on_statement": 0,
+      "card_about_to_expire": 0,
+      "transfer_timing": 0,
+      "card_acceptance": 0,
+      "age_limit": 0,
+      "get_disposable_virtual_card": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "terminate_account": 0,
+      "pin_blocked": 0,
+      "request_refund": 0
+    },
+    "confidence": 0.98,
+    "review_status": "selected",
+    "latency_seconds": 0.4351871249964461,
+    "task": "banking77",
+    "target": "why_verify_identity",
+    "request_sha256": "7919213a9088226c4f08735e54b6932e6161149a29880845ac17013312365856",
+    "response_sha256": "4b900ac83dae88f6f3ec02909054a05e41f8ac0bcf5c862406713bb9d977151a",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1709,
+        "output_tokens": 827,
+        "cost": 7.1778e-05
+      }
+    }
+  },
+  {
+    "id": "banking:1180",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:13:37.759373+00:00",
+    "prediction": "why_verify_identity",
+    "latency_seconds": 1.0223847919842228,
+    "task": "banking77",
+    "target": "why_verify_identity",
+    "request_sha256": "2cafbd0e70b769337e0bd0cb01915988d0f7ef14bcb22506894a83a8f438f10c",
+    "response_sha256": "69debdcc53c0e1351a03f20b0716ba23e73a15553d06aec8e7259f2a6ddb7479",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1045,
+        "completion_tokens": 11,
+        "total_tokens": 1056,
+        "cost": 9.603e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.603e-05,
+          "upstream_inference_prompt_cost": 9.405e-05,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1180",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:13:37.759786+00:00",
+    "prediction": "why_verify_identity",
+    "latency_seconds": 0.923250709020067,
+    "task": "banking77",
+    "target": "why_verify_identity",
+    "request_sha256": "72938822defa23f6eda7406f3cf611ba9d769fa31768dba08dda2f31d27bd7ec",
+    "response_sha256": "8693ac6601c79d6715b64711bdca69359c95684778f8efa16e6c14ebf2326423",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 966,
+        "completion_tokens": 14,
+        "total_tokens": 980,
+        "cost": 0.000319375,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000319375,
+          "upstream_inference_prompt_cost": 0.000301875,
+          "upstream_inference_completions_cost": 1.75e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1180",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:13:37.760090+00:00",
+    "prediction": "why_verify_identity",
+    "latency_seconds": 2.475226292037405,
+    "task": "banking77",
+    "target": "why_verify_identity",
+    "request_sha256": "1652200ec359238cf4a2eaccca6c326a855259dc2803a6240fbb5eedf7617931",
+    "response_sha256": "58e18b88be2ccb9f60b6f6de62a9a38ed97a40556487391fe706164bb9d59dfa",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 966,
+        "completion_tokens": 12,
+        "total_tokens": 978,
+        "cost": 9.84e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.84e-05,
+          "upstream_inference_prompt_cost": 9.66e-05,
+          "upstream_inference_completions_cost": 1.8e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1180",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:13:40.237049+00:00",
+    "prediction": "why_verify_identity",
+    "latency_seconds": 0.3813679580343887,
+    "task": "banking77",
+    "target": "why_verify_identity",
+    "request_sha256": "6eff1aa0f91f8b376bba743ec090178056578b4bb4f6eb4ee26b910bad19f2c4",
+    "response_sha256": "aece4960ce8daa4e65819b4484a70072ef79c186b6f9454c65ca4571f9d2ef38",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 984,
+        "completion_tokens": 9,
+        "total_tokens": 993,
+        "cost": 0.00021846,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00021846,
+          "upstream_inference_prompt_cost": 0.00021648,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1619",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:13:40.236749+00:00",
+    "prediction": "pending_card_payment",
+    "latency_seconds": 1.9920986670185812,
+    "task": "banking77",
+    "target": "pending_card_payment",
+    "request_sha256": "6aeb28881671061fd95b5f69523364221e9880ca2fe5f5d7221cd982892ba768",
+    "response_sha256": "2ab6eda051bf182324d43062f6f6c7affc6ec21339f17b8065361e6fbf653a43",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1041,
+        "completion_tokens": 10,
+        "total_tokens": 1051,
+        "cost": 9.4010966e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.4010966e-05,
+          "upstream_inference_prompt_cost": 9.2238846e-05,
+          "upstream_inference_completions_cost": 1.77212e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1619",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:13:40.237222+00:00",
+    "prediction": "pending_card_payment",
+    "latency_seconds": 0.9313408749876544,
+    "task": "banking77",
+    "target": "pending_card_payment",
+    "request_sha256": "76e4140088a935c4176f7e56976fb79a32bfa2e0f8d9ff065a6fcfc40a58e161",
+    "response_sha256": "1a5b4891dd4ee988ff8e592c222ce3a78df876cfe31d3c1aee63063f1a64b810",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 962,
+        "completion_tokens": 14,
+        "total_tokens": 976,
+        "cost": 0.000318125,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000318125,
+          "upstream_inference_prompt_cost": 0.000300625,
+          "upstream_inference_completions_cost": 1.75e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1619",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:13:40.237389+00:00",
+    "prediction": "pending_card_payment",
+    "latency_seconds": 2.103925250004977,
+    "task": "banking77",
+    "target": "pending_card_payment",
+    "request_sha256": "3c4adabecaec5d6e2d6e3e05052206a03e9e94af8a06a483d9e172867fc8c5d4",
+    "response_sha256": "e631031f0cafa8aa62864245fa19b59da9b01329657f7aa357afc141a0c929f0",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 962,
+        "completion_tokens": 12,
+        "total_tokens": 974,
+        "cost": 9.8e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.8e-05,
+          "upstream_inference_prompt_cost": 9.62e-05,
+          "upstream_inference_completions_cost": 1.8e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1619",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:13:42.342131+00:00",
+    "prediction": "pending_card_payment",
+    "latency_seconds": 0.39479245903203264,
+    "task": "banking77",
+    "target": "pending_card_payment",
+    "request_sha256": "ca4b2a1b89a663069e019e5d6b11ab49c9c6a1b784189d110753864c27c9ab1f",
+    "response_sha256": "c62b0d5f15e9341416e64ba549f8d2d370f2bd3b09ab2af407c88aab37d3f87b",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 980,
+        "completion_tokens": 9,
+        "total_tokens": 989,
+        "cost": 0.00021758,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00021758,
+          "upstream_inference_prompt_cost": 0.0002156,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1619",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:13:42.342387+00:00",
+    "prediction": "pending_card_payment",
+    "probabilities": {
+      "card_swallowed": 0,
+      "verify_my_identity": 0,
+      "getting_spare_card": 0,
+      "passcode_forgotten": 0,
+      "transfer_not_received_by_recipient": 0,
+      "beneficiary_not_allowed": 0,
+      "declined_transfer": 0,
+      "verify_source_of_funds": 0,
+      "contactless_not_working": 0,
+      "cash_withdrawal_charge": 0,
+      "edit_personal_details": 0,
+      "atm_support": 0,
+      "lost_or_stolen_phone": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "top_up_limits": 0,
+      "card_payment_fee_charged": 0,
+      "compromised_card": 0,
+      "get_physical_card": 0,
+      "transfer_timing": 0,
+      "declined_cash_withdrawal": 0,
+      "pending_card_payment": 1,
+      "card_acceptance": 0,
+      "order_physical_card": 0,
+      "country_support": 0,
+      "top_up_failed": 0,
+      "fiat_currency_support": 0,
+      "apple_pay_or_google_pay": 0,
+      "pending_top_up": 0,
+      "pin_blocked": 0,
+      "failed_transfer": 0,
+      "terminate_account": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "topping_up_by_card": 0,
+      "transfer_into_account": 0,
+      "virtual_card_not_working": 0,
+      "transaction_charged_twice": 0,
+      "verify_top_up": 0,
+      "card_delivery_estimate": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "exchange_charge": 0,
+      "exchange_via_app": 0,
+      "reverted_card_payment?": 0,
+      "card_payment_not_recognised": 0,
+      "cancel_transfer": 0,
+      "extra_charge_on_statement": 0,
+      "pending_transfer": 0,
+      "get_disposable_virtual_card": 0,
+      "pending_cash_withdrawal": 0,
+      "request_refund": 0,
+      "getting_virtual_card": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "declined_card_payment": 0,
+      "supported_cards_and_currencies": 0,
+      "exchange_rate": 0,
+      "wrong_amount_of_cash_received": 0,
+      "lost_or_stolen_card": 0,
+      "age_limit": 0,
+      "why_verify_identity": 0,
+      "automatic_top_up": 0,
+      "visa_or_mastercard": 0,
+      "receiving_money": 0,
+      "card_arrival": 0,
+      "card_not_working": 0,
+      "card_about_to_expire": 0,
+      "unable_to_verify_identity": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "top_up_reverted": 0,
+      "activate_my_card": 0,
+      "change_pin": 0,
+      "Refund_not_showing_up": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "card_linking": 0,
+      "transfer_fee_charged": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "disposable_card_limits": 0,
+      "top_up_by_card_charge": 0
+    },
+    "confidence": 1,
+    "review_status": "selected",
+    "latency_seconds": 0.3155564999906346,
+    "task": "banking77",
+    "target": "pending_card_payment",
+    "request_sha256": "1c63257524818cd25508e9e9c7d5277246040a0f76bfe2bec9133897a61886a7",
+    "response_sha256": "22121c363f1dfb0be0b06256f326d2d40dd2652d2393483736393ffd689b15d2",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1705,
+        "output_tokens": 827,
+        "cost": 7.161e-05
+      }
+    }
+  },
+  {
+    "id": "banking:1841",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:13:42.342781+00:00",
+    "prediction": "pending_transfer",
+    "latency_seconds": 0.8806578330113553,
+    "task": "banking77",
+    "target": "pending_transfer",
+    "request_sha256": "71e3906e2c5a74f47629e33cd749c40643c14458baf7dbe1917dc39dbe1eeb98",
+    "response_sha256": "e78bc0654823c4a47396bbdab393fc36254c7b4d80e67922e5d03e6d97728d2d",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 966,
+        "completion_tokens": 12,
+        "total_tokens": 978,
+        "cost": 0.000172575,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000172575,
+          "upstream_inference_prompt_cost": 0.000156975,
+          "upstream_inference_completions_cost": 1.56e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1841",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:13:42.343011+00:00",
+    "prediction": "transfer_timing",
+    "latency_seconds": 0.8590849580359645,
+    "task": "banking77",
+    "target": "pending_transfer",
+    "request_sha256": "b0324b69902efcaf4aa4f00b7ea7d5f54d81b74641d34a1d582607dbd2556ea2",
+    "response_sha256": "4fd8e61a29f98160473b8563623af8e7fca38d71b3272eb906fc6f12d998df7e",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 964,
+        "completion_tokens": 12,
+        "total_tokens": 976,
+        "cost": 9.82e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.82e-05,
+          "upstream_inference_prompt_cost": 9.64e-05,
+          "upstream_inference_completions_cost": 1.8e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1841",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:13:43.224345+00:00",
+    "prediction": "transfer_timing",
+    "latency_seconds": 0.38024425000185147,
+    "task": "banking77",
+    "target": "pending_transfer",
+    "request_sha256": "ef89101f02c29996775764c4c6c0c72fccedab607269911ce5e9654546d73049",
+    "response_sha256": "6cd0b1a8be168df898cc2df02f4c88b9135305bfe7015d8fde4cc8c9ac6f7997",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 982,
+        "completion_tokens": 8,
+        "total_tokens": 990,
+        "cost": 0.0002178,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0002178,
+          "upstream_inference_prompt_cost": 0.00021604,
+          "upstream_inference_completions_cost": 1.76e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1841",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:13:43.224889+00:00",
+    "prediction": "transfer_timing",
+    "probabilities": {
+      "lost_or_stolen_phone": 0,
+      "pending_cash_withdrawal": 0,
+      "pending_transfer": 0.01,
+      "card_payment_fee_charged": 0,
+      "country_support": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "supported_cards_and_currencies": 0,
+      "exchange_via_app": 0,
+      "pending_top_up": 0,
+      "getting_virtual_card": 0,
+      "age_limit": 0,
+      "activate_my_card": 0,
+      "extra_charge_on_statement": 0,
+      "apple_pay_or_google_pay": 0,
+      "card_not_working": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "card_swallowed": 0,
+      "get_disposable_virtual_card": 0,
+      "passcode_forgotten": 0,
+      "receiving_money": 0.03,
+      "top_up_reverted": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "wrong_amount_of_cash_received": 0,
+      "why_verify_identity": 0,
+      "verify_top_up": 0,
+      "cash_withdrawal_charge": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "get_physical_card": 0,
+      "lost_or_stolen_card": 0,
+      "automatic_top_up": 0,
+      "fiat_currency_support": 0,
+      "transfer_not_received_by_recipient": 0,
+      "topping_up_by_card": 0,
+      "card_acceptance": 0,
+      "cancel_transfer": 0,
+      "exchange_rate": 0,
+      "reverted_card_payment?": 0,
+      "atm_support": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "exchange_charge": 0,
+      "terminate_account": 0,
+      "card_delivery_estimate": 0,
+      "transfer_timing": 0.96,
+      "declined_card_payment": 0,
+      "transfer_into_account": 0,
+      "virtual_card_not_working": 0,
+      "pending_card_payment": 0,
+      "compromised_card": 0,
+      "Refund_not_showing_up": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "top_up_limits": 0,
+      "visa_or_mastercard": 0,
+      "change_pin": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "declined_cash_withdrawal": 0,
+      "top_up_by_card_charge": 0,
+      "edit_personal_details": 0,
+      "card_arrival": 0,
+      "pin_blocked": 0,
+      "failed_transfer": 0,
+      "card_payment_not_recognised": 0,
+      "transaction_charged_twice": 0,
+      "transfer_fee_charged": 0,
+      "verify_my_identity": 0,
+      "contactless_not_working": 0,
+      "getting_spare_card": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "beneficiary_not_allowed": 0,
+      "card_linking": 0,
+      "order_physical_card": 0,
+      "card_about_to_expire": 0,
+      "request_refund": 0,
+      "declined_transfer": 0,
+      "unable_to_verify_identity": 0,
+      "top_up_failed": 0,
+      "verify_source_of_funds": 0,
+      "disposable_card_limits": 0
+    },
+    "confidence": 0.95,
+    "review_status": "selected",
+    "latency_seconds": 0.30603650002740324,
+    "task": "banking77",
+    "target": "pending_transfer",
+    "request_sha256": "122cc02e1b5a0b96fc7e91941b72a825717ec0ce801b4693571086c35c9aa963",
+    "response_sha256": "d44066e66929b15141244524f76397e975244ecec340773f62139ba5fec163a4",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1707,
+        "output_tokens": 827,
+        "cost": 7.1694e-05
+      }
+    }
+  },
+  {
+    "id": "banking:1841",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:13:43.225269+00:00",
+    "prediction": "transfer_timing",
+    "latency_seconds": 2.365735790983308,
+    "task": "banking77",
+    "target": "pending_transfer",
+    "request_sha256": "07644944170635aa119a4b009a97a70f4873bf28f3c74291037385712ae4cee5",
+    "response_sha256": "2580afe01e3c553582724803c88c7417422f1b0d969cd05b64aa3c663c442f3b",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1043,
+        "completion_tokens": 9,
+        "total_tokens": 1052,
+        "cost": 9.549e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.549e-05,
+          "upstream_inference_prompt_cost": 9.387e-05,
+          "upstream_inference_completions_cost": 1.62e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1890",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:13:43.225532+00:00",
+    "prediction": "terminate_account",
+    "latency_seconds": 1.3216373749892227,
+    "task": "banking77",
+    "target": "terminate_account",
+    "request_sha256": "1988d35b5d0d472ce5881e100449bfce4eeefcb4bd064545e3d1170e8dc57fc2",
+    "response_sha256": "9aecbe2608230d5d0183bec35f756f4e7d81191240b0ab9af61d3459885f437c",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 971,
+        "completion_tokens": 11,
+        "total_tokens": 982,
+        "cost": 9.875e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.875e-05,
+          "upstream_inference_prompt_cost": 9.71e-05,
+          "upstream_inference_completions_cost": 1.65e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1890",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:13:45.591720+00:00",
+    "prediction": "terminate_account",
+    "latency_seconds": 0.3720351249794476,
+    "task": "banking77",
+    "target": "terminate_account",
+    "request_sha256": "efb069699ccfea8ee6f8a45778cfcde92e03ca559afbc571e9f8ad8f0b2c4f90",
+    "response_sha256": "157a1a61c39a0aacde93c91da5bbbe5d5c0bdf0f6328240502c3e7ca7933445a",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 989,
+        "completion_tokens": 8,
+        "total_tokens": 997,
+        "cost": 0.00021934,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00021934,
+          "upstream_inference_prompt_cost": 0.00021758,
+          "upstream_inference_completions_cost": 1.76e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1890",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:13:45.591925+00:00",
+    "prediction": "terminate_account",
+    "probabilities": {
+      "cancel_transfer": 0,
+      "get_physical_card": 0,
+      "reverted_card_payment?": 0,
+      "topping_up_by_card": 0,
+      "card_about_to_expire": 0,
+      "transfer_timing": 0,
+      "contactless_not_working": 0,
+      "change_pin": 0,
+      "transfer_not_received_by_recipient": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "card_acceptance": 0,
+      "apple_pay_or_google_pay": 0,
+      "unable_to_verify_identity": 0,
+      "fiat_currency_support": 0,
+      "extra_charge_on_statement": 0,
+      "cash_withdrawal_charge": 0,
+      "card_not_working": 0,
+      "card_delivery_estimate": 0,
+      "verify_source_of_funds": 0,
+      "atm_support": 0,
+      "supported_cards_and_currencies": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "pin_blocked": 0,
+      "order_physical_card": 0,
+      "top_up_reverted": 0,
+      "edit_personal_details": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "pending_card_payment": 0,
+      "visa_or_mastercard": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "get_disposable_virtual_card": 0,
+      "top_up_limits": 0,
+      "card_swallowed": 0,
+      "transfer_into_account": 0,
+      "terminate_account": 1,
+      "pending_transfer": 0,
+      "age_limit": 0,
+      "virtual_card_not_working": 0,
+      "transfer_fee_charged": 0,
+      "transaction_charged_twice": 0,
+      "country_support": 0,
+      "verify_top_up": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "why_verify_identity": 0,
+      "exchange_charge": 0,
+      "failed_transfer": 0,
+      "declined_transfer": 0,
+      "disposable_card_limits": 0,
+      "automatic_top_up": 0,
+      "passcode_forgotten": 0,
+      "declined_card_payment": 0,
+      "top_up_failed": 0,
+      "receiving_money": 0,
+      "compromised_card": 0,
+      "beneficiary_not_allowed": 0,
+      "verify_my_identity": 0,
+      "activate_my_card": 0,
+      "exchange_rate": 0,
+      "getting_spare_card": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "pending_top_up": 0,
+      "pending_cash_withdrawal": 0,
+      "exchange_via_app": 0,
+      "Refund_not_showing_up": 0,
+      "lost_or_stolen_card": 0,
+      "request_refund": 0,
+      "lost_or_stolen_phone": 0,
+      "card_arrival": 0,
+      "declined_cash_withdrawal": 0,
+      "getting_virtual_card": 0,
+      "card_payment_fee_charged": 0,
+      "top_up_by_card_charge": 0,
+      "card_linking": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "card_payment_not_recognised": 0,
+      "wrong_amount_of_cash_received": 0
+    },
+    "confidence": 1,
+    "review_status": "selected",
+    "latency_seconds": 0.45254770800238475,
+    "task": "banking77",
+    "target": "terminate_account",
+    "request_sha256": "9cdfbefb39bfb16f6c424cc4f8e11b373b62b412e77db79229d0876f435094eb",
+    "response_sha256": "83a9372e01e51a2e637e70ae4d41fbee48e0f8402b1c9a3fcf26e4ab8846d59a",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1715,
+        "output_tokens": 826,
+        "cost": 7.203e-05
+      }
+    }
+  },
+  {
+    "id": "banking:1890",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:13:45.592249+00:00",
+    "prediction": "terminate_account",
+    "latency_seconds": 2.0513578340178356,
+    "task": "banking77",
+    "target": "terminate_account",
+    "request_sha256": "107628c37943aff8066c3906107b74e3cc8898a0b44a6c364b3cdbb3f9835bcd",
+    "response_sha256": "2bb873267c19e2e429c56d932f4f6e65e9d08f1c31cd8441131be7b87feb46de",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1050,
+        "completion_tokens": 9,
+        "total_tokens": 1059,
+        "cost": 0.0001031625,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001031625,
+          "upstream_inference_prompt_cost": 0.00010143,
+          "upstream_inference_completions_cost": 1.7325e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1890",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:13:45.592861+00:00",
+    "prediction": "terminate_account",
+    "latency_seconds": 1.4702271249843761,
+    "task": "banking77",
+    "target": "terminate_account",
+    "request_sha256": "0a021828d897547257e4db35be0e7316fa640426fb7625aa58df8d7915cf19f0",
+    "response_sha256": "0dfcf2b307e4c48a4062c3546beeb7e137befae629aa94992c4bd0c6850bcec5",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 973,
+        "completion_tokens": 12,
+        "total_tokens": 985,
+        "cost": 0.000240525,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000240525,
+          "upstream_inference_prompt_cost": 0.000218925,
+          "upstream_inference_completions_cost": 2.16e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1996",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:13:47.644313+00:00",
+    "prediction": "transaction_charged_twice",
+    "latency_seconds": 0.3710878329584375,
+    "task": "banking77",
+    "target": "transaction_charged_twice",
+    "request_sha256": "1d2d440b60fbcd0a39902c708d5a33efa0ed42b8e7c0f88c7bf6adf4f2900c1d",
+    "response_sha256": "127f582642b0c6a7e8c875593b2854b6ea5846b6a72c78005417529109fde823",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 987,
+        "completion_tokens": 11,
+        "total_tokens": 998,
+        "cost": 0.00021956,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00021956,
+          "upstream_inference_prompt_cost": 0.00021714,
+          "upstream_inference_completions_cost": 2.42e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1996",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:13:47.644518+00:00",
+    "prediction": "transaction_charged_twice",
+    "probabilities": {
+      "cancel_transfer": 0,
+      "get_physical_card": 0,
+      "reverted_card_payment?": 0,
+      "topping_up_by_card": 0,
+      "card_about_to_expire": 0,
+      "transfer_timing": 0,
+      "contactless_not_working": 0,
+      "cash_withdrawal_charge": 0,
+      "transfer_not_received_by_recipient": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "card_delivery_estimate": 0,
+      "apple_pay_or_google_pay": 0,
+      "fiat_currency_support": 0,
+      "change_pin": 0,
+      "verify_source_of_funds": 0,
+      "unable_to_verify_identity": 0,
+      "card_not_working": 0,
+      "extra_charge_on_statement": 0,
+      "card_acceptance": 0,
+      "atm_support": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "supported_cards_and_currencies": 0,
+      "pin_blocked": 0,
+      "order_physical_card": 0,
+      "edit_personal_details": 0,
+      "top_up_reverted": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "pending_card_payment": 0,
+      "visa_or_mastercard": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "get_disposable_virtual_card": 0,
+      "card_swallowed": 0,
+      "top_up_limits": 0,
+      "transfer_into_account": 0,
+      "terminate_account": 0,
+      "pending_transfer": 0,
+      "age_limit": 0,
+      "virtual_card_not_working": 0,
+      "transfer_fee_charged": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "country_support": 0,
+      "verify_top_up": 0,
+      "why_verify_identity": 0,
+      "transaction_charged_twice": 1,
+      "failed_transfer": 0,
+      "exchange_charge": 0,
+      "declined_transfer": 0,
+      "disposable_card_limits": 0,
+      "automatic_top_up": 0,
+      "passcode_forgotten": 0,
+      "declined_card_payment": 0,
+      "compromised_card": 0,
+      "receiving_money": 0,
+      "top_up_failed": 0,
+      "beneficiary_not_allowed": 0,
+      "verify_my_identity": 0,
+      "activate_my_card": 0,
+      "exchange_rate": 0,
+      "getting_spare_card": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "pending_top_up": 0,
+      "pending_cash_withdrawal": 0,
+      "Refund_not_showing_up": 0,
+      "exchange_via_app": 0,
+      "lost_or_stolen_card": 0,
+      "getting_virtual_card": 0,
+      "card_payment_fee_charged": 0,
+      "card_arrival": 0,
+      "declined_cash_withdrawal": 0,
+      "lost_or_stolen_phone": 0,
+      "request_refund": 0,
+      "card_linking": 0,
+      "top_up_by_card_charge": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "card_payment_not_recognised": 0,
+      "wrong_amount_of_cash_received": 0
+    },
+    "confidence": 1,
+    "review_status": "selected",
+    "latency_seconds": 0.31673808296909556,
+    "task": "banking77",
+    "target": "transaction_charged_twice",
+    "request_sha256": "6ca41e712c00a3c639b906cfd81347cfa61dbcff7572920ac0dab4d3c6fc5aff",
+    "response_sha256": "c162cd132f7f6bfb263d3b353a4b3faefe3b7b5011db9566252b6001d50da173",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1712,
+        "output_tokens": 830,
+        "cost": 7.1904e-05
+      }
+    }
+  },
+  {
+    "id": "banking:1996",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:13:47.644756+00:00",
+    "prediction": "transaction_charged_twice",
+    "latency_seconds": 1.787582749966532,
+    "task": "banking77",
+    "target": "transaction_charged_twice",
+    "request_sha256": "7ccc418d6a13c95bfecac6729f5e1e32d0d450034f408fc077b1f3daa51bc800",
+    "response_sha256": "97d5a87405d7cd9530535481d26f91db5ae7761c0a5d756cdd701c9b93774962",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1048,
+        "completion_tokens": 12,
+        "total_tokens": 1060,
+        "cost": 9.4985632e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.4985632e-05,
+          "upstream_inference_prompt_cost": 9.2859088e-05,
+          "upstream_inference_completions_cost": 2.126544e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1996",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:13:47.644935+00:00",
+    "prediction": "transaction_charged_twice",
+    "latency_seconds": 2.260461417026818,
+    "task": "banking77",
+    "target": "transaction_charged_twice",
+    "request_sha256": "10926ebc151f2c04f6888ddfde35a6e24a2f42a7f6c2314d3fa0b414afb3aa7d",
+    "response_sha256": "b9136d9ec211495e9a2b76ee516511a774ec0cdd32b28237525fb9843d8d6057",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 1433,
+        "completion_tokens": 10,
+        "total_tokens": 1443,
+        "cost": 0.00012214,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00012214,
+          "upstream_inference_prompt_cost": 0.00011464,
+          "upstream_inference_completions_cost": 7.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:1996",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:13:49.906577+00:00",
+    "prediction": "transaction_charged_twice",
+    "latency_seconds": 4.868996334029362,
+    "task": "banking77",
+    "target": "transaction_charged_twice",
+    "request_sha256": "6577a88b125d4688f9bf57fbe7e4638be70446dd1c8251c3411a0f6536abbc1c",
+    "response_sha256": "e01d0158c7c44a8baf6383b3a743f76df4e4f26a3e2e4d5552b274add25ac802",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 969,
+        "completion_tokens": 14,
+        "total_tokens": 983,
+        "cost": 9.9e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.9e-05,
+          "upstream_inference_prompt_cost": 9.69e-05,
+          "upstream_inference_completions_cost": 2.1e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2203",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:13:49.906040+00:00",
+    "prediction": "transfer_fee_charged",
+    "probabilities": {
+      "card_acceptance": 0,
+      "pending_transfer": 0,
+      "exchange_via_app": 0,
+      "top_up_by_card_charge": 0,
+      "apple_pay_or_google_pay": 0,
+      "declined_card_payment": 0,
+      "extra_charge_on_statement": 0,
+      "card_delivery_estimate": 0,
+      "verify_top_up": 0,
+      "atm_support": 0,
+      "get_physical_card": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "order_physical_card": 0,
+      "request_refund": 0,
+      "cash_withdrawal_charge": 0,
+      "verify_my_identity": 0,
+      "pin_blocked": 0,
+      "cancel_transfer": 0,
+      "Refund_not_showing_up": 0,
+      "top_up_limits": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "beneficiary_not_allowed": 0,
+      "verify_source_of_funds": 0,
+      "country_support": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "lost_or_stolen_phone": 0,
+      "card_payment_fee_charged": 0,
+      "card_not_working": 0,
+      "top_up_reverted": 0,
+      "exchange_charge": 0,
+      "disposable_card_limits": 0,
+      "virtual_card_not_working": 0,
+      "receiving_money": 0,
+      "transfer_fee_charged": 1,
+      "change_pin": 0,
+      "card_swallowed": 0,
+      "card_about_to_expire": 0,
+      "pending_top_up": 0,
+      "getting_spare_card": 0,
+      "failed_transfer": 0,
+      "why_verify_identity": 0,
+      "pending_card_payment": 0,
+      "exchange_rate": 0,
+      "age_limit": 0,
+      "contactless_not_working": 0,
+      "transfer_timing": 0,
+      "unable_to_verify_identity": 0,
+      "supported_cards_and_currencies": 0,
+      "getting_virtual_card": 0,
+      "edit_personal_details": 0,
+      "topping_up_by_card": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "lost_or_stolen_card": 0,
+      "passcode_forgotten": 0,
+      "card_arrival": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "compromised_card": 0,
+      "activate_my_card": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "transfer_not_received_by_recipient": 0,
+      "declined_cash_withdrawal": 0,
+      "visa_or_mastercard": 0,
+      "declined_transfer": 0,
+      "card_linking": 0,
+      "transaction_charged_twice": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "pending_cash_withdrawal": 0,
+      "fiat_currency_support": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "automatic_top_up": 0,
+      "top_up_failed": 0,
+      "terminate_account": 0,
+      "reverted_card_payment?": 0,
+      "card_payment_not_recognised": 0,
+      "transfer_into_account": 0,
+      "get_disposable_virtual_card": 0,
+      "wrong_amount_of_cash_received": 0
+    },
+    "confidence": 0.99,
+    "review_status": "selected",
+    "latency_seconds": 0.35063833300955594,
+    "task": "banking77",
+    "target": "transfer_fee_charged",
+    "request_sha256": "323bda4438d6ce81f101c4b34a1ee82cb304f0001a4d11ee5a47bd1676017645",
+    "response_sha256": "809f36178d099df15a56638d6d036c9aacecac569e56df2f466393c50e923c5c",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1707,
+        "output_tokens": 829,
+        "cost": 7.1694e-05
+      }
+    }
+  },
+  {
+    "id": "banking:2203",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:13:49.906366+00:00",
+    "prediction": "transfer_fee_charged",
+    "latency_seconds": 1.108769666054286,
+    "task": "banking77",
+    "target": "transfer_fee_charged",
+    "request_sha256": "cb59739f5a6552827ac57888cd86e7ae94caeb0e8f1ecc983281d4e5ed6a8c96",
+    "response_sha256": "0f94fe6e12501cc4b6f7eb18bc8a228a2ca68fe1921a17059784dd3fdc7366a9",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1045,
+        "completion_tokens": 10,
+        "total_tokens": 1055,
+        "cost": 0.00014271,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00014271,
+          "upstream_inference_prompt_cost": 0.00014003,
+          "upstream_inference_completions_cost": 2.68e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2203",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:13:49.906763+00:00",
+    "prediction": "transfer_fee_charged",
+    "latency_seconds": 1.3833775829989463,
+    "task": "banking77",
+    "target": "transfer_fee_charged",
+    "request_sha256": "195e31eab8ac243746af427560f5b534b56ff62f75d4cad44f2d0faed0089dd5",
+    "response_sha256": "c87ebf6e736d520b459ff5817a65698783e79da215446b8e71875050c793c931",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 964,
+        "completion_tokens": 15,
+        "total_tokens": 979,
+        "cost": 0.0001596,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001596,
+          "upstream_inference_prompt_cost": 0.0001446,
+          "upstream_inference_completions_cost": 1.5e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2203",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:13:54.776394+00:00",
+    "prediction": "transfer_fee_charged",
+    "latency_seconds": 1.0820654159761034,
+    "task": "banking77",
+    "target": "transfer_fee_charged",
+    "request_sha256": "0ef9181a65919f172c8dd81d9e64ad79baa3b787194e605556362c3b16daefa2",
+    "response_sha256": "50c77ac4279279774f843e717275caab22cd49d23ff73b486bbac9f3d479c1f4",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 964,
+        "completion_tokens": 14,
+        "total_tokens": 978,
+        "cost": 9.85e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.85e-05,
+          "upstream_inference_prompt_cost": 9.64e-05,
+          "upstream_inference_completions_cost": 2.1e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2203",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:13:54.776699+00:00",
+    "prediction": "transfer_fee_charged",
+    "latency_seconds": 0.3921751250163652,
+    "task": "banking77",
+    "target": "transfer_fee_charged",
+    "request_sha256": "b07608058c8097f45f79689c25cbfbed170f6ccefea70e4591b591425e7c8b55",
+    "response_sha256": "4c06a28121fef7249d7355cdc5f9fba15ac7e202fd98988baa5a565e5f54dc0f",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 982,
+        "completion_tokens": 10,
+        "total_tokens": 992,
+        "cost": 0.00021824,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00021824,
+          "upstream_inference_prompt_cost": 0.00021604,
+          "upstream_inference_completions_cost": 2.2e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2206",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:13:54.776934+00:00",
+    "prediction": "transfer_fee_charged",
+    "latency_seconds": 1.454150417004712,
+    "task": "banking77",
+    "target": "transfer_fee_charged",
+    "request_sha256": "44cbb8ca68e591e66ddb466ae38b484becd5e3a30ef6a271460685e021a09f1f",
+    "response_sha256": "8296d2a825747b8cfa76ca0312ffffb388413b50577985141c780ab349bd3752",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1044,
+        "completion_tokens": 11,
+        "total_tokens": 1055,
+        "cost": 0.0001029679,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001029679,
+          "upstream_inference_prompt_cost": 0.0001008504,
+          "upstream_inference_completions_cost": 2.1175e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2206",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:13:54.777204+00:00",
+    "prediction": "transfer_fee_charged",
+    "latency_seconds": 1.5014970420161262,
+    "task": "banking77",
+    "target": "transfer_fee_charged",
+    "request_sha256": "ecdc2788c69061bfd86c1dfb13771c13a33b45df50bad9d53c562d032ec7d0b6",
+    "response_sha256": "24bd8b7b0350bf522c197764730f8ae21058c65cd6204eac8501cba5da74bd75",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 967,
+        "completion_tokens": 14,
+        "total_tokens": 981,
+        "cost": 0.000242775,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000242775,
+          "upstream_inference_prompt_cost": 0.000217575,
+          "upstream_inference_completions_cost": 2.52e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2206",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:13:56.279283+00:00",
+    "prediction": "transfer_fee_charged",
+    "latency_seconds": 1.0185897080227733,
+    "task": "banking77",
+    "target": "transfer_fee_charged",
+    "request_sha256": "7c057771873fc6eeb8cb926a047cd4adb39bb4656d1e7ad364190d977055cf30",
+    "response_sha256": "e4b02aa0001857b08811454a953f8ed0d1ec180d088847e6874485b1e31f1c18",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 965,
+        "completion_tokens": 14,
+        "total_tokens": 979,
+        "cost": 9.86e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.86e-05,
+          "upstream_inference_prompt_cost": 9.65e-05,
+          "upstream_inference_completions_cost": 2.1e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2206",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:13:56.279883+00:00",
+    "prediction": "exchange_rate",
+    "latency_seconds": 0.3621284590335563,
+    "task": "banking77",
+    "target": "transfer_fee_charged",
+    "request_sha256": "a5263df9c7423caff09675861875e9a9fadc7ca0837448a85cd7c2ee2ef7a60f",
+    "response_sha256": "3a5bc19e095346ed54368b04c43fa85a6a7e2715b9c997af2ffdffa565454f75",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 983,
+        "completion_tokens": 8,
+        "total_tokens": 991,
+        "cost": 0.00021802,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00021802,
+          "upstream_inference_prompt_cost": 0.00021626,
+          "upstream_inference_completions_cost": 1.76e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2206",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:13:56.279474+00:00",
+    "prediction": "transfer_fee_charged",
+    "probabilities": {
+      "declined_card_payment": 0,
+      "pending_cash_withdrawal": 0,
+      "card_swallowed": 0,
+      "card_linking": 0,
+      "pin_blocked": 0,
+      "passcode_forgotten": 0,
+      "lost_or_stolen_phone": 0,
+      "card_payment_not_recognised": 0,
+      "Refund_not_showing_up": 0,
+      "edit_personal_details": 0,
+      "transaction_charged_twice": 0,
+      "extra_charge_on_statement": 0,
+      "compromised_card": 0,
+      "receiving_money": 0,
+      "verify_source_of_funds": 0,
+      "transfer_not_received_by_recipient": 0,
+      "top_up_by_card_charge": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "reverted_card_payment?": 0,
+      "pending_top_up": 0,
+      "change_pin": 0,
+      "virtual_card_not_working": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "card_arrival": 0,
+      "getting_spare_card": 0,
+      "atm_support": 0,
+      "verify_my_identity": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "exchange_rate": 0,
+      "order_physical_card": 0,
+      "topping_up_by_card": 0,
+      "verify_top_up": 0,
+      "exchange_charge": 0,
+      "top_up_limits": 0,
+      "card_not_working": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "unable_to_verify_identity": 0,
+      "card_delivery_estimate": 0,
+      "card_acceptance": 0,
+      "apple_pay_or_google_pay": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "why_verify_identity": 0,
+      "country_support": 0,
+      "visa_or_mastercard": 0,
+      "automatic_top_up": 0,
+      "disposable_card_limits": 0,
+      "request_refund": 0,
+      "lost_or_stolen_card": 0,
+      "transfer_into_account": 0,
+      "pending_transfer": 0,
+      "activate_my_card": 0,
+      "fiat_currency_support": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "terminate_account": 0,
+      "beneficiary_not_allowed": 0,
+      "getting_virtual_card": 0,
+      "declined_transfer": 0,
+      "supported_cards_and_currencies": 0,
+      "cancel_transfer": 0,
+      "declined_cash_withdrawal": 0,
+      "card_payment_fee_charged": 0,
+      "pending_card_payment": 0,
+      "age_limit": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "cash_withdrawal_charge": 0,
+      "failed_transfer": 0,
+      "get_physical_card": 0,
+      "wrong_amount_of_cash_received": 0,
+      "get_disposable_virtual_card": 0,
+      "contactless_not_working": 0,
+      "transfer_fee_charged": 1,
+      "transfer_timing": 0,
+      "card_about_to_expire": 0,
+      "top_up_reverted": 0,
+      "exchange_via_app": 0,
+      "top_up_failed": 0
+    },
+    "confidence": 1,
+    "review_status": "selected",
+    "latency_seconds": 0.3955073329852894,
+    "task": "banking77",
+    "target": "transfer_fee_charged",
+    "request_sha256": "a4dd55ad07da3d788bb14d45d6add2b6934972ee3cd2c9b5341a504ef1ec38e6",
+    "response_sha256": "9e8a5ded1337656925a3fd69df7f4651153b2f07105811f314d1b9544621bc04",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1708,
+        "output_tokens": 829,
+        "cost": 7.1736e-05
+      }
+    }
+  },
+  {
+    "id": "banking:2360",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:13:56.279721+00:00",
+    "prediction": "verify_top_up",
+    "latency_seconds": 0.939838582999073,
+    "task": "banking77",
+    "target": "verify_top_up",
+    "request_sha256": "8b0585e820030df699a26fbff6108d09996ba792fdd30b1a71fbb48f47c896f1",
+    "response_sha256": "61aa6b4dce146570593e74e3ced23a4bd0abf77c67458256325c61e3c16d94d1",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 967,
+        "completion_tokens": 14,
+        "total_tokens": 981,
+        "cost": 0.0003196875,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0003196875,
+          "upstream_inference_prompt_cost": 0.0003021875,
+          "upstream_inference_completions_cost": 1.75e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2360",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:13:57.298571+00:00",
+    "prediction": "verify_top_up",
+    "latency_seconds": 11.138688625011127,
+    "task": "banking77",
+    "target": "verify_top_up",
+    "request_sha256": "53bc747f57903369d6b7c75e753f7d131eac8a542c7a4cb4766f86968c1f1fb7",
+    "response_sha256": "fa360549f13d72ce30be87d845c26c15b7e485d3e82942c8076b1edc4121972a",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 967,
+        "completion_tokens": 12,
+        "total_tokens": 979,
+        "cost": 9.85e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.85e-05,
+          "upstream_inference_prompt_cost": 9.67e-05,
+          "upstream_inference_completions_cost": 1.8e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2360",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:13:57.298942+00:00",
+    "prediction": "verify_top_up",
+    "latency_seconds": 0.3694124580360949,
+    "task": "banking77",
+    "target": "verify_top_up",
+    "request_sha256": "4d1f32b4739cfd087de0b5898f6775186959e6f77919dcb7d81b26697028d0a2",
+    "response_sha256": "f5be4f2dce43a8ca06c722904d1a753e4c38b7a98929267762d92821d69aed19",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 985,
+        "completion_tokens": 9,
+        "total_tokens": 994,
+        "cost": 0.00021868,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00021868,
+          "upstream_inference_prompt_cost": 0.0002167,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2360",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:13:57.299233+00:00",
+    "prediction": "verify_top_up",
+    "probabilities": {
+      "virtual_card_not_working": 0,
+      "getting_virtual_card": 0,
+      "extra_charge_on_statement": 0,
+      "visa_or_mastercard": 0,
+      "declined_card_payment": 0,
+      "get_physical_card": 0,
+      "terminate_account": 0,
+      "cancel_transfer": 0,
+      "automatic_top_up": 0,
+      "failed_transfer": 0,
+      "card_swallowed": 0,
+      "card_payment_not_recognised": 0,
+      "cash_withdrawal_charge": 0,
+      "country_support": 0,
+      "wrong_amount_of_cash_received": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "apple_pay_or_google_pay": 0,
+      "reverted_card_payment?": 0,
+      "top_up_by_card_charge": 0,
+      "declined_transfer": 0,
+      "order_physical_card": 0,
+      "lost_or_stolen_phone": 0,
+      "verify_source_of_funds": 0,
+      "transfer_into_account": 0,
+      "declined_cash_withdrawal": 0,
+      "topping_up_by_card": 0.01,
+      "top_up_by_bank_transfer_charge": 0,
+      "top_up_failed": 0,
+      "pending_card_payment": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "pending_top_up": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "pin_blocked": 0,
+      "card_about_to_expire": 0,
+      "passcode_forgotten": 0,
+      "get_disposable_virtual_card": 0,
+      "pending_cash_withdrawal": 0,
+      "transaction_charged_twice": 0,
+      "card_arrival": 0,
+      "exchange_rate": 0,
+      "edit_personal_details": 0,
+      "exchange_charge": 0,
+      "top_up_limits": 0,
+      "fiat_currency_support": 0,
+      "exchange_via_app": 0,
+      "transfer_timing": 0,
+      "age_limit": 0,
+      "getting_spare_card": 0,
+      "activate_my_card": 0,
+      "compromised_card": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "atm_support": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "card_acceptance": 0,
+      "lost_or_stolen_card": 0,
+      "top_up_reverted": 0,
+      "verify_top_up": 0.98,
+      "transfer_not_received_by_recipient": 0,
+      "unable_to_verify_identity": 0,
+      "request_refund": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "Refund_not_showing_up": 0,
+      "why_verify_identity": 0,
+      "pending_transfer": 0,
+      "card_delivery_estimate": 0,
+      "beneficiary_not_allowed": 0,
+      "transfer_fee_charged": 0,
+      "card_not_working": 0,
+      "card_payment_fee_charged": 0,
+      "card_linking": 0,
+      "contactless_not_working": 0,
+      "disposable_card_limits": 0,
+      "receiving_money": 0,
+      "verify_my_identity": 0.01,
+      "change_pin": 0,
+      "supported_cards_and_currencies": 0
+    },
+    "confidence": 0.97,
+    "review_status": "selected",
+    "latency_seconds": 0.44948558299802244,
+    "task": "banking77",
+    "target": "verify_top_up",
+    "request_sha256": "88d9453dcd4a39519c1ec131e93c34012c98e2a2a62ab8a373c2330188e35458",
+    "response_sha256": "71d693d8802ef3810e308c69a02a238610bd8623faea4e22665b88168791feee",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1710,
+        "output_tokens": 827,
+        "cost": 7.182e-05
+      }
+    }
+  },
+  {
+    "id": "banking:2360",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:13:57.299548+00:00",
+    "prediction": "verify_top_up",
+    "latency_seconds": 1.0898099159821868,
+    "task": "banking77",
+    "target": "verify_top_up",
+    "request_sha256": "31f6c8fc2c31ef13417baa749622c1f47bca5dc5cf60e08a774a81c0021a6d56",
+    "response_sha256": "20f5ad310c3f28901fc59673ecd32b941fb3b367a5de0c668bc3552ac5d441d0",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1046,
+        "completion_tokens": 9,
+        "total_tokens": 1055,
+        "cost": 0.0001027761,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001027761,
+          "upstream_inference_prompt_cost": 0.0001010436,
+          "upstream_inference_completions_cost": 1.7325e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2380",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:14:08.437939+00:00",
+    "prediction": "verify_top_up",
+    "latency_seconds": 10.540105750027578,
+    "task": "banking77",
+    "target": "verify_top_up",
+    "request_sha256": "47edbd3e7a09bbeb9e37006e7b2aaf238a84dad7c32bdae380003c17d3858aee",
+    "response_sha256": "1c4f0877f87d8e951779cd04346d75520f20ac8092d3204e4943e4fb5e168afd",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 967,
+        "completion_tokens": 12,
+        "total_tokens": 979,
+        "cost": 9.85e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.85e-05,
+          "upstream_inference_prompt_cost": 9.67e-05,
+          "upstream_inference_completions_cost": 1.8e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2380",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:14:08.438173+00:00",
+    "prediction": "verify_top_up",
+    "latency_seconds": 0.5956527499947697,
+    "task": "banking77",
+    "target": "verify_top_up",
+    "request_sha256": "f71075a595ea078d4a215004aba8b15a1bda66516d06c27f0cf0479717e18559",
+    "response_sha256": "a2815998796fb77064a6e6fcdee5a6471e1f06222bba8810b185d6fdd102294d",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 985,
+        "completion_tokens": 9,
+        "total_tokens": 994,
+        "cost": 0.00021868,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00021868,
+          "upstream_inference_prompt_cost": 0.0002167,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2380",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:14:08.438312+00:00",
+    "prediction": "verify_top_up",
+    "probabilities": {
+      "beneficiary_not_allowed": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "pending_top_up": 0,
+      "transfer_into_account": 0,
+      "topping_up_by_card": 0.01,
+      "verify_my_identity": 0.01,
+      "getting_spare_card": 0,
+      "pending_transfer": 0,
+      "declined_transfer": 0,
+      "card_payment_fee_charged": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "pending_card_payment": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "Refund_not_showing_up": 0,
+      "reverted_card_payment?": 0,
+      "card_payment_not_recognised": 0,
+      "failed_transfer": 0,
+      "activate_my_card": 0,
+      "terminate_account": 0,
+      "getting_virtual_card": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "transfer_not_received_by_recipient": 0,
+      "pending_cash_withdrawal": 0,
+      "visa_or_mastercard": 0,
+      "exchange_charge": 0,
+      "top_up_failed": 0,
+      "unable_to_verify_identity": 0,
+      "cancel_transfer": 0,
+      "verify_source_of_funds": 0,
+      "card_linking": 0,
+      "disposable_card_limits": 0,
+      "wrong_amount_of_cash_received": 0,
+      "virtual_card_not_working": 0,
+      "order_physical_card": 0,
+      "card_arrival": 0,
+      "card_swallowed": 0,
+      "lost_or_stolen_card": 0,
+      "transfer_fee_charged": 0,
+      "why_verify_identity": 0.04,
+      "verify_top_up": 0.93,
+      "automatic_top_up": 0,
+      "country_support": 0,
+      "top_up_reverted": 0,
+      "card_delivery_estimate": 0,
+      "supported_cards_and_currencies": 0,
+      "atm_support": 0,
+      "pin_blocked": 0,
+      "transaction_charged_twice": 0,
+      "exchange_rate": 0,
+      "card_not_working": 0,
+      "extra_charge_on_statement": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "contactless_not_working": 0,
+      "receiving_money": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "get_disposable_virtual_card": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "change_pin": 0,
+      "declined_card_payment": 0,
+      "lost_or_stolen_phone": 0,
+      "apple_pay_or_google_pay": 0,
+      "compromised_card": 0,
+      "transfer_timing": 0,
+      "get_physical_card": 0,
+      "card_acceptance": 0,
+      "card_about_to_expire": 0,
+      "top_up_limits": 0,
+      "age_limit": 0,
+      "cash_withdrawal_charge": 0,
+      "edit_personal_details": 0,
+      "exchange_via_app": 0,
+      "request_refund": 0,
+      "declined_cash_withdrawal": 0,
+      "top_up_by_card_charge": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "passcode_forgotten": 0,
+      "fiat_currency_support": 0
+    },
+    "confidence": 0.93,
+    "review_status": "selected",
+    "latency_seconds": 0.4010231249849312,
+    "task": "banking77",
+    "target": "verify_top_up",
+    "request_sha256": "bbf7f089f7776781336912b252903332da557d89e4964680909358ba7b9cd38d",
+    "response_sha256": "7865ab85d1ea6127afa23f04ec87a598532f4d8bcc08d4dfd616a68aab16c62a",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1710,
+        "output_tokens": 827,
+        "cost": 7.182e-05
+      }
+    }
+  },
+  {
+    "id": "banking:2380",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:14:08.438581+00:00",
+    "prediction": "verify_top_up",
+    "latency_seconds": 1.7155275419936515,
+    "task": "banking77",
+    "target": "verify_top_up",
+    "request_sha256": "5d78af24007821b50be0409848a53bb578501d39d17dee55f6173d7bf4161f49",
+    "response_sha256": "c995ee3d621d1669b7ef28c6bcbe7e315391e29bd767b0c3a61f91125224852c",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1046,
+        "completion_tokens": 9,
+        "total_tokens": 1055,
+        "cost": 2.1848e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 942,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.1848e-05,
+          "upstream_inference_prompt_cost": 1.7348e-05,
+          "upstream_inference_completions_cost": 4.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2380",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:14:18.979128+00:00",
+    "prediction": "verify_top_up",
+    "latency_seconds": 0.631223541975487,
+    "task": "banking77",
+    "target": "verify_top_up",
+    "request_sha256": "84d437c80bbf643a26fb4e4dcfb5fe6413b4b4701b614d8d8a1fb7c7ff44205f",
+    "response_sha256": "c0298554d390b4ea034f9ccebf71a3f682fb53b92187f872d065808906a6b06f",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 967,
+        "completion_tokens": 14,
+        "total_tokens": 981,
+        "cost": 0.00014938,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00014938,
+          "upstream_inference_prompt_cost": 0.00013538,
+          "upstream_inference_completions_cost": 1.4e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2494",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:14:18.979590+00:00",
+    "prediction": "card_arrival",
+    "latency_seconds": 0.3682928750058636,
+    "task": "banking77",
+    "target": "order_physical_card",
+    "request_sha256": "9d2c9c1b4bca811e79965401968e672d6f12d50cce7fc8a09f54c832e247b11b",
+    "response_sha256": "b3098acebe03b174147488972ea2869e1a734917d3d1142aad70f0c7acbf1d13",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 981,
+        "completion_tokens": 9,
+        "total_tokens": 990,
+        "cost": 0.0002178,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0002178,
+          "upstream_inference_prompt_cost": 0.00021582,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2494",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:14:18.979885+00:00",
+    "prediction": "get_physical_card",
+    "probabilities": {
+      "Refund_not_showing_up": 0,
+      "declined_transfer": 0,
+      "exchange_via_app": 0,
+      "card_payment_fee_charged": 0,
+      "top_up_reverted": 0,
+      "unable_to_verify_identity": 0,
+      "lost_or_stolen_phone": 0,
+      "declined_cash_withdrawal": 0,
+      "virtual_card_not_working": 0,
+      "exchange_charge": 0,
+      "wrong_amount_of_cash_received": 0,
+      "cancel_transfer": 0,
+      "fiat_currency_support": 0,
+      "verify_my_identity": 0,
+      "terminate_account": 0,
+      "pending_transfer": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "automatic_top_up": 0,
+      "card_linking": 0,
+      "lost_or_stolen_card": 0,
+      "top_up_by_card_charge": 0,
+      "card_acceptance": 0,
+      "transfer_timing": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "why_verify_identity": 0,
+      "card_arrival": 0,
+      "passcode_forgotten": 0,
+      "request_refund": 0,
+      "card_swallowed": 0,
+      "transaction_charged_twice": 0,
+      "transfer_into_account": 0,
+      "apple_pay_or_google_pay": 0,
+      "receiving_money": 0,
+      "top_up_limits": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "order_physical_card": 0.01,
+      "age_limit": 0,
+      "activate_my_card": 0,
+      "pending_cash_withdrawal": 0,
+      "declined_card_payment": 0,
+      "card_payment_not_recognised": 0,
+      "pending_card_payment": 0,
+      "atm_support": 0,
+      "contactless_not_working": 0,
+      "verify_source_of_funds": 0,
+      "card_about_to_expire": 0,
+      "disposable_card_limits": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "get_physical_card": 0.99,
+      "getting_virtual_card": 0,
+      "card_not_working": 0,
+      "failed_transfer": 0,
+      "reverted_card_payment?": 0,
+      "edit_personal_details": 0,
+      "verify_top_up": 0,
+      "top_up_failed": 0,
+      "compromised_card": 0,
+      "pin_blocked": 0,
+      "exchange_rate": 0,
+      "cash_withdrawal_charge": 0,
+      "supported_cards_and_currencies": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "pending_top_up": 0,
+      "transfer_fee_charged": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "change_pin": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "country_support": 0,
+      "transfer_not_received_by_recipient": 0,
+      "visa_or_mastercard": 0,
+      "beneficiary_not_allowed": 0,
+      "getting_spare_card": 0,
+      "card_delivery_estimate": 0,
+      "extra_charge_on_statement": 0,
+      "get_disposable_virtual_card": 0,
+      "topping_up_by_card": 0
+    },
+    "confidence": 0.98,
+    "review_status": "selected",
+    "latency_seconds": 0.3974362920271233,
+    "task": "banking77",
+    "target": "order_physical_card",
+    "request_sha256": "e947efe366e28fc96d532a76952b826f5c13f3104916cef0b1387286306b4108",
+    "response_sha256": "c98651d2d9c4a04327d87d747813e47e04e994778a6690aa11b258722b13ac8a",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1706,
+        "output_tokens": 828,
+        "cost": 7.1652e-05
+      }
+    }
+  },
+  {
+    "id": "banking:2494",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:14:18.980220+00:00",
+    "prediction": "get_physical_card",
+    "latency_seconds": 1.6756072500138544,
+    "task": "banking77",
+    "target": "order_physical_card",
+    "request_sha256": "237e794faee1159f9b19babe7c84b3b4c19b833e87550bb9ce841fc1ea7c1dce",
+    "response_sha256": "6f8d2d1a862c227e6abd8fc0589602fee8de5dcff70c2eb52631942ab6091811",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1042,
+        "completion_tokens": 10,
+        "total_tokens": 1052,
+        "cost": 9.558e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.558e-05,
+          "upstream_inference_prompt_cost": 9.378e-05,
+          "upstream_inference_completions_cost": 1.8e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2494",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:14:20.656573+00:00",
+    "prediction": "get_physical_card",
+    "latency_seconds": 1.4891349580138922,
+    "task": "banking77",
+    "target": "order_physical_card",
+    "request_sha256": "7a692b1ea49d893011a8553e7d7bb733ee563d3a724bc51f0d688ea7a5a5222d",
+    "response_sha256": "461adaab421fe164c1fe54c75f9699cf60326e54b019ec1a7baac6eb275c04b4",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 1427,
+        "completion_tokens": 8,
+        "total_tokens": 1435,
+        "cost": 0.00012016,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00012016,
+          "upstream_inference_prompt_cost": 0.00011416,
+          "upstream_inference_completions_cost": 6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2494",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:14:20.656853+00:00",
+    "prediction": "get_physical_card",
+    "latency_seconds": 0.9615752500249073,
+    "task": "banking77",
+    "target": "order_physical_card",
+    "request_sha256": "cadb23a5b0e7acfa25cb8d6331e91304f6c198153e499467a0c1413c536dd3ad",
+    "response_sha256": "17b84d64ab7c57504731edf499c963e07898b06467ead7d0f63fe8efc53524f8",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 963,
+        "completion_tokens": 13,
+        "total_tokens": 976,
+        "cost": 9.825e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.825e-05,
+          "upstream_inference_prompt_cost": 9.63e-05,
+          "upstream_inference_completions_cost": 1.95e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2692",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:14:20.657062+00:00",
+    "prediction": "transfer_timing",
+    "probabilities": {
+      "beneficiary_not_allowed": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "card_payment_fee_charged": 0,
+      "transfer_into_account": 0.08,
+      "topping_up_by_card": 0,
+      "pending_top_up": 0.01,
+      "direct_debit_payment_not_recognised": 0,
+      "pending_transfer": 0.26,
+      "declined_transfer": 0,
+      "getting_spare_card": 0,
+      "verify_my_identity": 0,
+      "pending_card_payment": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "Refund_not_showing_up": 0,
+      "reverted_card_payment?": 0,
+      "card_payment_not_recognised": 0,
+      "failed_transfer": 0,
+      "activate_my_card": 0,
+      "terminate_account": 0,
+      "getting_virtual_card": 0,
+      "balance_not_updated_after_bank_transfer": 0.12,
+      "transfer_not_received_by_recipient": 0.12,
+      "pending_cash_withdrawal": 0,
+      "visa_or_mastercard": 0,
+      "exchange_charge": 0,
+      "top_up_failed": 0,
+      "unable_to_verify_identity": 0,
+      "cancel_transfer": 0,
+      "verify_source_of_funds": 0,
+      "card_linking": 0,
+      "disposable_card_limits": 0,
+      "wrong_amount_of_cash_received": 0,
+      "virtual_card_not_working": 0,
+      "order_physical_card": 0,
+      "card_arrival": 0,
+      "card_swallowed": 0,
+      "lost_or_stolen_card": 0,
+      "transfer_fee_charged": 0,
+      "why_verify_identity": 0,
+      "verify_top_up": 0,
+      "country_support": 0,
+      "automatic_top_up": 0,
+      "top_up_reverted": 0,
+      "card_delivery_estimate": 0,
+      "supported_cards_and_currencies": 0,
+      "atm_support": 0,
+      "pin_blocked": 0,
+      "transaction_charged_twice": 0,
+      "exchange_rate": 0,
+      "card_not_working": 0,
+      "extra_charge_on_statement": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "get_disposable_virtual_card": 0,
+      "receiving_money": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "contactless_not_working": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "change_pin": 0,
+      "declined_card_payment": 0,
+      "lost_or_stolen_phone": 0,
+      "apple_pay_or_google_pay": 0,
+      "compromised_card": 0,
+      "transfer_timing": 0.4,
+      "get_physical_card": 0,
+      "card_about_to_expire": 0,
+      "card_acceptance": 0,
+      "age_limit": 0,
+      "top_up_limits": 0,
+      "cash_withdrawal_charge": 0,
+      "edit_personal_details": 0,
+      "exchange_via_app": 0,
+      "declined_cash_withdrawal": 0,
+      "request_refund": 0,
+      "top_up_by_card_charge": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "passcode_forgotten": 0,
+      "fiat_currency_support": 0
+    },
+    "confidence": 0.38,
+    "review_status": "needs_review",
+    "latency_seconds": 0.3771120419842191,
+    "task": "banking77",
+    "target": "balance_not_updated_after_bank_transfer",
+    "request_sha256": "b94e2634f3409016f2261f4082e34440a4ef7994ababa507877fe796194e7c6a",
+    "response_sha256": "b5ea4f0331526a29266366f6de4dbc82f9d9fdd80e675f61436f1330553e4973",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1731,
+        "output_tokens": 827,
+        "cost": 7.2702e-05
+      }
+    }
+  },
+  {
+    "id": "banking:2692",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:14:20.657306+00:00",
+    "prediction": "pending_transfer",
+    "latency_seconds": 2.292989125009626,
+    "task": "banking77",
+    "target": "balance_not_updated_after_bank_transfer",
+    "request_sha256": "301d39219d89be6a5a30be375c32371c23f313583a9a59fea2dca1faf550c93a",
+    "response_sha256": "e6dcf8f8589ad858d24371e0d04b1cbd2c4255fbd8707e26e0b26128d057e72a",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1067,
+        "completion_tokens": 9,
+        "total_tokens": 1076,
+        "cost": 0.00010633,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00010633,
+          "upstream_inference_prompt_cost": 0.000104566,
+          "upstream_inference_completions_cost": 1.764e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2692",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:14:22.951876+00:00",
+    "prediction": "pending_transfer",
+    "latency_seconds": 1.558913125016261,
+    "task": "banking77",
+    "target": "balance_not_updated_after_bank_transfer",
+    "request_sha256": "076cdc3f424caa747d516afdcdc2cd79355903b073269bcd29170bf2af968fe8",
+    "response_sha256": "aa6af6eaf5a01da211f0e81ad2aae35f2244bed8bdcb247c3fe3400573e9625e",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 1452,
+        "completion_tokens": 7,
+        "total_tokens": 1459,
+        "cost": 0.00012141,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00012141,
+          "upstream_inference_prompt_cost": 0.00011616,
+          "upstream_inference_completions_cost": 5.25e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2692",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:14:22.952407+00:00",
+    "prediction": "pending_transfer",
+    "latency_seconds": 1.6972575829713605,
+    "task": "banking77",
+    "target": "balance_not_updated_after_bank_transfer",
+    "request_sha256": "45dbfade339697baf723a3546140712d44814f78e646d427e6852e262ccb00c2",
+    "response_sha256": "6ab503153930f6fe1980e1e7eae35fa80827c7400ebf6c7fc52bb7300ad39db4",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 988,
+        "completion_tokens": 12,
+        "total_tokens": 1000,
+        "cost": 0.0001006,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001006,
+          "upstream_inference_prompt_cost": 9.88e-05,
+          "upstream_inference_completions_cost": 1.8e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2692",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:14:22.952920+00:00",
+    "prediction": "pending_transfer",
+    "latency_seconds": 0.3935587920132093,
+    "task": "banking77",
+    "target": "balance_not_updated_after_bank_transfer",
+    "request_sha256": "f34b89ae06e9ed9aeb6c486284d8f5038d5a109e7c1e38825d9107c1ac299174",
+    "response_sha256": "af2b261a55400cf367bfb7e2896fa13da4f62f9c6412552b2cd44b1bef067157",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 1006,
+        "completion_tokens": 8,
+        "total_tokens": 1014,
+        "cost": 0.00022308,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00022308,
+          "upstream_inference_prompt_cost": 0.00022132,
+          "upstream_inference_completions_cost": 1.76e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2813",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:14:22.953200+00:00",
+    "prediction": "top_up_by_card_charge",
+    "latency_seconds": 2.0630842090467922,
+    "task": "banking77",
+    "target": "top_up_by_card_charge",
+    "request_sha256": "e3cc004ba57806d359a063f921e7dfee6a9ee8344e0f5f18c9c436a0188c2d1d",
+    "response_sha256": "eea01155d4b920fb927de830530323d7c330d3c5f602894a7a3a3871d83fb906",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1042,
+        "completion_tokens": 12,
+        "total_tokens": 1054,
+        "cost": 0.000104468,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000104468,
+          "upstream_inference_prompt_cost": 0.000102116,
+          "upstream_inference_completions_cost": 2.352e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2813",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:14:25.016969+00:00",
+    "prediction": "top_up_by_card_charge",
+    "latency_seconds": 1.36978808400454,
+    "task": "banking77",
+    "target": "top_up_by_card_charge",
+    "request_sha256": "fd2050f6b5c8067dcbef22000723d8ec1de819d9f72d6ae79be3a4d6e3eb8adc",
+    "response_sha256": "9613de55e1d99e69485ef7384abd8a4d96225a8061c984deb99da21919ab7cf0",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 1427,
+        "completion_tokens": 10,
+        "total_tokens": 1437,
+        "cost": 0.00012166,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00012166,
+          "upstream_inference_prompt_cost": 0.00011416,
+          "upstream_inference_completions_cost": 7.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2813",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:14:25.017274+00:00",
+    "prediction": "top_up_by_bank_transfer_charge",
+    "latency_seconds": 6.238364916993305,
+    "task": "banking77",
+    "target": "top_up_by_card_charge",
+    "request_sha256": "51a12a42f001179750e3964959f551ca868386c801b8ee835865b0f9e9a760d7",
+    "response_sha256": "26fd5fcd3be8f6155b456111703c08cacd5293cff4493d6f0b5626a4f1e4e05e",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 963,
+        "completion_tokens": 15,
+        "total_tokens": 978,
+        "cost": 9.855e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.855e-05,
+          "upstream_inference_prompt_cost": 9.63e-05,
+          "upstream_inference_completions_cost": 2.25e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2813",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:14:25.017475+00:00",
+    "prediction": "top_up_by_card_charge",
+    "latency_seconds": 0.39698633301304653,
+    "task": "banking77",
+    "target": "top_up_by_card_charge",
+    "request_sha256": "122e82d305adda717cddcb43e82912c60ada0b492fd2abf2bee2940928a03162",
+    "response_sha256": "1c6c9fcec14d2d8246fd4057e967ad1e0349b778b8076982ead683ffd49db0f8",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 981,
+        "completion_tokens": 11,
+        "total_tokens": 992,
+        "cost": 0.00021824,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00021824,
+          "upstream_inference_prompt_cost": 0.00021582,
+          "upstream_inference_completions_cost": 2.42e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2813",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:14:25.017600+00:00",
+    "prediction": "top_up_by_card_charge",
+    "probabilities": {
+      "exchange_charge": 0,
+      "activate_my_card": 0,
+      "card_payment_not_recognised": 0,
+      "reverted_card_payment?": 0,
+      "cancel_transfer": 0,
+      "visa_or_mastercard": 0,
+      "declined_card_payment": 0,
+      "fiat_currency_support": 0,
+      "exchange_via_app": 0,
+      "supported_cards_and_currencies": 0,
+      "pending_card_payment": 0,
+      "card_payment_fee_charged": 0,
+      "order_physical_card": 0,
+      "card_arrival": 0,
+      "card_swallowed": 0,
+      "why_verify_identity": 0,
+      "transfer_into_account": 0,
+      "transaction_charged_twice": 0,
+      "top_up_failed": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "apple_pay_or_google_pay": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "contactless_not_working": 0,
+      "card_not_working": 0,
+      "country_support": 0,
+      "receiving_money": 0,
+      "atm_support": 0,
+      "card_linking": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "declined_transfer": 0,
+      "top_up_limits": 0.02,
+      "disposable_card_limits": 0,
+      "verify_my_identity": 0,
+      "beneficiary_not_allowed": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "getting_spare_card": 0,
+      "pending_cash_withdrawal": 0,
+      "transfer_not_received_by_recipient": 0,
+      "edit_personal_details": 0,
+      "exchange_rate": 0,
+      "lost_or_stolen_card": 0,
+      "getting_virtual_card": 0,
+      "wrong_amount_of_cash_received": 0,
+      "unable_to_verify_identity": 0,
+      "card_delivery_estimate": 0,
+      "top_up_reverted": 0,
+      "topping_up_by_card": 0.05,
+      "get_physical_card": 0,
+      "top_up_by_card_charge": 0.79,
+      "automatic_top_up": 0,
+      "lost_or_stolen_phone": 0,
+      "declined_cash_withdrawal": 0,
+      "verify_source_of_funds": 0,
+      "verify_top_up": 0,
+      "transfer_fee_charged": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "change_pin": 0,
+      "Refund_not_showing_up": 0,
+      "failed_transfer": 0,
+      "compromised_card": 0,
+      "pending_top_up": 0,
+      "passcode_forgotten": 0,
+      "pending_transfer": 0,
+      "cash_withdrawal_charge": 0,
+      "virtual_card_not_working": 0,
+      "top_up_by_bank_transfer_charge": 0.12,
+      "extra_charge_on_statement": 0.01,
+      "card_about_to_expire": 0,
+      "transfer_timing": 0,
+      "card_acceptance": 0,
+      "age_limit": 0,
+      "get_disposable_virtual_card": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "terminate_account": 0,
+      "pin_blocked": 0,
+      "request_refund": 0
+    },
+    "confidence": 0.78,
+    "review_status": "needs_review",
+    "latency_seconds": 0.38228499999968335,
+    "task": "banking77",
+    "target": "top_up_by_card_charge",
+    "request_sha256": "0ecd5ae6b35014062e8a481f5d53cc761568d0eeba9986a76f7ec90c9ac8e62e",
+    "response_sha256": "a1a34896082e2ddadad6bb297babf58f7f7e02fdca72eabc154f0a2c1f90da22",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1706,
+        "output_tokens": 829,
+        "cost": 7.1652e-05
+      }
+    }
+  },
+  {
+    "id": "banking:2832",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:14:31.256986+00:00",
+    "prediction": "top_up_by_card_charge",
+    "latency_seconds": 0.6291063340031542,
+    "task": "banking77",
+    "target": "top_up_by_card_charge",
+    "request_sha256": "0cac7c3a5cc9af3a57c5bd618b2a2a5286f1d9c25cdadf18712fb7ef7d1cf137",
+    "response_sha256": "19bf3b82058f024dd6ccdffd6a52047137feb98db335149222582325a6f92598",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 969,
+        "completion_tokens": 16,
+        "total_tokens": 985,
+        "cost": 0.00015166,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00015166,
+          "upstream_inference_prompt_cost": 0.00013566,
+          "upstream_inference_completions_cost": 1.6e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2832",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:14:31.257504+00:00",
+    "prediction": "top_up_by_card_charge",
+    "latency_seconds": 1.3050404170062393,
+    "task": "banking77",
+    "target": "top_up_by_card_charge",
+    "request_sha256": "1d5b65a6e90a4a2c7cf6d4b75bd8b0d4f16915cb4986e86b19b386d29d58833f",
+    "response_sha256": "b6f12b8e34eddd79a34bfe9665b022e145af05e1d68e4c281e922ef3ef88b302",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 969,
+        "completion_tokens": 15,
+        "total_tokens": 984,
+        "cost": 9.915e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.915e-05,
+          "upstream_inference_prompt_cost": 9.69e-05,
+          "upstream_inference_completions_cost": 2.25e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2832",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:14:31.257936+00:00",
+    "prediction": "exchange_rate",
+    "latency_seconds": 0.36402941698906943,
+    "task": "banking77",
+    "target": "top_up_by_card_charge",
+    "request_sha256": "0b6930b449073c8f1a891901d9bbb8e13127d6beb822bf57e4a9c2ed506ea871",
+    "response_sha256": "0c7b464b2db32abe1f132c7f370527340af5ab2dded55ac5e2d34c9ca18fad19",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 987,
+        "completion_tokens": 8,
+        "total_tokens": 995,
+        "cost": 0.0002189,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0002189,
+          "upstream_inference_prompt_cost": 0.00021714,
+          "upstream_inference_completions_cost": 1.76e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2832",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:14:31.258116+00:00",
+    "prediction": "top_up_by_card_charge",
+    "probabilities": {
+      "beneficiary_not_allowed": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "pending_top_up": 0,
+      "transfer_into_account": 0,
+      "topping_up_by_card": 0.01,
+      "verify_my_identity": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "pending_transfer": 0,
+      "declined_transfer": 0,
+      "getting_spare_card": 0,
+      "card_payment_fee_charged": 0,
+      "pending_card_payment": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "Refund_not_showing_up": 0,
+      "reverted_card_payment?": 0,
+      "card_payment_not_recognised": 0,
+      "failed_transfer": 0,
+      "activate_my_card": 0,
+      "terminate_account": 0,
+      "getting_virtual_card": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "transfer_not_received_by_recipient": 0,
+      "pending_cash_withdrawal": 0,
+      "visa_or_mastercard": 0,
+      "exchange_charge": 0,
+      "top_up_failed": 0,
+      "unable_to_verify_identity": 0,
+      "cancel_transfer": 0,
+      "verify_source_of_funds": 0,
+      "card_linking": 0,
+      "disposable_card_limits": 0,
+      "wrong_amount_of_cash_received": 0,
+      "virtual_card_not_working": 0,
+      "order_physical_card": 0,
+      "card_arrival": 0,
+      "card_swallowed": 0,
+      "lost_or_stolen_card": 0,
+      "transfer_fee_charged": 0,
+      "why_verify_identity": 0,
+      "verify_top_up": 0,
+      "country_support": 0,
+      "automatic_top_up": 0,
+      "top_up_reverted": 0,
+      "card_delivery_estimate": 0,
+      "pin_blocked": 0,
+      "atm_support": 0,
+      "supported_cards_and_currencies": 0,
+      "transaction_charged_twice": 0,
+      "exchange_rate": 0,
+      "extra_charge_on_statement": 0,
+      "card_not_working": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "contactless_not_working": 0,
+      "receiving_money": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "get_disposable_virtual_card": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "change_pin": 0,
+      "declined_card_payment": 0,
+      "lost_or_stolen_phone": 0,
+      "apple_pay_or_google_pay": 0,
+      "compromised_card": 0,
+      "transfer_timing": 0,
+      "get_physical_card": 0,
+      "card_about_to_expire": 0,
+      "card_acceptance": 0,
+      "age_limit": 0,
+      "top_up_limits": 0,
+      "cash_withdrawal_charge": 0,
+      "edit_personal_details": 0,
+      "exchange_via_app": 0,
+      "request_refund": 0,
+      "declined_cash_withdrawal": 0,
+      "top_up_by_card_charge": 0.99,
+      "card_payment_wrong_exchange_rate": 0,
+      "passcode_forgotten": 0,
+      "fiat_currency_support": 0
+    },
+    "confidence": 0.98,
+    "review_status": "selected",
+    "latency_seconds": 0.34488874999806285,
+    "task": "banking77",
+    "target": "top_up_by_card_charge",
+    "request_sha256": "e964f6ed0774907969588bdab3baa757e1e0db21d33a23a727e69bd8661d72ee",
+    "response_sha256": "53bee765d118b43beb6c40cd701bf25c9ffaf9f2293ab5cc39107185150a2cd1",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1712,
+        "output_tokens": 829,
+        "cost": 7.1904e-05
+      }
+    }
+  },
+  {
+    "id": "banking:2832",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:14:32.562982+00:00",
+    "prediction": "top_up_by_card_charge",
+    "latency_seconds": 1.8459844579920173,
+    "task": "banking77",
+    "target": "top_up_by_card_charge",
+    "request_sha256": "c2dee9300bb1bd83a6386d91a1718264e0a77245538720b442610706757ca03a",
+    "response_sha256": "a966c8537f51de4cc25e182072f6e7e3b1eb5a87cc996e3ada6819e1f6daa515",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1048,
+        "completion_tokens": 12,
+        "total_tokens": 1060,
+        "cost": 0.000105056,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000105056,
+          "upstream_inference_prompt_cost": 0.000102704,
+          "upstream_inference_completions_cost": 2.352e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2916",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:14:32.563141+00:00",
+    "prediction": "cash_withdrawal_charge",
+    "latency_seconds": 1.021004750044085,
+    "task": "banking77",
+    "target": "cash_withdrawal_charge",
+    "request_sha256": "179c8100829409b9dcac035fb3d18beb21f9d9c898b98ce787aadd058b3efd07",
+    "response_sha256": "5acb88340c6838269c7af9b9ab4f2e525f96bcb924f14f0c7bf7ee0831899f1f",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 966,
+        "completion_tokens": 15,
+        "total_tokens": 981,
+        "cost": 9.885e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.885e-05,
+          "upstream_inference_prompt_cost": 9.66e-05,
+          "upstream_inference_completions_cost": 2.25e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2916",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:14:32.563284+00:00",
+    "prediction": "wrong_amount_of_cash_received",
+    "latency_seconds": 0.38521220796974376,
+    "task": "banking77",
+    "target": "cash_withdrawal_charge",
+    "request_sha256": "bf59037a084f3a562bd91960e164e54013d8fdd3939e4ed7aeb653e9b5adf807",
+    "response_sha256": "e03bf75ce29b0c952716df25464f09237626f9f9e6837aeeefc15f90356ba02c",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 984,
+        "completion_tokens": 11,
+        "total_tokens": 995,
+        "cost": 0.0002189,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0002189,
+          "upstream_inference_prompt_cost": 0.00021648,
+          "upstream_inference_completions_cost": 2.42e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2916",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:14:32.563390+00:00",
+    "prediction": "cash_withdrawal_charge",
+    "probabilities": {
+      "transfer_timing": 0,
+      "reverted_card_payment?": 0,
+      "pin_blocked": 0,
+      "atm_support": 0.01,
+      "pending_top_up": 0,
+      "card_not_working": 0,
+      "declined_card_payment": 0,
+      "why_verify_identity": 0,
+      "top_up_limits": 0,
+      "declined_transfer": 0,
+      "extra_charge_on_statement": 0.04,
+      "cash_withdrawal_charge": 0.91,
+      "transfer_not_received_by_recipient": 0,
+      "top_up_by_card_charge": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "activate_my_card": 0,
+      "declined_cash_withdrawal": 0,
+      "virtual_card_not_working": 0,
+      "Refund_not_showing_up": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "visa_or_mastercard": 0,
+      "compromised_card": 0,
+      "beneficiary_not_allowed": 0,
+      "transfer_into_account": 0,
+      "card_linking": 0,
+      "age_limit": 0,
+      "pending_cash_withdrawal": 0,
+      "exchange_charge": 0,
+      "lost_or_stolen_phone": 0,
+      "fiat_currency_support": 0,
+      "getting_virtual_card": 0,
+      "top_up_failed": 0,
+      "failed_transfer": 0,
+      "apple_pay_or_google_pay": 0,
+      "automatic_top_up": 0,
+      "disposable_card_limits": 0,
+      "contactless_not_working": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "passcode_forgotten": 0,
+      "top_up_reverted": 0,
+      "getting_spare_card": 0,
+      "order_physical_card": 0,
+      "lost_or_stolen_card": 0,
+      "transaction_charged_twice": 0,
+      "transfer_fee_charged": 0,
+      "pending_transfer": 0,
+      "card_arrival": 0,
+      "change_pin": 0,
+      "verify_my_identity": 0,
+      "unable_to_verify_identity": 0,
+      "cancel_transfer": 0,
+      "get_physical_card": 0,
+      "card_payment_not_recognised": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "topping_up_by_card": 0,
+      "pending_card_payment": 0,
+      "verify_top_up": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "card_acceptance": 0,
+      "receiving_money": 0,
+      "get_disposable_virtual_card": 0,
+      "card_payment_fee_charged": 0.02,
+      "wrong_amount_of_cash_received": 0,
+      "edit_personal_details": 0,
+      "supported_cards_and_currencies": 0,
+      "exchange_via_app": 0,
+      "card_about_to_expire": 0,
+      "card_swallowed": 0,
+      "card_delivery_estimate": 0,
+      "country_support": 0,
+      "request_refund": 0.01,
+      "terminate_account": 0,
+      "exchange_rate": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "verify_source_of_funds": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0.01
+    },
+    "confidence": 0.9,
+    "review_status": "selected",
+    "latency_seconds": 0.3439278340083547,
+    "task": "banking77",
+    "target": "cash_withdrawal_charge",
+    "request_sha256": "37057fabf4fe47706bbccfa9d28c31c9ce5d3f882dbff2ca3f778c43a28ef4fa",
+    "response_sha256": "3c0be87cd17b080f0f6768f74a916e482628fa79fa54a3bed4404be41e36fca0",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1709,
+        "output_tokens": 830,
+        "cost": 7.1778e-05
+      }
+    }
+  },
+  {
+    "id": "banking:2916",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:14:34.409746+00:00",
+    "prediction": "extra_charge_on_statement",
+    "latency_seconds": 2.0935057919705287,
+    "task": "banking77",
+    "target": "cash_withdrawal_charge",
+    "request_sha256": "a7d4d3239d02b57c633b07f0c91db4e161b1ec5efaa9b9b03788c980e0b8fa22",
+    "response_sha256": "5430bdd0297d8fe97c90dc35fea5c50bf3dca5c489215b22dd8e5de36b591ae0",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1045,
+        "completion_tokens": 12,
+        "total_tokens": 1057,
+        "cost": 0.000104762,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000104762,
+          "upstream_inference_prompt_cost": 0.00010241,
+          "upstream_inference_completions_cost": 2.352e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:2916",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:14:34.410104+00:00",
+    "prediction": "cash_withdrawal_charge",
+    "latency_seconds": 1.4901186670176685,
+    "task": "banking77",
+    "target": "cash_withdrawal_charge",
+    "request_sha256": "b060de7a73c4b9b27f52973ba1a07649d015f65ba81577d57e66b1daf6171a97",
+    "response_sha256": "6b305d7c2d6ecd1359f545059259fa09a3164d7940dbdbe502ce95ecdfaf7e05",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 1430,
+        "completion_tokens": 10,
+        "total_tokens": 1440,
+        "cost": 0.0001219,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001219,
+          "upstream_inference_prompt_cost": 0.0001144,
+          "upstream_inference_completions_cost": 7.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:313",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:14:34.410459+00:00",
+    "prediction": "card_payment_wrong_exchange_rate",
+    "latency_seconds": 0.38697366701671854,
+    "task": "banking77",
+    "target": "card_delivery_estimate",
+    "request_sha256": "633db29e88ace7cae070fdd136c634539222dad8984de68643f3164ae06e32fe",
+    "response_sha256": "b5a28544e4865bb08ca2ffc8db6e78631f27718682189b08fa93390629c0a2ac",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 983,
+        "completion_tokens": 11,
+        "total_tokens": 994,
+        "cost": 0.00021868,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00021868,
+          "upstream_inference_prompt_cost": 0.00021626,
+          "upstream_inference_completions_cost": 2.42e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:313",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:14:34.411182+00:00",
+    "prediction": "card_arrival",
+    "probabilities": {
+      "balance_not_updated_after_bank_transfer": 0,
+      "verify_source_of_funds": 0,
+      "top_up_limits": 0,
+      "wrong_amount_of_cash_received": 0,
+      "cash_withdrawal_charge": 0,
+      "Refund_not_showing_up": 0,
+      "why_verify_identity": 0,
+      "atm_support": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "pending_transfer": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "declined_cash_withdrawal": 0,
+      "card_about_to_expire": 0,
+      "exchange_rate": 0,
+      "top_up_reverted": 0,
+      "top_up_by_card_charge": 0,
+      "card_swallowed": 0,
+      "pending_cash_withdrawal": 0,
+      "declined_transfer": 0,
+      "unable_to_verify_identity": 0,
+      "reverted_card_payment?": 0,
+      "top_up_failed": 0,
+      "card_delivery_estimate": 0.25,
+      "beneficiary_not_allowed": 0,
+      "pin_blocked": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "transfer_into_account": 0,
+      "pending_top_up": 0,
+      "verify_my_identity": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "age_limit": 0,
+      "virtual_card_not_working": 0,
+      "transfer_fee_charged": 0,
+      "pending_card_payment": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "change_pin": 0,
+      "verify_top_up": 0,
+      "compromised_card": 0,
+      "contactless_not_working": 0,
+      "transfer_not_received_by_recipient": 0,
+      "failed_transfer": 0,
+      "card_payment_not_recognised": 0,
+      "get_disposable_virtual_card": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "topping_up_by_card": 0,
+      "getting_spare_card": 0,
+      "automatic_top_up": 0,
+      "disposable_card_limits": 0,
+      "card_payment_fee_charged": 0,
+      "terminate_account": 0,
+      "lost_or_stolen_phone": 0,
+      "getting_virtual_card": 0.01,
+      "activate_my_card": 0,
+      "fiat_currency_support": 0,
+      "get_physical_card": 0.22,
+      "top_up_by_bank_transfer_charge": 0,
+      "extra_charge_on_statement": 0,
+      "passcode_forgotten": 0,
+      "apple_pay_or_google_pay": 0,
+      "declined_card_payment": 0,
+      "card_linking": 0,
+      "exchange_via_app": 0,
+      "cancel_transfer": 0,
+      "card_arrival": 0.47000000000000003,
+      "card_acceptance": 0,
+      "card_not_working": 0,
+      "request_refund": 0,
+      "order_physical_card": 0.05,
+      "exchange_charge": 0,
+      "transaction_charged_twice": 0,
+      "visa_or_mastercard": 0,
+      "supported_cards_and_currencies": 0,
+      "receiving_money": 0,
+      "lost_or_stolen_card": 0,
+      "transfer_timing": 0,
+      "edit_personal_details": 0,
+      "country_support": 0
+    },
+    "confidence": 0.45,
+    "review_status": "needs_review",
+    "latency_seconds": 0.304927958000917,
+    "task": "banking77",
+    "target": "card_delivery_estimate",
+    "request_sha256": "946684f22f8ea8fa46ccefcf30013ccc1b30c9cfd799270ff332b685fe6bdd21",
+    "response_sha256": "1ee155d48766baaadccee664f584b638c3a4b3aab83a23e2ff16b6e5e8173265",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1708,
+        "output_tokens": 827,
+        "cost": 7.1736e-05
+      }
+    }
+  },
+  {
+    "id": "banking:313",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:14:36.504730+00:00",
+    "prediction": "card_delivery_estimate",
+    "latency_seconds": 1.9176727500162087,
+    "task": "banking77",
+    "target": "card_delivery_estimate",
+    "request_sha256": "5c0059ad9301b5d9cd98965e52257f4ea84a1eb841e906d830ab247672a800c4",
+    "response_sha256": "7c77717845ee3a8371e8737b8ad10614a223313716bf7a0ad030c08daded6e07",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1046,
+        "completion_tokens": 11,
+        "total_tokens": 1057,
+        "cost": 0.0001602,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001602,
+          "upstream_inference_prompt_cost": 0.0001569,
+          "upstream_inference_completions_cost": 3.3e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:313",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:14:36.505367+00:00",
+    "prediction": "card_arrival",
+    "latency_seconds": 1.6795224999659695,
+    "task": "banking77",
+    "target": "card_delivery_estimate",
+    "request_sha256": "dc4fc83545f367022c911443b1587a0bc93acf7b61bc99a349c8bed6648a0543",
+    "response_sha256": "95c129db3bb992ec2f403b72a40d6abe60ac17b74efb0fb71777ebe4257c0166",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 1429,
+        "completion_tokens": 8,
+        "total_tokens": 1437,
+        "cost": 0.00012032,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00012032,
+          "upstream_inference_prompt_cost": 0.00011432,
+          "upstream_inference_completions_cost": 6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:313",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:14:36.505657+00:00",
+    "prediction": "card_arrival",
+    "latency_seconds": 1.021328500006348,
+    "task": "banking77",
+    "target": "card_delivery_estimate",
+    "request_sha256": "f9b58de2f883ba54812fac05fb8c4c663d0fdc982f96bc8649fa74bf5c274b91",
+    "response_sha256": "e832f5211e04e921ad5e7b4f6b0924cb8315b02ee6a40e1cbc1f6d0da99f9285",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 965,
+        "completion_tokens": 13,
+        "total_tokens": 978,
+        "cost": 9.845e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.845e-05,
+          "upstream_inference_prompt_cost": 9.65e-05,
+          "upstream_inference_completions_cost": 1.95e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:390",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:14:36.505900+00:00",
+    "prediction": "card_not_working",
+    "probabilities": {
+      "virtual_card_not_working": 0,
+      "getting_virtual_card": 0,
+      "extra_charge_on_statement": 0,
+      "visa_or_mastercard": 0,
+      "declined_card_payment": 0,
+      "terminate_account": 0,
+      "get_physical_card": 0,
+      "cancel_transfer": 0,
+      "automatic_top_up": 0,
+      "failed_transfer": 0,
+      "card_swallowed": 0,
+      "card_payment_not_recognised": 0,
+      "cash_withdrawal_charge": 0,
+      "country_support": 0,
+      "wrong_amount_of_cash_received": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "apple_pay_or_google_pay": 0,
+      "reverted_card_payment?": 0,
+      "top_up_by_card_charge": 0,
+      "declined_transfer": 0,
+      "order_physical_card": 0,
+      "lost_or_stolen_phone": 0,
+      "topping_up_by_card": 0,
+      "transfer_into_account": 0,
+      "declined_cash_withdrawal": 0,
+      "verify_source_of_funds": 0,
+      "pending_card_payment": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "top_up_failed": 0,
+      "card_about_to_expire": 0,
+      "pending_top_up": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "pin_blocked": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "passcode_forgotten": 0,
+      "get_disposable_virtual_card": 0,
+      "pending_cash_withdrawal": 0,
+      "transaction_charged_twice": 0,
+      "card_arrival": 0,
+      "exchange_rate": 0,
+      "edit_personal_details": 0,
+      "exchange_charge": 0,
+      "top_up_limits": 0,
+      "fiat_currency_support": 0,
+      "age_limit": 0,
+      "transfer_timing": 0,
+      "exchange_via_app": 0,
+      "getting_spare_card": 0,
+      "activate_my_card": 0,
+      "compromised_card": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "atm_support": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "card_acceptance": 0,
+      "lost_or_stolen_card": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "verify_top_up": 0,
+      "transfer_not_received_by_recipient": 0,
+      "unable_to_verify_identity": 0,
+      "top_up_reverted": 0,
+      "request_refund": 0,
+      "Refund_not_showing_up": 0,
+      "why_verify_identity": 0,
+      "card_delivery_estimate": 0,
+      "pending_transfer": 0,
+      "beneficiary_not_allowed": 0,
+      "transfer_fee_charged": 0,
+      "card_not_working": 1,
+      "card_payment_fee_charged": 0,
+      "card_linking": 0,
+      "disposable_card_limits": 0,
+      "contactless_not_working": 0,
+      "receiving_money": 0,
+      "verify_my_identity": 0,
+      "change_pin": 0,
+      "supported_cards_and_currencies": 0
+    },
+    "confidence": 1,
+    "review_status": "selected",
+    "latency_seconds": 0.35246883396757767,
+    "task": "banking77",
+    "target": "card_not_working",
+    "request_sha256": "853e5d53248be8d168e87b91f487838c76aa3aa992472160a6859dbb301e9629",
+    "response_sha256": "61c51716bb7ecb8546740f14cec3f89118ccf2194564f2f562c914de6208c88d",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1709,
+        "output_tokens": 829,
+        "cost": 7.1778e-05
+      }
+    }
+  },
+  {
+    "id": "banking:390",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:14:38.424159+00:00",
+    "prediction": "card_not_working",
+    "latency_seconds": 1.0646259159548208,
+    "task": "banking77",
+    "target": "card_not_working",
+    "request_sha256": "fc3ad66141b26a44f4097bc0bcba4243d84014b7bfeb22b4c55eb9ee913931c2",
+    "response_sha256": "0d0e5129af1a27f6eb9cfc541a577b92ce2dadf187f249f588401f5aad8a092b",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1047,
+        "completion_tokens": 9,
+        "total_tokens": 1056,
+        "cost": 0.00014271,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00014271,
+          "upstream_inference_prompt_cost": 0.000140298,
+          "upstream_inference_completions_cost": 2.412e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:390",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:14:38.423671+00:00",
+    "prediction": "card_not_working",
+    "latency_seconds": 0.6088776669930667,
+    "task": "banking77",
+    "target": "card_not_working",
+    "request_sha256": "b98d75aae964fb8716ebddf02729817ced588a5e5f167a2c9d6192f78c4c2919",
+    "response_sha256": "95f9509c4fa1250a8037c499867973b8e7402aff9922b1d53ced7d70116dbb52",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 966,
+        "completion_tokens": 14,
+        "total_tokens": 980,
+        "cost": 0.00014924,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00014924,
+          "upstream_inference_prompt_cost": 0.00013524,
+          "upstream_inference_completions_cost": 1.4e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:390",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:14:38.425369+00:00",
+    "prediction": "card_not_working",
+    "latency_seconds": 4.9368316670297645,
+    "task": "banking77",
+    "target": "card_not_working",
+    "request_sha256": "3d47ed7c1fadc6a5c78958fdb3d8c86ae3021b376047e9e6f124ac1c73c4ac17",
+    "response_sha256": "a4114edf46405913ef913bcba326f0d0bedad16498c32cc627168965cb4c9e7f",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 966,
+        "completion_tokens": 12,
+        "total_tokens": 978,
+        "cost": 9.84e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.84e-05,
+          "upstream_inference_prompt_cost": 9.66e-05,
+          "upstream_inference_completions_cost": 1.8e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:390",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:14:38.423329+00:00",
+    "prediction": "card_not_working",
+    "latency_seconds": 0.42527895799139515,
+    "task": "banking77",
+    "target": "card_not_working",
+    "request_sha256": "65d6f9c41a4aac246023b44a654603657ae2821129c870c669f008077462e892",
+    "response_sha256": "320170ffd9eacc9ae455436783ad5b74c2dde73c556d9fe7c64a41647a4c475f",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 984,
+        "completion_tokens": 9,
+        "total_tokens": 993,
+        "cost": 0.00021846,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00021846,
+          "upstream_inference_prompt_cost": 0.00021648,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:63",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:14:43.362828+00:00",
+    "prediction": "card_linking",
+    "latency_seconds": 1.6400902920286171,
+    "task": "banking77",
+    "target": "card_linking",
+    "request_sha256": "5bb1a84074dca6fd616d856a73b25ecb0ccd5612755a4c91500fc733a6cb22ba",
+    "response_sha256": "1e6e63362b311503019045a2609edaab133d78e47ab387122b39d259fcb6a530",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1043,
+        "completion_tokens": 9,
+        "total_tokens": 1052,
+        "cost": 2.451e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 835,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.451e-05,
+          "upstream_inference_prompt_cost": 2.001e-05,
+          "upstream_inference_completions_cost": 4.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:63",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:14:43.363133+00:00",
+    "prediction": "card_linking",
+    "latency_seconds": 1.1542464590165764,
+    "task": "banking77",
+    "target": "card_linking",
+    "request_sha256": "2b34718c71d45c099ca5ccbeaa9c50e61980b01d84b3dd11a7c39dd3f6948607",
+    "response_sha256": "00f87948f2c557d9bdc939f3c3f4a12cbecfbf6bb6741969137e5d2dc91a4c59",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 966,
+        "completion_tokens": 13,
+        "total_tokens": 979,
+        "cost": 0.000173875,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000173875,
+          "upstream_inference_prompt_cost": 0.000156975,
+          "upstream_inference_completions_cost": 1.69e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:63",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:14:43.363406+00:00",
+    "prediction": "card_linking",
+    "latency_seconds": 0.9274380840361118,
+    "task": "banking77",
+    "target": "card_linking",
+    "request_sha256": "b594148b96cfc570e2ab29d7321d7741cb1fbcf11cf26fb972f4eeb85e9df10e",
+    "response_sha256": "dc7a8492ba7eb160ae534d65cb105cef76bd81e885f208f41eea6a4e90f7028e",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 964,
+        "completion_tokens": 13,
+        "total_tokens": 977,
+        "cost": 9.835e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.835e-05,
+          "upstream_inference_prompt_cost": 9.64e-05,
+          "upstream_inference_completions_cost": 1.95e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:63",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:14:43.363722+00:00",
+    "prediction": "card_linking",
+    "latency_seconds": 0.4392799580236897,
+    "task": "banking77",
+    "target": "card_linking",
+    "request_sha256": "d7dd7bf165cc64a57e43c42450944c5dadb39c3ea6f6f4958c3a0bba53517fb5",
+    "response_sha256": "3624b44df548e173ee3573b7dcd8201c1bba81d2acfc56f486da775449ea2c7a",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 982,
+        "completion_tokens": 9,
+        "total_tokens": 991,
+        "cost": 0.00021802,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00021802,
+          "upstream_inference_prompt_cost": 0.00021604,
+          "upstream_inference_completions_cost": 1.98e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:63",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:14:45.003569+00:00",
+    "prediction": "card_linking",
+    "probabilities": {
+      "exchange_via_app": 0,
+      "order_physical_card": 0,
+      "transaction_charged_twice": 0,
+      "passcode_forgotten": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "transfer_fee_charged": 0,
+      "card_acceptance": 0,
+      "automatic_top_up": 0,
+      "cash_withdrawal_charge": 0,
+      "extra_charge_on_statement": 0,
+      "top_up_by_card_charge": 0,
+      "card_arrival": 0,
+      "disposable_card_limits": 0,
+      "receiving_money": 0,
+      "apple_pay_or_google_pay": 0,
+      "verify_top_up": 0,
+      "exchange_rate": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "card_not_working": 0,
+      "failed_transfer": 0,
+      "getting_virtual_card": 0,
+      "get_physical_card": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "lost_or_stolen_card": 0,
+      "edit_personal_details": 0,
+      "supported_cards_and_currencies": 0,
+      "wrong_amount_of_cash_received": 0,
+      "declined_cash_withdrawal": 0,
+      "pending_transfer": 0,
+      "unable_to_verify_identity": 0,
+      "atm_support": 0,
+      "card_payment_fee_charged": 0,
+      "card_swallowed": 0,
+      "age_limit": 0,
+      "beneficiary_not_allowed": 0,
+      "visa_or_mastercard": 0,
+      "activate_my_card": 0,
+      "card_linking": 1,
+      "top_up_failed": 0,
+      "card_delivery_estimate": 0,
+      "reverted_card_payment?": 0,
+      "getting_spare_card": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "declined_card_payment": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "change_pin": 0,
+      "pending_card_payment": 0,
+      "top_up_limits": 0,
+      "terminate_account": 0,
+      "card_payment_not_recognised": 0,
+      "get_disposable_virtual_card": 0,
+      "request_refund": 0,
+      "country_support": 0,
+      "fiat_currency_support": 0,
+      "transfer_not_received_by_recipient": 0,
+      "pending_cash_withdrawal": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "why_verify_identity": 0,
+      "verify_source_of_funds": 0,
+      "virtual_card_not_working": 0,
+      "topping_up_by_card": 0,
+      "verify_my_identity": 0,
+      "top_up_reverted": 0,
+      "contactless_not_working": 0,
+      "card_about_to_expire": 0,
+      "declined_transfer": 0,
+      "Refund_not_showing_up": 0,
+      "transfer_timing": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "exchange_charge": 0,
+      "lost_or_stolen_phone": 0,
+      "pin_blocked": 0,
+      "compromised_card": 0,
+      "transfer_into_account": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "pending_top_up": 0,
+      "cancel_transfer": 0
+    },
+    "confidence": 0.99,
+    "review_status": "selected",
+    "latency_seconds": 0.3661569169489667,
+    "task": "banking77",
+    "target": "card_linking",
+    "request_sha256": "04fe5dcdb1a291057b5bfc92adf3295d8bf41d1c8212aa41dce9b16ecb6f9345",
+    "response_sha256": "08228878c5f0835902862f3f4cc2c35681a7f4231157f9eb087fe5aa40d56faa",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1707,
+        "output_tokens": 827,
+        "cost": 7.1694e-05
+      }
+    }
+  },
+  {
+    "id": "banking:821",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:14:45.003917+00:00",
+    "prediction": "card_payment_fee_charged",
+    "latency_seconds": 1.6908984170295298,
+    "task": "banking77",
+    "target": "card_payment_fee_charged",
+    "request_sha256": "d1ad6ff82142f0a4ba9785a53607178895beea5b39baac3ab57fb12588c2e01e",
+    "response_sha256": "7cf5a82904bed7a52410bd80c0593edc6924fe80ea031cbcad77d7c247a8b3f7",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 1450,
+        "completion_tokens": 10,
+        "total_tokens": 1460,
+        "cost": 0.0001235,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001235,
+          "upstream_inference_prompt_cost": 0.000116,
+          "upstream_inference_completions_cost": 7.5e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:821",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:14:45.004137+00:00",
+    "prediction": "card_payment_fee_charged",
+    "latency_seconds": 0.9148846659809351,
+    "task": "banking77",
+    "target": "card_payment_fee_charged",
+    "request_sha256": "7829d3fb04d8c999243354bd17113d4d5744259c51a0582a70b590528706add7",
+    "response_sha256": "27328be6f8c63aeaec06c5f039fb167504cb1a09863f5c132982f108f5b4439c",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 986,
+        "completion_tokens": 15,
+        "total_tokens": 1001,
+        "cost": 0.00010085,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00010085,
+          "upstream_inference_prompt_cost": 9.86e-05,
+          "upstream_inference_completions_cost": 2.25e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:821",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:14:45.004356+00:00",
+    "prediction": "card_payment_fee_charged",
+    "latency_seconds": 0.5826917499653064,
+    "task": "banking77",
+    "target": "card_payment_fee_charged",
+    "request_sha256": "9fc83baba51b3beb684488c84e27729c36f03624d674e5d02bc27b16b5d6b074",
+    "response_sha256": "8c07c31b8bd61ba35193dd0270097f376ef790733fae46acca1a6bfc4f87c958",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 1004,
+        "completion_tokens": 11,
+        "total_tokens": 1015,
+        "cost": 0.0002233,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0002233,
+          "upstream_inference_prompt_cost": 0.00022088,
+          "upstream_inference_completions_cost": 2.42e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:821",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:14:46.695445+00:00",
+    "prediction": "card_payment_fee_charged",
+    "probabilities": {
+      "disposable_card_limits": 0,
+      "apple_pay_or_google_pay": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "change_pin": 0,
+      "Refund_not_showing_up": 0,
+      "transfer_fee_charged": 0.060000000000000005,
+      "card_delivery_estimate": 0,
+      "reverted_card_payment?": 0,
+      "cancel_transfer": 0,
+      "beneficiary_not_allowed": 0,
+      "receiving_money": 0,
+      "pin_blocked": 0,
+      "card_about_to_expire": 0,
+      "getting_virtual_card": 0,
+      "age_limit": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "cash_withdrawal_charge": 0.01,
+      "verify_source_of_funds": 0,
+      "card_arrival": 0,
+      "compromised_card": 0,
+      "wrong_amount_of_cash_received": 0,
+      "transfer_into_account": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "unable_to_verify_identity": 0,
+      "country_support": 0,
+      "top_up_by_card_charge": 0.03,
+      "card_acceptance": 0,
+      "pending_transfer": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "terminate_account": 0,
+      "atm_support": 0,
+      "why_verify_identity": 0,
+      "verify_my_identity": 0,
+      "card_payment_not_recognised": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "transfer_not_received_by_recipient": 0,
+      "pending_top_up": 0,
+      "topping_up_by_card": 0,
+      "exchange_charge": 0.02,
+      "transaction_charged_twice": 0,
+      "virtual_card_not_working": 0,
+      "passcode_forgotten": 0,
+      "declined_transfer": 0,
+      "lost_or_stolen_card": 0,
+      "request_refund": 0,
+      "automatic_top_up": 0,
+      "top_up_limits": 0,
+      "supported_cards_and_currencies": 0,
+      "exchange_via_app": 0,
+      "activate_my_card": 0,
+      "card_payment_fee_charged": 0.84,
+      "get_disposable_virtual_card": 0,
+      "top_up_reverted": 0,
+      "card_not_working": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "get_physical_card": 0,
+      "exchange_rate": 0,
+      "fiat_currency_support": 0,
+      "failed_transfer": 0,
+      "pending_card_payment": 0,
+      "contactless_not_working": 0,
+      "top_up_failed": 0,
+      "card_linking": 0,
+      "card_swallowed": 0,
+      "getting_spare_card": 0,
+      "verify_top_up": 0,
+      "pending_cash_withdrawal": 0,
+      "declined_cash_withdrawal": 0,
+      "declined_card_payment": 0,
+      "transfer_timing": 0,
+      "order_physical_card": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "extra_charge_on_statement": 0.04,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "visa_or_mastercard": 0,
+      "lost_or_stolen_phone": 0,
+      "edit_personal_details": 0
+    },
+    "confidence": 0.83,
+    "review_status": "selected",
+    "latency_seconds": 0.49590808304492384,
+    "task": "banking77",
+    "target": "card_payment_fee_charged",
+    "request_sha256": "6be78062cf4db719ae5ad296c4ad27bf0beba66d5c14a2d15b2c76dccc67aa36",
+    "response_sha256": "a05f52438993e59354b2922202da97f958d1684db9ed5af01af0eb28cf620409",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1729,
+        "output_tokens": 830,
+        "cost": 7.2618e-05
+      }
+    }
+  },
+  {
+    "id": "banking:821",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:14:46.695791+00:00",
+    "prediction": "card_payment_fee_charged",
+    "latency_seconds": 1.569797334028408,
+    "task": "banking77",
+    "target": "card_payment_fee_charged",
+    "request_sha256": "864f9efbfcc7c1606490c5a9805c79f7aa0dd42da0b6efa08b6fca93faf581b9",
+    "response_sha256": "d4f5ed4337bf2f608708614d949973ef3f4bae7eabe67fe7084139f469d73789",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1065,
+        "completion_tokens": 13,
+        "total_tokens": 1078,
+        "cost": 0.0001053815,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001053815,
+          "upstream_inference_prompt_cost": 0.000102879,
+          "upstream_inference_completions_cost": 2.5025e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:93",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:14:46.695972+00:00",
+    "prediction": "exchange_rate",
+    "latency_seconds": 2.778062457975466,
+    "task": "banking77",
+    "target": "exchange_rate",
+    "request_sha256": "6f1d9a121ff0d1d201776e3b45ba7f4353a1cc463cfdb545101b85f492c95c44",
+    "response_sha256": "6f62c2e5d19849e04dfe146b7f290982aefd784540b7baa7f3e4d73dd7699de5",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 1428,
+        "completion_tokens": 13,
+        "total_tokens": 1441,
+        "cost": 0.00011593,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00011593,
+          "upstream_inference_prompt_cost": 0.00011424,
+          "upstream_inference_completions_cost": 1.69e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:93",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:14:46.696138+00:00",
+    "prediction": "exchange_rate",
+    "latency_seconds": 0.3935470830183476,
+    "task": "banking77",
+    "target": "exchange_rate",
+    "request_sha256": "186b43a763079df88a3f6a474a7b79aa9624f3685327aba9a97d3e74e2bee4f3",
+    "response_sha256": "71e45641b4047dff525aa1864b95fe01030e5d5c68c46a43e8b2e62cdb062bb6",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 982,
+        "completion_tokens": 8,
+        "total_tokens": 990,
+        "cost": 0.0002178,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0002178,
+          "upstream_inference_prompt_cost": 0.00021604,
+          "upstream_inference_completions_cost": 1.76e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:93",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:14:49.475205+00:00",
+    "prediction": "exchange_rate",
+    "probabilities": {
+      "terminate_account": 0,
+      "order_physical_card": 0,
+      "disposable_card_limits": 0,
+      "declined_transfer": 0,
+      "getting_virtual_card": 0,
+      "pending_top_up": 0,
+      "transaction_charged_twice": 0,
+      "declined_cash_withdrawal": 0,
+      "transfer_fee_charged": 0,
+      "age_limit": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "card_about_to_expire": 0,
+      "card_linking": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "contactless_not_working": 0,
+      "pin_blocked": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "why_verify_identity": 0,
+      "exchange_via_app": 0.02,
+      "passcode_forgotten": 0,
+      "get_disposable_virtual_card": 0,
+      "failed_transfer": 0,
+      "transfer_not_received_by_recipient": 0,
+      "top_up_reverted": 0,
+      "exchange_charge": 0.01,
+      "card_arrival": 0,
+      "lost_or_stolen_card": 0,
+      "cancel_transfer": 0,
+      "card_delivery_estimate": 0,
+      "transfer_into_account": 0,
+      "reverted_card_payment?": 0,
+      "compromised_card": 0,
+      "top_up_by_card_charge": 0,
+      "automatic_top_up": 0,
+      "top_up_failed": 0,
+      "virtual_card_not_working": 0,
+      "unable_to_verify_identity": 0,
+      "country_support": 0,
+      "lost_or_stolen_phone": 0,
+      "visa_or_mastercard": 0,
+      "transfer_timing": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "getting_spare_card": 0,
+      "card_swallowed": 0,
+      "apple_pay_or_google_pay": 0,
+      "beneficiary_not_allowed": 0,
+      "pending_cash_withdrawal": 0,
+      "wrong_amount_of_cash_received": 0,
+      "supported_cards_and_currencies": 0,
+      "fiat_currency_support": 0,
+      "verify_my_identity": 0,
+      "activate_my_card": 0,
+      "card_payment_not_recognised": 0,
+      "pending_card_payment": 0,
+      "cash_withdrawal_charge": 0,
+      "card_not_working": 0,
+      "card_acceptance": 0,
+      "topping_up_by_card": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "request_refund": 0,
+      "get_physical_card": 0,
+      "receiving_money": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "atm_support": 0,
+      "card_payment_fee_charged": 0,
+      "edit_personal_details": 0,
+      "top_up_limits": 0,
+      "extra_charge_on_statement": 0,
+      "verify_source_of_funds": 0,
+      "declined_card_payment": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "change_pin": 0,
+      "Refund_not_showing_up": 0,
+      "pending_transfer": 0,
+      "exchange_rate": 0.97,
+      "verify_top_up": 0
+    },
+    "confidence": 0.97,
+    "review_status": "selected",
+    "latency_seconds": 0.36960187496151775,
+    "task": "banking77",
+    "target": "exchange_rate",
+    "request_sha256": "134c7c53053e3afe96fe85df1595401d1d44ec2ff95b942118dd3fa5ed845d77",
+    "response_sha256": "07b7dbd92670b3b83af3cf2fed8c92971189e2d4be04ed014683397564a4ef00",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1707,
+        "output_tokens": 826,
+        "cost": 7.1694e-05
+      }
+    }
+  },
+  {
+    "id": "banking:93",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:14:49.475932+00:00",
+    "prediction": "exchange_rate",
+    "latency_seconds": 1.0136768329539336,
+    "task": "banking77",
+    "target": "exchange_rate",
+    "request_sha256": "f2d49e6cf6e3f799201ebe9a9224d0bb89bca86750effc5b1d95a9e64af66674",
+    "response_sha256": "7c7cfa94fe9b8db9ac1b0510d09ea9465f58151089b47fe20c13907bcb5b5b8b",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1043,
+        "completion_tokens": 8,
+        "total_tokens": 1051,
+        "cost": 0.0001022938,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001022938,
+          "upstream_inference_prompt_cost": 0.0001007538,
+          "upstream_inference_completions_cost": 1.54e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:93",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:14:49.476245+00:00",
+    "prediction": "exchange_rate",
+    "latency_seconds": 1.6542548749712296,
+    "task": "banking77",
+    "target": "exchange_rate",
+    "request_sha256": "ac69d1e6e94a77ce868f22a44675e73b03588e9ec59b92ae6210d06ea4be2e3a",
+    "response_sha256": "972968219f33849bcdbea9d1306c84bb63e228ea36d09464a78a3f42cb967ce1",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 1428,
+        "completion_tokens": 7,
+        "total_tokens": 1435,
+        "cost": 0.00011949,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00011949,
+          "upstream_inference_prompt_cost": 0.00011424,
+          "upstream_inference_completions_cost": 5.25e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:95",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "started_at": "2026-09-22T10:14:49.476933+00:00",
+    "prediction": "exchange_rate",
+    "latency_seconds": 0.3835328749846667,
+    "task": "banking77",
+    "target": "exchange_rate",
+    "request_sha256": "eac34f028b3f36ee25fe4d47ed2c26fc9830d106a9353f4818d5af4c54d019f9",
+    "response_sha256": "5daba86219b216a3726130848615bf2098a1460b5eed4da1aab4fec637065086",
+    "response": {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "usage": {
+        "prompt_tokens": 983,
+        "completion_tokens": 8,
+        "total_tokens": 991,
+        "cost": 0.00021802,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00021802,
+          "upstream_inference_prompt_cost": 0.00021626,
+          "upstream_inference_completions_cost": 1.76e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:95",
+    "model": "typesafe/jev-1.13",
+    "started_at": "2026-09-22T10:14:51.131442+00:00",
+    "prediction": "exchange_rate",
+    "probabilities": {
+      "terminate_account": 0,
+      "verify_top_up": 0,
+      "disposable_card_limits": 0,
+      "declined_transfer": 0,
+      "getting_virtual_card": 0,
+      "transaction_charged_twice": 0,
+      "pending_top_up": 0,
+      "declined_cash_withdrawal": 0,
+      "transfer_fee_charged": 0,
+      "age_limit": 0,
+      "top_up_by_cash_or_cheque": 0,
+      "card_about_to_expire": 0,
+      "card_linking": 0,
+      "card_payment_wrong_exchange_rate": 0,
+      "contactless_not_working": 0,
+      "pin_blocked": 0,
+      "wrong_exchange_rate_for_cash_withdrawal": 0,
+      "balance_not_updated_after_bank_transfer": 0,
+      "why_verify_identity": 0,
+      "exchange_via_app": 0,
+      "get_disposable_virtual_card": 0,
+      "passcode_forgotten": 0,
+      "failed_transfer": 0,
+      "transfer_not_received_by_recipient": 0,
+      "top_up_reverted": 0,
+      "exchange_charge": 0,
+      "card_arrival": 0,
+      "lost_or_stolen_card": 0,
+      "cancel_transfer": 0,
+      "card_delivery_estimate": 0,
+      "transfer_into_account": 0,
+      "reverted_card_payment?": 0,
+      "compromised_card": 0,
+      "top_up_by_card_charge": 0,
+      "automatic_top_up": 0,
+      "top_up_failed": 0,
+      "virtual_card_not_working": 0,
+      "unable_to_verify_identity": 0,
+      "lost_or_stolen_phone": 0,
+      "country_support": 0,
+      "visa_or_mastercard": 0,
+      "transfer_timing": 0,
+      "top_up_by_bank_transfer_charge": 0,
+      "getting_spare_card": 0,
+      "pending_cash_withdrawal": 0,
+      "apple_pay_or_google_pay": 0,
+      "beneficiary_not_allowed": 0,
+      "card_swallowed": 0,
+      "wrong_amount_of_cash_received": 0,
+      "fiat_currency_support": 0,
+      "supported_cards_and_currencies": 0,
+      "activate_my_card": 0,
+      "verify_my_identity": 0,
+      "card_payment_not_recognised": 0,
+      "pending_card_payment": 0,
+      "cash_withdrawal_charge": 0,
+      "card_not_working": 0,
+      "card_acceptance": 0,
+      "topping_up_by_card": 0,
+      "cash_withdrawal_not_recognised": 0,
+      "request_refund": 0,
+      "get_physical_card": 0,
+      "receiving_money": 0,
+      "direct_debit_payment_not_recognised": 0,
+      "atm_support": 0,
+      "extra_charge_on_statement": 0,
+      "edit_personal_details": 0,
+      "top_up_limits": 0,
+      "card_payment_fee_charged": 0,
+      "verify_source_of_funds": 0,
+      "balance_not_updated_after_cheque_or_cash_deposit": 0,
+      "declined_card_payment": 0,
+      "change_pin": 0,
+      "Refund_not_showing_up": 0,
+      "pending_transfer": 0,
+      "exchange_rate": 1,
+      "order_physical_card": 0
+    },
+    "confidence": 1,
+    "review_status": "selected",
+    "latency_seconds": 0.3386553750024177,
+    "task": "banking77",
+    "target": "exchange_rate",
+    "request_sha256": "d28942c4f4b8593407f2ddc720216fea5e884c0c2f37065b34d2ebc411a4e5bf",
+    "response_sha256": "bf32c3b5ea649bfed30df2b4c98afa5edcd654a76d59a665ea80c55bda22d743",
+    "response": {
+      "model": "typesafe/jev-1.13-20260917",
+      "usage": {
+        "input_tokens": 1708,
+        "output_tokens": 826,
+        "cost": 7.1736e-05
+      }
+    }
+  },
+  {
+    "id": "banking:95",
+    "model": "deepseek/deepseek-v4-flash",
+    "started_at": "2026-09-22T10:14:51.131958+00:00",
+    "prediction": "exchange_rate",
+    "latency_seconds": 3.4347352089826018,
+    "task": "banking77",
+    "target": "exchange_rate",
+    "request_sha256": "a80e45c2ab41443e5db413160b288eef6272dbbc482135854a216034dad9ccaa",
+    "response_sha256": "3ef7f2f0b06a885d50bcb63087cd622a8504b44b28e903df217f636f61c8c731",
+    "response": {
+      "model": "deepseek/deepseek-v4-flash",
+      "usage": {
+        "prompt_tokens": 1044,
+        "completion_tokens": 8,
+        "total_tokens": 1052,
+        "cost": 0.00010388,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00010388,
+          "upstream_inference_prompt_cost": 0.000102312,
+          "upstream_inference_completions_cost": 1.568e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:95",
+    "model": "qwen/qwen3.5-35b-a3b",
+    "started_at": "2026-09-22T10:14:51.132269+00:00",
+    "prediction": "exchange_rate",
+    "latency_seconds": 0.7192178749828599,
+    "task": "banking77",
+    "target": "exchange_rate",
+    "request_sha256": "6b275797f0d3298bfd9d7b58aa225031661d01413c6d9f25b9011f7b1befce90",
+    "response_sha256": "ce7d53cfa7f69901c54cceae22249f31d6c369f377aca032c522b913af303e5c",
+    "response": {
+      "model": "qwen/qwen3.5-35b-a3b",
+      "usage": {
+        "prompt_tokens": 965,
+        "completion_tokens": 13,
+        "total_tokens": 978,
+        "cost": 0.0001481,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001481,
+          "upstream_inference_prompt_cost": 0.0001351,
+          "upstream_inference_completions_cost": 1.3e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "banking:95",
+    "model": "qwen/qwen3.5-9b",
+    "started_at": "2026-09-22T10:14:51.132527+00:00",
+    "prediction": "exchange_rate",
+    "latency_seconds": 1.300003000011202,
+    "task": "banking77",
+    "target": "exchange_rate",
+    "request_sha256": "583d81012572f41599d96aa9cf602217f98106e392285368557ec5abdcb11e5c",
+    "response_sha256": "a2fbd37ac68b1dd9b1d591fa2a19492810c1b121df0681709e7ba1c38e897b67",
+    "response": {
+      "model": "qwen/qwen3.5-9b",
+      "usage": {
+        "prompt_tokens": 965,
+        "completion_tokens": 13,
+        "total_tokens": 978,
+        "cost": 0.0001673,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001673,
+          "upstream_inference_prompt_cost": 0.00016405,
+          "upstream_inference_completions_cost": 3.25e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  }
+]

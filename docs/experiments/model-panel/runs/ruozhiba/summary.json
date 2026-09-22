@@ -1,0 +1,1635 @@
+{
+  "typesafe/jev-1.13": {
+    "attempted": 20,
+    "valid": 20,
+    "correct": 20,
+    "accuracy": 1.0,
+    "errors": 0,
+    "unknown_predictions": 0,
+    "needs_review": 0,
+    "median_latency_seconds": 0.35843220850802027,
+    "usage": {
+      "calls": 20,
+      "failed_calls": 0,
+      "latency_seconds": 7.190055,
+      "reported_input_tokens": 9630,
+      "reported_output_tokens": 900,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.00040446,
+      "known_cost_subtotal_usd": 0.00040446,
+      "cost_unknown_calls": 0
+    },
+    "confusion": {
+      "D": {
+        "D": 5
+      },
+      "A": {
+        "A": 5
+      },
+      "B": {
+        "B": 5
+      },
+      "C": {
+        "C": 5
+      }
+    },
+    "per_label": {
+      "A": {
+        "n": 5,
+        "correct": 5
+      },
+      "B": {
+        "n": 5,
+        "correct": 5
+      },
+      "C": {
+        "n": 5,
+        "correct": 5
+      },
+      "D": {
+        "n": 5,
+        "correct": 5
+      }
+    },
+    "calibration": {
+      "metadata": {
+        "normalization": "Accept finite [0,1] vectors with positive sum within min(0.05, 0.0051 * classes) of 1; divide every accepted vector by its sum before scoring and top-probability routing.",
+        "prediction": "Must be a maximum-probability class; ties are allowed.",
+        "brier": "Mean over valid records of SUM over classes (normalized probability - one-hot target)^2.",
+        "nll": "Mean natural-log loss over valid records; gold probability clamped to 1e-12; exact zeros counted separately.",
+        "ece": "10 equal-width bins [lower, upper), last bin includes 1; sample-weighted absolute mean-score minus accuracy.",
+        "confidence": "Distribution-shape statistic diagnostic, NOT a claimed probability of correctness. Null confidence is excluded from its ECE and mean score and routes to human_candidate.",
+        "denominators": "Accuracy and route coverage use all attempts. Invalid records count wrong and route to human_candidate. Brier/NLL/ECE use valid available scores only. Empty denominators return null.",
+        "risk": "1 - bucket accuracy, including invalid attempts as wrong in human_candidate.",
+        "interval": "Two-sided Wilson 95% interval for bucket accuracy (z=1.959963984540054); descriptive, not adjusted for dependence or multiple comparisons.",
+        "route_thresholds": {
+          "auto_candidate": 0.9,
+          "stronger_model_candidate": 0.7
+        },
+        "routing": "Both score types use >=0.9 auto_candidate, >=0.7 stronger_model_candidate, otherwise human_candidate. These are offline candidate labels; no actions are executed."
+      },
+      "overall": {
+        "attempted": 20,
+        "valid": 20,
+        "invalid": 0,
+        "correct": 20,
+        "accuracy": 1.0,
+        "accuracy_valid": 1.0,
+        "brier": 0.00030000000000000024,
+        "nll": 0.0040773168779285746,
+        "zero_gold_count": 0,
+        "rounded_sum_count": 0,
+        "top_probability_calibration": {
+          "n": 20,
+          "ece": 0.0039999999999998925,
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.1,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.2,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.3,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.3,
+              "upper": 0.4,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.5,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.6,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.7,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.7,
+              "upper": 0.8,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.9,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.9,
+              "upper": 1.0,
+              "upper_inclusive": true,
+              "n": 20,
+              "mean_score": 0.9960000000000001,
+              "accuracy": 1.0
+            }
+          ]
+        },
+        "confidence_shape_diagnostic": {
+          "n": 20,
+          "ece": 0.005499999999999949,
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.1,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.2,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.3,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.3,
+              "upper": 0.4,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.5,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.6,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.7,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.7,
+              "upper": 0.8,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.9,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.9,
+              "upper": 1.0,
+              "upper_inclusive": true,
+              "n": 20,
+              "mean_score": 0.9945,
+              "accuracy": 1.0
+            }
+          ]
+        },
+        "routes": {
+          "top_probability": {
+            "auto_candidate": {
+              "n": 20,
+              "coverage": 1.0,
+              "correct": 20,
+              "accuracy": 1.0,
+              "wilson95": {
+                "lower": 0.8388748419471806,
+                "upper": 1.0
+              },
+              "risk": 0.0,
+              "mean_score": 0.9960000000000001,
+              "score_n": 20
+            },
+            "stronger_model_candidate": {
+              "n": 0,
+              "coverage": 0.0,
+              "correct": 0,
+              "accuracy": null,
+              "wilson95": null,
+              "risk": null,
+              "mean_score": null,
+              "score_n": 0
+            },
+            "human_candidate": {
+              "n": 0,
+              "coverage": 0.0,
+              "correct": 0,
+              "accuracy": null,
+              "wilson95": null,
+              "risk": null,
+              "mean_score": null,
+              "score_n": 0
+            }
+          },
+          "confidence": {
+            "auto_candidate": {
+              "n": 20,
+              "coverage": 1.0,
+              "correct": 20,
+              "accuracy": 1.0,
+              "wilson95": {
+                "lower": 0.8388748419471806,
+                "upper": 1.0
+              },
+              "risk": 0.0,
+              "mean_score": 0.9945,
+              "score_n": 20
+            },
+            "stronger_model_candidate": {
+              "n": 0,
+              "coverage": 0.0,
+              "correct": 0,
+              "accuracy": null,
+              "wilson95": null,
+              "risk": null,
+              "mean_score": null,
+              "score_n": 0
+            },
+            "human_candidate": {
+              "n": 0,
+              "coverage": 0.0,
+              "correct": 0,
+              "accuracy": null,
+              "wilson95": null,
+              "risk": null,
+              "mean_score": null,
+              "score_n": 0
+            }
+          }
+        }
+      },
+      "by_task": {
+        "ruozhiba_mc_adapted": {
+          "attempted": 20,
+          "valid": 20,
+          "invalid": 0,
+          "correct": 20,
+          "accuracy": 1.0,
+          "accuracy_valid": 1.0,
+          "brier": 0.00030000000000000024,
+          "nll": 0.0040773168779285746,
+          "zero_gold_count": 0,
+          "rounded_sum_count": 0,
+          "top_probability_calibration": {
+            "n": 20,
+            "ece": 0.0039999999999998925,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "upper_inclusive": true,
+                "n": 20,
+                "mean_score": 0.9960000000000001,
+                "accuracy": 1.0
+              }
+            ]
+          },
+          "confidence_shape_diagnostic": {
+            "n": 20,
+            "ece": 0.005499999999999949,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "upper_inclusive": true,
+                "n": 20,
+                "mean_score": 0.9945,
+                "accuracy": 1.0
+              }
+            ]
+          },
+          "routes": {
+            "top_probability": {
+              "auto_candidate": {
+                "n": 20,
+                "coverage": 1.0,
+                "correct": 20,
+                "accuracy": 1.0,
+                "wilson95": {
+                  "lower": 0.8388748419471806,
+                  "upper": 1.0
+                },
+                "risk": 0.0,
+                "mean_score": 0.9960000000000001,
+                "score_n": 20
+              },
+              "stronger_model_candidate": {
+                "n": 0,
+                "coverage": 0.0,
+                "correct": 0,
+                "accuracy": null,
+                "wilson95": null,
+                "risk": null,
+                "mean_score": null,
+                "score_n": 0
+              },
+              "human_candidate": {
+                "n": 0,
+                "coverage": 0.0,
+                "correct": 0,
+                "accuracy": null,
+                "wilson95": null,
+                "risk": null,
+                "mean_score": null,
+                "score_n": 0
+              }
+            },
+            "confidence": {
+              "auto_candidate": {
+                "n": 20,
+                "coverage": 1.0,
+                "correct": 20,
+                "accuracy": 1.0,
+                "wilson95": {
+                  "lower": 0.8388748419471806,
+                  "upper": 1.0
+                },
+                "risk": 0.0,
+                "mean_score": 0.9945,
+                "score_n": 20
+              },
+              "stronger_model_candidate": {
+                "n": 0,
+                "coverage": 0.0,
+                "correct": 0,
+                "accuracy": null,
+                "wilson95": null,
+                "risk": null,
+                "mean_score": null,
+                "score_n": 0
+              },
+              "human_candidate": {
+                "n": 0,
+                "coverage": 0.0,
+                "correct": 0,
+                "accuracy": null,
+                "wilson95": null,
+                "risk": null,
+                "mean_score": null,
+                "score_n": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "by_task": {
+      "ruozhiba_mc_adapted": {
+        "attempted": 20,
+        "valid": 20,
+        "correct": 20,
+        "accuracy": 1.0,
+        "errors": 0,
+        "unknown_predictions": 0,
+        "needs_review": 0,
+        "median_latency_seconds": 0.35843220850802027,
+        "usage": {
+          "calls": 20,
+          "failed_calls": 0,
+          "latency_seconds": 7.190055,
+          "reported_input_tokens": 9630,
+          "reported_output_tokens": 900,
+          "usage_missing_calls": 0,
+          "reported_cost_usd": 0.00040446,
+          "known_cost_subtotal_usd": 0.00040446,
+          "cost_unknown_calls": 0
+        },
+        "confusion": {
+          "D": {
+            "D": 5
+          },
+          "A": {
+            "A": 5
+          },
+          "B": {
+            "B": 5
+          },
+          "C": {
+            "C": 5
+          }
+        },
+        "per_label": {
+          "A": {
+            "n": 5,
+            "correct": 5
+          },
+          "B": {
+            "n": 5,
+            "correct": 5
+          },
+          "C": {
+            "n": 5,
+            "correct": 5
+          },
+          "D": {
+            "n": 5,
+            "correct": 5
+          }
+        },
+        "calibration": {
+          "metadata": {
+            "normalization": "Accept finite [0,1] vectors with positive sum within min(0.05, 0.0051 * classes) of 1; divide every accepted vector by its sum before scoring and top-probability routing.",
+            "prediction": "Must be a maximum-probability class; ties are allowed.",
+            "brier": "Mean over valid records of SUM over classes (normalized probability - one-hot target)^2.",
+            "nll": "Mean natural-log loss over valid records; gold probability clamped to 1e-12; exact zeros counted separately.",
+            "ece": "10 equal-width bins [lower, upper), last bin includes 1; sample-weighted absolute mean-score minus accuracy.",
+            "confidence": "Distribution-shape statistic diagnostic, NOT a claimed probability of correctness. Null confidence is excluded from its ECE and mean score and routes to human_candidate.",
+            "denominators": "Accuracy and route coverage use all attempts. Invalid records count wrong and route to human_candidate. Brier/NLL/ECE use valid available scores only. Empty denominators return null.",
+            "risk": "1 - bucket accuracy, including invalid attempts as wrong in human_candidate.",
+            "interval": "Two-sided Wilson 95% interval for bucket accuracy (z=1.959963984540054); descriptive, not adjusted for dependence or multiple comparisons.",
+            "route_thresholds": {
+              "auto_candidate": 0.9,
+              "stronger_model_candidate": 0.7
+            },
+            "routing": "Both score types use >=0.9 auto_candidate, >=0.7 stronger_model_candidate, otherwise human_candidate. These are offline candidate labels; no actions are executed."
+          },
+          "overall": {
+            "attempted": 20,
+            "valid": 20,
+            "invalid": 0,
+            "correct": 20,
+            "accuracy": 1.0,
+            "accuracy_valid": 1.0,
+            "brier": 0.00030000000000000024,
+            "nll": 0.0040773168779285746,
+            "zero_gold_count": 0,
+            "rounded_sum_count": 0,
+            "top_probability_calibration": {
+              "n": 20,
+              "ece": 0.0039999999999998925,
+              "bins": [
+                {
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "upper_inclusive": true,
+                  "n": 20,
+                  "mean_score": 0.9960000000000001,
+                  "accuracy": 1.0
+                }
+              ]
+            },
+            "confidence_shape_diagnostic": {
+              "n": 20,
+              "ece": 0.005499999999999949,
+              "bins": [
+                {
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "upper_inclusive": true,
+                  "n": 20,
+                  "mean_score": 0.9945,
+                  "accuracy": 1.0
+                }
+              ]
+            },
+            "routes": {
+              "top_probability": {
+                "auto_candidate": {
+                  "n": 20,
+                  "coverage": 1.0,
+                  "correct": 20,
+                  "accuracy": 1.0,
+                  "wilson95": {
+                    "lower": 0.8388748419471806,
+                    "upper": 1.0
+                  },
+                  "risk": 0.0,
+                  "mean_score": 0.9960000000000001,
+                  "score_n": 20
+                },
+                "stronger_model_candidate": {
+                  "n": 0,
+                  "coverage": 0.0,
+                  "correct": 0,
+                  "accuracy": null,
+                  "wilson95": null,
+                  "risk": null,
+                  "mean_score": null,
+                  "score_n": 0
+                },
+                "human_candidate": {
+                  "n": 0,
+                  "coverage": 0.0,
+                  "correct": 0,
+                  "accuracy": null,
+                  "wilson95": null,
+                  "risk": null,
+                  "mean_score": null,
+                  "score_n": 0
+                }
+              },
+              "confidence": {
+                "auto_candidate": {
+                  "n": 20,
+                  "coverage": 1.0,
+                  "correct": 20,
+                  "accuracy": 1.0,
+                  "wilson95": {
+                    "lower": 0.8388748419471806,
+                    "upper": 1.0
+                  },
+                  "risk": 0.0,
+                  "mean_score": 0.9945,
+                  "score_n": 20
+                },
+                "stronger_model_candidate": {
+                  "n": 0,
+                  "coverage": 0.0,
+                  "correct": 0,
+                  "accuracy": null,
+                  "wilson95": null,
+                  "risk": null,
+                  "mean_score": null,
+                  "score_n": 0
+                },
+                "human_candidate": {
+                  "n": 0,
+                  "coverage": 0.0,
+                  "correct": 0,
+                  "accuracy": null,
+                  "wilson95": null,
+                  "risk": null,
+                  "mean_score": null,
+                  "score_n": 0
+                }
+              }
+            }
+          },
+          "by_task": {
+            "ruozhiba_mc_adapted": {
+              "attempted": 20,
+              "valid": 20,
+              "invalid": 0,
+              "correct": 20,
+              "accuracy": 1.0,
+              "accuracy_valid": 1.0,
+              "brier": 0.00030000000000000024,
+              "nll": 0.0040773168779285746,
+              "zero_gold_count": 0,
+              "rounded_sum_count": 0,
+              "top_probability_calibration": {
+                "n": 20,
+                "ece": 0.0039999999999998925,
+                "bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.1,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.1,
+                    "upper": 0.2,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.3,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.3,
+                    "upper": 0.4,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.5,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.5,
+                    "upper": 0.6,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.7,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.7,
+                    "upper": 0.8,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 0.9,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.9,
+                    "upper": 1.0,
+                    "upper_inclusive": true,
+                    "n": 20,
+                    "mean_score": 0.9960000000000001,
+                    "accuracy": 1.0
+                  }
+                ]
+              },
+              "confidence_shape_diagnostic": {
+                "n": 20,
+                "ece": 0.005499999999999949,
+                "bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.1,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.1,
+                    "upper": 0.2,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.3,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.3,
+                    "upper": 0.4,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.5,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.5,
+                    "upper": 0.6,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.7,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.7,
+                    "upper": 0.8,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 0.9,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.9,
+                    "upper": 1.0,
+                    "upper_inclusive": true,
+                    "n": 20,
+                    "mean_score": 0.9945,
+                    "accuracy": 1.0
+                  }
+                ]
+              },
+              "routes": {
+                "top_probability": {
+                  "auto_candidate": {
+                    "n": 20,
+                    "coverage": 1.0,
+                    "correct": 20,
+                    "accuracy": 1.0,
+                    "wilson95": {
+                      "lower": 0.8388748419471806,
+                      "upper": 1.0
+                    },
+                    "risk": 0.0,
+                    "mean_score": 0.9960000000000001,
+                    "score_n": 20
+                  },
+                  "stronger_model_candidate": {
+                    "n": 0,
+                    "coverage": 0.0,
+                    "correct": 0,
+                    "accuracy": null,
+                    "wilson95": null,
+                    "risk": null,
+                    "mean_score": null,
+                    "score_n": 0
+                  },
+                  "human_candidate": {
+                    "n": 0,
+                    "coverage": 0.0,
+                    "correct": 0,
+                    "accuracy": null,
+                    "wilson95": null,
+                    "risk": null,
+                    "mean_score": null,
+                    "score_n": 0
+                  }
+                },
+                "confidence": {
+                  "auto_candidate": {
+                    "n": 20,
+                    "coverage": 1.0,
+                    "correct": 20,
+                    "accuracy": 1.0,
+                    "wilson95": {
+                      "lower": 0.8388748419471806,
+                      "upper": 1.0
+                    },
+                    "risk": 0.0,
+                    "mean_score": 0.9945,
+                    "score_n": 20
+                  },
+                  "stronger_model_candidate": {
+                    "n": 0,
+                    "coverage": 0.0,
+                    "correct": 0,
+                    "accuracy": null,
+                    "wilson95": null,
+                    "risk": null,
+                    "mean_score": null,
+                    "score_n": 0
+                  },
+                  "human_candidate": {
+                    "n": 0,
+                    "coverage": 0.0,
+                    "correct": 0,
+                    "accuracy": null,
+                    "wilson95": null,
+                    "risk": null,
+                    "mean_score": null,
+                    "score_n": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "resolved_models": [
+      "typesafe/jev-1.13-20260917"
+    ]
+  },
+  "deepseek/deepseek-v4-flash": {
+    "attempted": 20,
+    "valid": 20,
+    "correct": 20,
+    "accuracy": 1.0,
+    "errors": 0,
+    "unknown_predictions": 0,
+    "needs_review": null,
+    "median_latency_seconds": 1.298599854519125,
+    "usage": {
+      "calls": 20,
+      "failed_calls": 0,
+      "latency_seconds": 28.5841,
+      "reported_input_tokens": 2860,
+      "reported_output_tokens": 137,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.000288594578,
+      "known_cost_subtotal_usd": 0.000288594578,
+      "cost_unknown_calls": 0
+    },
+    "confusion": {
+      "D": {
+        "D": 5
+      },
+      "A": {
+        "A": 5
+      },
+      "B": {
+        "B": 5
+      },
+      "C": {
+        "C": 5
+      }
+    },
+    "per_label": {
+      "A": {
+        "n": 5,
+        "correct": 5
+      },
+      "B": {
+        "n": 5,
+        "correct": 5
+      },
+      "C": {
+        "n": 5,
+        "correct": 5
+      },
+      "D": {
+        "n": 5,
+        "correct": 5
+      }
+    },
+    "calibration": null,
+    "by_task": {
+      "ruozhiba_mc_adapted": {
+        "attempted": 20,
+        "valid": 20,
+        "correct": 20,
+        "accuracy": 1.0,
+        "errors": 0,
+        "unknown_predictions": 0,
+        "needs_review": null,
+        "median_latency_seconds": 1.298599854519125,
+        "usage": {
+          "calls": 20,
+          "failed_calls": 0,
+          "latency_seconds": 28.5841,
+          "reported_input_tokens": 2860,
+          "reported_output_tokens": 137,
+          "usage_missing_calls": 0,
+          "reported_cost_usd": 0.000288594578,
+          "known_cost_subtotal_usd": 0.000288594578,
+          "cost_unknown_calls": 0
+        },
+        "confusion": {
+          "D": {
+            "D": 5
+          },
+          "A": {
+            "A": 5
+          },
+          "B": {
+            "B": 5
+          },
+          "C": {
+            "C": 5
+          }
+        },
+        "per_label": {
+          "A": {
+            "n": 5,
+            "correct": 5
+          },
+          "B": {
+            "n": 5,
+            "correct": 5
+          },
+          "C": {
+            "n": 5,
+            "correct": 5
+          },
+          "D": {
+            "n": 5,
+            "correct": 5
+          }
+        },
+        "calibration": null
+      }
+    },
+    "resolved_models": [
+      "deepseek/deepseek-v4-flash"
+    ]
+  },
+  "qwen/qwen3.5-35b-a3b": {
+    "attempted": 20,
+    "valid": 20,
+    "correct": 20,
+    "accuracy": 1.0,
+    "errors": 0,
+    "unknown_predictions": 0,
+    "needs_review": null,
+    "median_latency_seconds": 0.6517456460278481,
+    "usage": {
+      "calls": 20,
+      "failed_calls": 0,
+      "latency_seconds": 14.798641,
+      "reported_input_tokens": 3760,
+      "reported_output_tokens": 172,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.000604615,
+      "known_cost_subtotal_usd": 0.000604615,
+      "cost_unknown_calls": 0
+    },
+    "confusion": {
+      "D": {
+        "D": 5
+      },
+      "A": {
+        "A": 5
+      },
+      "B": {
+        "B": 5
+      },
+      "C": {
+        "C": 5
+      }
+    },
+    "per_label": {
+      "A": {
+        "n": 5,
+        "correct": 5
+      },
+      "B": {
+        "n": 5,
+        "correct": 5
+      },
+      "C": {
+        "n": 5,
+        "correct": 5
+      },
+      "D": {
+        "n": 5,
+        "correct": 5
+      }
+    },
+    "calibration": null,
+    "by_task": {
+      "ruozhiba_mc_adapted": {
+        "attempted": 20,
+        "valid": 20,
+        "correct": 20,
+        "accuracy": 1.0,
+        "errors": 0,
+        "unknown_predictions": 0,
+        "needs_review": null,
+        "median_latency_seconds": 0.6517456460278481,
+        "usage": {
+          "calls": 20,
+          "failed_calls": 0,
+          "latency_seconds": 14.798641,
+          "reported_input_tokens": 3760,
+          "reported_output_tokens": 172,
+          "usage_missing_calls": 0,
+          "reported_cost_usd": 0.000604615,
+          "known_cost_subtotal_usd": 0.000604615,
+          "cost_unknown_calls": 0
+        },
+        "confusion": {
+          "D": {
+            "D": 5
+          },
+          "A": {
+            "A": 5
+          },
+          "B": {
+            "B": 5
+          },
+          "C": {
+            "C": 5
+          }
+        },
+        "per_label": {
+          "A": {
+            "n": 5,
+            "correct": 5
+          },
+          "B": {
+            "n": 5,
+            "correct": 5
+          },
+          "C": {
+            "n": 5,
+            "correct": 5
+          },
+          "D": {
+            "n": 5,
+            "correct": 5
+          }
+        },
+        "calibration": null
+      }
+    },
+    "resolved_models": [
+      "qwen/qwen3.5-35b-a3b"
+    ]
+  },
+  "qwen/qwen3.5-9b": {
+    "attempted": 20,
+    "valid": 20,
+    "correct": 20,
+    "accuracy": 1.0,
+    "errors": 0,
+    "unknown_predictions": 0,
+    "needs_review": null,
+    "median_latency_seconds": 0.8416851254878566,
+    "usage": {
+      "calls": 20,
+      "failed_calls": 0,
+      "latency_seconds": 28.877006,
+      "reported_input_tokens": 3066,
+      "reported_output_tokens": 216,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.000339,
+      "known_cost_subtotal_usd": 0.000339,
+      "cost_unknown_calls": 0
+    },
+    "confusion": {
+      "D": {
+        "D": 5
+      },
+      "A": {
+        "A": 5
+      },
+      "B": {
+        "B": 5
+      },
+      "C": {
+        "C": 5
+      }
+    },
+    "per_label": {
+      "A": {
+        "n": 5,
+        "correct": 5
+      },
+      "B": {
+        "n": 5,
+        "correct": 5
+      },
+      "C": {
+        "n": 5,
+        "correct": 5
+      },
+      "D": {
+        "n": 5,
+        "correct": 5
+      }
+    },
+    "calibration": null,
+    "by_task": {
+      "ruozhiba_mc_adapted": {
+        "attempted": 20,
+        "valid": 20,
+        "correct": 20,
+        "accuracy": 1.0,
+        "errors": 0,
+        "unknown_predictions": 0,
+        "needs_review": null,
+        "median_latency_seconds": 0.8416851254878566,
+        "usage": {
+          "calls": 20,
+          "failed_calls": 0,
+          "latency_seconds": 28.877006,
+          "reported_input_tokens": 3066,
+          "reported_output_tokens": 216,
+          "usage_missing_calls": 0,
+          "reported_cost_usd": 0.000339,
+          "known_cost_subtotal_usd": 0.000339,
+          "cost_unknown_calls": 0
+        },
+        "confusion": {
+          "D": {
+            "D": 5
+          },
+          "A": {
+            "A": 5
+          },
+          "B": {
+            "B": 5
+          },
+          "C": {
+            "C": 5
+          }
+        },
+        "per_label": {
+          "A": {
+            "n": 5,
+            "correct": 5
+          },
+          "B": {
+            "n": 5,
+            "correct": 5
+          },
+          "C": {
+            "n": 5,
+            "correct": 5
+          },
+          "D": {
+            "n": 5,
+            "correct": 5
+          }
+        },
+        "calibration": null
+      }
+    },
+    "resolved_models": [
+      "qwen/qwen3.5-9b"
+    ]
+  },
+  "meta-llama/llama-3.1-8b-instruct": {
+    "attempted": 20,
+    "valid": 20,
+    "correct": 17,
+    "accuracy": 0.85,
+    "errors": 0,
+    "unknown_predictions": 0,
+    "needs_review": null,
+    "median_latency_seconds": 0.3632805419911165,
+    "usage": {
+      "calls": 20,
+      "failed_calls": 0,
+      "latency_seconds": 7.544336,
+      "reported_input_tokens": 4209,
+      "reported_output_tokens": 140,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.00095678,
+      "known_cost_subtotal_usd": 0.00095678,
+      "cost_unknown_calls": 0
+    },
+    "confusion": {
+      "D": {
+        "D": 4,
+        "C": 1
+      },
+      "A": {
+        "A": 5
+      },
+      "B": {
+        "B": 4,
+        "A": 1
+      },
+      "C": {
+        "C": 4,
+        "A": 1
+      }
+    },
+    "per_label": {
+      "A": {
+        "n": 5,
+        "correct": 5
+      },
+      "B": {
+        "n": 5,
+        "correct": 4
+      },
+      "C": {
+        "n": 5,
+        "correct": 4
+      },
+      "D": {
+        "n": 5,
+        "correct": 4
+      }
+    },
+    "calibration": null,
+    "by_task": {
+      "ruozhiba_mc_adapted": {
+        "attempted": 20,
+        "valid": 20,
+        "correct": 17,
+        "accuracy": 0.85,
+        "errors": 0,
+        "unknown_predictions": 0,
+        "needs_review": null,
+        "median_latency_seconds": 0.3632805419911165,
+        "usage": {
+          "calls": 20,
+          "failed_calls": 0,
+          "latency_seconds": 7.544336,
+          "reported_input_tokens": 4209,
+          "reported_output_tokens": 140,
+          "usage_missing_calls": 0,
+          "reported_cost_usd": 0.00095678,
+          "known_cost_subtotal_usd": 0.00095678,
+          "cost_unknown_calls": 0
+        },
+        "confusion": {
+          "D": {
+            "D": 4,
+            "C": 1
+          },
+          "A": {
+            "A": 5
+          },
+          "B": {
+            "B": 4,
+            "A": 1
+          },
+          "C": {
+            "C": 4,
+            "A": 1
+          }
+        },
+        "per_label": {
+          "A": {
+            "n": 5,
+            "correct": 5
+          },
+          "B": {
+            "n": 5,
+            "correct": 4
+          },
+          "C": {
+            "n": 5,
+            "correct": 4
+          },
+          "D": {
+            "n": 5,
+            "correct": 4
+          }
+        },
+        "calibration": null
+      }
+    },
+    "resolved_models": [
+      "meta-llama/llama-3.1-8b-instruct"
+    ]
+  }
+}

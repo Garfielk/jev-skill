@@ -3165,6 +3165,23 @@ Data sent for judgment goes to your selected service; use synthetic data first.
 <a id="experiments"></a>
 ### 🧪 Experiments you can inspect
 
+**New: same-item comparisons across five models.** Correct / all attempts below; PR = annotation agreement, not merge accuracy. Small pilots, not a general leaderboard.
+
+| Experiment | N | Jev | DeepSeek V4 Flash | Qwen35B A3B | Qwen9B | Llama3.1 8B |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| [BBH · bounded reasoning](docs/experiments/model-panel/runs/bbh/README.md) | 160 | 138/160 | 108/160 | 114/160 | 102/160 | 88/160 |
+| [LogiQA 2.0 · Chinese logic](docs/experiments/model-panel/runs/logiqa/README.md) | 20 | 16/20 | 19/20 | 18/20 | 16/20 | 13/20 |
+| [OCNLI · Chinese inference](docs/experiments/model-panel/runs/ocnli/README.md) | 20 | 18/20 | 16/20 | 18/20 | 19/20 | 9/20 |
+| [Ruozhiba MC · everyday misconceptions](docs/experiments/model-panel/runs/ruozhiba/README.md) | 20 | 20/20 | 20/20 | 20/20 | 20/20 | 17/20 |
+| [Context · evidence present versus missing](docs/experiments/model-panel/runs/context/README.md) | 40 | 39/40 | 40/40 | 38/40 | 38/40 | 30/40 |
+| [Public PRs · intended value agreement](docs/experiments/model-panel/runs/pr/README.md) | 40 | 38/40 | 36/40 | 33/40 | 37/40 | 29/40 |
+| [Banking77 · ticket routing](docs/experiments/model-panel/runs/banking/README.md) | 20 | 16/20 | 16/20 | 17/20 | 15/20 | 13/20 |
+| [BoolQ · passage-supported answers](docs/experiments/model-panel/runs/boolq/README.md) | 20 | 19/20 | 18/20 | 19/20 | 20/20 | 15/20 |
+| [BFCL · tool name selection](docs/experiments/model-panel/runs/bfcl/README.md) | 20 | 20/20 | 20/20 | 20/20 | 20/20 | 20/20 |
+| [Prompt injection · narrow dataset labels](docs/experiments/model-panel/runs/injection/README.md) | 20 | 17/20 | 17/20 | 18/20 | 19/20 | 16/20 |
+
+[Costs, latency, errors, real I/O and reproduction](docs/experiments/model-panel/README.md). Agent paired pilot: **3/4 → 4/4**, with extra calls; the earlier negative result remains below.
+
 - [Five-skill checks: installation, navigation and three live Jev requests](docs/validation-five-skills.md).
 - [Agent before/after](evals/RESULTS.md): 12 pairs, baseline 12/12 vs fixed-checkpoint 10/12. Small negative result for that integration policy.
 - [Decision/calibration pilot](evals/CALIBRATION_RESULTS.md): 136/160 benchmark labels matched; the confidence ≥0.9 group still had 8/100 errors.

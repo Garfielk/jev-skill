@@ -3,6 +3,8 @@ import argparse
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 import json
+import math
+import os
 from pathlib import Path
 import statistics
 import time
@@ -23,13 +25,14 @@ def prepare(directory, samples, models, provenance):
     if not models or len({m['id'] for m in models}) != len(models):
         raise ValueError('Models must be nonempty with unique IDs')
     for model in models:
-        if model['kind'] not in ('jev', 'chat') or set(model['options']) & {'model', 'messages', 'state', 'questions'}:
+        if model['kind'] not in ('jev', 'chat') or set(model['options']) & {'model', 'messages', 'state', 'questions', 'provider', 'response_format'}:
             raise ValueError('Invalid model kind or reserved options')
     directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=False)
     dump(directory / 'samples.json', samples)
     plan = dict(created_at=datetime.now(timezone.utc).isoformat(), models=models,
                 instructions=INSTRUCTIONS, provenance=provenance, concurrency=4,
+                protocol_version=3, timeout_seconds=30, retries=0, fatal_http_statuses=sorted(FATAL_HTTP_STATUSES),
                 max_api_calls=len(samples)*len(models),
                 samples_sha256=digest((directory / 'samples.json').read_bytes()))
     plan['source_sha256'] = {name: digest((ROOT / name).read_bytes()) for name in
@@ -81,6 +84,8 @@ def run(directory, client=None):
     for name, expected_hash in plan['source_sha256'].items():
         if digest((ROOT / name).read_bytes()) != expected_hash:
             raise ValueError('Source changed after preparation')
+    if client is None and not os.environ.get("OPENROUTER_API_KEY"):
+        raise ValueError("OPENROUTER_API_KEY required for live requests")
     client = client or Client()
 
     def call(job):
@@ -95,7 +100,8 @@ def run(directory, client=None):
             receipt.update(prediction(sample, model, payload, response))
         except (jev.JevError, OSError, ValueError, KeyError, IndexError, TypeError) as error:
             receipt['error'] = dict(type=type(error).__name__, http_status=getattr(error, 'http_status', None),
-                                    message='Request or response invalid; no retry')
+                                    message='Request or response invalid; no retry',
+                                    error_kind=getattr(error, 'error_kind', None), phase=getattr(error, 'phase', None))
         receipt['latency_seconds'] = time.monotonic() - start
         return receipt
 
@@ -132,10 +138,22 @@ def summarize_run(directory):
         sample, model = by_id[event['id']], models[event['model']]
         if event['request'] != payload_for(sample, model, plan):
             raise ValueError('Receipt request disagrees with frozen plan')
-        if 'error' not in event:
-            parsed = prediction(sample, model, event['request'], event['response'])
-            if any(event.get(k) != v for k, v in parsed.items()):
-                raise ValueError('Parsed prediction disagrees with raw response')
+        latency = event['latency_seconds']
+        if isinstance(latency, bool) or not isinstance(latency, (int, float)) or not math.isfinite(latency) or latency < 0:
+            raise ValueError('Invalid latency')
+        if 'response' in event:
+            try:
+                parsed = prediction(sample, model, event['request'], event['response'])
+            except (ValueError, KeyError, IndexError, TypeError, jev.JevError):
+                if 'error' not in event or 'prediction' in event:
+                    raise ValueError('Invalid response lacks consistent error receipt') from None
+            else:
+                if 'error' in event:
+                    raise ValueError('Valid response contradicts recorded error')
+                if any(event.get(k) != v for k, v in parsed.items()):
+                    raise ValueError('Parsed prediction disagrees with raw response')
+        elif 'error' not in event or 'prediction' in event:
+            raise ValueError('Missing response or inconsistent error receipt')
     results = {}
     for model in plan['models']:
         rows = [e for e in events if e['model'] == model['id']]

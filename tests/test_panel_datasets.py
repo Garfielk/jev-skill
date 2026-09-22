@@ -39,3 +39,29 @@ class DatasetTests(unittest.TestCase):
         self.assertNotIn('ground_truth', sample['input'])
         with self.assertRaises(ValueError):
             data.bfcl(rows, [{'id':'m0','ground_truth':[{'missing':{}}]}])
+
+class MoreAdapters(unittest.TestCase):
+    def test_injection_rejects_unknown_label(self):
+        from evals.panel_datasets import injection
+        self.assertEqual(injection([{'text':'hello','label':0}])[0]['target'], 'LEGIT')
+        with self.assertRaises(ValueError):
+            injection([{'text':'hello','label':2}])
+
+    def test_ruozhiba_checks_source_and_keeps_gold_out(self):
+        from evals.panel_datasets import ruozhiba
+        import hashlib
+        source=[{'instruction':'q','output':'secret'}]
+        options=[{'source_index':0,'question_sha256':hashlib.sha256(b'q').hexdigest(),'criteria':{'A':'a','B':'b','C':'c','D':'d'},'target':'C'}]
+        sample=ruozhiba(source,options)[0]
+        self.assertNotIn('secret',str(sample))
+        self.assertEqual(sample['target'],'C')
+        with self.assertRaises(ValueError): ruozhiba([{'instruction':'changed'}],options)
+
+    def test_preparation_rejects_changed_source_before_parsing(self):
+        from evals.panel_prepare import load_samples
+        import tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp)/'logiqa2-test-zh.jsonl').write_text('changed')
+            with self.assertRaisesRegex(ValueError,'hash mismatch'):
+                load_samples('logiqa',tmp)

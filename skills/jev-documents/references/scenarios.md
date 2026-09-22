@@ -25,3 +25,7 @@ guide. A project link is a source, not an installed backend or a tested integrat
 | Find a useful command from your history | [71](https://github.com/wuyoscar/jev-skill#sc-shell-history) | [Template](../assets/example.json) |
 | Rank launcher results by intent | [95](https://github.com/wuyoscar/jev-skill#sc-launcher) | [Template](../assets/example.json) |
 | Find a relevant clipboard item | [99](https://github.com/wuyoscar/jev-skill#sc-clipboard) | [Template](../assets/example.json) |
+
+## Measured examples
+
+OCNLI inference and BoolQ passage-supported answers. [Same-item model results, actual I/O and reproduction](https://github.com/wuyoscar/jev-skill/blob/main/docs/experiments/model-panel/README.md). These are small native/adapted/synthetic pilots, not proof that every workflow above succeeds. Re-run a labeled holdout for your task before scaling; never treat a review flag or high probability as action permission.

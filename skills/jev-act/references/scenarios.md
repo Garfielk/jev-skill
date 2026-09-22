@@ -34,3 +34,7 @@ guide. A project link is a source, not an installed backend or a tested integrat
 | Pick clips for an editable video | [103](https://github.com/wuyoscar/jev-skill#sc-video-edit) | [Template](../assets/example.json) |
 | Select the next legal level section | [104](https://github.com/wuyoscar/jev-skill#sc-levels) | [Template](../assets/world.json) |
 | Choose bounded actions in a physics simulator | [106](https://github.com/wuyoscar/jev-skill#sc-physics) | [Template](../assets/world.json) |
+
+## Measured examples
+
+BFCL function-name selection and paired synthetic Agent final outcomes. [Same-item model results, actual I/O and reproduction](https://github.com/wuyoscar/jev-skill/blob/main/docs/experiments/model-panel/README.md). These are small native/adapted/synthetic pilots, not proof that every workflow above succeeds. Re-run a labeled holdout for your task before scaling; never treat a review flag or high probability as action permission.

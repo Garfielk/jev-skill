@@ -1,0 +1,2523 @@
+{
+  "typesafe/jev-1.13": {
+    "attempted": 20,
+    "valid": 20,
+    "correct": 16,
+    "accuracy": 0.8,
+    "errors": 0,
+    "unknown_predictions": 0,
+    "needs_review": 3,
+    "median_latency_seconds": 0.3678793959552422,
+    "usage": {
+      "calls": 20,
+      "failed_calls": 0,
+      "latency_seconds": 7.496089,
+      "reported_input_tokens": 34215,
+      "reported_output_tokens": 16557,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.00143703,
+      "known_cost_subtotal_usd": 0.00143703,
+      "cost_unknown_calls": 0
+    },
+    "confusion": {
+      "why_verify_identity": {
+        "why_verify_identity": 1
+      },
+      "pending_card_payment": {
+        "pending_card_payment": 1
+      },
+      "pending_transfer": {
+        "transfer_timing": 1
+      },
+      "terminate_account": {
+        "terminate_account": 1
+      },
+      "transaction_charged_twice": {
+        "transaction_charged_twice": 1
+      },
+      "transfer_fee_charged": {
+        "transfer_fee_charged": 2
+      },
+      "verify_top_up": {
+        "verify_top_up": 2
+      },
+      "order_physical_card": {
+        "get_physical_card": 1
+      },
+      "balance_not_updated_after_bank_transfer": {
+        "transfer_timing": 1
+      },
+      "top_up_by_card_charge": {
+        "top_up_by_card_charge": 2
+      },
+      "cash_withdrawal_charge": {
+        "cash_withdrawal_charge": 1
+      },
+      "card_delivery_estimate": {
+        "card_arrival": 1
+      },
+      "card_not_working": {
+        "card_not_working": 1
+      },
+      "card_linking": {
+        "card_linking": 1
+      },
+      "card_payment_fee_charged": {
+        "card_payment_fee_charged": 1
+      },
+      "exchange_rate": {
+        "exchange_rate": 2
+      }
+    },
+    "per_label": {
+      "balance_not_updated_after_bank_transfer": {
+        "n": 1,
+        "correct": 0
+      },
+      "card_delivery_estimate": {
+        "n": 1,
+        "correct": 0
+      },
+      "card_linking": {
+        "n": 1,
+        "correct": 1
+      },
+      "card_not_working": {
+        "n": 1,
+        "correct": 1
+      },
+      "card_payment_fee_charged": {
+        "n": 1,
+        "correct": 1
+      },
+      "cash_withdrawal_charge": {
+        "n": 1,
+        "correct": 1
+      },
+      "exchange_rate": {
+        "n": 2,
+        "correct": 2
+      },
+      "order_physical_card": {
+        "n": 1,
+        "correct": 0
+      },
+      "pending_card_payment": {
+        "n": 1,
+        "correct": 1
+      },
+      "pending_transfer": {
+        "n": 1,
+        "correct": 0
+      },
+      "terminate_account": {
+        "n": 1,
+        "correct": 1
+      },
+      "top_up_by_card_charge": {
+        "n": 2,
+        "correct": 2
+      },
+      "transaction_charged_twice": {
+        "n": 1,
+        "correct": 1
+      },
+      "transfer_fee_charged": {
+        "n": 2,
+        "correct": 2
+      },
+      "verify_top_up": {
+        "n": 2,
+        "correct": 2
+      },
+      "why_verify_identity": {
+        "n": 1,
+        "correct": 1
+      }
+    },
+    "calibration": {
+      "metadata": {
+        "normalization": "Accept finite [0,1] vectors with positive sum within min(0.05, 0.0051 * classes) of 1; divide every accepted vector by its sum before scoring and top-probability routing.",
+        "prediction": "Must be a maximum-probability class; ties are allowed.",
+        "brier": "Mean over valid records of SUM over classes (normalized probability - one-hot target)^2.",
+        "nll": "Mean natural-log loss over valid records; gold probability clamped to 1e-12; exact zeros counted separately.",
+        "ece": "10 equal-width bins [lower, upper), last bin includes 1; sample-weighted absolute mean-score minus accuracy.",
+        "confidence": "Distribution-shape statistic diagnostic, NOT a claimed probability of correctness. Null confidence is excluded from its ECE and mean score and routes to human_candidate.",
+        "denominators": "Accuracy and route coverage use all attempts. Invalid records count wrong and route to human_candidate. Brier/NLL/ECE use valid available scores only. Empty denominators return null.",
+        "risk": "1 - bucket accuracy, including invalid attempts as wrong in human_candidate.",
+        "interval": "Two-sided Wilson 95% interval for bucket accuracy (z=1.959963984540054); descriptive, not adjusted for dependence or multiple comparisons.",
+        "route_thresholds": {
+          "auto_candidate": 0.9,
+          "stronger_model_candidate": 0.7
+        },
+        "routing": "Both score types use >=0.9 auto_candidate, >=0.7 stronger_model_candidate, otherwise human_candidate. These are offline candidate labels; no actions are executed."
+      },
+      "overall": {
+        "attempted": 20,
+        "valid": 20,
+        "invalid": 0,
+        "correct": 16,
+        "accuracy": 0.8,
+        "accuracy_valid": 0.8,
+        "brier": 0.29163443934292416,
+        "nll": 0.6672309656340416,
+        "zero_gold_count": 0,
+        "rounded_sum_count": 3,
+        "top_probability_calibration": {
+          "n": 20,
+          "ece": 0.14777272727272725,
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.1,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.2,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.3,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.3,
+              "upper": 0.4,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.5,
+              "upper_inclusive": false,
+              "n": 2,
+              "mean_score": 0.4370202020202021,
+              "accuracy": 0.0
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.6,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.7,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.7,
+              "upper": 0.8,
+              "upper_inclusive": false,
+              "n": 1,
+              "mean_score": 0.797979797979798,
+              "accuracy": 1.0
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.9,
+              "upper_inclusive": false,
+              "n": 1,
+              "mean_score": 0.84,
+              "accuracy": 1.0
+            },
+            {
+              "lower": 0.9,
+              "upper": 1.0,
+              "upper_inclusive": true,
+              "n": 16,
+              "mean_score": 0.9824621212121212,
+              "accuracy": 0.875
+            }
+          ]
+        },
+        "confidence_shape_diagnostic": {
+          "n": 20,
+          "ece": 0.14300000000000004,
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.1,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.2,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.3,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.3,
+              "upper": 0.4,
+              "upper_inclusive": false,
+              "n": 1,
+              "mean_score": 0.38,
+              "accuracy": 0.0
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.5,
+              "upper_inclusive": false,
+              "n": 1,
+              "mean_score": 0.45,
+              "accuracy": 0.0
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.6,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.7,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.7,
+              "upper": 0.8,
+              "upper_inclusive": false,
+              "n": 1,
+              "mean_score": 0.78,
+              "accuracy": 1.0
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.9,
+              "upper_inclusive": false,
+              "n": 1,
+              "mean_score": 0.83,
+              "accuracy": 1.0
+            },
+            {
+              "lower": 0.9,
+              "upper": 1.0,
+              "upper_inclusive": true,
+              "n": 16,
+              "mean_score": 0.9775,
+              "accuracy": 0.875
+            }
+          ]
+        },
+        "routes": {
+          "top_probability": {
+            "auto_candidate": {
+              "n": 16,
+              "coverage": 0.8,
+              "correct": 14,
+              "accuracy": 0.875,
+              "wilson95": {
+                "lower": 0.639771727342413,
+                "upper": 0.9650225122567595
+              },
+              "risk": 0.125,
+              "mean_score": 0.9824621212121212,
+              "score_n": 16
+            },
+            "stronger_model_candidate": {
+              "n": 2,
+              "coverage": 0.1,
+              "correct": 2,
+              "accuracy": 1.0,
+              "wilson95": {
+                "lower": 0.34238022750665303,
+                "upper": 1.0
+              },
+              "risk": 0.0,
+              "mean_score": 0.8189898989898989,
+              "score_n": 2
+            },
+            "human_candidate": {
+              "n": 2,
+              "coverage": 0.1,
+              "correct": 0,
+              "accuracy": 0.0,
+              "wilson95": {
+                "lower": 0.0,
+                "upper": 0.6576197724933469
+              },
+              "risk": 1.0,
+              "mean_score": 0.4370202020202021,
+              "score_n": 2
+            }
+          },
+          "confidence": {
+            "auto_candidate": {
+              "n": 16,
+              "coverage": 0.8,
+              "correct": 14,
+              "accuracy": 0.875,
+              "wilson95": {
+                "lower": 0.639771727342413,
+                "upper": 0.9650225122567595
+              },
+              "risk": 0.125,
+              "mean_score": 0.9775,
+              "score_n": 16
+            },
+            "stronger_model_candidate": {
+              "n": 2,
+              "coverage": 0.1,
+              "correct": 2,
+              "accuracy": 1.0,
+              "wilson95": {
+                "lower": 0.34238022750665303,
+                "upper": 1.0
+              },
+              "risk": 0.0,
+              "mean_score": 0.8049999999999999,
+              "score_n": 2
+            },
+            "human_candidate": {
+              "n": 2,
+              "coverage": 0.1,
+              "correct": 0,
+              "accuracy": 0.0,
+              "wilson95": {
+                "lower": 0.0,
+                "upper": 0.6576197724933469
+              },
+              "risk": 1.0,
+              "mean_score": 0.41500000000000004,
+              "score_n": 2
+            }
+          }
+        }
+      },
+      "by_task": {
+        "banking77": {
+          "attempted": 20,
+          "valid": 20,
+          "invalid": 0,
+          "correct": 16,
+          "accuracy": 0.8,
+          "accuracy_valid": 0.8,
+          "brier": 0.29163443934292416,
+          "nll": 0.6672309656340416,
+          "zero_gold_count": 0,
+          "rounded_sum_count": 3,
+          "top_probability_calibration": {
+            "n": 20,
+            "ece": 0.14777272727272725,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "upper_inclusive": false,
+                "n": 2,
+                "mean_score": 0.4370202020202021,
+                "accuracy": 0.0
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "upper_inclusive": false,
+                "n": 1,
+                "mean_score": 0.797979797979798,
+                "accuracy": 1.0
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "upper_inclusive": false,
+                "n": 1,
+                "mean_score": 0.84,
+                "accuracy": 1.0
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "upper_inclusive": true,
+                "n": 16,
+                "mean_score": 0.9824621212121212,
+                "accuracy": 0.875
+              }
+            ]
+          },
+          "confidence_shape_diagnostic": {
+            "n": 20,
+            "ece": 0.14300000000000004,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "upper_inclusive": false,
+                "n": 1,
+                "mean_score": 0.38,
+                "accuracy": 0.0
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "upper_inclusive": false,
+                "n": 1,
+                "mean_score": 0.45,
+                "accuracy": 0.0
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "upper_inclusive": false,
+                "n": 1,
+                "mean_score": 0.78,
+                "accuracy": 1.0
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "upper_inclusive": false,
+                "n": 1,
+                "mean_score": 0.83,
+                "accuracy": 1.0
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "upper_inclusive": true,
+                "n": 16,
+                "mean_score": 0.9775,
+                "accuracy": 0.875
+              }
+            ]
+          },
+          "routes": {
+            "top_probability": {
+              "auto_candidate": {
+                "n": 16,
+                "coverage": 0.8,
+                "correct": 14,
+                "accuracy": 0.875,
+                "wilson95": {
+                  "lower": 0.639771727342413,
+                  "upper": 0.9650225122567595
+                },
+                "risk": 0.125,
+                "mean_score": 0.9824621212121212,
+                "score_n": 16
+              },
+              "stronger_model_candidate": {
+                "n": 2,
+                "coverage": 0.1,
+                "correct": 2,
+                "accuracy": 1.0,
+                "wilson95": {
+                  "lower": 0.34238022750665303,
+                  "upper": 1.0
+                },
+                "risk": 0.0,
+                "mean_score": 0.8189898989898989,
+                "score_n": 2
+              },
+              "human_candidate": {
+                "n": 2,
+                "coverage": 0.1,
+                "correct": 0,
+                "accuracy": 0.0,
+                "wilson95": {
+                  "lower": 0.0,
+                  "upper": 0.6576197724933469
+                },
+                "risk": 1.0,
+                "mean_score": 0.4370202020202021,
+                "score_n": 2
+              }
+            },
+            "confidence": {
+              "auto_candidate": {
+                "n": 16,
+                "coverage": 0.8,
+                "correct": 14,
+                "accuracy": 0.875,
+                "wilson95": {
+                  "lower": 0.639771727342413,
+                  "upper": 0.9650225122567595
+                },
+                "risk": 0.125,
+                "mean_score": 0.9775,
+                "score_n": 16
+              },
+              "stronger_model_candidate": {
+                "n": 2,
+                "coverage": 0.1,
+                "correct": 2,
+                "accuracy": 1.0,
+                "wilson95": {
+                  "lower": 0.34238022750665303,
+                  "upper": 1.0
+                },
+                "risk": 0.0,
+                "mean_score": 0.8049999999999999,
+                "score_n": 2
+              },
+              "human_candidate": {
+                "n": 2,
+                "coverage": 0.1,
+                "correct": 0,
+                "accuracy": 0.0,
+                "wilson95": {
+                  "lower": 0.0,
+                  "upper": 0.6576197724933469
+                },
+                "risk": 1.0,
+                "mean_score": 0.41500000000000004,
+                "score_n": 2
+              }
+            }
+          }
+        }
+      }
+    },
+    "by_task": {
+      "banking77": {
+        "attempted": 20,
+        "valid": 20,
+        "correct": 16,
+        "accuracy": 0.8,
+        "errors": 0,
+        "unknown_predictions": 0,
+        "needs_review": 3,
+        "median_latency_seconds": 0.3678793959552422,
+        "usage": {
+          "calls": 20,
+          "failed_calls": 0,
+          "latency_seconds": 7.496089,
+          "reported_input_tokens": 34215,
+          "reported_output_tokens": 16557,
+          "usage_missing_calls": 0,
+          "reported_cost_usd": 0.00143703,
+          "known_cost_subtotal_usd": 0.00143703,
+          "cost_unknown_calls": 0
+        },
+        "confusion": {
+          "why_verify_identity": {
+            "why_verify_identity": 1
+          },
+          "pending_card_payment": {
+            "pending_card_payment": 1
+          },
+          "pending_transfer": {
+            "transfer_timing": 1
+          },
+          "terminate_account": {
+            "terminate_account": 1
+          },
+          "transaction_charged_twice": {
+            "transaction_charged_twice": 1
+          },
+          "transfer_fee_charged": {
+            "transfer_fee_charged": 2
+          },
+          "verify_top_up": {
+            "verify_top_up": 2
+          },
+          "order_physical_card": {
+            "get_physical_card": 1
+          },
+          "balance_not_updated_after_bank_transfer": {
+            "transfer_timing": 1
+          },
+          "top_up_by_card_charge": {
+            "top_up_by_card_charge": 2
+          },
+          "cash_withdrawal_charge": {
+            "cash_withdrawal_charge": 1
+          },
+          "card_delivery_estimate": {
+            "card_arrival": 1
+          },
+          "card_not_working": {
+            "card_not_working": 1
+          },
+          "card_linking": {
+            "card_linking": 1
+          },
+          "card_payment_fee_charged": {
+            "card_payment_fee_charged": 1
+          },
+          "exchange_rate": {
+            "exchange_rate": 2
+          }
+        },
+        "per_label": {
+          "balance_not_updated_after_bank_transfer": {
+            "n": 1,
+            "correct": 0
+          },
+          "card_delivery_estimate": {
+            "n": 1,
+            "correct": 0
+          },
+          "card_linking": {
+            "n": 1,
+            "correct": 1
+          },
+          "card_not_working": {
+            "n": 1,
+            "correct": 1
+          },
+          "card_payment_fee_charged": {
+            "n": 1,
+            "correct": 1
+          },
+          "cash_withdrawal_charge": {
+            "n": 1,
+            "correct": 1
+          },
+          "exchange_rate": {
+            "n": 2,
+            "correct": 2
+          },
+          "order_physical_card": {
+            "n": 1,
+            "correct": 0
+          },
+          "pending_card_payment": {
+            "n": 1,
+            "correct": 1
+          },
+          "pending_transfer": {
+            "n": 1,
+            "correct": 0
+          },
+          "terminate_account": {
+            "n": 1,
+            "correct": 1
+          },
+          "top_up_by_card_charge": {
+            "n": 2,
+            "correct": 2
+          },
+          "transaction_charged_twice": {
+            "n": 1,
+            "correct": 1
+          },
+          "transfer_fee_charged": {
+            "n": 2,
+            "correct": 2
+          },
+          "verify_top_up": {
+            "n": 2,
+            "correct": 2
+          },
+          "why_verify_identity": {
+            "n": 1,
+            "correct": 1
+          }
+        },
+        "calibration": {
+          "metadata": {
+            "normalization": "Accept finite [0,1] vectors with positive sum within min(0.05, 0.0051 * classes) of 1; divide every accepted vector by its sum before scoring and top-probability routing.",
+            "prediction": "Must be a maximum-probability class; ties are allowed.",
+            "brier": "Mean over valid records of SUM over classes (normalized probability - one-hot target)^2.",
+            "nll": "Mean natural-log loss over valid records; gold probability clamped to 1e-12; exact zeros counted separately.",
+            "ece": "10 equal-width bins [lower, upper), last bin includes 1; sample-weighted absolute mean-score minus accuracy.",
+            "confidence": "Distribution-shape statistic diagnostic, NOT a claimed probability of correctness. Null confidence is excluded from its ECE and mean score and routes to human_candidate.",
+            "denominators": "Accuracy and route coverage use all attempts. Invalid records count wrong and route to human_candidate. Brier/NLL/ECE use valid available scores only. Empty denominators return null.",
+            "risk": "1 - bucket accuracy, including invalid attempts as wrong in human_candidate.",
+            "interval": "Two-sided Wilson 95% interval for bucket accuracy (z=1.959963984540054); descriptive, not adjusted for dependence or multiple comparisons.",
+            "route_thresholds": {
+              "auto_candidate": 0.9,
+              "stronger_model_candidate": 0.7
+            },
+            "routing": "Both score types use >=0.9 auto_candidate, >=0.7 stronger_model_candidate, otherwise human_candidate. These are offline candidate labels; no actions are executed."
+          },
+          "overall": {
+            "attempted": 20,
+            "valid": 20,
+            "invalid": 0,
+            "correct": 16,
+            "accuracy": 0.8,
+            "accuracy_valid": 0.8,
+            "brier": 0.29163443934292416,
+            "nll": 0.6672309656340416,
+            "zero_gold_count": 0,
+            "rounded_sum_count": 3,
+            "top_probability_calibration": {
+              "n": 20,
+              "ece": 0.14777272727272725,
+              "bins": [
+                {
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "upper_inclusive": false,
+                  "n": 2,
+                  "mean_score": 0.4370202020202021,
+                  "accuracy": 0.0
+                },
+                {
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "upper_inclusive": false,
+                  "n": 1,
+                  "mean_score": 0.797979797979798,
+                  "accuracy": 1.0
+                },
+                {
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "upper_inclusive": false,
+                  "n": 1,
+                  "mean_score": 0.84,
+                  "accuracy": 1.0
+                },
+                {
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "upper_inclusive": true,
+                  "n": 16,
+                  "mean_score": 0.9824621212121212,
+                  "accuracy": 0.875
+                }
+              ]
+            },
+            "confidence_shape_diagnostic": {
+              "n": 20,
+              "ece": 0.14300000000000004,
+              "bins": [
+                {
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "upper_inclusive": false,
+                  "n": 1,
+                  "mean_score": 0.38,
+                  "accuracy": 0.0
+                },
+                {
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "upper_inclusive": false,
+                  "n": 1,
+                  "mean_score": 0.45,
+                  "accuracy": 0.0
+                },
+                {
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "upper_inclusive": false,
+                  "n": 1,
+                  "mean_score": 0.78,
+                  "accuracy": 1.0
+                },
+                {
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "upper_inclusive": false,
+                  "n": 1,
+                  "mean_score": 0.83,
+                  "accuracy": 1.0
+                },
+                {
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "upper_inclusive": true,
+                  "n": 16,
+                  "mean_score": 0.9775,
+                  "accuracy": 0.875
+                }
+              ]
+            },
+            "routes": {
+              "top_probability": {
+                "auto_candidate": {
+                  "n": 16,
+                  "coverage": 0.8,
+                  "correct": 14,
+                  "accuracy": 0.875,
+                  "wilson95": {
+                    "lower": 0.639771727342413,
+                    "upper": 0.9650225122567595
+                  },
+                  "risk": 0.125,
+                  "mean_score": 0.9824621212121212,
+                  "score_n": 16
+                },
+                "stronger_model_candidate": {
+                  "n": 2,
+                  "coverage": 0.1,
+                  "correct": 2,
+                  "accuracy": 1.0,
+                  "wilson95": {
+                    "lower": 0.34238022750665303,
+                    "upper": 1.0
+                  },
+                  "risk": 0.0,
+                  "mean_score": 0.8189898989898989,
+                  "score_n": 2
+                },
+                "human_candidate": {
+                  "n": 2,
+                  "coverage": 0.1,
+                  "correct": 0,
+                  "accuracy": 0.0,
+                  "wilson95": {
+                    "lower": 0.0,
+                    "upper": 0.6576197724933469
+                  },
+                  "risk": 1.0,
+                  "mean_score": 0.4370202020202021,
+                  "score_n": 2
+                }
+              },
+              "confidence": {
+                "auto_candidate": {
+                  "n": 16,
+                  "coverage": 0.8,
+                  "correct": 14,
+                  "accuracy": 0.875,
+                  "wilson95": {
+                    "lower": 0.639771727342413,
+                    "upper": 0.9650225122567595
+                  },
+                  "risk": 0.125,
+                  "mean_score": 0.9775,
+                  "score_n": 16
+                },
+                "stronger_model_candidate": {
+                  "n": 2,
+                  "coverage": 0.1,
+                  "correct": 2,
+                  "accuracy": 1.0,
+                  "wilson95": {
+                    "lower": 0.34238022750665303,
+                    "upper": 1.0
+                  },
+                  "risk": 0.0,
+                  "mean_score": 0.8049999999999999,
+                  "score_n": 2
+                },
+                "human_candidate": {
+                  "n": 2,
+                  "coverage": 0.1,
+                  "correct": 0,
+                  "accuracy": 0.0,
+                  "wilson95": {
+                    "lower": 0.0,
+                    "upper": 0.6576197724933469
+                  },
+                  "risk": 1.0,
+                  "mean_score": 0.41500000000000004,
+                  "score_n": 2
+                }
+              }
+            }
+          },
+          "by_task": {
+            "banking77": {
+              "attempted": 20,
+              "valid": 20,
+              "invalid": 0,
+              "correct": 16,
+              "accuracy": 0.8,
+              "accuracy_valid": 0.8,
+              "brier": 0.29163443934292416,
+              "nll": 0.6672309656340416,
+              "zero_gold_count": 0,
+              "rounded_sum_count": 3,
+              "top_probability_calibration": {
+                "n": 20,
+                "ece": 0.14777272727272725,
+                "bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.1,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.1,
+                    "upper": 0.2,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.3,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.3,
+                    "upper": 0.4,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.5,
+                    "upper_inclusive": false,
+                    "n": 2,
+                    "mean_score": 0.4370202020202021,
+                    "accuracy": 0.0
+                  },
+                  {
+                    "lower": 0.5,
+                    "upper": 0.6,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.7,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.7,
+                    "upper": 0.8,
+                    "upper_inclusive": false,
+                    "n": 1,
+                    "mean_score": 0.797979797979798,
+                    "accuracy": 1.0
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 0.9,
+                    "upper_inclusive": false,
+                    "n": 1,
+                    "mean_score": 0.84,
+                    "accuracy": 1.0
+                  },
+                  {
+                    "lower": 0.9,
+                    "upper": 1.0,
+                    "upper_inclusive": true,
+                    "n": 16,
+                    "mean_score": 0.9824621212121212,
+                    "accuracy": 0.875
+                  }
+                ]
+              },
+              "confidence_shape_diagnostic": {
+                "n": 20,
+                "ece": 0.14300000000000004,
+                "bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.1,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.1,
+                    "upper": 0.2,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.3,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.3,
+                    "upper": 0.4,
+                    "upper_inclusive": false,
+                    "n": 1,
+                    "mean_score": 0.38,
+                    "accuracy": 0.0
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.5,
+                    "upper_inclusive": false,
+                    "n": 1,
+                    "mean_score": 0.45,
+                    "accuracy": 0.0
+                  },
+                  {
+                    "lower": 0.5,
+                    "upper": 0.6,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.7,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.7,
+                    "upper": 0.8,
+                    "upper_inclusive": false,
+                    "n": 1,
+                    "mean_score": 0.78,
+                    "accuracy": 1.0
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 0.9,
+                    "upper_inclusive": false,
+                    "n": 1,
+                    "mean_score": 0.83,
+                    "accuracy": 1.0
+                  },
+                  {
+                    "lower": 0.9,
+                    "upper": 1.0,
+                    "upper_inclusive": true,
+                    "n": 16,
+                    "mean_score": 0.9775,
+                    "accuracy": 0.875
+                  }
+                ]
+              },
+              "routes": {
+                "top_probability": {
+                  "auto_candidate": {
+                    "n": 16,
+                    "coverage": 0.8,
+                    "correct": 14,
+                    "accuracy": 0.875,
+                    "wilson95": {
+                      "lower": 0.639771727342413,
+                      "upper": 0.9650225122567595
+                    },
+                    "risk": 0.125,
+                    "mean_score": 0.9824621212121212,
+                    "score_n": 16
+                  },
+                  "stronger_model_candidate": {
+                    "n": 2,
+                    "coverage": 0.1,
+                    "correct": 2,
+                    "accuracy": 1.0,
+                    "wilson95": {
+                      "lower": 0.34238022750665303,
+                      "upper": 1.0
+                    },
+                    "risk": 0.0,
+                    "mean_score": 0.8189898989898989,
+                    "score_n": 2
+                  },
+                  "human_candidate": {
+                    "n": 2,
+                    "coverage": 0.1,
+                    "correct": 0,
+                    "accuracy": 0.0,
+                    "wilson95": {
+                      "lower": 0.0,
+                      "upper": 0.6576197724933469
+                    },
+                    "risk": 1.0,
+                    "mean_score": 0.4370202020202021,
+                    "score_n": 2
+                  }
+                },
+                "confidence": {
+                  "auto_candidate": {
+                    "n": 16,
+                    "coverage": 0.8,
+                    "correct": 14,
+                    "accuracy": 0.875,
+                    "wilson95": {
+                      "lower": 0.639771727342413,
+                      "upper": 0.9650225122567595
+                    },
+                    "risk": 0.125,
+                    "mean_score": 0.9775,
+                    "score_n": 16
+                  },
+                  "stronger_model_candidate": {
+                    "n": 2,
+                    "coverage": 0.1,
+                    "correct": 2,
+                    "accuracy": 1.0,
+                    "wilson95": {
+                      "lower": 0.34238022750665303,
+                      "upper": 1.0
+                    },
+                    "risk": 0.0,
+                    "mean_score": 0.8049999999999999,
+                    "score_n": 2
+                  },
+                  "human_candidate": {
+                    "n": 2,
+                    "coverage": 0.1,
+                    "correct": 0,
+                    "accuracy": 0.0,
+                    "wilson95": {
+                      "lower": 0.0,
+                      "upper": 0.6576197724933469
+                    },
+                    "risk": 1.0,
+                    "mean_score": 0.41500000000000004,
+                    "score_n": 2
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "resolved_models": [
+      "typesafe/jev-1.13-20260917"
+    ]
+  },
+  "deepseek/deepseek-v4-flash": {
+    "attempted": 20,
+    "valid": 20,
+    "correct": 16,
+    "accuracy": 0.8,
+    "errors": 0,
+    "unknown_predictions": 0,
+    "needs_review": null,
+    "median_latency_seconds": 1.7515551459800918,
+    "usage": {
+      "calls": 20,
+      "failed_calls": 0,
+      "latency_seconds": 35.199187,
+      "reported_input_tokens": 20940,
+      "reported_output_tokens": 203,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.002009152398,
+      "known_cost_subtotal_usd": 0.002009152398,
+      "cost_unknown_calls": 0
+    },
+    "confusion": {
+      "why_verify_identity": {
+        "why_verify_identity": 1
+      },
+      "pending_card_payment": {
+        "pending_card_payment": 1
+      },
+      "pending_transfer": {
+        "transfer_timing": 1
+      },
+      "terminate_account": {
+        "terminate_account": 1
+      },
+      "transaction_charged_twice": {
+        "transaction_charged_twice": 1
+      },
+      "transfer_fee_charged": {
+        "transfer_fee_charged": 2
+      },
+      "verify_top_up": {
+        "verify_top_up": 2
+      },
+      "order_physical_card": {
+        "get_physical_card": 1
+      },
+      "balance_not_updated_after_bank_transfer": {
+        "pending_transfer": 1
+      },
+      "top_up_by_card_charge": {
+        "top_up_by_card_charge": 2
+      },
+      "cash_withdrawal_charge": {
+        "extra_charge_on_statement": 1
+      },
+      "card_delivery_estimate": {
+        "card_delivery_estimate": 1
+      },
+      "card_not_working": {
+        "card_not_working": 1
+      },
+      "card_linking": {
+        "card_linking": 1
+      },
+      "card_payment_fee_charged": {
+        "card_payment_fee_charged": 1
+      },
+      "exchange_rate": {
+        "exchange_rate": 2
+      }
+    },
+    "per_label": {
+      "balance_not_updated_after_bank_transfer": {
+        "n": 1,
+        "correct": 0
+      },
+      "card_delivery_estimate": {
+        "n": 1,
+        "correct": 1
+      },
+      "card_linking": {
+        "n": 1,
+        "correct": 1
+      },
+      "card_not_working": {
+        "n": 1,
+        "correct": 1
+      },
+      "card_payment_fee_charged": {
+        "n": 1,
+        "correct": 1
+      },
+      "cash_withdrawal_charge": {
+        "n": 1,
+        "correct": 0
+      },
+      "exchange_rate": {
+        "n": 2,
+        "correct": 2
+      },
+      "order_physical_card": {
+        "n": 1,
+        "correct": 0
+      },
+      "pending_card_payment": {
+        "n": 1,
+        "correct": 1
+      },
+      "pending_transfer": {
+        "n": 1,
+        "correct": 0
+      },
+      "terminate_account": {
+        "n": 1,
+        "correct": 1
+      },
+      "top_up_by_card_charge": {
+        "n": 2,
+        "correct": 2
+      },
+      "transaction_charged_twice": {
+        "n": 1,
+        "correct": 1
+      },
+      "transfer_fee_charged": {
+        "n": 2,
+        "correct": 2
+      },
+      "verify_top_up": {
+        "n": 2,
+        "correct": 2
+      },
+      "why_verify_identity": {
+        "n": 1,
+        "correct": 1
+      }
+    },
+    "calibration": null,
+    "by_task": {
+      "banking77": {
+        "attempted": 20,
+        "valid": 20,
+        "correct": 16,
+        "accuracy": 0.8,
+        "errors": 0,
+        "unknown_predictions": 0,
+        "needs_review": null,
+        "median_latency_seconds": 1.7515551459800918,
+        "usage": {
+          "calls": 20,
+          "failed_calls": 0,
+          "latency_seconds": 35.199187,
+          "reported_input_tokens": 20940,
+          "reported_output_tokens": 203,
+          "usage_missing_calls": 0,
+          "reported_cost_usd": 0.002009152398,
+          "known_cost_subtotal_usd": 0.002009152398,
+          "cost_unknown_calls": 0
+        },
+        "confusion": {
+          "why_verify_identity": {
+            "why_verify_identity": 1
+          },
+          "pending_card_payment": {
+            "pending_card_payment": 1
+          },
+          "pending_transfer": {
+            "transfer_timing": 1
+          },
+          "terminate_account": {
+            "terminate_account": 1
+          },
+          "transaction_charged_twice": {
+            "transaction_charged_twice": 1
+          },
+          "transfer_fee_charged": {
+            "transfer_fee_charged": 2
+          },
+          "verify_top_up": {
+            "verify_top_up": 2
+          },
+          "order_physical_card": {
+            "get_physical_card": 1
+          },
+          "balance_not_updated_after_bank_transfer": {
+            "pending_transfer": 1
+          },
+          "top_up_by_card_charge": {
+            "top_up_by_card_charge": 2
+          },
+          "cash_withdrawal_charge": {
+            "extra_charge_on_statement": 1
+          },
+          "card_delivery_estimate": {
+            "card_delivery_estimate": 1
+          },
+          "card_not_working": {
+            "card_not_working": 1
+          },
+          "card_linking": {
+            "card_linking": 1
+          },
+          "card_payment_fee_charged": {
+            "card_payment_fee_charged": 1
+          },
+          "exchange_rate": {
+            "exchange_rate": 2
+          }
+        },
+        "per_label": {
+          "balance_not_updated_after_bank_transfer": {
+            "n": 1,
+            "correct": 0
+          },
+          "card_delivery_estimate": {
+            "n": 1,
+            "correct": 1
+          },
+          "card_linking": {
+            "n": 1,
+            "correct": 1
+          },
+          "card_not_working": {
+            "n": 1,
+            "correct": 1
+          },
+          "card_payment_fee_charged": {
+            "n": 1,
+            "correct": 1
+          },
+          "cash_withdrawal_charge": {
+            "n": 1,
+            "correct": 0
+          },
+          "exchange_rate": {
+            "n": 2,
+            "correct": 2
+          },
+          "order_physical_card": {
+            "n": 1,
+            "correct": 0
+          },
+          "pending_card_payment": {
+            "n": 1,
+            "correct": 1
+          },
+          "pending_transfer": {
+            "n": 1,
+            "correct": 0
+          },
+          "terminate_account": {
+            "n": 1,
+            "correct": 1
+          },
+          "top_up_by_card_charge": {
+            "n": 2,
+            "correct": 2
+          },
+          "transaction_charged_twice": {
+            "n": 1,
+            "correct": 1
+          },
+          "transfer_fee_charged": {
+            "n": 2,
+            "correct": 2
+          },
+          "verify_top_up": {
+            "n": 2,
+            "correct": 2
+          },
+          "why_verify_identity": {
+            "n": 1,
+            "correct": 1
+          }
+        },
+        "calibration": null
+      }
+    },
+    "resolved_models": [
+      "deepseek/deepseek-v4-flash"
+    ]
+  },
+  "qwen/qwen3.5-35b-a3b": {
+    "attempted": 20,
+    "valid": 20,
+    "correct": 17,
+    "accuracy": 0.85,
+    "errors": 0,
+    "unknown_predictions": 0,
+    "needs_review": null,
+    "median_latency_seconds": 1.3765828335017432,
+    "usage": {
+      "calls": 20,
+      "failed_calls": 0,
+      "latency_seconds": 24.965954,
+      "reported_input_tokens": 23074,
+      "reported_output_tokens": 235,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.0035154975,
+      "known_cost_subtotal_usd": 0.0035154975,
+      "cost_unknown_calls": 0
+    },
+    "confusion": {
+      "why_verify_identity": {
+        "why_verify_identity": 1
+      },
+      "pending_card_payment": {
+        "pending_card_payment": 1
+      },
+      "pending_transfer": {
+        "pending_transfer": 1
+      },
+      "terminate_account": {
+        "terminate_account": 1
+      },
+      "transaction_charged_twice": {
+        "transaction_charged_twice": 1
+      },
+      "transfer_fee_charged": {
+        "transfer_fee_charged": 2
+      },
+      "verify_top_up": {
+        "verify_top_up": 2
+      },
+      "order_physical_card": {
+        "get_physical_card": 1
+      },
+      "balance_not_updated_after_bank_transfer": {
+        "pending_transfer": 1
+      },
+      "top_up_by_card_charge": {
+        "top_up_by_card_charge": 2
+      },
+      "cash_withdrawal_charge": {
+        "cash_withdrawal_charge": 1
+      },
+      "card_delivery_estimate": {
+        "card_arrival": 1
+      },
+      "card_not_working": {
+        "card_not_working": 1
+      },
+      "card_linking": {
+        "card_linking": 1
+      },
+      "card_payment_fee_charged": {
+        "card_payment_fee_charged": 1
+      },
+      "exchange_rate": {
+        "exchange_rate": 2
+      }
+    },
+    "per_label": {
+      "balance_not_updated_after_bank_transfer": {
+        "n": 1,
+        "correct": 0
+      },
+      "card_delivery_estimate": {
+        "n": 1,
+        "correct": 0
+      },
+      "card_linking": {
+        "n": 1,
+        "correct": 1
+      },
+      "card_not_working": {
+        "n": 1,
+        "correct": 1
+      },
+      "card_payment_fee_charged": {
+        "n": 1,
+        "correct": 1
+      },
+      "cash_withdrawal_charge": {
+        "n": 1,
+        "correct": 1
+      },
+      "exchange_rate": {
+        "n": 2,
+        "correct": 2
+      },
+      "order_physical_card": {
+        "n": 1,
+        "correct": 0
+      },
+      "pending_card_payment": {
+        "n": 1,
+        "correct": 1
+      },
+      "pending_transfer": {
+        "n": 1,
+        "correct": 1
+      },
+      "terminate_account": {
+        "n": 1,
+        "correct": 1
+      },
+      "top_up_by_card_charge": {
+        "n": 2,
+        "correct": 2
+      },
+      "transaction_charged_twice": {
+        "n": 1,
+        "correct": 1
+      },
+      "transfer_fee_charged": {
+        "n": 2,
+        "correct": 2
+      },
+      "verify_top_up": {
+        "n": 2,
+        "correct": 2
+      },
+      "why_verify_identity": {
+        "n": 1,
+        "correct": 1
+      }
+    },
+    "calibration": null,
+    "by_task": {
+      "banking77": {
+        "attempted": 20,
+        "valid": 20,
+        "correct": 17,
+        "accuracy": 0.85,
+        "errors": 0,
+        "unknown_predictions": 0,
+        "needs_review": null,
+        "median_latency_seconds": 1.3765828335017432,
+        "usage": {
+          "calls": 20,
+          "failed_calls": 0,
+          "latency_seconds": 24.965954,
+          "reported_input_tokens": 23074,
+          "reported_output_tokens": 235,
+          "usage_missing_calls": 0,
+          "reported_cost_usd": 0.0035154975,
+          "known_cost_subtotal_usd": 0.0035154975,
+          "cost_unknown_calls": 0
+        },
+        "confusion": {
+          "why_verify_identity": {
+            "why_verify_identity": 1
+          },
+          "pending_card_payment": {
+            "pending_card_payment": 1
+          },
+          "pending_transfer": {
+            "pending_transfer": 1
+          },
+          "terminate_account": {
+            "terminate_account": 1
+          },
+          "transaction_charged_twice": {
+            "transaction_charged_twice": 1
+          },
+          "transfer_fee_charged": {
+            "transfer_fee_charged": 2
+          },
+          "verify_top_up": {
+            "verify_top_up": 2
+          },
+          "order_physical_card": {
+            "get_physical_card": 1
+          },
+          "balance_not_updated_after_bank_transfer": {
+            "pending_transfer": 1
+          },
+          "top_up_by_card_charge": {
+            "top_up_by_card_charge": 2
+          },
+          "cash_withdrawal_charge": {
+            "cash_withdrawal_charge": 1
+          },
+          "card_delivery_estimate": {
+            "card_arrival": 1
+          },
+          "card_not_working": {
+            "card_not_working": 1
+          },
+          "card_linking": {
+            "card_linking": 1
+          },
+          "card_payment_fee_charged": {
+            "card_payment_fee_charged": 1
+          },
+          "exchange_rate": {
+            "exchange_rate": 2
+          }
+        },
+        "per_label": {
+          "balance_not_updated_after_bank_transfer": {
+            "n": 1,
+            "correct": 0
+          },
+          "card_delivery_estimate": {
+            "n": 1,
+            "correct": 0
+          },
+          "card_linking": {
+            "n": 1,
+            "correct": 1
+          },
+          "card_not_working": {
+            "n": 1,
+            "correct": 1
+          },
+          "card_payment_fee_charged": {
+            "n": 1,
+            "correct": 1
+          },
+          "cash_withdrawal_charge": {
+            "n": 1,
+            "correct": 1
+          },
+          "exchange_rate": {
+            "n": 2,
+            "correct": 2
+          },
+          "order_physical_card": {
+            "n": 1,
+            "correct": 0
+          },
+          "pending_card_payment": {
+            "n": 1,
+            "correct": 1
+          },
+          "pending_transfer": {
+            "n": 1,
+            "correct": 1
+          },
+          "terminate_account": {
+            "n": 1,
+            "correct": 1
+          },
+          "top_up_by_card_charge": {
+            "n": 2,
+            "correct": 2
+          },
+          "transaction_charged_twice": {
+            "n": 1,
+            "correct": 1
+          },
+          "transfer_fee_charged": {
+            "n": 2,
+            "correct": 2
+          },
+          "verify_top_up": {
+            "n": 2,
+            "correct": 2
+          },
+          "why_verify_identity": {
+            "n": 1,
+            "correct": 1
+          }
+        },
+        "calibration": null
+      }
+    },
+    "resolved_models": [
+      "qwen/qwen3.5-35b-a3b"
+    ]
+  },
+  "qwen/qwen3.5-9b": {
+    "attempted": 20,
+    "valid": 20,
+    "correct": 15,
+    "accuracy": 0.75,
+    "errors": 0,
+    "unknown_predictions": 0,
+    "needs_review": null,
+    "median_latency_seconds": 1.313338895997731,
+    "usage": {
+      "calls": 20,
+      "failed_calls": 0,
+      "latency_seconds": 58.510111,
+      "reported_input_tokens": 19818,
+      "reported_output_tokens": 262,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.00206113,
+      "known_cost_subtotal_usd": 0.00206113,
+      "cost_unknown_calls": 0
+    },
+    "confusion": {
+      "why_verify_identity": {
+        "why_verify_identity": 1
+      },
+      "pending_card_payment": {
+        "pending_card_payment": 1
+      },
+      "pending_transfer": {
+        "transfer_timing": 1
+      },
+      "terminate_account": {
+        "terminate_account": 1
+      },
+      "transaction_charged_twice": {
+        "transaction_charged_twice": 1
+      },
+      "transfer_fee_charged": {
+        "transfer_fee_charged": 2
+      },
+      "verify_top_up": {
+        "verify_top_up": 2
+      },
+      "order_physical_card": {
+        "get_physical_card": 1
+      },
+      "balance_not_updated_after_bank_transfer": {
+        "pending_transfer": 1
+      },
+      "top_up_by_card_charge": {
+        "top_up_by_bank_transfer_charge": 1,
+        "top_up_by_card_charge": 1
+      },
+      "cash_withdrawal_charge": {
+        "cash_withdrawal_charge": 1
+      },
+      "card_delivery_estimate": {
+        "card_arrival": 1
+      },
+      "card_not_working": {
+        "card_not_working": 1
+      },
+      "card_linking": {
+        "card_linking": 1
+      },
+      "card_payment_fee_charged": {
+        "card_payment_fee_charged": 1
+      },
+      "exchange_rate": {
+        "exchange_rate": 2
+      }
+    },
+    "per_label": {
+      "balance_not_updated_after_bank_transfer": {
+        "n": 1,
+        "correct": 0
+      },
+      "card_delivery_estimate": {
+        "n": 1,
+        "correct": 0
+      },
+      "card_linking": {
+        "n": 1,
+        "correct": 1
+      },
+      "card_not_working": {
+        "n": 1,
+        "correct": 1
+      },
+      "card_payment_fee_charged": {
+        "n": 1,
+        "correct": 1
+      },
+      "cash_withdrawal_charge": {
+        "n": 1,
+        "correct": 1
+      },
+      "exchange_rate": {
+        "n": 2,
+        "correct": 2
+      },
+      "order_physical_card": {
+        "n": 1,
+        "correct": 0
+      },
+      "pending_card_payment": {
+        "n": 1,
+        "correct": 1
+      },
+      "pending_transfer": {
+        "n": 1,
+        "correct": 0
+      },
+      "terminate_account": {
+        "n": 1,
+        "correct": 1
+      },
+      "top_up_by_card_charge": {
+        "n": 2,
+        "correct": 1
+      },
+      "transaction_charged_twice": {
+        "n": 1,
+        "correct": 1
+      },
+      "transfer_fee_charged": {
+        "n": 2,
+        "correct": 2
+      },
+      "verify_top_up": {
+        "n": 2,
+        "correct": 2
+      },
+      "why_verify_identity": {
+        "n": 1,
+        "correct": 1
+      }
+    },
+    "calibration": null,
+    "by_task": {
+      "banking77": {
+        "attempted": 20,
+        "valid": 20,
+        "correct": 15,
+        "accuracy": 0.75,
+        "errors": 0,
+        "unknown_predictions": 0,
+        "needs_review": null,
+        "median_latency_seconds": 1.313338895997731,
+        "usage": {
+          "calls": 20,
+          "failed_calls": 0,
+          "latency_seconds": 58.510111,
+          "reported_input_tokens": 19818,
+          "reported_output_tokens": 262,
+          "usage_missing_calls": 0,
+          "reported_cost_usd": 0.00206113,
+          "known_cost_subtotal_usd": 0.00206113,
+          "cost_unknown_calls": 0
+        },
+        "confusion": {
+          "why_verify_identity": {
+            "why_verify_identity": 1
+          },
+          "pending_card_payment": {
+            "pending_card_payment": 1
+          },
+          "pending_transfer": {
+            "transfer_timing": 1
+          },
+          "terminate_account": {
+            "terminate_account": 1
+          },
+          "transaction_charged_twice": {
+            "transaction_charged_twice": 1
+          },
+          "transfer_fee_charged": {
+            "transfer_fee_charged": 2
+          },
+          "verify_top_up": {
+            "verify_top_up": 2
+          },
+          "order_physical_card": {
+            "get_physical_card": 1
+          },
+          "balance_not_updated_after_bank_transfer": {
+            "pending_transfer": 1
+          },
+          "top_up_by_card_charge": {
+            "top_up_by_bank_transfer_charge": 1,
+            "top_up_by_card_charge": 1
+          },
+          "cash_withdrawal_charge": {
+            "cash_withdrawal_charge": 1
+          },
+          "card_delivery_estimate": {
+            "card_arrival": 1
+          },
+          "card_not_working": {
+            "card_not_working": 1
+          },
+          "card_linking": {
+            "card_linking": 1
+          },
+          "card_payment_fee_charged": {
+            "card_payment_fee_charged": 1
+          },
+          "exchange_rate": {
+            "exchange_rate": 2
+          }
+        },
+        "per_label": {
+          "balance_not_updated_after_bank_transfer": {
+            "n": 1,
+            "correct": 0
+          },
+          "card_delivery_estimate": {
+            "n": 1,
+            "correct": 0
+          },
+          "card_linking": {
+            "n": 1,
+            "correct": 1
+          },
+          "card_not_working": {
+            "n": 1,
+            "correct": 1
+          },
+          "card_payment_fee_charged": {
+            "n": 1,
+            "correct": 1
+          },
+          "cash_withdrawal_charge": {
+            "n": 1,
+            "correct": 1
+          },
+          "exchange_rate": {
+            "n": 2,
+            "correct": 2
+          },
+          "order_physical_card": {
+            "n": 1,
+            "correct": 0
+          },
+          "pending_card_payment": {
+            "n": 1,
+            "correct": 1
+          },
+          "pending_transfer": {
+            "n": 1,
+            "correct": 0
+          },
+          "terminate_account": {
+            "n": 1,
+            "correct": 1
+          },
+          "top_up_by_card_charge": {
+            "n": 2,
+            "correct": 1
+          },
+          "transaction_charged_twice": {
+            "n": 1,
+            "correct": 1
+          },
+          "transfer_fee_charged": {
+            "n": 2,
+            "correct": 2
+          },
+          "verify_top_up": {
+            "n": 2,
+            "correct": 2
+          },
+          "why_verify_identity": {
+            "n": 1,
+            "correct": 1
+          }
+        },
+        "calibration": null
+      }
+    },
+    "resolved_models": [
+      "qwen/qwen3.5-9b"
+    ]
+  },
+  "meta-llama/llama-3.1-8b-instruct": {
+    "attempted": 20,
+    "valid": 20,
+    "correct": 13,
+    "accuracy": 0.65,
+    "errors": 0,
+    "unknown_predictions": 0,
+    "needs_review": null,
+    "median_latency_seconds": 0.38609293749323115,
+    "usage": {
+      "calls": 20,
+      "failed_calls": 0,
+      "latency_seconds": 8.13828,
+      "reported_input_tokens": 19714,
+      "reported_output_tokens": 184,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.00437756,
+      "known_cost_subtotal_usd": 0.00437756,
+      "cost_unknown_calls": 0
+    },
+    "confusion": {
+      "why_verify_identity": {
+        "why_verify_identity": 1
+      },
+      "pending_card_payment": {
+        "pending_card_payment": 1
+      },
+      "pending_transfer": {
+        "transfer_timing": 1
+      },
+      "terminate_account": {
+        "terminate_account": 1
+      },
+      "transaction_charged_twice": {
+        "transaction_charged_twice": 1
+      },
+      "transfer_fee_charged": {
+        "transfer_fee_charged": 1,
+        "exchange_rate": 1
+      },
+      "verify_top_up": {
+        "verify_top_up": 2
+      },
+      "order_physical_card": {
+        "card_arrival": 1
+      },
+      "balance_not_updated_after_bank_transfer": {
+        "pending_transfer": 1
+      },
+      "top_up_by_card_charge": {
+        "top_up_by_card_charge": 1,
+        "exchange_rate": 1
+      },
+      "cash_withdrawal_charge": {
+        "wrong_amount_of_cash_received": 1
+      },
+      "card_delivery_estimate": {
+        "card_payment_wrong_exchange_rate": 1
+      },
+      "card_not_working": {
+        "card_not_working": 1
+      },
+      "card_linking": {
+        "card_linking": 1
+      },
+      "card_payment_fee_charged": {
+        "card_payment_fee_charged": 1
+      },
+      "exchange_rate": {
+        "exchange_rate": 2
+      }
+    },
+    "per_label": {
+      "balance_not_updated_after_bank_transfer": {
+        "n": 1,
+        "correct": 0
+      },
+      "card_delivery_estimate": {
+        "n": 1,
+        "correct": 0
+      },
+      "card_linking": {
+        "n": 1,
+        "correct": 1
+      },
+      "card_not_working": {
+        "n": 1,
+        "correct": 1
+      },
+      "card_payment_fee_charged": {
+        "n": 1,
+        "correct": 1
+      },
+      "cash_withdrawal_charge": {
+        "n": 1,
+        "correct": 0
+      },
+      "exchange_rate": {
+        "n": 2,
+        "correct": 2
+      },
+      "order_physical_card": {
+        "n": 1,
+        "correct": 0
+      },
+      "pending_card_payment": {
+        "n": 1,
+        "correct": 1
+      },
+      "pending_transfer": {
+        "n": 1,
+        "correct": 0
+      },
+      "terminate_account": {
+        "n": 1,
+        "correct": 1
+      },
+      "top_up_by_card_charge": {
+        "n": 2,
+        "correct": 1
+      },
+      "transaction_charged_twice": {
+        "n": 1,
+        "correct": 1
+      },
+      "transfer_fee_charged": {
+        "n": 2,
+        "correct": 1
+      },
+      "verify_top_up": {
+        "n": 2,
+        "correct": 2
+      },
+      "why_verify_identity": {
+        "n": 1,
+        "correct": 1
+      }
+    },
+    "calibration": null,
+    "by_task": {
+      "banking77": {
+        "attempted": 20,
+        "valid": 20,
+        "correct": 13,
+        "accuracy": 0.65,
+        "errors": 0,
+        "unknown_predictions": 0,
+        "needs_review": null,
+        "median_latency_seconds": 0.38609293749323115,
+        "usage": {
+          "calls": 20,
+          "failed_calls": 0,
+          "latency_seconds": 8.13828,
+          "reported_input_tokens": 19714,
+          "reported_output_tokens": 184,
+          "usage_missing_calls": 0,
+          "reported_cost_usd": 0.00437756,
+          "known_cost_subtotal_usd": 0.00437756,
+          "cost_unknown_calls": 0
+        },
+        "confusion": {
+          "why_verify_identity": {
+            "why_verify_identity": 1
+          },
+          "pending_card_payment": {
+            "pending_card_payment": 1
+          },
+          "pending_transfer": {
+            "transfer_timing": 1
+          },
+          "terminate_account": {
+            "terminate_account": 1
+          },
+          "transaction_charged_twice": {
+            "transaction_charged_twice": 1
+          },
+          "transfer_fee_charged": {
+            "transfer_fee_charged": 1,
+            "exchange_rate": 1
+          },
+          "verify_top_up": {
+            "verify_top_up": 2
+          },
+          "order_physical_card": {
+            "card_arrival": 1
+          },
+          "balance_not_updated_after_bank_transfer": {
+            "pending_transfer": 1
+          },
+          "top_up_by_card_charge": {
+            "top_up_by_card_charge": 1,
+            "exchange_rate": 1
+          },
+          "cash_withdrawal_charge": {
+            "wrong_amount_of_cash_received": 1
+          },
+          "card_delivery_estimate": {
+            "card_payment_wrong_exchange_rate": 1
+          },
+          "card_not_working": {
+            "card_not_working": 1
+          },
+          "card_linking": {
+            "card_linking": 1
+          },
+          "card_payment_fee_charged": {
+            "card_payment_fee_charged": 1
+          },
+          "exchange_rate": {
+            "exchange_rate": 2
+          }
+        },
+        "per_label": {
+          "balance_not_updated_after_bank_transfer": {
+            "n": 1,
+            "correct": 0
+          },
+          "card_delivery_estimate": {
+            "n": 1,
+            "correct": 0
+          },
+          "card_linking": {
+            "n": 1,
+            "correct": 1
+          },
+          "card_not_working": {
+            "n": 1,
+            "correct": 1
+          },
+          "card_payment_fee_charged": {
+            "n": 1,
+            "correct": 1
+          },
+          "cash_withdrawal_charge": {
+            "n": 1,
+            "correct": 0
+          },
+          "exchange_rate": {
+            "n": 2,
+            "correct": 2
+          },
+          "order_physical_card": {
+            "n": 1,
+            "correct": 0
+          },
+          "pending_card_payment": {
+            "n": 1,
+            "correct": 1
+          },
+          "pending_transfer": {
+            "n": 1,
+            "correct": 0
+          },
+          "terminate_account": {
+            "n": 1,
+            "correct": 1
+          },
+          "top_up_by_card_charge": {
+            "n": 2,
+            "correct": 1
+          },
+          "transaction_charged_twice": {
+            "n": 1,
+            "correct": 1
+          },
+          "transfer_fee_charged": {
+            "n": 2,
+            "correct": 1
+          },
+          "verify_top_up": {
+            "n": 2,
+            "correct": 2
+          },
+          "why_verify_identity": {
+            "n": 1,
+            "correct": 1
+          }
+        },
+        "calibration": null
+      }
+    },
+    "resolved_models": [
+      "meta-llama/llama-3.1-8b-instruct"
+    ]
+  }
+}

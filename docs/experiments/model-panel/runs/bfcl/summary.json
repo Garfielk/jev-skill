@@ -1,0 +1,2749 @@
+{
+  "typesafe/jev-1.13": {
+    "attempted": 20,
+    "valid": 20,
+    "correct": 20,
+    "accuracy": 1.0,
+    "errors": 0,
+    "unknown_predictions": 0,
+    "needs_review": 0,
+    "median_latency_seconds": 0.35145268798805773,
+    "usage": {
+      "calls": 20,
+      "failed_calls": 0,
+      "latency_seconds": 7.129354,
+      "reported_input_tokens": 15074,
+      "reported_output_tokens": 993,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.000633108,
+      "known_cost_subtotal_usd": 0.000633108,
+      "cost_unknown_calls": 0
+    },
+    "confusion": {
+      "triangle_properties.get": {
+        "triangle_properties.get": 1
+      },
+      "imdb.find_movies_by_actor": {
+        "imdb.find_movies_by_actor": 1
+      },
+      "database.query": {
+        "database.query": 1
+      },
+      "calculate_probability": {
+        "calculate_probability": 1
+      },
+      "run_two_sample_ttest": {
+        "run_two_sample_ttest": 1
+      },
+      "get_case_info": {
+        "get_case_info": 1
+      },
+      "map_service.get_directions": {
+        "map_service.get_directions": 1
+      },
+      "historical_contrib.get_contrib": {
+        "historical_contrib.get_contrib": 1
+      },
+      "metropolitan_museum.get_top_artworks": {
+        "metropolitan_museum.get_top_artworks": 1
+      },
+      "get_song_lyrics": {
+        "get_song_lyrics": 1
+      },
+      "soccer_stat.get_player_stats": {
+        "soccer_stat.get_player_stats": 1
+      },
+      "get_defense_ranking": {
+        "get_defense_ranking": 1
+      },
+      "maps.get_distance_duration": {
+        "maps.get_distance_duration": 1
+      },
+      "forest_growth_forecast": {
+        "forest_growth_forecast": 1
+      },
+      "functions.intersect": {
+        "functions.intersect": 1
+      },
+      "avg_closing_price": {
+        "avg_closing_price": 1
+      },
+      "get_population": {
+        "get_population": 1
+      },
+      "religion.get_origin": {
+        "religion.get_origin": 1
+      },
+      "music_shop.find_nearby": {
+        "music_shop.find_nearby": 1
+      },
+      "soccer_scores.get_scores": {
+        "soccer_scores.get_scores": 1
+      }
+    },
+    "per_label": {
+      "avg_closing_price": {
+        "n": 1,
+        "correct": 1
+      },
+      "calculate_probability": {
+        "n": 1,
+        "correct": 1
+      },
+      "database.query": {
+        "n": 1,
+        "correct": 1
+      },
+      "forest_growth_forecast": {
+        "n": 1,
+        "correct": 1
+      },
+      "functions.intersect": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_case_info": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_defense_ranking": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_population": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_song_lyrics": {
+        "n": 1,
+        "correct": 1
+      },
+      "historical_contrib.get_contrib": {
+        "n": 1,
+        "correct": 1
+      },
+      "imdb.find_movies_by_actor": {
+        "n": 1,
+        "correct": 1
+      },
+      "map_service.get_directions": {
+        "n": 1,
+        "correct": 1
+      },
+      "maps.get_distance_duration": {
+        "n": 1,
+        "correct": 1
+      },
+      "metropolitan_museum.get_top_artworks": {
+        "n": 1,
+        "correct": 1
+      },
+      "music_shop.find_nearby": {
+        "n": 1,
+        "correct": 1
+      },
+      "religion.get_origin": {
+        "n": 1,
+        "correct": 1
+      },
+      "run_two_sample_ttest": {
+        "n": 1,
+        "correct": 1
+      },
+      "soccer_scores.get_scores": {
+        "n": 1,
+        "correct": 1
+      },
+      "soccer_stat.get_player_stats": {
+        "n": 1,
+        "correct": 1
+      },
+      "triangle_properties.get": {
+        "n": 1,
+        "correct": 1
+      }
+    },
+    "calibration": {
+      "metadata": {
+        "normalization": "Accept finite [0,1] vectors with positive sum within min(0.05, 0.0051 * classes) of 1; divide every accepted vector by its sum before scoring and top-probability routing.",
+        "prediction": "Must be a maximum-probability class; ties are allowed.",
+        "brier": "Mean over valid records of SUM over classes (normalized probability - one-hot target)^2.",
+        "nll": "Mean natural-log loss over valid records; gold probability clamped to 1e-12; exact zeros counted separately.",
+        "ece": "10 equal-width bins [lower, upper), last bin includes 1; sample-weighted absolute mean-score minus accuracy.",
+        "confidence": "Distribution-shape statistic diagnostic, NOT a claimed probability of correctness. Null confidence is excluded from its ECE and mean score and routes to human_candidate.",
+        "denominators": "Accuracy and route coverage use all attempts. Invalid records count wrong and route to human_candidate. Brier/NLL/ECE use valid available scores only. Empty denominators return null.",
+        "risk": "1 - bucket accuracy, including invalid attempts as wrong in human_candidate.",
+        "interval": "Two-sided Wilson 95% interval for bucket accuracy (z=1.959963984540054); descriptive, not adjusted for dependence or multiple comparisons.",
+        "route_thresholds": {
+          "auto_candidate": 0.9,
+          "stronger_model_candidate": 0.7
+        },
+        "routing": "Both score types use >=0.9 auto_candidate, >=0.7 stronger_model_candidate, otherwise human_candidate. These are offline candidate labels; no actions are executed."
+      },
+      "overall": {
+        "attempted": 20,
+        "valid": 20,
+        "invalid": 0,
+        "correct": 20,
+        "accuracy": 1.0,
+        "accuracy_valid": 1.0,
+        "brier": 0.0,
+        "nll": 0.0,
+        "zero_gold_count": 0,
+        "rounded_sum_count": 0,
+        "top_probability_calibration": {
+          "n": 20,
+          "ece": 0.0,
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.1,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.2,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.3,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.3,
+              "upper": 0.4,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.5,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.6,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.7,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.7,
+              "upper": 0.8,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.9,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.9,
+              "upper": 1.0,
+              "upper_inclusive": true,
+              "n": 20,
+              "mean_score": 1.0,
+              "accuracy": 1.0
+            }
+          ]
+        },
+        "confidence_shape_diagnostic": {
+          "n": 20,
+          "ece": 0.0,
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.1,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.2,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.3,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.3,
+              "upper": 0.4,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.5,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.6,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.7,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.7,
+              "upper": 0.8,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.9,
+              "upper_inclusive": false,
+              "n": 0,
+              "mean_score": null,
+              "accuracy": null
+            },
+            {
+              "lower": 0.9,
+              "upper": 1.0,
+              "upper_inclusive": true,
+              "n": 20,
+              "mean_score": 1.0,
+              "accuracy": 1.0
+            }
+          ]
+        },
+        "routes": {
+          "top_probability": {
+            "auto_candidate": {
+              "n": 20,
+              "coverage": 1.0,
+              "correct": 20,
+              "accuracy": 1.0,
+              "wilson95": {
+                "lower": 0.8388748419471806,
+                "upper": 1.0
+              },
+              "risk": 0.0,
+              "mean_score": 1.0,
+              "score_n": 20
+            },
+            "stronger_model_candidate": {
+              "n": 0,
+              "coverage": 0.0,
+              "correct": 0,
+              "accuracy": null,
+              "wilson95": null,
+              "risk": null,
+              "mean_score": null,
+              "score_n": 0
+            },
+            "human_candidate": {
+              "n": 0,
+              "coverage": 0.0,
+              "correct": 0,
+              "accuracy": null,
+              "wilson95": null,
+              "risk": null,
+              "mean_score": null,
+              "score_n": 0
+            }
+          },
+          "confidence": {
+            "auto_candidate": {
+              "n": 20,
+              "coverage": 1.0,
+              "correct": 20,
+              "accuracy": 1.0,
+              "wilson95": {
+                "lower": 0.8388748419471806,
+                "upper": 1.0
+              },
+              "risk": 0.0,
+              "mean_score": 1.0,
+              "score_n": 20
+            },
+            "stronger_model_candidate": {
+              "n": 0,
+              "coverage": 0.0,
+              "correct": 0,
+              "accuracy": null,
+              "wilson95": null,
+              "risk": null,
+              "mean_score": null,
+              "score_n": 0
+            },
+            "human_candidate": {
+              "n": 0,
+              "coverage": 0.0,
+              "correct": 0,
+              "accuracy": null,
+              "wilson95": null,
+              "risk": null,
+              "mean_score": null,
+              "score_n": 0
+            }
+          }
+        }
+      },
+      "by_task": {
+        "bfcl_name_only": {
+          "attempted": 20,
+          "valid": 20,
+          "invalid": 0,
+          "correct": 20,
+          "accuracy": 1.0,
+          "accuracy_valid": 1.0,
+          "brier": 0.0,
+          "nll": 0.0,
+          "zero_gold_count": 0,
+          "rounded_sum_count": 0,
+          "top_probability_calibration": {
+            "n": 20,
+            "ece": 0.0,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "upper_inclusive": true,
+                "n": 20,
+                "mean_score": 1.0,
+                "accuracy": 1.0
+              }
+            ]
+          },
+          "confidence_shape_diagnostic": {
+            "n": 20,
+            "ece": 0.0,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "upper_inclusive": false,
+                "n": 0,
+                "mean_score": null,
+                "accuracy": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "upper_inclusive": true,
+                "n": 20,
+                "mean_score": 1.0,
+                "accuracy": 1.0
+              }
+            ]
+          },
+          "routes": {
+            "top_probability": {
+              "auto_candidate": {
+                "n": 20,
+                "coverage": 1.0,
+                "correct": 20,
+                "accuracy": 1.0,
+                "wilson95": {
+                  "lower": 0.8388748419471806,
+                  "upper": 1.0
+                },
+                "risk": 0.0,
+                "mean_score": 1.0,
+                "score_n": 20
+              },
+              "stronger_model_candidate": {
+                "n": 0,
+                "coverage": 0.0,
+                "correct": 0,
+                "accuracy": null,
+                "wilson95": null,
+                "risk": null,
+                "mean_score": null,
+                "score_n": 0
+              },
+              "human_candidate": {
+                "n": 0,
+                "coverage": 0.0,
+                "correct": 0,
+                "accuracy": null,
+                "wilson95": null,
+                "risk": null,
+                "mean_score": null,
+                "score_n": 0
+              }
+            },
+            "confidence": {
+              "auto_candidate": {
+                "n": 20,
+                "coverage": 1.0,
+                "correct": 20,
+                "accuracy": 1.0,
+                "wilson95": {
+                  "lower": 0.8388748419471806,
+                  "upper": 1.0
+                },
+                "risk": 0.0,
+                "mean_score": 1.0,
+                "score_n": 20
+              },
+              "stronger_model_candidate": {
+                "n": 0,
+                "coverage": 0.0,
+                "correct": 0,
+                "accuracy": null,
+                "wilson95": null,
+                "risk": null,
+                "mean_score": null,
+                "score_n": 0
+              },
+              "human_candidate": {
+                "n": 0,
+                "coverage": 0.0,
+                "correct": 0,
+                "accuracy": null,
+                "wilson95": null,
+                "risk": null,
+                "mean_score": null,
+                "score_n": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "by_task": {
+      "bfcl_name_only": {
+        "attempted": 20,
+        "valid": 20,
+        "correct": 20,
+        "accuracy": 1.0,
+        "errors": 0,
+        "unknown_predictions": 0,
+        "needs_review": 0,
+        "median_latency_seconds": 0.35145268798805773,
+        "usage": {
+          "calls": 20,
+          "failed_calls": 0,
+          "latency_seconds": 7.129354,
+          "reported_input_tokens": 15074,
+          "reported_output_tokens": 993,
+          "usage_missing_calls": 0,
+          "reported_cost_usd": 0.000633108,
+          "known_cost_subtotal_usd": 0.000633108,
+          "cost_unknown_calls": 0
+        },
+        "confusion": {
+          "triangle_properties.get": {
+            "triangle_properties.get": 1
+          },
+          "imdb.find_movies_by_actor": {
+            "imdb.find_movies_by_actor": 1
+          },
+          "database.query": {
+            "database.query": 1
+          },
+          "calculate_probability": {
+            "calculate_probability": 1
+          },
+          "run_two_sample_ttest": {
+            "run_two_sample_ttest": 1
+          },
+          "get_case_info": {
+            "get_case_info": 1
+          },
+          "map_service.get_directions": {
+            "map_service.get_directions": 1
+          },
+          "historical_contrib.get_contrib": {
+            "historical_contrib.get_contrib": 1
+          },
+          "metropolitan_museum.get_top_artworks": {
+            "metropolitan_museum.get_top_artworks": 1
+          },
+          "get_song_lyrics": {
+            "get_song_lyrics": 1
+          },
+          "soccer_stat.get_player_stats": {
+            "soccer_stat.get_player_stats": 1
+          },
+          "get_defense_ranking": {
+            "get_defense_ranking": 1
+          },
+          "maps.get_distance_duration": {
+            "maps.get_distance_duration": 1
+          },
+          "forest_growth_forecast": {
+            "forest_growth_forecast": 1
+          },
+          "functions.intersect": {
+            "functions.intersect": 1
+          },
+          "avg_closing_price": {
+            "avg_closing_price": 1
+          },
+          "get_population": {
+            "get_population": 1
+          },
+          "religion.get_origin": {
+            "religion.get_origin": 1
+          },
+          "music_shop.find_nearby": {
+            "music_shop.find_nearby": 1
+          },
+          "soccer_scores.get_scores": {
+            "soccer_scores.get_scores": 1
+          }
+        },
+        "per_label": {
+          "avg_closing_price": {
+            "n": 1,
+            "correct": 1
+          },
+          "calculate_probability": {
+            "n": 1,
+            "correct": 1
+          },
+          "database.query": {
+            "n": 1,
+            "correct": 1
+          },
+          "forest_growth_forecast": {
+            "n": 1,
+            "correct": 1
+          },
+          "functions.intersect": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_case_info": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_defense_ranking": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_population": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_song_lyrics": {
+            "n": 1,
+            "correct": 1
+          },
+          "historical_contrib.get_contrib": {
+            "n": 1,
+            "correct": 1
+          },
+          "imdb.find_movies_by_actor": {
+            "n": 1,
+            "correct": 1
+          },
+          "map_service.get_directions": {
+            "n": 1,
+            "correct": 1
+          },
+          "maps.get_distance_duration": {
+            "n": 1,
+            "correct": 1
+          },
+          "metropolitan_museum.get_top_artworks": {
+            "n": 1,
+            "correct": 1
+          },
+          "music_shop.find_nearby": {
+            "n": 1,
+            "correct": 1
+          },
+          "religion.get_origin": {
+            "n": 1,
+            "correct": 1
+          },
+          "run_two_sample_ttest": {
+            "n": 1,
+            "correct": 1
+          },
+          "soccer_scores.get_scores": {
+            "n": 1,
+            "correct": 1
+          },
+          "soccer_stat.get_player_stats": {
+            "n": 1,
+            "correct": 1
+          },
+          "triangle_properties.get": {
+            "n": 1,
+            "correct": 1
+          }
+        },
+        "calibration": {
+          "metadata": {
+            "normalization": "Accept finite [0,1] vectors with positive sum within min(0.05, 0.0051 * classes) of 1; divide every accepted vector by its sum before scoring and top-probability routing.",
+            "prediction": "Must be a maximum-probability class; ties are allowed.",
+            "brier": "Mean over valid records of SUM over classes (normalized probability - one-hot target)^2.",
+            "nll": "Mean natural-log loss over valid records; gold probability clamped to 1e-12; exact zeros counted separately.",
+            "ece": "10 equal-width bins [lower, upper), last bin includes 1; sample-weighted absolute mean-score minus accuracy.",
+            "confidence": "Distribution-shape statistic diagnostic, NOT a claimed probability of correctness. Null confidence is excluded from its ECE and mean score and routes to human_candidate.",
+            "denominators": "Accuracy and route coverage use all attempts. Invalid records count wrong and route to human_candidate. Brier/NLL/ECE use valid available scores only. Empty denominators return null.",
+            "risk": "1 - bucket accuracy, including invalid attempts as wrong in human_candidate.",
+            "interval": "Two-sided Wilson 95% interval for bucket accuracy (z=1.959963984540054); descriptive, not adjusted for dependence or multiple comparisons.",
+            "route_thresholds": {
+              "auto_candidate": 0.9,
+              "stronger_model_candidate": 0.7
+            },
+            "routing": "Both score types use >=0.9 auto_candidate, >=0.7 stronger_model_candidate, otherwise human_candidate. These are offline candidate labels; no actions are executed."
+          },
+          "overall": {
+            "attempted": 20,
+            "valid": 20,
+            "invalid": 0,
+            "correct": 20,
+            "accuracy": 1.0,
+            "accuracy_valid": 1.0,
+            "brier": 0.0,
+            "nll": 0.0,
+            "zero_gold_count": 0,
+            "rounded_sum_count": 0,
+            "top_probability_calibration": {
+              "n": 20,
+              "ece": 0.0,
+              "bins": [
+                {
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "upper_inclusive": true,
+                  "n": 20,
+                  "mean_score": 1.0,
+                  "accuracy": 1.0
+                }
+              ]
+            },
+            "confidence_shape_diagnostic": {
+              "n": 20,
+              "ece": 0.0,
+              "bins": [
+                {
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "upper_inclusive": false,
+                  "n": 0,
+                  "mean_score": null,
+                  "accuracy": null
+                },
+                {
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "upper_inclusive": true,
+                  "n": 20,
+                  "mean_score": 1.0,
+                  "accuracy": 1.0
+                }
+              ]
+            },
+            "routes": {
+              "top_probability": {
+                "auto_candidate": {
+                  "n": 20,
+                  "coverage": 1.0,
+                  "correct": 20,
+                  "accuracy": 1.0,
+                  "wilson95": {
+                    "lower": 0.8388748419471806,
+                    "upper": 1.0
+                  },
+                  "risk": 0.0,
+                  "mean_score": 1.0,
+                  "score_n": 20
+                },
+                "stronger_model_candidate": {
+                  "n": 0,
+                  "coverage": 0.0,
+                  "correct": 0,
+                  "accuracy": null,
+                  "wilson95": null,
+                  "risk": null,
+                  "mean_score": null,
+                  "score_n": 0
+                },
+                "human_candidate": {
+                  "n": 0,
+                  "coverage": 0.0,
+                  "correct": 0,
+                  "accuracy": null,
+                  "wilson95": null,
+                  "risk": null,
+                  "mean_score": null,
+                  "score_n": 0
+                }
+              },
+              "confidence": {
+                "auto_candidate": {
+                  "n": 20,
+                  "coverage": 1.0,
+                  "correct": 20,
+                  "accuracy": 1.0,
+                  "wilson95": {
+                    "lower": 0.8388748419471806,
+                    "upper": 1.0
+                  },
+                  "risk": 0.0,
+                  "mean_score": 1.0,
+                  "score_n": 20
+                },
+                "stronger_model_candidate": {
+                  "n": 0,
+                  "coverage": 0.0,
+                  "correct": 0,
+                  "accuracy": null,
+                  "wilson95": null,
+                  "risk": null,
+                  "mean_score": null,
+                  "score_n": 0
+                },
+                "human_candidate": {
+                  "n": 0,
+                  "coverage": 0.0,
+                  "correct": 0,
+                  "accuracy": null,
+                  "wilson95": null,
+                  "risk": null,
+                  "mean_score": null,
+                  "score_n": 0
+                }
+              }
+            }
+          },
+          "by_task": {
+            "bfcl_name_only": {
+              "attempted": 20,
+              "valid": 20,
+              "invalid": 0,
+              "correct": 20,
+              "accuracy": 1.0,
+              "accuracy_valid": 1.0,
+              "brier": 0.0,
+              "nll": 0.0,
+              "zero_gold_count": 0,
+              "rounded_sum_count": 0,
+              "top_probability_calibration": {
+                "n": 20,
+                "ece": 0.0,
+                "bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.1,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.1,
+                    "upper": 0.2,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.3,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.3,
+                    "upper": 0.4,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.5,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.5,
+                    "upper": 0.6,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.7,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.7,
+                    "upper": 0.8,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 0.9,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.9,
+                    "upper": 1.0,
+                    "upper_inclusive": true,
+                    "n": 20,
+                    "mean_score": 1.0,
+                    "accuracy": 1.0
+                  }
+                ]
+              },
+              "confidence_shape_diagnostic": {
+                "n": 20,
+                "ece": 0.0,
+                "bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.1,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.1,
+                    "upper": 0.2,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.3,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.3,
+                    "upper": 0.4,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.5,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.5,
+                    "upper": 0.6,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.7,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.7,
+                    "upper": 0.8,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 0.9,
+                    "upper_inclusive": false,
+                    "n": 0,
+                    "mean_score": null,
+                    "accuracy": null
+                  },
+                  {
+                    "lower": 0.9,
+                    "upper": 1.0,
+                    "upper_inclusive": true,
+                    "n": 20,
+                    "mean_score": 1.0,
+                    "accuracy": 1.0
+                  }
+                ]
+              },
+              "routes": {
+                "top_probability": {
+                  "auto_candidate": {
+                    "n": 20,
+                    "coverage": 1.0,
+                    "correct": 20,
+                    "accuracy": 1.0,
+                    "wilson95": {
+                      "lower": 0.8388748419471806,
+                      "upper": 1.0
+                    },
+                    "risk": 0.0,
+                    "mean_score": 1.0,
+                    "score_n": 20
+                  },
+                  "stronger_model_candidate": {
+                    "n": 0,
+                    "coverage": 0.0,
+                    "correct": 0,
+                    "accuracy": null,
+                    "wilson95": null,
+                    "risk": null,
+                    "mean_score": null,
+                    "score_n": 0
+                  },
+                  "human_candidate": {
+                    "n": 0,
+                    "coverage": 0.0,
+                    "correct": 0,
+                    "accuracy": null,
+                    "wilson95": null,
+                    "risk": null,
+                    "mean_score": null,
+                    "score_n": 0
+                  }
+                },
+                "confidence": {
+                  "auto_candidate": {
+                    "n": 20,
+                    "coverage": 1.0,
+                    "correct": 20,
+                    "accuracy": 1.0,
+                    "wilson95": {
+                      "lower": 0.8388748419471806,
+                      "upper": 1.0
+                    },
+                    "risk": 0.0,
+                    "mean_score": 1.0,
+                    "score_n": 20
+                  },
+                  "stronger_model_candidate": {
+                    "n": 0,
+                    "coverage": 0.0,
+                    "correct": 0,
+                    "accuracy": null,
+                    "wilson95": null,
+                    "risk": null,
+                    "mean_score": null,
+                    "score_n": 0
+                  },
+                  "human_candidate": {
+                    "n": 0,
+                    "coverage": 0.0,
+                    "correct": 0,
+                    "accuracy": null,
+                    "wilson95": null,
+                    "risk": null,
+                    "mean_score": null,
+                    "score_n": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "resolved_models": [
+      "typesafe/jev-1.13-20260917"
+    ]
+  },
+  "deepseek/deepseek-v4-flash": {
+    "attempted": 20,
+    "valid": 20,
+    "correct": 20,
+    "accuracy": 1.0,
+    "errors": 0,
+    "unknown_predictions": 0,
+    "needs_review": null,
+    "median_latency_seconds": 1.5903713129810058,
+    "usage": {
+      "calls": 20,
+      "failed_calls": 0,
+      "latency_seconds": 37.594425,
+      "reported_input_tokens": 10445,
+      "reported_output_tokens": 220,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.0009566765960000001,
+      "known_cost_subtotal_usd": 0.0009566765960000001,
+      "cost_unknown_calls": 0
+    },
+    "confusion": {
+      "triangle_properties.get": {
+        "triangle_properties.get": 1
+      },
+      "imdb.find_movies_by_actor": {
+        "imdb.find_movies_by_actor": 1
+      },
+      "database.query": {
+        "database.query": 1
+      },
+      "calculate_probability": {
+        "calculate_probability": 1
+      },
+      "run_two_sample_ttest": {
+        "run_two_sample_ttest": 1
+      },
+      "get_case_info": {
+        "get_case_info": 1
+      },
+      "map_service.get_directions": {
+        "map_service.get_directions": 1
+      },
+      "historical_contrib.get_contrib": {
+        "historical_contrib.get_contrib": 1
+      },
+      "metropolitan_museum.get_top_artworks": {
+        "metropolitan_museum.get_top_artworks": 1
+      },
+      "get_song_lyrics": {
+        "get_song_lyrics": 1
+      },
+      "soccer_stat.get_player_stats": {
+        "soccer_stat.get_player_stats": 1
+      },
+      "get_defense_ranking": {
+        "get_defense_ranking": 1
+      },
+      "maps.get_distance_duration": {
+        "maps.get_distance_duration": 1
+      },
+      "forest_growth_forecast": {
+        "forest_growth_forecast": 1
+      },
+      "functions.intersect": {
+        "functions.intersect": 1
+      },
+      "avg_closing_price": {
+        "avg_closing_price": 1
+      },
+      "get_population": {
+        "get_population": 1
+      },
+      "religion.get_origin": {
+        "religion.get_origin": 1
+      },
+      "music_shop.find_nearby": {
+        "music_shop.find_nearby": 1
+      },
+      "soccer_scores.get_scores": {
+        "soccer_scores.get_scores": 1
+      }
+    },
+    "per_label": {
+      "avg_closing_price": {
+        "n": 1,
+        "correct": 1
+      },
+      "calculate_probability": {
+        "n": 1,
+        "correct": 1
+      },
+      "database.query": {
+        "n": 1,
+        "correct": 1
+      },
+      "forest_growth_forecast": {
+        "n": 1,
+        "correct": 1
+      },
+      "functions.intersect": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_case_info": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_defense_ranking": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_population": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_song_lyrics": {
+        "n": 1,
+        "correct": 1
+      },
+      "historical_contrib.get_contrib": {
+        "n": 1,
+        "correct": 1
+      },
+      "imdb.find_movies_by_actor": {
+        "n": 1,
+        "correct": 1
+      },
+      "map_service.get_directions": {
+        "n": 1,
+        "correct": 1
+      },
+      "maps.get_distance_duration": {
+        "n": 1,
+        "correct": 1
+      },
+      "metropolitan_museum.get_top_artworks": {
+        "n": 1,
+        "correct": 1
+      },
+      "music_shop.find_nearby": {
+        "n": 1,
+        "correct": 1
+      },
+      "religion.get_origin": {
+        "n": 1,
+        "correct": 1
+      },
+      "run_two_sample_ttest": {
+        "n": 1,
+        "correct": 1
+      },
+      "soccer_scores.get_scores": {
+        "n": 1,
+        "correct": 1
+      },
+      "soccer_stat.get_player_stats": {
+        "n": 1,
+        "correct": 1
+      },
+      "triangle_properties.get": {
+        "n": 1,
+        "correct": 1
+      }
+    },
+    "calibration": null,
+    "by_task": {
+      "bfcl_name_only": {
+        "attempted": 20,
+        "valid": 20,
+        "correct": 20,
+        "accuracy": 1.0,
+        "errors": 0,
+        "unknown_predictions": 0,
+        "needs_review": null,
+        "median_latency_seconds": 1.5903713129810058,
+        "usage": {
+          "calls": 20,
+          "failed_calls": 0,
+          "latency_seconds": 37.594425,
+          "reported_input_tokens": 10445,
+          "reported_output_tokens": 220,
+          "usage_missing_calls": 0,
+          "reported_cost_usd": 0.0009566765960000001,
+          "known_cost_subtotal_usd": 0.0009566765960000001,
+          "cost_unknown_calls": 0
+        },
+        "confusion": {
+          "triangle_properties.get": {
+            "triangle_properties.get": 1
+          },
+          "imdb.find_movies_by_actor": {
+            "imdb.find_movies_by_actor": 1
+          },
+          "database.query": {
+            "database.query": 1
+          },
+          "calculate_probability": {
+            "calculate_probability": 1
+          },
+          "run_two_sample_ttest": {
+            "run_two_sample_ttest": 1
+          },
+          "get_case_info": {
+            "get_case_info": 1
+          },
+          "map_service.get_directions": {
+            "map_service.get_directions": 1
+          },
+          "historical_contrib.get_contrib": {
+            "historical_contrib.get_contrib": 1
+          },
+          "metropolitan_museum.get_top_artworks": {
+            "metropolitan_museum.get_top_artworks": 1
+          },
+          "get_song_lyrics": {
+            "get_song_lyrics": 1
+          },
+          "soccer_stat.get_player_stats": {
+            "soccer_stat.get_player_stats": 1
+          },
+          "get_defense_ranking": {
+            "get_defense_ranking": 1
+          },
+          "maps.get_distance_duration": {
+            "maps.get_distance_duration": 1
+          },
+          "forest_growth_forecast": {
+            "forest_growth_forecast": 1
+          },
+          "functions.intersect": {
+            "functions.intersect": 1
+          },
+          "avg_closing_price": {
+            "avg_closing_price": 1
+          },
+          "get_population": {
+            "get_population": 1
+          },
+          "religion.get_origin": {
+            "religion.get_origin": 1
+          },
+          "music_shop.find_nearby": {
+            "music_shop.find_nearby": 1
+          },
+          "soccer_scores.get_scores": {
+            "soccer_scores.get_scores": 1
+          }
+        },
+        "per_label": {
+          "avg_closing_price": {
+            "n": 1,
+            "correct": 1
+          },
+          "calculate_probability": {
+            "n": 1,
+            "correct": 1
+          },
+          "database.query": {
+            "n": 1,
+            "correct": 1
+          },
+          "forest_growth_forecast": {
+            "n": 1,
+            "correct": 1
+          },
+          "functions.intersect": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_case_info": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_defense_ranking": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_population": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_song_lyrics": {
+            "n": 1,
+            "correct": 1
+          },
+          "historical_contrib.get_contrib": {
+            "n": 1,
+            "correct": 1
+          },
+          "imdb.find_movies_by_actor": {
+            "n": 1,
+            "correct": 1
+          },
+          "map_service.get_directions": {
+            "n": 1,
+            "correct": 1
+          },
+          "maps.get_distance_duration": {
+            "n": 1,
+            "correct": 1
+          },
+          "metropolitan_museum.get_top_artworks": {
+            "n": 1,
+            "correct": 1
+          },
+          "music_shop.find_nearby": {
+            "n": 1,
+            "correct": 1
+          },
+          "religion.get_origin": {
+            "n": 1,
+            "correct": 1
+          },
+          "run_two_sample_ttest": {
+            "n": 1,
+            "correct": 1
+          },
+          "soccer_scores.get_scores": {
+            "n": 1,
+            "correct": 1
+          },
+          "soccer_stat.get_player_stats": {
+            "n": 1,
+            "correct": 1
+          },
+          "triangle_properties.get": {
+            "n": 1,
+            "correct": 1
+          }
+        },
+        "calibration": null
+      }
+    },
+    "resolved_models": [
+      "deepseek/deepseek-v4-flash"
+    ]
+  },
+  "qwen/qwen3.5-35b-a3b": {
+    "attempted": 20,
+    "valid": 20,
+    "correct": 20,
+    "accuracy": 1.0,
+    "errors": 0,
+    "unknown_predictions": 0,
+    "needs_review": null,
+    "median_latency_seconds": 0.9008422294864431,
+    "usage": {
+      "calls": 20,
+      "failed_calls": 0,
+      "latency_seconds": 18.583067,
+      "reported_input_tokens": 10841,
+      "reported_output_tokens": 249,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.001695015,
+      "known_cost_subtotal_usd": 0.001695015,
+      "cost_unknown_calls": 0
+    },
+    "confusion": {
+      "triangle_properties.get": {
+        "triangle_properties.get": 1
+      },
+      "imdb.find_movies_by_actor": {
+        "imdb.find_movies_by_actor": 1
+      },
+      "database.query": {
+        "database.query": 1
+      },
+      "calculate_probability": {
+        "calculate_probability": 1
+      },
+      "run_two_sample_ttest": {
+        "run_two_sample_ttest": 1
+      },
+      "get_case_info": {
+        "get_case_info": 1
+      },
+      "map_service.get_directions": {
+        "map_service.get_directions": 1
+      },
+      "historical_contrib.get_contrib": {
+        "historical_contrib.get_contrib": 1
+      },
+      "metropolitan_museum.get_top_artworks": {
+        "metropolitan_museum.get_top_artworks": 1
+      },
+      "get_song_lyrics": {
+        "get_song_lyrics": 1
+      },
+      "soccer_stat.get_player_stats": {
+        "soccer_stat.get_player_stats": 1
+      },
+      "get_defense_ranking": {
+        "get_defense_ranking": 1
+      },
+      "maps.get_distance_duration": {
+        "maps.get_distance_duration": 1
+      },
+      "forest_growth_forecast": {
+        "forest_growth_forecast": 1
+      },
+      "functions.intersect": {
+        "functions.intersect": 1
+      },
+      "avg_closing_price": {
+        "avg_closing_price": 1
+      },
+      "get_population": {
+        "get_population": 1
+      },
+      "religion.get_origin": {
+        "religion.get_origin": 1
+      },
+      "music_shop.find_nearby": {
+        "music_shop.find_nearby": 1
+      },
+      "soccer_scores.get_scores": {
+        "soccer_scores.get_scores": 1
+      }
+    },
+    "per_label": {
+      "avg_closing_price": {
+        "n": 1,
+        "correct": 1
+      },
+      "calculate_probability": {
+        "n": 1,
+        "correct": 1
+      },
+      "database.query": {
+        "n": 1,
+        "correct": 1
+      },
+      "forest_growth_forecast": {
+        "n": 1,
+        "correct": 1
+      },
+      "functions.intersect": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_case_info": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_defense_ranking": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_population": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_song_lyrics": {
+        "n": 1,
+        "correct": 1
+      },
+      "historical_contrib.get_contrib": {
+        "n": 1,
+        "correct": 1
+      },
+      "imdb.find_movies_by_actor": {
+        "n": 1,
+        "correct": 1
+      },
+      "map_service.get_directions": {
+        "n": 1,
+        "correct": 1
+      },
+      "maps.get_distance_duration": {
+        "n": 1,
+        "correct": 1
+      },
+      "metropolitan_museum.get_top_artworks": {
+        "n": 1,
+        "correct": 1
+      },
+      "music_shop.find_nearby": {
+        "n": 1,
+        "correct": 1
+      },
+      "religion.get_origin": {
+        "n": 1,
+        "correct": 1
+      },
+      "run_two_sample_ttest": {
+        "n": 1,
+        "correct": 1
+      },
+      "soccer_scores.get_scores": {
+        "n": 1,
+        "correct": 1
+      },
+      "soccer_stat.get_player_stats": {
+        "n": 1,
+        "correct": 1
+      },
+      "triangle_properties.get": {
+        "n": 1,
+        "correct": 1
+      }
+    },
+    "calibration": null,
+    "by_task": {
+      "bfcl_name_only": {
+        "attempted": 20,
+        "valid": 20,
+        "correct": 20,
+        "accuracy": 1.0,
+        "errors": 0,
+        "unknown_predictions": 0,
+        "needs_review": null,
+        "median_latency_seconds": 0.9008422294864431,
+        "usage": {
+          "calls": 20,
+          "failed_calls": 0,
+          "latency_seconds": 18.583067,
+          "reported_input_tokens": 10841,
+          "reported_output_tokens": 249,
+          "usage_missing_calls": 0,
+          "reported_cost_usd": 0.001695015,
+          "known_cost_subtotal_usd": 0.001695015,
+          "cost_unknown_calls": 0
+        },
+        "confusion": {
+          "triangle_properties.get": {
+            "triangle_properties.get": 1
+          },
+          "imdb.find_movies_by_actor": {
+            "imdb.find_movies_by_actor": 1
+          },
+          "database.query": {
+            "database.query": 1
+          },
+          "calculate_probability": {
+            "calculate_probability": 1
+          },
+          "run_two_sample_ttest": {
+            "run_two_sample_ttest": 1
+          },
+          "get_case_info": {
+            "get_case_info": 1
+          },
+          "map_service.get_directions": {
+            "map_service.get_directions": 1
+          },
+          "historical_contrib.get_contrib": {
+            "historical_contrib.get_contrib": 1
+          },
+          "metropolitan_museum.get_top_artworks": {
+            "metropolitan_museum.get_top_artworks": 1
+          },
+          "get_song_lyrics": {
+            "get_song_lyrics": 1
+          },
+          "soccer_stat.get_player_stats": {
+            "soccer_stat.get_player_stats": 1
+          },
+          "get_defense_ranking": {
+            "get_defense_ranking": 1
+          },
+          "maps.get_distance_duration": {
+            "maps.get_distance_duration": 1
+          },
+          "forest_growth_forecast": {
+            "forest_growth_forecast": 1
+          },
+          "functions.intersect": {
+            "functions.intersect": 1
+          },
+          "avg_closing_price": {
+            "avg_closing_price": 1
+          },
+          "get_population": {
+            "get_population": 1
+          },
+          "religion.get_origin": {
+            "religion.get_origin": 1
+          },
+          "music_shop.find_nearby": {
+            "music_shop.find_nearby": 1
+          },
+          "soccer_scores.get_scores": {
+            "soccer_scores.get_scores": 1
+          }
+        },
+        "per_label": {
+          "avg_closing_price": {
+            "n": 1,
+            "correct": 1
+          },
+          "calculate_probability": {
+            "n": 1,
+            "correct": 1
+          },
+          "database.query": {
+            "n": 1,
+            "correct": 1
+          },
+          "forest_growth_forecast": {
+            "n": 1,
+            "correct": 1
+          },
+          "functions.intersect": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_case_info": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_defense_ranking": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_population": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_song_lyrics": {
+            "n": 1,
+            "correct": 1
+          },
+          "historical_contrib.get_contrib": {
+            "n": 1,
+            "correct": 1
+          },
+          "imdb.find_movies_by_actor": {
+            "n": 1,
+            "correct": 1
+          },
+          "map_service.get_directions": {
+            "n": 1,
+            "correct": 1
+          },
+          "maps.get_distance_duration": {
+            "n": 1,
+            "correct": 1
+          },
+          "metropolitan_museum.get_top_artworks": {
+            "n": 1,
+            "correct": 1
+          },
+          "music_shop.find_nearby": {
+            "n": 1,
+            "correct": 1
+          },
+          "religion.get_origin": {
+            "n": 1,
+            "correct": 1
+          },
+          "run_two_sample_ttest": {
+            "n": 1,
+            "correct": 1
+          },
+          "soccer_scores.get_scores": {
+            "n": 1,
+            "correct": 1
+          },
+          "soccer_stat.get_player_stats": {
+            "n": 1,
+            "correct": 1
+          },
+          "triangle_properties.get": {
+            "n": 1,
+            "correct": 1
+          }
+        },
+        "calibration": null
+      }
+    },
+    "resolved_models": [
+      "qwen/qwen3.5-35b-a3b"
+    ]
+  },
+  "qwen/qwen3.5-9b": {
+    "attempted": 20,
+    "valid": 20,
+    "correct": 20,
+    "accuracy": 1.0,
+    "errors": 0,
+    "unknown_predictions": 0,
+    "needs_review": null,
+    "median_latency_seconds": 1.1244002289604396,
+    "usage": {
+      "calls": 20,
+      "failed_calls": 0,
+      "latency_seconds": 68.006712,
+      "reported_input_tokens": 10274,
+      "reported_output_tokens": 279,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.00104893,
+      "known_cost_subtotal_usd": 0.00104893,
+      "cost_unknown_calls": 0
+    },
+    "confusion": {
+      "triangle_properties.get": {
+        "triangle_properties.get": 1
+      },
+      "imdb.find_movies_by_actor": {
+        "imdb.find_movies_by_actor": 1
+      },
+      "database.query": {
+        "database.query": 1
+      },
+      "calculate_probability": {
+        "calculate_probability": 1
+      },
+      "run_two_sample_ttest": {
+        "run_two_sample_ttest": 1
+      },
+      "get_case_info": {
+        "get_case_info": 1
+      },
+      "map_service.get_directions": {
+        "map_service.get_directions": 1
+      },
+      "historical_contrib.get_contrib": {
+        "historical_contrib.get_contrib": 1
+      },
+      "metropolitan_museum.get_top_artworks": {
+        "metropolitan_museum.get_top_artworks": 1
+      },
+      "get_song_lyrics": {
+        "get_song_lyrics": 1
+      },
+      "soccer_stat.get_player_stats": {
+        "soccer_stat.get_player_stats": 1
+      },
+      "get_defense_ranking": {
+        "get_defense_ranking": 1
+      },
+      "maps.get_distance_duration": {
+        "maps.get_distance_duration": 1
+      },
+      "forest_growth_forecast": {
+        "forest_growth_forecast": 1
+      },
+      "functions.intersect": {
+        "functions.intersect": 1
+      },
+      "avg_closing_price": {
+        "avg_closing_price": 1
+      },
+      "get_population": {
+        "get_population": 1
+      },
+      "religion.get_origin": {
+        "religion.get_origin": 1
+      },
+      "music_shop.find_nearby": {
+        "music_shop.find_nearby": 1
+      },
+      "soccer_scores.get_scores": {
+        "soccer_scores.get_scores": 1
+      }
+    },
+    "per_label": {
+      "avg_closing_price": {
+        "n": 1,
+        "correct": 1
+      },
+      "calculate_probability": {
+        "n": 1,
+        "correct": 1
+      },
+      "database.query": {
+        "n": 1,
+        "correct": 1
+      },
+      "forest_growth_forecast": {
+        "n": 1,
+        "correct": 1
+      },
+      "functions.intersect": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_case_info": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_defense_ranking": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_population": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_song_lyrics": {
+        "n": 1,
+        "correct": 1
+      },
+      "historical_contrib.get_contrib": {
+        "n": 1,
+        "correct": 1
+      },
+      "imdb.find_movies_by_actor": {
+        "n": 1,
+        "correct": 1
+      },
+      "map_service.get_directions": {
+        "n": 1,
+        "correct": 1
+      },
+      "maps.get_distance_duration": {
+        "n": 1,
+        "correct": 1
+      },
+      "metropolitan_museum.get_top_artworks": {
+        "n": 1,
+        "correct": 1
+      },
+      "music_shop.find_nearby": {
+        "n": 1,
+        "correct": 1
+      },
+      "religion.get_origin": {
+        "n": 1,
+        "correct": 1
+      },
+      "run_two_sample_ttest": {
+        "n": 1,
+        "correct": 1
+      },
+      "soccer_scores.get_scores": {
+        "n": 1,
+        "correct": 1
+      },
+      "soccer_stat.get_player_stats": {
+        "n": 1,
+        "correct": 1
+      },
+      "triangle_properties.get": {
+        "n": 1,
+        "correct": 1
+      }
+    },
+    "calibration": null,
+    "by_task": {
+      "bfcl_name_only": {
+        "attempted": 20,
+        "valid": 20,
+        "correct": 20,
+        "accuracy": 1.0,
+        "errors": 0,
+        "unknown_predictions": 0,
+        "needs_review": null,
+        "median_latency_seconds": 1.1244002289604396,
+        "usage": {
+          "calls": 20,
+          "failed_calls": 0,
+          "latency_seconds": 68.006712,
+          "reported_input_tokens": 10274,
+          "reported_output_tokens": 279,
+          "usage_missing_calls": 0,
+          "reported_cost_usd": 0.00104893,
+          "known_cost_subtotal_usd": 0.00104893,
+          "cost_unknown_calls": 0
+        },
+        "confusion": {
+          "triangle_properties.get": {
+            "triangle_properties.get": 1
+          },
+          "imdb.find_movies_by_actor": {
+            "imdb.find_movies_by_actor": 1
+          },
+          "database.query": {
+            "database.query": 1
+          },
+          "calculate_probability": {
+            "calculate_probability": 1
+          },
+          "run_two_sample_ttest": {
+            "run_two_sample_ttest": 1
+          },
+          "get_case_info": {
+            "get_case_info": 1
+          },
+          "map_service.get_directions": {
+            "map_service.get_directions": 1
+          },
+          "historical_contrib.get_contrib": {
+            "historical_contrib.get_contrib": 1
+          },
+          "metropolitan_museum.get_top_artworks": {
+            "metropolitan_museum.get_top_artworks": 1
+          },
+          "get_song_lyrics": {
+            "get_song_lyrics": 1
+          },
+          "soccer_stat.get_player_stats": {
+            "soccer_stat.get_player_stats": 1
+          },
+          "get_defense_ranking": {
+            "get_defense_ranking": 1
+          },
+          "maps.get_distance_duration": {
+            "maps.get_distance_duration": 1
+          },
+          "forest_growth_forecast": {
+            "forest_growth_forecast": 1
+          },
+          "functions.intersect": {
+            "functions.intersect": 1
+          },
+          "avg_closing_price": {
+            "avg_closing_price": 1
+          },
+          "get_population": {
+            "get_population": 1
+          },
+          "religion.get_origin": {
+            "religion.get_origin": 1
+          },
+          "music_shop.find_nearby": {
+            "music_shop.find_nearby": 1
+          },
+          "soccer_scores.get_scores": {
+            "soccer_scores.get_scores": 1
+          }
+        },
+        "per_label": {
+          "avg_closing_price": {
+            "n": 1,
+            "correct": 1
+          },
+          "calculate_probability": {
+            "n": 1,
+            "correct": 1
+          },
+          "database.query": {
+            "n": 1,
+            "correct": 1
+          },
+          "forest_growth_forecast": {
+            "n": 1,
+            "correct": 1
+          },
+          "functions.intersect": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_case_info": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_defense_ranking": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_population": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_song_lyrics": {
+            "n": 1,
+            "correct": 1
+          },
+          "historical_contrib.get_contrib": {
+            "n": 1,
+            "correct": 1
+          },
+          "imdb.find_movies_by_actor": {
+            "n": 1,
+            "correct": 1
+          },
+          "map_service.get_directions": {
+            "n": 1,
+            "correct": 1
+          },
+          "maps.get_distance_duration": {
+            "n": 1,
+            "correct": 1
+          },
+          "metropolitan_museum.get_top_artworks": {
+            "n": 1,
+            "correct": 1
+          },
+          "music_shop.find_nearby": {
+            "n": 1,
+            "correct": 1
+          },
+          "religion.get_origin": {
+            "n": 1,
+            "correct": 1
+          },
+          "run_two_sample_ttest": {
+            "n": 1,
+            "correct": 1
+          },
+          "soccer_scores.get_scores": {
+            "n": 1,
+            "correct": 1
+          },
+          "soccer_stat.get_player_stats": {
+            "n": 1,
+            "correct": 1
+          },
+          "triangle_properties.get": {
+            "n": 1,
+            "correct": 1
+          }
+        },
+        "calibration": null
+      }
+    },
+    "resolved_models": [
+      "qwen/qwen3.5-9b"
+    ]
+  },
+  "meta-llama/llama-3.1-8b-instruct": {
+    "attempted": 20,
+    "valid": 20,
+    "correct": 20,
+    "accuracy": 1.0,
+    "errors": 0,
+    "unknown_predictions": 0,
+    "needs_review": null,
+    "median_latency_seconds": 0.3855084165115841,
+    "usage": {
+      "calls": 20,
+      "failed_calls": 0,
+      "latency_seconds": 8.098057,
+      "reported_input_tokens": 10432,
+      "reported_output_tokens": 205,
+      "usage_missing_calls": 0,
+      "reported_cost_usd": 0.00234014,
+      "known_cost_subtotal_usd": 0.00234014,
+      "cost_unknown_calls": 0
+    },
+    "confusion": {
+      "triangle_properties.get": {
+        "triangle_properties.get": 1
+      },
+      "imdb.find_movies_by_actor": {
+        "imdb.find_movies_by_actor": 1
+      },
+      "database.query": {
+        "database.query": 1
+      },
+      "calculate_probability": {
+        "calculate_probability": 1
+      },
+      "run_two_sample_ttest": {
+        "run_two_sample_ttest": 1
+      },
+      "get_case_info": {
+        "get_case_info": 1
+      },
+      "map_service.get_directions": {
+        "map_service.get_directions": 1
+      },
+      "historical_contrib.get_contrib": {
+        "historical_contrib.get_contrib": 1
+      },
+      "metropolitan_museum.get_top_artworks": {
+        "metropolitan_museum.get_top_artworks": 1
+      },
+      "get_song_lyrics": {
+        "get_song_lyrics": 1
+      },
+      "soccer_stat.get_player_stats": {
+        "soccer_stat.get_player_stats": 1
+      },
+      "get_defense_ranking": {
+        "get_defense_ranking": 1
+      },
+      "maps.get_distance_duration": {
+        "maps.get_distance_duration": 1
+      },
+      "forest_growth_forecast": {
+        "forest_growth_forecast": 1
+      },
+      "functions.intersect": {
+        "functions.intersect": 1
+      },
+      "avg_closing_price": {
+        "avg_closing_price": 1
+      },
+      "get_population": {
+        "get_population": 1
+      },
+      "religion.get_origin": {
+        "religion.get_origin": 1
+      },
+      "music_shop.find_nearby": {
+        "music_shop.find_nearby": 1
+      },
+      "soccer_scores.get_scores": {
+        "soccer_scores.get_scores": 1
+      }
+    },
+    "per_label": {
+      "avg_closing_price": {
+        "n": 1,
+        "correct": 1
+      },
+      "calculate_probability": {
+        "n": 1,
+        "correct": 1
+      },
+      "database.query": {
+        "n": 1,
+        "correct": 1
+      },
+      "forest_growth_forecast": {
+        "n": 1,
+        "correct": 1
+      },
+      "functions.intersect": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_case_info": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_defense_ranking": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_population": {
+        "n": 1,
+        "correct": 1
+      },
+      "get_song_lyrics": {
+        "n": 1,
+        "correct": 1
+      },
+      "historical_contrib.get_contrib": {
+        "n": 1,
+        "correct": 1
+      },
+      "imdb.find_movies_by_actor": {
+        "n": 1,
+        "correct": 1
+      },
+      "map_service.get_directions": {
+        "n": 1,
+        "correct": 1
+      },
+      "maps.get_distance_duration": {
+        "n": 1,
+        "correct": 1
+      },
+      "metropolitan_museum.get_top_artworks": {
+        "n": 1,
+        "correct": 1
+      },
+      "music_shop.find_nearby": {
+        "n": 1,
+        "correct": 1
+      },
+      "religion.get_origin": {
+        "n": 1,
+        "correct": 1
+      },
+      "run_two_sample_ttest": {
+        "n": 1,
+        "correct": 1
+      },
+      "soccer_scores.get_scores": {
+        "n": 1,
+        "correct": 1
+      },
+      "soccer_stat.get_player_stats": {
+        "n": 1,
+        "correct": 1
+      },
+      "triangle_properties.get": {
+        "n": 1,
+        "correct": 1
+      }
+    },
+    "calibration": null,
+    "by_task": {
+      "bfcl_name_only": {
+        "attempted": 20,
+        "valid": 20,
+        "correct": 20,
+        "accuracy": 1.0,
+        "errors": 0,
+        "unknown_predictions": 0,
+        "needs_review": null,
+        "median_latency_seconds": 0.3855084165115841,
+        "usage": {
+          "calls": 20,
+          "failed_calls": 0,
+          "latency_seconds": 8.098057,
+          "reported_input_tokens": 10432,
+          "reported_output_tokens": 205,
+          "usage_missing_calls": 0,
+          "reported_cost_usd": 0.00234014,
+          "known_cost_subtotal_usd": 0.00234014,
+          "cost_unknown_calls": 0
+        },
+        "confusion": {
+          "triangle_properties.get": {
+            "triangle_properties.get": 1
+          },
+          "imdb.find_movies_by_actor": {
+            "imdb.find_movies_by_actor": 1
+          },
+          "database.query": {
+            "database.query": 1
+          },
+          "calculate_probability": {
+            "calculate_probability": 1
+          },
+          "run_two_sample_ttest": {
+            "run_two_sample_ttest": 1
+          },
+          "get_case_info": {
+            "get_case_info": 1
+          },
+          "map_service.get_directions": {
+            "map_service.get_directions": 1
+          },
+          "historical_contrib.get_contrib": {
+            "historical_contrib.get_contrib": 1
+          },
+          "metropolitan_museum.get_top_artworks": {
+            "metropolitan_museum.get_top_artworks": 1
+          },
+          "get_song_lyrics": {
+            "get_song_lyrics": 1
+          },
+          "soccer_stat.get_player_stats": {
+            "soccer_stat.get_player_stats": 1
+          },
+          "get_defense_ranking": {
+            "get_defense_ranking": 1
+          },
+          "maps.get_distance_duration": {
+            "maps.get_distance_duration": 1
+          },
+          "forest_growth_forecast": {
+            "forest_growth_forecast": 1
+          },
+          "functions.intersect": {
+            "functions.intersect": 1
+          },
+          "avg_closing_price": {
+            "avg_closing_price": 1
+          },
+          "get_population": {
+            "get_population": 1
+          },
+          "religion.get_origin": {
+            "religion.get_origin": 1
+          },
+          "music_shop.find_nearby": {
+            "music_shop.find_nearby": 1
+          },
+          "soccer_scores.get_scores": {
+            "soccer_scores.get_scores": 1
+          }
+        },
+        "per_label": {
+          "avg_closing_price": {
+            "n": 1,
+            "correct": 1
+          },
+          "calculate_probability": {
+            "n": 1,
+            "correct": 1
+          },
+          "database.query": {
+            "n": 1,
+            "correct": 1
+          },
+          "forest_growth_forecast": {
+            "n": 1,
+            "correct": 1
+          },
+          "functions.intersect": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_case_info": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_defense_ranking": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_population": {
+            "n": 1,
+            "correct": 1
+          },
+          "get_song_lyrics": {
+            "n": 1,
+            "correct": 1
+          },
+          "historical_contrib.get_contrib": {
+            "n": 1,
+            "correct": 1
+          },
+          "imdb.find_movies_by_actor": {
+            "n": 1,
+            "correct": 1
+          },
+          "map_service.get_directions": {
+            "n": 1,
+            "correct": 1
+          },
+          "maps.get_distance_duration": {
+            "n": 1,
+            "correct": 1
+          },
+          "metropolitan_museum.get_top_artworks": {
+            "n": 1,
+            "correct": 1
+          },
+          "music_shop.find_nearby": {
+            "n": 1,
+            "correct": 1
+          },
+          "religion.get_origin": {
+            "n": 1,
+            "correct": 1
+          },
+          "run_two_sample_ttest": {
+            "n": 1,
+            "correct": 1
+          },
+          "soccer_scores.get_scores": {
+            "n": 1,
+            "correct": 1
+          },
+          "soccer_stat.get_player_stats": {
+            "n": 1,
+            "correct": 1
+          },
+          "triangle_properties.get": {
+            "n": 1,
+            "correct": 1
+          }
+        },
+        "calibration": null
+      }
+    },
+    "resolved_models": [
+      "meta-llama/llama-3.1-8b-instruct"
+    ]
+  }
+}

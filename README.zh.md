@@ -3072,6 +3072,23 @@ Jev 本身不浏览、不执行工具，也不生成自由文本。判断输入�
 <a id="experiments"></a>
 ### 🧪 可以查看的实验
 
+**新增：五模型同题对比。** 下表是答对数 / 全部尝试；PR 是预先标注一致率，不是合并正确率。小样本，不是通用排行榜。
+
+| 实验 | N | Jev | DeepSeek V4 Flash | Qwen35B A3B | Qwen9B | Llama3.1 8B |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| [BBH · 有限选项推理](docs/experiments/model-panel/runs/bbh/README.md) | 160 | 138/160 | 108/160 | 114/160 | 102/160 | 88/160 |
+| [LogiQA 2.0 · 中文逻辑](docs/experiments/model-panel/runs/logiqa/README.md) | 20 | 16/20 | 19/20 | 18/20 | 16/20 | 13/20 |
+| [OCNLI · 中文蕴含](docs/experiments/model-panel/runs/ocnli/README.md) | 20 | 18/20 | 16/20 | 18/20 | 19/20 | 9/20 |
+| [Ruozhiba MC · 常识误解改编](docs/experiments/model-panel/runs/ruozhiba/README.md) | 20 | 20/20 | 20/20 | 20/20 | 20/20 | 17/20 |
+| [Context · 证据完整与缺失](docs/experiments/model-panel/runs/context/README.md) | 40 | 39/40 | 40/40 | 38/40 | 38/40 | 30/40 |
+| [Public PRs · 预期价值标注一致率](docs/experiments/model-panel/runs/pr/README.md) | 40 | 38/40 | 36/40 | 33/40 | 37/40 | 29/40 |
+| [Banking77 · 工单分流](docs/experiments/model-panel/runs/banking/README.md) | 20 | 16/20 | 16/20 | 17/20 | 15/20 | 13/20 |
+| [BoolQ · 给定文档问答](docs/experiments/model-panel/runs/boolq/README.md) | 20 | 19/20 | 18/20 | 19/20 | 20/20 | 15/20 |
+| [BFCL · 工具名选择](docs/experiments/model-panel/runs/bfcl/README.md) | 20 | 20/20 | 20/20 | 20/20 | 20/20 | 20/20 |
+| [Prompt injection · 窄口径标签](docs/experiments/model-panel/runs/injection/README.md) | 20 | 17/20 | 17/20 | 18/20 | 19/20 | 16/20 |
+
+[费用、延迟、失败、真实 I/O 与复现](docs/experiments/model-panel/README.md)。Agent 配对实验 **3/4 → 4/4**，但增加了调用；以前的负面结果仍保留在下方。
+
 - [五技能验证：安装、导航和三次真实 Jev 请求](docs/validation-five-skills.md).
 - [Agent 使用前后对照](evals/RESULTS.md)：12 组，baseline 12/12，固定检查点 10/12；是该接入策略的小规模负面结果。
 - [决策/校准试验](evals/CALIBRATION_RESULTS.md)：160 题命中 136 题；置信度 ≥0.9 的 100 题仍错了 8 题。
