@@ -240,6 +240,11 @@ a pinned version never silently switches to main.
 **Send one of these prompts to your agent.** Name the skill and the decision you
 need; you do not have to write JSON. Use real Jev through either supported provider, or an approved agent/model simulation.
 
+**The agent does the work; Jev helps with a bounded judgment step.** Your agent
+reads the sources, prepares the decisions, independently spot-checks labels
+(including high-confidence ones), then analyzes and summarizes the results.
+Using Jev once should not turn later tasks into endless API calls.
+
 <a id="no-key"></a>
 ### 🔑 Set up with your agent
 

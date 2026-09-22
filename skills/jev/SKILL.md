@@ -1,6 +1,6 @@
 ---
 name: jev
-description: Design Jev questions from a task or an existing prompt. Set up a provider, batch independent decisions, and handle custom judgments, agent checkpoints, tool routing or context checks. Read only the guide needed for this task.
+description: Use Jev for bounded classification, scoring or candidate selection within a host-led task, especially repeated or bulk judgments. Design questions, set up a provider or check a specific uncertain checkpoint; not a replacement for the host's analysis or general task execution.
 license: MIT
 metadata:
   requirements: Jev API mode needs Python 3.10+, network access and either OPENROUTER_API_KEY or TYPESAFE_API_KEY for the selected provider. API calls incur charges. No MCP server required. User-approved host-agent simulation needs no Jev API key or CLI.
@@ -21,6 +21,25 @@ model. Choose one task below, not the whole reference library.
 | Review what context to keep | [Context](references/context.md) | [Request](assets/context.json) |
 | Batch independent questions | [Batching](references/context-and-throughput.md) | [Two records](assets/batch-triage.json) |
 | Define new labels or a rubric | [Question design](references/question-design.md) | [Rubric](assets/rubric.json) |
+
+## Host-led work
+
+The host reads sources, analyzes, implements, verifies and summarizes. Jev is a
+bounded decision tool, not the main worker. Reassess whether it helps on each new
+user request; using it once does not make it the default for later work.
+
+Use it for repeated/bulk judgments or a specific uncertain choice with explicit
+criteria and evidence. Handle straightforward work and exact rules directly.
+After the judgment stage, resume host work; do not turn reading, planning or
+summarizing into a chain of Jev calls.
+
+Treat answers as initial judgments. Check them against original evidence yourself,
+not by asking Jev to approve itself. For batches, inspect a representative random
+sample plus ambiguous, high-impact and high-confidence cases, including apparently
+successful labels. Correct or flag isolated mistakes. For recurring or material
+errors, or failure of agreed quality criteria, pause affected automation, investigate
+the cause and validate any fix before continuing. Deliver your analysis and requested
+result, noting what you checked, corrections and limits; do not just forward API output.
 
 ## Use safely
 

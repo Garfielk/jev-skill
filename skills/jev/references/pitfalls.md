@@ -161,7 +161,17 @@ silently skipped. Tune on development labels and check separate holdouts; a tiny
 fit or agreement with the replaced model is not proof of calibration. Keep a
 host-controlled disable/review path instead of allowing the judge to rewrite policy.
 
-## 7. Keep exact logic and execution outside Jev
+## 7. Keep the main work with the host
+
+Do not let a screening tool become the worker. The host still reads original
+sources, investigates discrepancies and writes the final analysis. A confident
+label, agreement between two models or repeated Jev calls is not an independent
+check. Spot-check a representative random sample plus ambiguous, high-impact and
+high-confidence cases against the sources, including apparently successful labels.
+Correct or flag isolated mistakes. For recurring or material errors, or failure
+of agreed quality criteria, pause affected automation and investigate the cause;
+validate any context/rubric changes on fresh cases. A later request to explain, code or summarize should
+not trigger Jev merely because the previous task used it.
 
 Arithmetic, counts and date comparisons belong in code. Score interpolation is
 not an exact numeric extractor. Fresh action IDs, permissions and postcondition

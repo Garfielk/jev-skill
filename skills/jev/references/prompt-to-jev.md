@@ -16,7 +16,8 @@ need the project catalog. The conversion is done by the host agent, not by Jev.
    invent candidates or facts. Ask only about gaps that change the decision.
 4. Put independent questions over that evidence in the same request. Questions
    cannot read each other's answers. If a later question needs a selected document
-   or an action result, collect it first, then send a new request. Across separate
+   or an action result, collect it first; call again only if a judgment is still
+   needed. Across separate
    requests, the host may use bounded concurrency with IDs and a cost/time budget;
    the CLI itself has no scheduler.
 5. Validate with the existing CLI. Show the request and any assumptions. Only add

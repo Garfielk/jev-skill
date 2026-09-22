@@ -5,6 +5,25 @@ description: Locate, select, extract and verify evidence in documents or observe
 
 # Find and verify source evidence
 
+## Host-led work
+
+The host reads sources, analyzes, implements, verifies and summarizes. Jev is a
+bounded decision tool, not the main worker. Reassess whether it helps on each new
+user request; using it once does not make it the default for later work.
+
+Use it for repeated/bulk judgments or a specific uncertain choice with explicit
+criteria and evidence. Handle straightforward work and exact rules directly.
+After the judgment stage, resume host work; do not turn reading, planning or
+summarizing into a chain of Jev calls.
+
+Treat answers as initial judgments. Check them against original evidence yourself,
+not by asking Jev to approve itself. For batches, inspect a representative random
+sample plus ambiguous, high-impact and high-confidence cases, including apparently
+successful labels. Correct or flag isolated mistakes. For recurring or material
+errors, or failure of agreed quality criteria, pause affected automation, investigate
+the cause and validate any fix before continuing. Deliver your analysis and requested
+result, noting what you checked, corrections and limits; do not just forward API output.
+
 ## Use safely
 
 Choose the service once and keep that choice. If unset, ask **A: real Jev** via
@@ -53,7 +72,7 @@ jev-decide decide /path/to/request.json --provider openrouter
 2. Define the requested role precisely: invoice destination is not any email address. Include none when no candidate fits.
 3. Use independent relevance questions when ranking all passages; winning a relative Choice does not establish an answer exists.
 4. Copy the original span selected by ID. Do not ask Jev to synthesize the extracted field or fabricate a quotation.
-5. Check each claim against its cited evidence separately. Report unsupported/contradicted statements and preserve source links for human checking.
+5. The host checks claims against their cited evidence and writes the synthesis; Jev may help screen many claims, not replace reading. Report unsupported/contradicted statements and preserve source links.
 
 ## Context and parallelism
 

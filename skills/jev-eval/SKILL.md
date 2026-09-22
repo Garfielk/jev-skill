@@ -8,6 +8,25 @@ description: Judge supplied outputs against explicit criteria, including code-ch
 Use this skill for judgments about existing outputs or observed behavior, not for
 finding source locations (`jev-documents`) or assigning routine business labels (`jev-triage`).
 
+## Host-led work
+
+The host reads sources, analyzes, implements, verifies and summarizes. Jev is a
+bounded decision tool, not the main worker. Reassess whether it helps on each new
+user request; using it once does not make it the default for later work.
+
+Use it for repeated/bulk judgments or a specific uncertain choice with explicit
+criteria and evidence. Handle straightforward work and exact rules directly.
+After the judgment stage, resume host work; do not turn reading, planning or
+summarizing into a chain of Jev calls.
+
+Treat answers as initial judgments. Check them against original evidence yourself,
+not by asking Jev to approve itself. For batches, inspect a representative random
+sample plus ambiguous, high-impact and high-confidence cases, including apparently
+successful labels. Correct or flag isolated mistakes. For recurring or material
+errors, or failure of agreed quality criteria, pause affected automation, investigate
+the cause and validate any fix before continuing. Deliver your analysis and requested
+result, noting what you checked, corrections and limits; do not just forward API output.
+
 ## Pick the evaluation mode
 
 - **Code review:** read [diff and test-evidence review](references/code-review.md)
