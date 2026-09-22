@@ -2,6 +2,21 @@ import unittest
 from evals import panel_report as report
 
 class ReportTests(unittest.TestCase):
+    def assert_summary_equal(self, actual, expected):
+        # Python 3.12 changed float summation; receipts and integer counts remain exact.
+        if isinstance(expected, dict):
+            self.assertEqual(set(actual), set(expected))
+            for key in expected:
+                self.assert_summary_equal(actual[key], expected[key])
+        elif isinstance(expected, list):
+            self.assertEqual(len(actual), len(expected))
+            for left, right in zip(actual, expected):
+                self.assert_summary_equal(left, right)
+        elif isinstance(expected, float):
+            self.assertAlmostEqual(actual, expected, delta=1e-12)
+        else:
+            self.assertEqual(actual, expected)
+
     def test_metrics_count_errors_and_label_confusion(self):
         records=[dict(id='1',task='t',target='A',prediction='A',latency_seconds=1,response={'usage':{'cost':.1}}),
                  dict(id='2',task='t',target='B',error={'type':'ValueError'},latency_seconds=3,response={})]
@@ -49,7 +64,7 @@ class ReportTests(unittest.TestCase):
             self.assertEqual(world.state,result['final_state'])
             self.assertEqual(world.success(),result['success'])
             self.assertEqual(world.unsafe_attempts,result['unsafe_attempts'])
-            self.assertEqual(aggregate([e for e in events if e['event']=='api_receipt']),result['total'])
+            self.assert_summary_equal(aggregate([e for e in events if e['event']=='api_receipt']),result['total'])
 
     def test_published_tables_match_all_derived_metrics(self):
         import json,re,tempfile,shutil
@@ -61,7 +76,7 @@ class ReportTests(unittest.TestCase):
                 original=(target/'summary.json').read_text()
                 table=(target/'table.md').read_text()
                 report.regenerate(target)
-                self.assertEqual((target/'summary.json').read_text(),original)
+                self.assert_summary_equal(json.loads((target/'summary.json').read_text()),json.loads(original))
                 self.assertEqual((target/'table.md').read_text(),table)
                 self.assertIn(table.strip(),(target/'README.md').read_text())
         for path in (root/'docs/experiments/model-panel').rglob('*.md'):

@@ -2,7 +2,7 @@
 
 - **157 offline tests passed**; full suite needs a localhost listening socket for the existing HTTP transport test. The first sandbox run could not bind that socket; rerun with local-server permission passed. No live model calls occur in the test suite.
 - `compileall` passed for evaluation and CLI code. No separate project type-checker is configured.
-- All ten derived result tables regenerate byte-for-byte. All report-relative file links resolve. Seven external dataset adapters and the PR adapter reconstructed the exact frozen sample hashes from retained local source caches.
+- All ten derived Markdown result tables regenerate byte-for-byte. JSON metric comparisons allow an absolute tolerance of 1e-12 for floats across Python versions (Python 3.12 changed float summation); counts, labels, structure, and receipt hashes remain exact. All report-relative file links resolve. Seven external dataset adapters and the PR adapter reconstructed the exact frozen sample hashes from retained local source caches.
 - Agent observations, actions, persisted final states, success flags, unsafe-attempt counts and usage totals replay from the eight actual episode logs.
 - Clean wheel installation and `jev-decide ... --dry-run` passed. Candidate sdist contains exactly five SKILL entries, public derived records and manifest seals; no `.scratch` or `.env`. BBH rescores from the extracted archive offline. Candidate artifacts are local, not a published release.
 - Both README result sections were opened as locally rendered Pandoc HTML and visually inspected in the in-app browser. Tables and links render; this is not a GitHub mobile/theme certification.
