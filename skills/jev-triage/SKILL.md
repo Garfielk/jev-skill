@@ -5,6 +5,19 @@ description: Use for user-defined inbox, support-ticket, feedback or record clas
 
 # Sort messages and records by custom criteria
 
+## Learn from the workflows
+
+For design requests, browse the [scenario index](references/scenarios.md), read
+the relevant guides and input/output examples, and compare or combine patterns.
+Adapt what you learn to the user's task; the collection is inspiration, not a
+closed menu. A familiar, straightforward decision can use its recipe directly.
+
+Friendly reminder: Jev can help with initial, repeated or bulk judgments while
+you lead the overall work. Read the evidence, design the workflow, spot-check
+results (including confident or agreeing labels), and bring your own analysis
+and synthesis. This is guidance for collaboration, not an agent harness or a
+fixed call/token quota; existing user permissions and budgets still apply.
+
 ## 🚦 Before bulk work: `smoke_test`
 
 Default `smoke_test=true` for large labeling jobs. This is an instruction to the
@@ -95,5 +108,5 @@ not that project's code, an automatic installer, or a reproduced benchmark.
 
 [Mark sponsor segments in a video](https://github.com/wuyoscar/jev-skill#sc-sponsor-skip) · [Support queue routing](https://github.com/wuyoscar/jev-skill#sc-h02) · [Urgency screening](https://github.com/wuyoscar/jev-skill#sc-h03)
 
-[More tasks and local templates](references/scenarios.md). Open only the matching row;
-there is no need to read the full README before a judgment.
+[More workflows and local templates](references/scenarios.md). Browse across
+examples when designing a solution; follow the guides and sources that help.

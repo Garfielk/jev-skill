@@ -22,9 +22,10 @@ Batch independent review criteria over the same diff instead of serial LLM calls
 Use bounded concurrency for independent change groups, with hunk/question IDs,
 rate limits and a cost/time budget; include shared dependencies in each request.
 The host schedules calls; the CLI has no parallel scheduler. Questions cannot read
-other answers in the same request: a finding-dependent verification needs a later
-call with its receipt. Jev's low latency helps broad screening, not patch generation
-or replacing tests and deeper review.
+other answers in the same request: the host must verify a finding against source
+and test receipts. Another call is optional, only for a remaining bounded judgment.
+Jev's low latency helps broad screening, not patch generation or replacing tests
+and deeper review.
 
 ## Make it yours
 

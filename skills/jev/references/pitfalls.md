@@ -161,7 +161,14 @@ silently skipped. Tune on development labels and check separate holdouts; a tiny
 fit or agreement with the replaced model is not proof of calibration. Keep a
 host-controlled disable/review path instead of allowing the judge to rewrite policy.
 
-## 7. Keep exact logic and execution outside Jev
+## 7. Keep the main work with the host
+
+Use the collected workflows as ideas to learn from and combine, not just API
+recipes. Jev can help screen or judge while the host reads sources, investigates
+discrepancies and writes the analysis. A useful habit is to spot-check original
+evidence, including confident labels and cases where models agree: confidence
+and agreement are not independent verification. Keep these checks proportionate
+to the task; the reminder adds no fixed call quota or approval stage.
 
 Arithmetic, counts and date comparisons belong in code. Score interpolation is
 not an exact numeric extractor. Fresh action IDs, permissions and postcondition

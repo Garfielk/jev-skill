@@ -5,6 +5,19 @@ description: Locate, select, extract and verify evidence in documents or observe
 
 # Find and verify source evidence
 
+## Learn from the workflows
+
+For design requests, browse the [scenario index](references/scenarios.md), read
+the relevant guides and input/output examples, and compare or combine patterns.
+Adapt what you learn to the user's task; the collection is inspiration, not a
+closed menu. A familiar, straightforward decision can use its recipe directly.
+
+Friendly reminder: Jev can help with initial, repeated or bulk judgments while
+you lead the overall work. Read the evidence, design the workflow, spot-check
+results (including confident or agreeing labels), and bring your own analysis
+and synthesis. This is guidance for collaboration, not an agent harness or a
+fixed call/token quota; existing user permissions and budgets still apply.
+
 ## Use safely
 
 Choose the service once and keep that choice. If unset, ask **A: real Jev** via
@@ -53,7 +66,7 @@ jev-decide decide /path/to/request.json --provider openrouter
 2. Define the requested role precisely: invoice destination is not any email address. Include none when no candidate fits.
 3. Use independent relevance questions when ranking all passages; winning a relative Choice does not establish an answer exists.
 4. Copy the original span selected by ID. Do not ask Jev to synthesize the extracted field or fabricate a quotation.
-5. Check each claim against its cited evidence separately. Report unsupported/contradicted statements and preserve source links for human checking.
+5. The host checks claims against their cited evidence and writes the synthesis; Jev may help screen many claims, not replace reading. Report unsupported/contradicted statements and preserve source links.
 
 ## Context and parallelism
 
@@ -85,5 +98,5 @@ not that project's code, an automatic installer, or a reproduced benchmark.
 
 [Rerank search and retrieval results](https://github.com/wuyoscar/jev-skill#sc-a19) · [Repository navigation](https://github.com/wuyoscar/jev-skill#sc-a20) · [Find meaning on a page, not just matching words](https://github.com/wuyoscar/jev-skill#sc-semantic-find)
 
-[More tasks and local templates](references/scenarios.md). Open only the matching row;
-there is no need to read the full README before a judgment.
+[More workflows and local templates](references/scenarios.md). Browse across
+examples when designing a solution; follow the guides and sources that help.

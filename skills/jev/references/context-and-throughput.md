@@ -38,7 +38,7 @@ just to make requests smaller; split the workload or retrieve missing material.
 | One document, many independent checks | One state, multiple questions in one request |
 | Related records sharing rules/context | A bounded group with explicit per-record questions |
 | Many unrelated or large records | Separate self-contained requests, bounded host concurrency |
-| Next question needs a selected passage or a tool result | Wait, collect the new evidence, then build the next request |
+| Next question needs a selected passage or a tool result | Wait, collect the new evidence, then decide whether another judgment is needed |
 
 Native batching and request concurrency are different. In one request, every
 question is evaluated independently against the same state. Shared context is

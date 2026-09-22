@@ -5,6 +5,19 @@ description: Choose one legal next action in a browser, desktop, game or simulat
 
 # Choose the next action
 
+## Learn from the workflows
+
+For design requests, browse the [scenario index](references/scenarios.md), read
+the relevant guides and input/output examples, and compare or combine patterns.
+Adapt what you learn to the user's task; the collection is inspiration, not a
+closed menu. A familiar, straightforward decision can use its recipe directly.
+
+Friendly reminder: Jev can help with initial, repeated or bulk judgments while
+you lead the overall work. Read the evidence, design the workflow, spot-check
+results (including confident or agreeing labels), and bring your own analysis
+and synthesis. This is guidance for collaboration, not an agent harness or a
+fixed call/token quota; existing user permissions and budgets still apply.
+
 ## Use safely
 
 Choose the service once and keep that choice. If unset, ask **A: real Jev** via
@@ -56,5 +69,5 @@ Wait for a new observation after an action before asking a dependent question.
 
 [Next browser action](https://github.com/wuyoscar/jev-skill#sc-a23) · [Browser wait versus intervention](https://github.com/wuyoscar/jev-skill#sc-a24) · [Browser outcome verification](https://github.com/wuyoscar/jev-skill#sc-a25)
 
-[More tasks and local templates](references/scenarios.md). Open only the matching row;
-there is no need to read the full README before a judgment.
+[More workflows and local templates](references/scenarios.md). Browse across
+examples when designing a solution; follow the guides and sources that help.
