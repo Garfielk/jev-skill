@@ -163,15 +163,12 @@ host-controlled disable/review path instead of allowing the judge to rewrite pol
 
 ## 7. Keep the main work with the host
 
-Do not let a screening tool become the worker. The host still reads original
-sources, investigates discrepancies and writes the final analysis. A confident
-label, agreement between two models or repeated Jev calls is not an independent
-check. Spot-check a representative random sample plus ambiguous, high-impact and
-high-confidence cases against the sources, including apparently successful labels.
-Correct or flag isolated mistakes. For recurring or material errors, or failure
-of agreed quality criteria, pause affected automation and investigate the cause;
-validate any context/rubric changes on fresh cases. A later request to explain, code or summarize should
-not trigger Jev merely because the previous task used it.
+Use the collected workflows as ideas to learn from and combine, not just API
+recipes. Jev can help screen or judge while the host reads sources, investigates
+discrepancies and writes the analysis. A useful habit is to spot-check original
+evidence, including confident labels and cases where models agree: confidence
+and agreement are not independent verification. Keep these checks proportionate
+to the task; the reminder adds no fixed call quota or approval stage.
 
 Arithmetic, counts and date comparisons belong in code. Score interpolation is
 not an exact numeric extractor. Fresh action IDs, permissions and postcondition

@@ -1,8 +1,9 @@
-# Find one example
+# Explore workflow examples
 
-Pick one row. The README links are for people who want the full example;
-the local template is enough to start adapting this task. Read only its relevant
-guide. A project link is a source, not an installed backend or a tested integration.
+Browse the examples and read the guides, input/output and sources that help with
+your design. Compare or combine several workflows when useful; local templates
+are starting points to adapt, not a complete solution. A project link is a source,
+not an installed backend or a tested integration.
 
 | Task | Full example | Local start |
 |---|---|---|

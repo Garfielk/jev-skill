@@ -8,24 +8,18 @@ description: Judge supplied outputs against explicit criteria, including code-ch
 Use this skill for judgments about existing outputs or observed behavior, not for
 finding source locations (`jev-documents`) or assigning routine business labels (`jev-triage`).
 
-## Host-led work
+## Learn from the workflows
 
-The host reads sources, analyzes, implements, verifies and summarizes. Jev is a
-bounded decision tool, not the main worker. Reassess whether it helps on each new
-user request; using it once does not make it the default for later work.
+For design requests, browse the [scenario index](references/scenarios.md), read
+the relevant guides and input/output examples, and compare or combine patterns.
+Adapt what you learn to the user's task; the collection is inspiration, not a
+closed menu. A familiar, straightforward decision can use its recipe directly.
 
-Use it for repeated/bulk judgments or a specific uncertain choice with explicit
-criteria and evidence. Handle straightforward work and exact rules directly.
-After the judgment stage, resume host work; do not turn reading, planning or
-summarizing into a chain of Jev calls.
-
-Treat answers as initial judgments. Check them against original evidence yourself,
-not by asking Jev to approve itself. For batches, inspect a representative random
-sample plus ambiguous, high-impact and high-confidence cases, including apparently
-successful labels. Correct or flag isolated mistakes. For recurring or material
-errors, or failure of agreed quality criteria, pause affected automation, investigate
-the cause and validate any fix before continuing. Deliver your analysis and requested
-result, noting what you checked, corrections and limits; do not just forward API output.
+Friendly reminder: Jev can help with initial, repeated or bulk judgments while
+you lead the overall work. Read the evidence, design the workflow, spot-check
+results (including confident or agreeing labels), and bring your own analysis
+and synthesis. This is guidance for collaboration, not an agent harness or a
+fixed call/token quota; existing user permissions and budgets still apply.
 
 ## Pick the evaluation mode
 
@@ -88,5 +82,5 @@ judges supplied evidence and does not expand the test scope.
 
 [Completion evidence check](https://github.com/wuyoscar/jev-skill#sc-a06) · [Detect unsupported success language](https://github.com/wuyoscar/jev-skill#sc-a07) · [Plan versus action](https://github.com/wuyoscar/jev-skill#sc-a03)
 
-[More tasks and local templates](references/scenarios.md). Open only the matching row;
-there is no need to read the full README before a judgment.
+[More workflows and local templates](references/scenarios.md). Browse across
+examples when designing a solution; follow the guides and sources that help.

@@ -240,10 +240,11 @@ a pinned version never silently switches to main.
 **Send one of these prompts to your agent.** Name the skill and the decision you
 need; you do not have to write JSON. Use real Jev through either supported provider, or an approved agent/model simulation.
 
-**The agent does the work; Jev helps with a bounded judgment step.** Your agent
-reads the sources, prepares the decisions, independently spot-checks labels
-(including high-confidence ones), then analyzes and summarizes the results.
-Using Jev once should not turn later tasks into endless API calls.
+**A workflow library for your agent, not just an API wrapper.** Ask it to explore
+our [references](skills/jev/references/index.md) and examples, compare approaches,
+and design a workflow for your task. Jev helps with efficient judgments; your agent
+brings the analysis, spot-checks and synthesis. This is a friendly reminder to learn
+and adapt, not a limit on its capabilities, reasoning or useful calls.
 
 <a id="no-key"></a>
 ### 🔑 Set up with your agent

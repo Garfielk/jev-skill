@@ -1,16 +1,21 @@
 ---
 name: jev
-description: Use Jev for bounded classification, scoring or candidate selection within a host-led task, especially repeated or bulk judgments. Design questions, set up a provider or check a specific uncertain checkpoint; not a replacement for the host's analysis or general task execution.
+description: Design Jev-assisted workflows using collected use cases, references and examples. Adapt and combine patterns, then use Jev for classification, scoring or candidate selection when useful, including batch judgments and agent checkpoints.
 license: MIT
 metadata:
   requirements: Jev API mode needs Python 3.10+, network access and either OPENROUTER_API_KEY or TYPESAFE_API_KEY for the selected provider. API calls incur charges. No MCP server required. User-approved host-agent simulation needs no Jev API key or CLI.
 ---
 
-# Design a small decision
+# Design with Jev workflows
 
-Jev chooses, classifies and scores. The host collects evidence, writes code and
-checks outcomes. Use code for exact rules; keep text generation with a generative
-model. Choose one task below, not the whole reference library.
+Use this collection to learn, design and build—not just to call an API. Start
+with the [reference index](references/index.md) for the wider collection, then
+read useful workflows, examples and their limits. Combine patterns or adapt a new
+one; [customization](references/customization.md) and [implementation patterns](references/implementation-patterns.md)
+can help turn an idea into code. Jev supplies judgments; the host designs the
+overall solution, collects evidence, implements it and checks the outcome.
+
+Common starting points:
 
 | Task | Read | Start with |
 |---|---|---|
@@ -22,24 +27,18 @@ model. Choose one task below, not the whole reference library.
 | Batch independent questions | [Batching](references/context-and-throughput.md) | [Two records](assets/batch-triage.json) |
 | Define new labels or a rubric | [Question design](references/question-design.md) | [Rubric](assets/rubric.json) |
 
-## Host-led work
+## Learn from the workflows
 
-The host reads sources, analyzes, implements, verifies and summarizes. Jev is a
-bounded decision tool, not the main worker. Reassess whether it helps on each new
-user request; using it once does not make it the default for later work.
+For design requests, browse the [scenario index](references/scenarios.md), read
+the relevant guides and input/output examples, and compare or combine patterns.
+Adapt what you learn to the user's task; the collection is inspiration, not a
+closed menu. A familiar, straightforward decision can use its recipe directly.
 
-Use it for repeated/bulk judgments or a specific uncertain choice with explicit
-criteria and evidence. Handle straightforward work and exact rules directly.
-After the judgment stage, resume host work; do not turn reading, planning or
-summarizing into a chain of Jev calls.
-
-Treat answers as initial judgments. Check them against original evidence yourself,
-not by asking Jev to approve itself. For batches, inspect a representative random
-sample plus ambiguous, high-impact and high-confidence cases, including apparently
-successful labels. Correct or flag isolated mistakes. For recurring or material
-errors, or failure of agreed quality criteria, pause affected automation, investigate
-the cause and validate any fix before continuing. Deliver your analysis and requested
-result, noting what you checked, corrections and limits; do not just forward API output.
+Friendly reminder: Jev can help with initial, repeated or bulk judgments while
+you lead the overall work. Read the evidence, design the workflow, spot-check
+results (including confident or agreeing labels), and bring your own analysis
+and synthesis. This is guidance for collaboration, not an agent harness or a
+fixed call/token quota; existing user permissions and budgets still apply.
 
 ## Use safely
 
@@ -96,5 +95,5 @@ install them silently. More sources live in the optional [reference index](refer
 
 [Goal-drift checkpoint](https://github.com/wuyoscar/jev-skill#sc-a01) · [Stuck-loop recovery](https://github.com/wuyoscar/jev-skill#sc-a02) · [Postmortem failure attribution](https://github.com/wuyoscar/jev-skill#sc-a27)
 
-[More tasks and local templates](references/scenarios.md). Open only the matching row;
-there is no need to read the full README before a judgment.
+[More workflows and local templates](references/scenarios.md). Browse across
+examples when designing a solution; follow the guides and sources that help.

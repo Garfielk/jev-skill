@@ -71,13 +71,10 @@ OpenRouter reference model: check both selected routes before spending.
    wins, and never pretend correlated repeats are independent gold judgments.
 7. Report valid pairs / planned pairs, accuracy denominators if independently
    labeled, agreement, per-class errors, uncertainty and failed record IDs, actual
-   IO and known/unknown costs. The host reads source records and independently
-   spot-checks a representative random sample plus ambiguous, high-impact and
-   high-confidence cases, including pairs where both models agree. Agreement
-   can hide shared mistakes. Correct or flag isolated mistakes; pause affected
-   scaling for recurring/material errors or failure of agreed quality criteria,
-   investigate the cause and validate any fix. Explain unresolved cases. Incomplete or
-   unlabeled evidence cannot certify a quality gate. A tiny synthetic test does
+   IO and known/unknown costs. Read original records and spot-check results,
+   including confident labels and pairs where both models agree; shared mistakes
+   are possible. Explain what you found and inspect disagreements with the user.
+   Incomplete or unlabeled evidence cannot certify a quality gate. A tiny synthetic test does
    not establish production accuracy or probability calibration.
 8. Stop. Scaling needs the user's scope/budget authorization (which may already
    have been explicitly given), quality acceptance and a restart/checkpoint plan.

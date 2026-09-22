@@ -44,8 +44,9 @@ source IDs to [community evidence](community.md), including failures and limitat
 
 The README displays the full task-based collection, including these 56 recipes
 and additional implementation/community uses. These reference files retain the
-technical contracts and provenance without expanding the main skill prompt. Do not
-load every recipe for a single decision. A good recipe names the observation,
+technical contracts and provenance. For open-ended design, explore across domains
+and compare patterns; for a known decision, go straight to its recipe. Read as much
+relevant material as the task needs. A good recipe names the observation,
 the question, the output, the next consumer, and the failure condition.
 
 ## Boundaries shared by all recipes
