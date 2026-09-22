@@ -50,3 +50,22 @@ class ReportTests(unittest.TestCase):
             self.assertEqual(world.success(),result['success'])
             self.assertEqual(world.unsafe_attempts,result['unsafe_attempts'])
             self.assertEqual(aggregate([e for e in events if e['event']=='api_receipt']),result['total'])
+
+    def test_published_tables_match_all_derived_metrics(self):
+        import json,re,tempfile,shutil
+        from pathlib import Path
+        root=Path(__file__).resolve().parents[1]
+        for source in (root/'docs/experiments/model-panel/runs').iterdir():
+            with tempfile.TemporaryDirectory() as tmp:
+                target=Path(tmp)/'run';shutil.copytree(source,target)
+                original=(target/'summary.json').read_text()
+                table=(target/'table.md').read_text()
+                report.regenerate(target)
+                self.assertEqual((target/'summary.json').read_text(),original)
+                self.assertEqual((target/'table.md').read_text(),table)
+                self.assertIn(table.strip(),(target/'README.md').read_text())
+        for path in (root/'docs/experiments/model-panel').rglob('*.md'):
+            for link in re.findall(r'\]\(([^)]+)\)',path.read_text()):
+                if '://' not in link and not link.startswith('#'):
+                    self.assertTrue((path.parent/link.split('#')[0]).exists(),f'{path}: {link}')
+        self.assertIn('*.sha256',(root/'MANIFEST.in').read_text())
