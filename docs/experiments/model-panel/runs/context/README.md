@@ -2,6 +2,25 @@
 
 20 synthetic pairs / 40 decisions. **Correct / all attempts**; PR rows mean annotation agreement. Failures count wrong.
 
+### Evidence condition
+
+| Model | Context | Correct | Valid responses | Unknown answers | Errors |
+| --- | --- | ---: | ---: | ---: | ---: |
+| `typesafe/jev-1.13` | short | 20/20 | 20/20 | 15/20 | 0 |
+| `typesafe/jev-1.13` | full | 19/20 | 20/20 | 4/20 | 0 |
+| `deepseek/deepseek-v4-flash` | short | 20/20 | 20/20 | 15/20 | 0 |
+| `deepseek/deepseek-v4-flash` | full | 20/20 | 20/20 | 5/20 | 0 |
+| `qwen/qwen3.5-35b-a3b` | short | 20/20 | 20/20 | 15/20 | 0 |
+| `qwen/qwen3.5-35b-a3b` | full | 18/20 | 20/20 | 5/20 | 0 |
+| `qwen/qwen3.5-9b` | short | 20/20 | 20/20 | 15/20 | 0 |
+| `qwen/qwen3.5-9b` | full | 18/20 | 20/20 | 3/20 | 0 |
+| `meta-llama/llama-3.1-8b-instruct` | short | 14/20 | 20/20 | 9/20 | 0 |
+| `meta-llama/llama-3.1-8b-instruct` | full | 16/20 | 20/20 | 3/20 | 0 |
+
+Unknown is a valid classification, not an executed decision or a failure. No missing-evidence case receives hypothetical review credit.
+
+### Combined cost and latency
+
 | Model | Correct | Valid | Errors | Review flags | Median seconds | Reported USD |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | `typesafe/jev-1.13` | 39/40 | 40/40 | 0 | 19 | 0.355 | $0.000745 |

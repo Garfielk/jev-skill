@@ -91,6 +91,6 @@ python -m evals.run --base-model deepseek/deepseek-v4-flash --repeats 1 --max-st
 - [Initial5-call preflight](../../../evals/results/panel-preflight-2026-09-22): DeepSeek returned a choice description, not its label. Strict parser rejected it. This predates manifest sealing; retain its original receipt/summary, not a retroactively sealed claim.
 - [Separate enum-schema5-call preflight](../../../evals/results/panel-schema-preflight-2026-09-22): all5 valid. The changed protocol, not a hidden retry, became the panel format.
 - [Sandbox-denied context attempt](../../../evals/results/panel-context-2026-09-22): all200 transport errors, **not an accuracy result**. [Separate network-enabled campaign](../../../evals/results/panel-context-network-2026-09-22) used the same40 inputs. v1 did not retain DNS/phase detail; command-environment logs established restricted networking. v2 preserves safe transport diagnostics.
-- Published model panels retain **5 Llama failures**: 3 BBH, 1 LogiQA, 1 PR. Every failure remains in its original denominator.
+- Published model panels retain **5 Llama failures**: 3 BBH (two HTTP429, one503), 1 LogiQA (HTTP503), 1 PR (HTTP503). These are provider request failures, not malformed choice labels. Every failure remains in its original denominator.
 
 No automatic retry, model substitution, hidden human correction, target attack, trade, PR merge or real browser action was part of these experiments.
