@@ -266,6 +266,18 @@ class CLITests(unittest.TestCase):
         with self.assertRaises(jev.JevError):
             jev.load_json('{"usage":{"cost":1e999}}')
 
+    def test_oversized_json_integer_returns_cli_error(self):
+        raw = '{"state":{"count":' + '9' * 5000 + '}}'
+        output, errors = io.StringIO(), io.StringIO()
+        with patch("sys.stdin", io.StringIO(raw)), patch("jev.request_decisions") as api, \
+                contextlib.redirect_stdout(output), contextlib.redirect_stderr(errors):
+            code = jev.main(["decide", "-", "--dry-run"])
+        self.assertEqual(code, 1)
+        self.assertEqual(output.getvalue(), "")
+        self.assertEqual(json.loads(errors.getvalue()),
+                         {"error": "JSON integer exceeds supported range"})
+        api.assert_not_called()
+
     def test_duplicate_json_fields_are_rejected(self):
         with self.assertRaises(jev.JevError):
             jev.load_json('{"model":"first","model":"second"}')

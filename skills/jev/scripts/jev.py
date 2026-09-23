@@ -52,8 +52,16 @@ def finite_float(value):
     return result
 
 
+def finite_int(value):
+    try:
+        return int(value)
+    except ValueError:
+        raise JevError("JSON integer exceeds supported range") from None
+
+
 def load_json(text):
     return json.loads(text, parse_constant=reject_constant, parse_float=finite_float,
+                      parse_int=finite_int,
                       object_pairs_hook=unique_object)
 
 
