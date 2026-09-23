@@ -266,12 +266,18 @@ class CLITests(unittest.TestCase):
         with self.assertRaises(jev.JevError):
             jev.load_json('{"usage":{"cost":1e999}}')
 
+    @unittest.skipUnless(hasattr(sys, "set_int_max_str_digits"),
+                         "Python has no integer-string conversion limit")
     def test_oversized_json_integer_returns_cli_error(self):
-        raw = '{"state":{"count":' + '9' * 5000 + '}}'
+        self.addCleanup(sys.set_int_max_str_digits, sys.get_int_max_str_digits())
+        sys.set_int_max_str_digits(4300)
+        payload = request()
+        payload["state"] = {"count": "oversized"}
+        raw = json.dumps(payload).replace('"oversized"', '9' * 5000)
         output, errors = io.StringIO(), io.StringIO()
         with patch("sys.stdin", io.StringIO(raw)), patch("jev.request_decisions") as api, \
                 contextlib.redirect_stdout(output), contextlib.redirect_stderr(errors):
-            code = jev.main(["decide", "-", "--dry-run"])
+            code = jev.main(["decide", "-"])
         self.assertEqual(code, 1)
         self.assertEqual(output.getvalue(), "")
         self.assertEqual(json.loads(errors.getvalue()),
